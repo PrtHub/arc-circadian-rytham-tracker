@@ -37,9 +37,12 @@ export function Nav() {
           <a href="#pricing" className="hover:text-white transition-colors">
             Pricing
           </a>
-          <a href="#faq" className="hover:text-white transition-colors">
+          <a href="/#faq" className="hover:text-white transition-colors">
             FAQ
           </a>
+          <Link href="/blog" className="hover:text-white transition-colors">
+            Blog
+          </Link>
         </div>
 
         <AppStoreButton />

@@ -43,6 +43,12 @@ export function Footer() {
             >
               Terms of Service
             </a>
+            <Link
+              href="/blog"
+              className="hover:text-white transition-colors"
+            >
+              Blog
+            </Link>
             <a
               href="mailto:pritamfinds@gmail.com"
               className="hover:text-white transition-colors"

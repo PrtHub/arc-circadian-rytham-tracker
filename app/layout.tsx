@@ -45,14 +45,6 @@ export const metadata: Metadata = {
       "Discover your chronotype and unlock peak performance. 201+ downloads. Built on Stanford & UC Berkeley sleep science. Privacy-first, local-only data.",
     siteName: "ARC: Circadian Rhythm Tracker",
     url: SITE_URL,
-    images: [
-      {
-        url: "/01.png",
-        width: 1242,
-        height: 2688,
-        alt: "ARC Circadian Rhythm Tracker — Stop Fighting Your Biology",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -62,7 +54,6 @@ export const metadata: Metadata = {
     title: "ARC: Circadian Rhythm Tracker",
     description:
       "201+ downloads. Discover your chronotype. Find Peak Focus Windows. Optimize caffeine timing. Science-backed iOS app.",
-    images: ["/01.png"],
     creator: "@pritamfinds",
   },
 

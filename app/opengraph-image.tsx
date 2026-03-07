@@ -15,142 +15,235 @@ export default function OgImage() {
           background: "#000000",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "64px 72px",
+          alignItems: "center",
+          justifyContent: "center",
           fontFamily: "system-ui, sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Background glow */}
+        {/* Abstract Circadian Wave Background */}
         <div
           style={{
             position: "absolute",
-            top: "-120px",
-            right: "-120px",
-            width: "480px",
-            height: "480px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(204,255,0,0.12) 0%, transparent 70%)",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "1400px",
+            height: "800px",
+            display: "flex",
+            opacity: 0.15,
           }}
-        />
+        >
+          <svg width="1400" height="800" viewBox="0 0 1400 800" fill="none">
+            <path
+              d="M0 400C100 300 200 300 350 400C500 500 600 500 750 400C900 300 1000 300 1150 400C1300 500 1400 500 1400 400"
+              stroke="#CCFF00"
+              strokeWidth="2"
+              strokeDasharray="10 10"
+            />
+            <circle cx="350" cy="400" r="8" fill="#CCFF00" />
+            <circle cx="750" cy="400" r="8" fill="#CCFF00" />
+            <circle cx="1150" cy="400" r="8" fill="#CCFF00" />
+          </svg>
+        </div>
+
+        {/* Radial Glows */}
         <div
           style={{
             position: "absolute",
-            bottom: "-80px",
-            left: "200px",
-            width: "360px",
-            height: "360px",
+            top: "-10%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "800px",
+            height: "400px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(204,255,0,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(204,255,0,0.15) 0%, transparent 70%)",
           }}
         />
 
-        {/* Top: logo + badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <span
-            style={{
-              fontSize: "32px",
-              fontWeight: 900,
-              color: "#ffffff",
-              letterSpacing: "-1px",
-            }}
-          >
-            ARC<span style={{ color: "#CCFF00" }}>.</span>
-          </span>
-          <span
-            style={{
-              fontSize: "13px",
-              fontWeight: 600,
-              color: "#CCFF00",
-              background: "rgba(204,255,0,0.12)",
-              border: "1px solid rgba(204,255,0,0.3)",
-              borderRadius: "100px",
-              padding: "4px 14px",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            Circadian Rhythm Tracker
-          </span>
-        </div>
-
-        {/* Center: headline */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <div
-            style={{
-              fontSize: "72px",
-              fontWeight: 900,
-              color: "#ffffff",
-              lineHeight: 1.0,
-              letterSpacing: "-3px",
-            }}
-          >
-            Sync Your Biology.
-            <br />
-            <span style={{ color: "#CCFF00" }}>Peak Every Day.</span>
-          </div>
-          <div
-            style={{
-              fontSize: "22px",
-              color: "#71717a",
-              fontWeight: 400,
-              lineHeight: 1.5,
-              maxWidth: "640px",
-            }}
-          >
-            Discover your chronotype. Find Peak Focus Windows.
-            Optimize caffeine timing. Built on Stanford sleep science.
-          </div>
-        </div>
-
-        {/* Bottom: stats + CTA */}
+        {/* Content Container */}
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-between",
+            textAlign: "center",
+            zIndex: 10,
+            gap: "24px",
           }}
         >
-          <div style={{ display: "flex", gap: "40px" }}>
-            {[
-              { value: "201+", label: "Downloads" },
-              { value: "4.8★", label: "App Store" },
-              { value: "4", label: "Chronotypes" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                style={{ display: "flex", flexDirection: "column", gap: "4px" }}
-              >
-                <span
-                  style={{
-                    fontSize: "28px",
-                    fontWeight: 900,
-                    color: "#CCFF00",
-                    letterSpacing: "-1px",
-                  }}
-                >
-                  {stat.value}
-                </span>
-                <span style={{ fontSize: "13px", color: "#52525b", fontWeight: 500 }}>
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          {/* Badge */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "rgba(204,255,0,0.1)",
+              border: "1px solid rgba(204,255,0,0.3)",
+              borderRadius: "100px",
+              padding: "8px 20px",
+            }}
+          >
+            <div
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                background: "#CCFF00",
+              }}
+            />
+            <span
+              style={{
+                fontSize: "14px",
+                fontWeight: 700,
+                color: "#CCFF00",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              The Science of Peak Performance
+            </span>
+          </div>
+
+          {/* Main Headline */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "96px",
+                fontWeight: 900,
+                color: "#ffffff",
+                letterSpacing: "-0.05em",
+                lineHeight: 0.9,
+              }}
+            >
+              Stop Fighting
+            </div>
+            <div
+              style={{
+                fontSize: "110px",
+                fontWeight: 900,
+                color: "#CCFF00",
+                letterSpacing: "-0.06em",
+                lineHeight: 0.9,
+              }}
+            >
+              Your Biology.
+            </div>
+          </div>
+
+          {/* Subtext */}
+          <p
+            style={{
+              fontSize: "24px",
+              color: "#a1a1aa",
+              maxWidth: "700px",
+              lineHeight: 1.4,
+              fontWeight: 500,
+            }}
+          >
+            ARC maps your body&apos;s internal clock to reveal the perfect time to
+            focus, rest, and optimize your life.
+          </p>
+        </div>
+
+        {/* Footer Info */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "48px",
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "0 72px",
+            alignItems: "flex-end",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <span
+              style={{
+                fontSize: "42px",
+                fontWeight: 900,
+                color: "#ffffff",
+                letterSpacing: "-2px",
+              }}
+            >
+              ARC<span style={{ color: "#CCFF00" }}>.</span>
+            </span>
+            <span
+              style={{
+                fontSize: "14px",
+                color: "#71717a",
+                fontWeight: 500,
+              }}
+            >
+              Stanford & Berkeley Physics of Sleep
+            </span>
           </div>
 
           <div
             style={{
-              background: "#CCFF00",
-              color: "#000000",
-              fontSize: "16px",
-              fontWeight: 700,
-              padding: "14px 28px",
-              borderRadius: "100px",
-              letterSpacing: "-0.3px",
+              display: "flex",
+              alignItems: "center",
+              gap: "24px",
             }}
           >
-            Download on App Store →
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                gap: "2px",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 800,
+                  color: "#CCFF00",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                Available now
+              </span>
+              <span
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 700,
+                  color: "#ffffff",
+                }}
+              >
+                App Store
+              </span>
+            </div>
+            <div
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #CCFF00 0%, #99cc00 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 4L12 20M12 4L18 10M12 4L6 10"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -158,3 +251,4 @@ export default function OgImage() {
     { ...size }
   );
 }
+

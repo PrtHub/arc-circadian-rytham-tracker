@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -10,8 +11,15 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center gap-6 text-sm text-zinc-600">
           <Link
             href="/"
-            className="font-black text-white text-lg tracking-tighter"
+            className="font-black text-white text-lg tracking-tighter flex items-center gap-2"
           >
+            <Image
+              src="/icon.png"
+              alt=""
+              width={24}
+              height={24}
+              className="rounded-md opacity-80"
+            />
             ARC<span className="text-[#CCFF00]">.</span>
           </Link>
 

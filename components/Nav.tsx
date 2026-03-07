@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AppStoreButton } from "@/components/AppStoreButton";
 
@@ -10,9 +11,16 @@ export function Nav() {
       >
         <Link
           href="/"
-          className="text-xl font-black tracking-tighter text-white"
+          className="text-xl font-black tracking-tighter text-white flex items-center gap-2"
           aria-label="ARC home"
         >
+          <Image
+            src="/icon.png"
+            alt=""
+            width={28}
+            height={28}
+            className="rounded-lg shadow-lg"
+          />
           ARC<span className="text-[#CCFF00]">.</span>
         </Link>
 

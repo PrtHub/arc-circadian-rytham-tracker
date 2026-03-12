@@ -37,8 +37,8 @@ export function Pricing() {
             <li
               key={plan.name}
               className={`rounded-2xl p-6 flex flex-col gap-5 transition-all ${plan.highlight
-                  ? "bg-[#CCFF00] text-black border-2 border-[#CCFF00]"
-                  : "bg-[#111] border border-white/5 text-white hover:border-[#CCFF00]/30"
+                ? "bg-[#CCFF00] text-black border-2 border-[#CCFF00]"
+                : "bg-[#111] border border-white/5 text-white hover:border-[#CCFF00]/30"
                 }`}
             >
               <div className="flex items-start justify-between">
@@ -73,8 +73,8 @@ export function Pricing() {
                 rel="noopener noreferrer"
                 aria-label={`Get ARC ${plan.name} plan`}
                 className={`w-full text-center rounded-xl py-3 text-sm font-black transition-all ${plan.highlight
-                    ? "bg-black text-[#CCFF00] hover:bg-zinc-900"
-                    : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
+                  ? "bg-black text-[#CCFF00] hover:bg-zinc-900"
+                  : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
                   }`}
               >
                 Start Free Trial
@@ -82,6 +82,38 @@ export function Pricing() {
             </li>
           ))}
         </ul>
+
+        <div className="mt-12 bg-[#111] border border-white/5 rounded-2xl p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-linear-to-b from-[#CCFF00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <p className="text-zinc-300 text-sm leading-relaxed">
+            <strong className="text-white">Have questions or a tight budget?</strong><br />
+            Whether you want to understand the science better, or you're a student experiencing financial hardship, we don't want price to be a barrier to your health.
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
+            <a
+              href="mailto:pritamfinds@gmail.com"
+              className="text-xs font-bold bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-lg text-white"
+            >
+              Email Us
+            </a>
+            <a
+              href="https://x.com/iPritamX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-[#CCFF00] bg-[#CCFF00]/10 hover:bg-[#CCFF00]/20 transition-colors px-4 py-2 rounded-lg"
+            >
+              DM on X (@iPritamX)
+            </a>
+            <a
+              href="https://www.instagram.com/arc.sync/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-[#CCFF00] bg-[#CCFF00]/10 hover:bg-[#CCFF00]/20 transition-colors px-4 py-2 rounded-lg"
+            >
+              DM on Insta (@arc.sync)
+            </a>
+          </div>
+        </div>
 
         <p className="text-center text-xs text-zinc-600 max-w-md mx-auto mt-8">
           Payment charged to Apple ID at purchase confirmation. Subscription

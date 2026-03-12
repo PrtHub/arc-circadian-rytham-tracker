@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     title: "ARC: Circadian Rhythm Tracker",
     description:
       "Discover your chronotype and unlock peak performance. Built on Stanford & UC Berkeley sleep science.",
-    images: [{ url: "/01.png", width: 1242, height: 2688, alt: "ARC App" }],
     type: "website",
   },
   twitter: {
@@ -34,7 +33,6 @@ export const metadata: Metadata = {
     title: "ARC: Circadian Rhythm Tracker",
     description:
       "Discover your chronotype. Find your Peak Focus Windows. Optimize caffeine timing.",
-    images: ["/01.png"],
   },
 };
 

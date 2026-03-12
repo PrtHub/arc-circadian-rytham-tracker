@@ -278,7 +278,7 @@ export const jsonLdOrganization = {
   "@type": "Organization",
   name: "ARC",
   url: SITE_URL,
-  logo: `${SITE_URL}/01.png`,
+  logo: `${SITE_URL}/icon.png`,
   contactPoint: {
     "@type": "ContactPoint",
     email: "pritamfinds@gmail.com",

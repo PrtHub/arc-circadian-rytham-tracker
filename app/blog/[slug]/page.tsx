@@ -19,6 +19,8 @@ export async function generateMetadata({
     const post = blogPosts.find((p) => p.slug === slug);
     if (!post) return {};
 
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+
     return {
         title: `${post.title} | ARC Blog`,
         description: post.excerpt,
@@ -37,8 +39,29 @@ export default async function BlogPostPage({
         notFound();
     }
 
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.excerpt,
+        datePublished: new Date(post.date).toISOString(),
+        author: {
+            "@type": "Organization",
+            name: "ARC Scientific Team",
+            url: SITE_URL,
+        },
+        image: `${SITE_URL}/opengraph-image`,
+        url: `${SITE_URL}/blog/${post.slug}`,
+    };
+
     return (
         <div className="bg-black text-white min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
             <Nav />
 
             <main className="max-w-3xl mx-auto px-6 py-20">

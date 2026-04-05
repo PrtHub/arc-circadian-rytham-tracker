@@ -10,6 +10,455 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "best-circadian-rhythm-apps-2026",
+    title: "Best Circadian Rhythm Apps in 2026: Ranked and Reviewed",
+    excerpt:
+      "Rise, Sleep Cycle, Oura, WHOOP, ARC — we ranked every major circadian and sleep app so you don't have to choose blind.",
+    date: "2026-04-05",
+    category: "Comparison",
+    readTime: "11 min",
+    content: `
+# Best Circadian Rhythm Apps in 2026
+
+Not all sleep apps are created equal. Some track your sleep. Some wake you up gently. A few actually tell you *how to structure your entire day* around your biology. We tested all the major players and ranked them on what matters: actionable circadian guidance, not just sleep scores.
+
+### What Separates a Circadian App from a Sleep Tracker
+
+A sleep tracker tells you what happened last night. A circadian rhythm app tells you what to do today — and tomorrow — based on your biology. The difference is profound. Sleep scores are retrospective. Chronotype-based protocols are prescriptive.
+
+Most popular apps fall into the sleep tracker camp. Very few are actually built around chronobiology. Here is how the top apps rank in 2026.
+
+### 1. ARC: Circadian Rhythm Tracker — Best Overall
+
+ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 22-point onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
+
+Key features: Caffeine half-life tracker, live sunlight timer, Morning Sleep Check-in with recovery mode, Contextual Intel briefings, and chronotype-aware notifications.
+
+Platform: iOS only. Free tier available. Annual plan: $34.99/year.
+
+### 2. Rise Science — Best for Energy Prediction
+
+Rise is the most well-funded pure circadian app. It uses a proprietary algorithm to predict your energy levels throughout the day and identify your "peak" and "dip" windows. The UX is polished and the Energy Schedule feature is genuinely useful.
+
+Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 22-point diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
+
+Price: $69.99/year (significantly more expensive than ARC).
+
+### 3. Sleep Cycle — Best Smart Alarm
+
+Sleep Cycle's core use case is its sleep tracking and smart alarm — it wakes you during light sleep to minimize grogginess. The sleep tracking data is solid for trend analysis. The new AI sleep coach adds some basic guidance.
+
+Where it falls short: Sleep Cycle is reactive (tells you about last night) not proactive (tells you what to do today). It has no chronotype diagnosis, no caffeine protocol, and no sunlight anchoring. It is a sleep tracker, not a circadian rhythm app.
+
+Price: $39.99/year.
+
+### 4. AutoSleep — Best for Apple Watch Users
+
+AutoSleep is the gold standard for Apple Watch sleep tracking. The readiness score and sleep quality breakdown are excellent for users deep in the Apple ecosystem.
+
+Where it falls short: No circadian guidance whatsoever. It tells you your sleep quality; it does not tell you when to drink coffee, when to focus, or what your chronotype means for your work schedule. A useful complement to ARC, not a replacement.
+
+Price: $5.99 one-time.
+
+### 5. Oura Ring App — Best Hardware-Connected Experience
+
+Oura's app is excellent if you already own the ring (starting at $299). The readiness score, HRV trends, and sleep staging data are among the best available. The new Advisor AI feature adds personalized coaching.
+
+Where it falls short: Requires expensive hardware. The circadian guidance is surface-level — it shows you a "circadian alignment" score but does not prescribe a daily protocol. For software-only circadian guidance, ARC is more actionable.
+
+Price: Ring from $299 + $5.99/month subscription.
+
+### 6. WHOOP — Best for Athletes
+
+WHOOP is built for recovery tracking and athletic performance. Its strain and recovery metrics are best in class for endurance athletes. The sleep coaching is improving but remains secondary to the performance focus.
+
+Where it falls short: High cost ($30/month membership), requires hardware ($0 with membership), and is not designed around chronobiology. Sleep coaching is generic compared to ARC's personalized chronotype protocols.
+
+Price: $30/month membership (hardware included).
+
+### The Verdict
+
+If you want passive sleep tracking: AutoSleep (Apple Watch) or Sleep Cycle. If you want recovery data for athletic training: WHOOP. If you have $300+ for hardware and want the richest biometric dataset: Oura. If you want a science-backed daily operating system for your biology: ARC.
+
+ARC is the only app that answers the question your body is actually asking: *What should I be doing right now?*
+    `,
+  },
+  {
+    slug: "oura-ring-vs-arc-circadian-rhythm-tracker",
+    title: "Oura Ring vs ARC: Do You Really Need $400 Hardware?",
+    excerpt:
+      "Oura Ring is the gold standard for biometrics. But does expensive hardware beat a science-first software approach to circadian health?",
+    date: "2026-04-04",
+    category: "Comparison",
+    readTime: "9 min",
+    content: `
+# Oura Ring vs ARC: Hardware vs. Software Circadian Tracking
+
+The Oura Ring is beautiful, expensive, and packed with sensors. ARC is an iPhone app with a 22-point chronotype diagnosis, live caffeine tracking, and zero hardware required. Which one actually moves the needle on your daily energy and performance?
+
+### What Oura Does Well
+
+Oura's hardware is genuinely impressive. The ring measures: heart rate variability (HRV), skin temperature, respiratory rate, movement, and blood oxygen. From this data it generates a daily Readiness Score and detailed sleep staging (light, deep, REM).
+
+For people who want objective biometric data about their recovery, Oura is the best consumer option available. The trend data over weeks and months is genuinely valuable.
+
+### Where Oura Falls Short on Circadian Guidance
+
+Here is the critical gap: Oura tells you *how recovered* you are. It does not tell you *what to do about it*.
+
+The app has a Circadian Alignment score, but it is a metric — not a protocol. It shows you that your rhythm is off. It does not prescribe when to get sunlight, when to have your first coffee, when your peak focus window is, or how to structure today's 24 hours given your chronotype.
+
+Oura also requires you to pay $299–$449 for the ring plus $5.99/month for the full app experience. If the ring breaks, gets lost, or you forget to charge it, you lose all tracking.
+
+### What ARC Does That Oura Cannot
+
+ARC does not measure your HRV. But it does something arguably more valuable: it tells you exactly what to do with your biology today.
+
+The 22-point precision diagnosis identifies your chronotype and builds a live Daily Trajectory — a 24-hour protocol with your specific Peak Focus Window, optimal first-coffee timing, sunlight anchoring target (with a live timer), and wind-down sequence. The caffeine tracker shows your active mg in real time with a sleep-safe prediction that updates every time you log a drink.
+
+ARC's Morning Sleep Check-in captures sleep quality each morning and adjusts today's protocol. A poor night triggers recovery mode: delay caffeine 90 minutes, get sunlight earlier, avoid intense cognitive work until your second focus window.
+
+No ring. No charging. No $400 investment.
+
+### The Honest Comparison
+
+Oura Ring excels at: objective biometric recovery data, HRV trends, sleep staging, long-term health monitoring.
+
+ARC excels at: daily protocol prescriptions, caffeine and sunlight timing, chronotype-based scheduling, behavior-aware coaching.
+
+### Which Should You Use?
+
+If you are a biohacker who wants objective biological data and has $400 to spare: Oura. If you want to actually *change your daily behavior* based on circadian science: ARC.
+
+The best answer for serious performers: use both. Let Oura track your HRV and readiness. Let ARC tell you what to do about it.
+
+For everyone else, ARC at $34.99/year delivers more actionable circadian guidance than any hardware on the market.
+    `,
+  },
+  {
+    slug: "whoop-vs-arc-fitness-tracker-vs-chronotype-app",
+    title: "WHOOP vs ARC: Fitness Recovery Tracker vs. Circadian Rhythm App",
+    excerpt:
+      "WHOOP tracks your strain and recovery. ARC tracks your biology's daily operating schedule. They solve different problems — here's how to choose.",
+    date: "2026-04-03",
+    category: "Comparison",
+    readTime: "8 min",
+    content: `
+# WHOOP vs ARC: Two Different Problems
+
+WHOOP is the favourite wearable of elite athletes. ARC is the favourite app of founders, engineers, and anyone serious about peak cognitive performance. They are built for different problems, and understanding that distinction will save you from picking the wrong tool.
+
+### What WHOOP Is Built For
+
+WHOOP is a recovery and strain tracker. Its core loop is: track your daily strain (physical exertion), monitor your sleep, calculate your next-day recovery score (0–100%). When your recovery is green (67–100%), push hard. When it is red (0–33%), go easy.
+
+WHOOP is exceptional for endurance athletes, CrossFitters, and anyone whose primary optimization target is physical performance. The HRV monitoring and strain calculation are best in class.
+
+The hardware requires a $30/month membership (which includes the device). It is worn on the wrist or bicep 24/7 and needs to be charged every 4–5 days via a slide-on charger.
+
+### The Cognitive Performance Gap
+
+Here is where WHOOP has a significant blind spot: it does not care about *when* you are cognitively sharpest.
+
+WHOOP will tell you your recovery score. It will not tell you that your chronotype means your peak focus window is between 9 AM and 11 AM, that you should delay your first coffee by 90 minutes after waking to avoid the 2 PM crash, or that the light exposure you got at 7 AM set a melatonin timer for 16 hours later.
+
+For knowledge workers — founders, engineers, writers, researchers — cognitive timing is the performance lever that matters most.
+
+### What ARC Is Built For
+
+ARC is built around chronobiology: the science of how your biology's internal clock (not your physical strain) affects your cognition, focus, creativity, and energy throughout the day.
+
+The 22-point diagnosis maps your sleep profile, energy patterns, caffeine habits, and lifestyle context to identify your chronotype and generate a personalized daily protocol. The focus is entirely on when to think, create, rest, caffeinate, and sleep — not on how hard you worked out.
+
+ARC's live caffeine decay tracker is a feature WHOOP has no equivalent of. Knowing that your 3:30 PM espresso still has 25% of its caffeine active at midnight is the kind of insight that changes behaviour immediately.
+
+### The Overlap: Sleep Quality
+
+Both apps care about sleep quality. WHOOP measures it with heart rate, HRV, and movement sensors. ARC captures it through a lightweight Morning Sleep Check-in and uses the result to adjust your protocol for the day.
+
+If you had a bad night, WHOOP tells you to take it easy physically. ARC tells you to get sunlight earlier, delay caffeine 90 minutes, and shift your deep work block later.
+
+### Who Should Use Which
+
+Use WHOOP if: you are training for physical performance, you want objective biometric data, and your primary question is "how hard should I push today?"
+
+Use ARC if: your primary performance arena is cognitive, you want to know when to focus, when to caffeinate, and how to structure your day around your biology.
+
+Use both if: you want the full picture — physical recovery from WHOOP, cognitive scheduling from ARC.
+    `,
+  },
+  {
+    slug: "rise-app-vs-arc-circadian-rhythm-comparison",
+    title: "Rise App vs ARC: Which Circadian Rhythm App Is Right for You in 2026?",
+    excerpt:
+      "Rise predicts your energy. ARC prescribes your day. Both claim to use circadian science — here's what actually makes them different.",
+    date: "2026-04-02",
+    category: "Comparison",
+    readTime: "9 min",
+    content: `
+# Rise App vs ARC: A Head-to-Head Comparison
+
+Rise Science raised $12 million to build the best circadian rhythm app on the market. ARC is a lean, focused competitor built by a founder who got obsessed with chronobiology. Both apps make serious claims about circadian science. Here is the honest comparison.
+
+### How Rise Works
+
+Rise uses your sleep history (pulled from Apple Health or entered manually) to calculate your personal circadian rhythm. From that, it generates an Energy Schedule — a timeline showing your predicted energy peaks, dips, and recovery windows throughout the day.
+
+The Energy Schedule visualization is genuinely well-designed. It gives you a birds-eye view of when you will be at your best and when to expect the dip. Rise also has a Sleep Need feature that calculates your personal sleep debt and how many hours you need to pay it back.
+
+### How ARC Works
+
+ARC's approach starts with a 22-point precision diagnosis that collects your sleep profile, energy map, caffeine habits, and lifestyle context from scratch — rather than relying on historical Apple Health data. This gives ARC an accurate chronotype identification even for new users who have not been tracking sleep for months.
+
+From the diagnosis, ARC generates a live Daily Trajectory: a 24-hour protocol that tells you your Peak Focus Window, when to get sunlight, when to have your first coffee, and when to start winding down. The trajectory adapts daily based on your Morning Sleep Check-in.
+
+### Key Differences
+
+Onboarding: Rise requires existing sleep data. ARC builds your profile from a structured 22-point questionnaire — no historical data needed, accurate from day one.
+
+Caffeine tracking: ARC has a live caffeine decay tracker with mg-level monitoring and a sleep-safe prediction. Rise has no caffeine feature.
+
+Sunlight protocol: ARC has a live sunlight timer with a 20-minute morning target and progress ring. Rise has no sunlight feature.
+
+Daily adaptability: ARC's Morning Sleep Check-in adjusts the day's protocol based on last night's quality. Rise's energy schedule is based on historical averages, not yesterday's actual sleep.
+
+Smart notifications: ARC sends chronotype-aware notifications at biologically correct times (coffee time, caffeine wall, wind-down). Rise has basic reminders.
+
+Privacy: ARC is local-first with SQLite on-device storage. Rise uses cloud sync.
+
+Price: Rise costs $69.99/year. ARC costs $34.99/year — half the price.
+
+### Where Rise Wins
+
+Rise's sleep debt feature is more sophisticated than anything ARC currently offers. If understanding your cumulative sleep deficit is important to you, Rise's Sleep Need calculation is excellent. The UI is also more polished and has a cleaner onboarding for users already embedded in the Apple ecosystem.
+
+### Where ARC Wins
+
+ARC wins on caffeine intelligence, sunlight protocol, daily adaptability, privacy, and price. If you are a new user without months of Apple Health sleep data, ARC gives you an accurate chronotype diagnosis immediately. Rise requires historical data to calibrate properly.
+
+### The Verdict
+
+If you are already tracking sleep with an Apple Watch and want energy predictions based on your history: Rise is worth considering. If you want a full biological operating system — including caffeine tracking, sunlight anchoring, and daily adaptive protocols — at half the price: ARC is the better choice.
+    `,
+  },
+  {
+    slug: "sleep-cycle-app-vs-arc-smart-alarm-vs-chronotype",
+    title: "Sleep Cycle vs ARC: Why Your Smart Alarm Isn't Fixing Your Fatigue",
+    excerpt:
+      "Sleep Cycle's smart alarm wakes you gently. But waking up gently is not the same as living in sync with your biology. Here's the difference.",
+    date: "2026-04-01",
+    category: "Comparison",
+    readTime: "7 min",
+    content: `
+# Sleep Cycle vs ARC: Reactive vs. Proactive Sleep Science
+
+Sleep Cycle has over 40 million downloads. It is probably the most popular sleep app in the world. ARC has a fraction of those downloads — but solves a completely different problem. Understanding the difference will tell you exactly which app you actually need.
+
+### What Sleep Cycle Does
+
+Sleep Cycle uses your iPhone's microphone and accelerometer to detect your movement and breathing during sleep. It uses this data to identify your sleep phases and wake you during the lightest phase within a 30-minute window before your alarm. The result: you wake up feeling less groggy because you were not yanked out of deep sleep.
+
+It also records sleep quality trends over time, shows you a sleep graph for each night, and has a basic smart alarm analysis feature with AI-based insights.
+
+### The Core Limitation of Sleep Cycle
+
+Sleep Cycle solves the waking up problem. It does not solve the day problem.
+
+After Sleep Cycle wakes you up, you are on your own. When do you get sunlight? When do you have your first coffee? What time is your brain actually sharp enough for your most cognitively demanding work? When does your caffeine cutoff need to happen to protect your deep sleep tonight?
+
+Sleep Cycle has no answers to these questions. It is a retrospective tool — it analyzes last night. ARC is a prospective tool — it prescribes today.
+
+### What ARC Does After You Wake Up
+
+ARC's entire design is built around what happens after you open your eyes.
+
+The Morning Sleep Check-in asks you how you slept. That single input adjusts your entire day's protocol. A good night unlocks your normal daily trajectory. A poor night triggers recovery mode: sunlight as early as possible, caffeine delayed 90 minutes to clear adenosine fully, deep work shifted to your second focus window.
+
+The live sunlight timer starts your 20-minute morning light protocol the moment you check in. The caffeine tracker lets you log your first drink and immediately shows you your active mg, your decay curve, and the exact time it will be safe to sleep.
+
+You are not just waking up gently. You are syncing your entire day with your biology.
+
+### Who Needs Sleep Cycle
+
+Sleep Cycle is great for: people who struggle with morning grogginess, those who want a simple sleep quality log, and people who are not ready to make broader lifestyle changes around circadian science.
+
+### Who Needs ARC
+
+ARC is for people who already sleep reasonably well but are not getting the most out of their days — founders, engineers, remote workers, and anyone who has noticed that their energy, focus, and creativity seem to follow a pattern they have not figured out how to control yet.
+
+### Can You Use Both?
+
+Yes. Sleep Cycle for a gentle wake. ARC for everything after that. The two apps do not compete; they complement each other at different points of the circadian cycle.
+    `,
+  },
+  {
+    slug: "oura-ring-alternative-circadian-tracking-no-hardware",
+    title: "Best Oura Ring Alternative: Circadian Tracking Without the Hardware",
+    excerpt:
+      "You do not need a $400 ring to optimize your circadian rhythm. Here are the best software-only alternatives — and why one stands above the rest.",
+    date: "2026-03-31",
+    category: "Comparison",
+    readTime: "8 min",
+    content: `
+# Oura Ring Alternatives: Science Without the Hardware Tax
+
+The Oura Ring is genuinely impressive technology. It measures HRV, skin temperature, sleep staging, and readiness with a level of accuracy that outperforms most wrist wearables. But at $299–$449 for the ring plus $5.99/month forever, it is a significant investment — especially when much of what you actually need to improve your daily performance does not require any sensors at all.
+
+Here is a look at the best Oura Ring alternatives in 2026, with particular focus on software-only approaches that cost a fraction of the price.
+
+### Why Most People Buy Oura for the Wrong Reason
+
+Most people buy Oura hoping it will tell them why they feel tired and what to do about it. The Readiness Score is satisfying to look at — but it is descriptive, not prescriptive. A score of 45 tells you something is off. It does not tell you to delay your coffee by 90 minutes, get 20 minutes of morning sunlight, or move your deep work block to 4 PM.
+
+The questions Oura answers: How recovered am I? How was my sleep quality? What is my HRV trend?
+
+The questions Oura does not answer: When should I have my first coffee today? What is my Peak Focus Window? How do I structure my day given last night's poor sleep?
+
+If you bought Oura for the second set of questions, you need a different tool.
+
+### Alternative 1: ARC Circadian Rhythm Tracker (Best Overall)
+
+ARC is the most direct alternative to Oura's circadian features — without any hardware. The 22-point chronotype diagnosis gives you a deeper understanding of your biology than Oura's onboarding. The Daily Trajectory prescribes your entire day. The caffeine tracker (Oura has no equivalent) gives you a live decay curve and sleep-safe prediction.
+
+Cost: $34.99/year. No hardware. Works on any iPhone.
+
+ARC is not a biometric recorder — it is a circadian operating system. For knowledge workers focused on cognitive performance rather than athletic recovery, ARC is more actionable than Oura.
+
+### Alternative 2: Rise Science
+
+Rise is the second most popular pure-software circadian app. Its Energy Schedule feature predicts your peaks and dips based on sleep history. The UI is polished, and the sleep debt calculation is useful. However, it requires Apple Health data to calibrate, costs $69.99/year (more than ARC), and lacks caffeine tracking and sunlight protocols.
+
+Good for: people already embedded in the Apple Watch ecosystem who want energy predictions.
+
+### Alternative 3: Apple Health + Shortcuts
+
+For the DIY-inclined, Apple Health's sleep data combined with Focus Modes and Shortcuts can create a basic circadian-aware system. It requires significant manual setup and does not include chronotype diagnosis, caffeine tracking, or adaptive protocols. But it is free.
+
+Good for: technically inclined users who enjoy building their own systems.
+
+### Alternative 4: AutoSleep (for Apple Watch users)
+
+AutoSleep is the best passive Apple Watch sleep tracker. It generates a readiness score and sleep quality breakdown that rivals Oura in accuracy — for just $5.99 one-time. It does not provide circadian guidance, but paired with ARC it covers both the recovery measurement and the daily protocol prescription angles.
+
+Good for: Apple Watch users who want Oura-level sleep data at 1% of the cost.
+
+### The Bottom Line
+
+If you want raw biometric data and can afford the hardware: Oura Ring is excellent. If you want actionable daily circadian guidance at a fraction of the cost: ARC is the best Oura Ring alternative available in 2026. The two cover different ground — Oura measures your biology, ARC tells you what to do with it.
+    `,
+  },
+  {
+    slug: "huberman-lab-sleep-protocol-how-to-follow-it-daily",
+    title: "The Huberman Lab Sleep Protocol: How to Actually Follow It Every Day",
+    excerpt:
+      "Dr. Andrew Huberman's circadian protocols are backed by Stanford neuroscience. Here is how to implement them practically — not just in theory.",
+    date: "2026-03-30",
+    category: "Science",
+    readTime: "10 min",
+    content: `
+# The Huberman Lab Sleep Protocol: Implementation Guide
+
+Dr. Andrew Huberman's podcast has introduced millions of people to the science of circadian rhythms. The protocols he describes — morning sunlight, adenosine management, cortisol anchoring, melatonin timing — are grounded in peer-reviewed neuroscience from Stanford and beyond.
+
+But there is a significant gap between knowing a protocol and actually executing it every day. This guide covers the core Huberman Lab sleep and circadian protocols and how to implement them in real life.
+
+### Protocol 1: Morning Sunlight Exposure
+
+The most frequently cited Huberman recommendation: get outside within 30–60 minutes of waking and expose your eyes to natural light for 5–10 minutes (or 20–30 minutes on cloudy days). Do not wear sunglasses. Do not view through glass.
+
+The mechanism: photons hitting the retina signal the suprachiasmatic nucleus (SCN) to trigger a cortisol spike and begin counting down 12–16 hours to melatonin onset. This anchors your entire circadian clock.
+
+How to execute it: ARC's live sunlight timer tracks your exposure toward a 20-minute target with a progress ring. Log it each morning and you build a data trail of your photon latency — the gap between waking and getting light. Reducing this latency is one of the highest-leverage circadian interventions available.
+
+### Protocol 2: Delay Caffeine 90–120 Minutes After Waking
+
+Huberman consistently recommends avoiding caffeine for 90–120 minutes after waking. The reason: caffeine blocks adenosine receptors. If you drink coffee immediately after waking, you mask the adenosine still present from the night (sleep inertia), only to have it flood back when the caffeine wears off — causing the classic 2 PM crash.
+
+Waiting 90 minutes lets your body naturally clear morning adenosine first. When you then add caffeine, you are blocking a lower adenosine load, which means cleaner, longer-lasting energy without the crash.
+
+ARC's notification system is designed around this protocol: a "Coffee time" alert fires approximately 90 minutes after your wake time, indicating your adenosine has cleared.
+
+### Protocol 3: Identify and Protect Your Peak Focus Window
+
+Huberman describes a predictable 3-phase cognitive pattern across the day: a morning alertness phase, a post-afternoon dip, and an evening creativity window (the timing varies by chronotype). Your Peak Focus Window is the 2–4 hour block when your brain is at its sharpest — when dopamine and norepinephrine are naturally elevated.
+
+For Lion chronotypes, this window is typically 8–11 AM. For Bears, it is 9 AM–12 PM. For Wolves, it shifts to the afternoon or early evening.
+
+ARC's Daily Trajectory maps your Peak Focus Window based on your 22-point chronotype diagnosis and schedules it prominently in your day.
+
+### Protocol 4: Caffeine Cutoff Based on Half-Life
+
+Huberman frequently discusses caffeine's 5–6 hour half-life. If you have a coffee at 3 PM, 25% of that caffeine is still active at 1 AM — directly suppressing deep sleep architecture even if you fall asleep without difficulty.
+
+The calculation: work backward from your target sleep time. If you sleep at 11 PM, your last coffee should be no later than 1–2 PM. Huberman personally stops caffeine at noon.
+
+ARC's caffeine tracker calculates this automatically. Log every drink and it shows your exact active mg throughout the day, your decay curve, and the precise "sleep-safe at [time]" prediction.
+
+### Protocol 5: Light Management in the Evening
+
+In the final 2–3 hours before sleep, Huberman recommends dimming all lights and — critically — lowering their position. Overhead lights signal daytime to the SCN; low, dim, warm light signals evening. Avoiding bright screens (or using blue light blocking glasses) protects the melatonin onset that your morning sunlight anchored 14–16 hours earlier.
+
+ARC's "Start winding down" notification fires approximately 60–90 minutes before your target sleep time, reminding you to begin the light-management protocol.
+
+### Making It Stick: From Protocol to System
+
+The Huberman protocols are science. ARC is the system that operationalizes them. Every element of ARC's design — the morning check-in, sunlight timer, caffeine tracker, daily trajectory, and smart notifications — maps directly to a Huberman Lab protocol.
+
+You do not need to remember five separate rules. You need one app that handles the sequencing for your specific chronotype, every day.
+    `,
+  },
+  {
+    slug: "autosleep-vs-arc-what-apple-watch-sleep-data-misses",
+    title: "AutoSleep vs ARC: What Your Apple Watch Sleep Data Is Missing",
+    excerpt:
+      "AutoSleep is the best Apple Watch sleep tracker available. But sleep data alone — no matter how accurate — cannot tell you how to structure your day.",
+    date: "2026-03-29",
+    category: "Comparison",
+    readTime: "7 min",
+    content: `
+# AutoSleep vs ARC: Two Halves of the Same Picture
+
+AutoSleep by Tantsissa is one of the most respected apps in the Apple Watch ecosystem. It tracks sleep stages, calculates a readiness score, and gives you a detailed breakdown of your night's recovery. For $5.99 one-time, it is arguably the best value in health tech.
+
+ARC: Circadian Rhythm Tracker is an iPhone app with no hardware requirement. It identifies your chronotype through a 22-point diagnosis, builds a live daily protocol, and tracks your caffeine and sunlight with precision that no wearable can replicate.
+
+These two apps do not compete. They complete each other.
+
+### What AutoSleep Gets Right
+
+AutoSleep is excellent at the retrospective question: how did I sleep? Its sleep staging (light, deep, REM) is accurate enough for most non-clinical purposes, and the readiness score — based on HRV, resting heart rate, and sleep quality — gives you a reliable sense of your recovery status each morning.
+
+For Apple Watch users who want Oura Ring-level data without the $400 hardware price tag, AutoSleep is the answer. It sits quietly on your wrist all night and generates a comprehensive morning report.
+
+### The Gap AutoSleep Cannot Fill
+
+AutoSleep stops when you wake up. It has no protocol for what comes next.
+
+It does not know your chronotype. It cannot tell you that as a Wolf, your peak cognitive window is not 9 AM but 2–4 PM. It has no caffeine tracker, no sunlight anchoring system, no adaptive daily protocol based on yesterday's sleep quality.
+
+A readiness score of 68 tells you that you slept reasonably well. It does not tell you when to drink your first coffee, what time to schedule your deepest work, or how to recover from your below-average sleep without destroying tomorrow's rhythm too.
+
+### What ARC Adds to the Picture
+
+ARC picks up precisely where AutoSleep leaves off.
+
+Each morning, ARC's Sleep Check-in captures how you actually felt — regardless of what the sensors recorded. Good sleep triggers your standard Daily Trajectory. Poor sleep triggers recovery mode: sunlight first, caffeine delayed 90 minutes, deep work moved to your second focus window.
+
+The live sunlight timer tracks your morning photon exposure. The caffeine tracker logs every drink and shows your active mg, your decay curve, and your sleep-safe cutoff — the exact thing AutoSleep cannot calculate because it does not know when you had coffee.
+
+The chronotype-aware notifications send you the right message at the biologically correct time for your specific Lion, Bear, Wolf, or Dolphin schedule.
+
+### The Ideal Stack
+
+For Apple Watch users who want the complete circadian picture:
+
+AutoSleep at night → measure your sleep quality and HRV recovery.
+ARC during the day → execute a protocol built around your chronotype and last night's quality.
+
+Combined, the two apps cost less than two months of a Rise or WHOOP subscription. And they cover ground that neither app could cover alone.
+    `,
+  },
+  {
     slug: "what-is-a-chronotype-lion-bear-wolf-dolphin",
     title: "What is a Chronotype? Lion, Bear, Wolf, and Dolphin Explained",
     excerpt:

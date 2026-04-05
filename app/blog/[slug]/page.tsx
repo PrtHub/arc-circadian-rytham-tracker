@@ -22,8 +22,25 @@ export async function generateMetadata({
     const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
     return {
-        title: `${post.title} | ARC Blog`,
+        title: post.title,
         description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: "article",
+            publishedTime: new Date(post.date).toISOString(),
+            url: `${SITE_URL}/blog/${post.slug}`,
+            images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: [`${SITE_URL}/opengraph-image`],
+        },
+        alternates: {
+            canonical: `${SITE_URL}/blog/${post.slug}`,
+        },
     };
 }
 
@@ -155,7 +172,7 @@ export default async function BlogPostPage({
                         Unlock your Peak Performance.
                     </h3>
                     <p className="text-zinc-500 mb-8 max-w-md leading-relaxed">
-                        Stop guessing your biology. Get your personalized trajectory, 15-point
+                        Stop guessing your biology. Get your personalized trajectory, 22-point
                         diagnostic, and real-time caffeine-melatonin tracking.
                     </p>
                     <a

@@ -21,25 +21,24 @@ export function Pricing() {
             <span className="text-[#CCFF00]">Upgrade when ready.</span>
           </h2>
           <p className="text-zinc-500 text-sm">
-            All plans include a{" "}
-            <span className="text-[#CCFF00] font-semibold">
-              3-day free trial
-            </span>
-            . Cancel anytime.
+            Annual plan includes a{" "}
+            <span className="text-[#CCFF00] font-semibold">3-day free trial</span>
+            . Weekly is instant access, cancel anytime.
           </p>
         </div>
 
         <ul
-          className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto"
+          className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
           aria-label="Pricing plans"
         >
           {plans.map((plan) => (
             <li
               key={plan.name}
-              className={`rounded-2xl p-6 flex flex-col gap-5 transition-all ${plan.highlight
-                ? "bg-[#CCFF00] text-black border-2 border-[#CCFF00]"
-                : "bg-[#111] border border-white/5 text-white hover:border-[#CCFF00]/30"
-                }`}
+              className={`rounded-2xl p-6 flex flex-col gap-5 transition-all ${
+                plan.highlight
+                  ? "bg-[#CCFF00] text-black border-2 border-[#CCFF00]"
+                  : "bg-[#111] border border-white/5 text-white hover:border-[#CCFF00]/30"
+              }`}
             >
               <div className="flex items-start justify-between">
                 <h3
@@ -65,6 +64,11 @@ export function Pricing() {
                 >
                   {plan.period}
                 </span>
+                {plan.note && (
+                  <p className={`text-xs mt-1 ${plan.highlight ? "text-black/50" : "text-zinc-600"}`}>
+                    {plan.note}
+                  </p>
+                )}
               </div>
 
               <a
@@ -72,12 +76,13 @@ export function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Get ARC ${plan.name} plan`}
-                className={`w-full text-center rounded-xl py-3 text-sm font-black transition-all ${plan.highlight
-                  ? "bg-black text-[#CCFF00] hover:bg-zinc-900"
-                  : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
-                  }`}
+                className={`w-full text-center rounded-xl py-3 text-sm font-black transition-all ${
+                  plan.highlight
+                    ? "bg-black text-[#CCFF00] hover:bg-zinc-900"
+                    : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
+                }`}
               >
-                Start Free Trial
+                {plan.note === "3-day free trial" ? "Start Free Trial" : "Get Instant Access"}
               </a>
             </li>
           ))}
@@ -86,8 +91,13 @@ export function Pricing() {
         <div className="mt-12 bg-[#111] border border-white/5 rounded-2xl p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group">
           <div className="absolute inset-0 bg-linear-to-b from-[#CCFF00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <p className="text-zinc-300 text-sm leading-relaxed">
-            <strong className="text-white">Have questions or a tight budget?</strong><br />
-            Whether you want to understand the science better, or you're a student experiencing financial hardship, we don't want price to be a barrier to your health.
+            <strong className="text-white">
+              Have questions or a tight budget?
+            </strong>
+            <br />
+            Whether you want to understand the science better, or you&apos;re a
+            student experiencing financial hardship, we don&apos;t want price to
+            be a barrier to your health.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
             <a

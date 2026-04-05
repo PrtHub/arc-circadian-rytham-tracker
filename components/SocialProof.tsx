@@ -1,6 +1,6 @@
 const stats = [
-  { value: "201+", label: "Downloads" },
-  { value: "15-pt", label: "Precision Diagnosis" },
+  { value: "250+", label: "Downloads" },
+  { value: "22-pt", label: "Precision Diagnosis" },
   { value: "4", label: "Chronotypes Mapped" },
   { value: "Local-First", label: "SQLite · Zero Cloud" },
   { value: "3-Day", label: "Free Trial" },

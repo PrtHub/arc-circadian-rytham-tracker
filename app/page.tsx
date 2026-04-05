@@ -9,6 +9,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Chronotypes } from "@/components/Chronotypes";
 import { Highlights } from "@/components/Highlights";
 import { Science } from "@/components/Science";
+import { Notifications } from "@/components/Notifications";
 import { Audience } from "@/components/Audience";
 import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
@@ -67,6 +68,7 @@ export default function ArcPage() {
           <Chronotypes />
           <Highlights />
           <Science />
+          <Notifications />
           <Audience />
           <Pricing />
           <Faq />

@@ -10,7 +10,7 @@ export function Hero() {
       {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full opacity-10"
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-225 h-150 rounded-full opacity-10"
         style={{
           background: "radial-gradient(ellipse, #CCFF00 0%, transparent 70%)",
         }}
@@ -65,7 +65,7 @@ export function Hero() {
             </span>
             <span className="w-px h-4 bg-zinc-800" />
             <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">3-day</span> free trial
+              <span className="text-[#CCFF00] font-bold">Annual</span> free trial
             </span>
             <span className="w-px h-4 bg-zinc-800" />
             <span className="flex items-center gap-1.5">
@@ -77,7 +77,7 @@ export function Hero() {
 
         {/* Right — screenshot already contains the phone mockup */}
         <div className="relative flex justify-center lg:justify-end">
-          <div className="relative w-[280px] sm:w-85">
+          <div className="relative w-70 sm:w-85">
             <Image
               src="/01-cut.png"
               alt="ARC circadian rhythm tracker — Daily trajectory showing your personalized biological schedule"

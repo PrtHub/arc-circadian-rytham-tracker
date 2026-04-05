@@ -2,21 +2,33 @@ export const APP_STORE_URL =
   "https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892";
 
 export const screenshots = [
-  { src: "/01.png", alt: "Stop Fighting Your Biology — ARC circadian rhythm tracker home screen" },
-  { src: "/02.png", alt: "Are You a Bear? — ARC chronotype discovery screen" },
-  { src: "/03.png", alt: "Your Perfect Day Mapped — ARC daily trajectory timeline" },
-  { src: "/04.png", alt: "Trace Your Caffeine — ARC caffeine half-life cutoff tracker" },
-  { src: "/05.png", alt: "Learn Why You Crash — ARC adenosine and sleep pressure explainer" },
-  { src: "/06.png", alt: "Never Miss Timing — ARC smart sunlight and wind-down alerts" },
-  { src: "/07.png", alt: "Your Optimized Day Revealed — ARC personalized schedule screen" },
-  { src: "/08.png", alt: "Built for Your Priority — ARC goal calibration screen" },
+  {
+    src: "/01.png",
+    alt: "Stop Fighting Your Body — ARC home screen with Bear chronotype, active protocol block and sunlight countdown",
+  },
+  {
+    src: "/02.png",
+    alt: "Catch the Morning Light — ARC sunlight timer with 16-minute countdown and progress ring",
+  },
+  {
+    src: "/03.png",
+    alt: "Track Your Caffeine — ARC live caffeine decay tracker showing 63mg active and sleep-safe prediction",
+  },
+  {
+    src: "/04.png",
+    alt: "Never Miss Your Window — ARC smart iOS notifications for coffee time, caffeine wall, and wind-down",
+  },
+  {
+    src: "/05.png",
+    alt: "Find Your Chronotype — ARC Wolf chronotype reveal with personalized schedule explanation",
+  },
 ];
 
 export const features = [
   {
     icon: "🎯",
-    title: "15-Point Precision Diagnosis",
-    desc: "Calibrates chronotype, age, goals & night habits for a profile that's actually yours.",
+    title: "22-Point Precision Diagnosis",
+    desc: "Builds your full biological profile — sleep schedule, energy map, caffeine habits, lifestyle context — before the first paywall.",
   },
   {
     icon: "🕐",
@@ -31,7 +43,7 @@ export const features = [
   {
     icon: "☕",
     title: "Caffeine Half-Life Tracking",
-    desc: "Calculated cutoff time that protects your sleep quality every night.",
+    desc: "Log every drink. Watch the live decay curve. Know the exact minute it's safe to sleep.",
   },
   {
     icon: "⚡",
@@ -42,6 +54,16 @@ export const features = [
     icon: "☀️",
     title: "Morning Sunlight Anchoring",
     desc: "Cortisol & melatonin rhythm optimization starting the moment you wake.",
+  },
+  {
+    icon: "😴",
+    title: "Manual Sleep Check-in",
+    desc: "Rate last night's sleep each morning. Poor sleep triggers a recovery-mode protocol — sunlight early, caffeine delayed 90 minutes.",
+  },
+  {
+    icon: "📡",
+    title: "Contextual Intel Feed",
+    desc: "Daily briefings driven by your actual yesterday — not a static article library. Behavior-aware coaching that adapts.",
   },
   {
     icon: "🔬",
@@ -59,7 +81,7 @@ export const steps = [
   {
     step: "01",
     title: "Take the Diagnosis",
-    desc: "Answer 15 science-backed questions about your sleep, energy patterns, caffeine habits, and goals. ARC calibrates your unique biological profile.",
+    desc: "Answer 22 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
   },
   {
     step: "02",
@@ -69,7 +91,7 @@ export const steps = [
   {
     step: "03",
     title: "Follow Your Daily Trajectory",
-    desc: "Get a personalized 24-hour timeline with Peak Focus Windows, optimal caffeine cutoff, sunlight anchoring time, and wind-down routine.",
+    desc: "Get a live 24-hour protocol with Peak Focus Windows, caffeine decay tracking, sunlight timer toward your 20-min morning target, and smart wind-down notifications.",
   },
 ];
 
@@ -122,28 +144,28 @@ export const highlights = [
 export const audience = [
   {
     icon: "🚀",
-    title: "Founders & Entrepreneurs",
-    desc: "Optimize your decision-making and deep work windows around your natural energy peaks instead of burning out.",
+    title: "High-Performers",
+    desc: "Founders, engineers, and creators who need maximum focus hours. ARC maps your peak windows so you stop guessing.",
   },
   {
-    icon: "✍️",
-    title: "Creators & Writers",
-    desc: "Find your creative peak hours and stop forcing output when your brain is wired for rest.",
-  },
-  {
-    icon: "🧬",
-    title: "Biohackers & Health Enthusiasts",
-    desc: "Go beyond sleep tracking. Understand the cortisol-melatonin rhythm that drives your entire day.",
+    icon: "☕",
+    title: "Coffee Drinkers",
+    desc: "You drink coffee every day but have never understood how it actually interacts with your sleep. ARC shows you the exact cutoff minute.",
   },
   {
     icon: "🧠",
     title: "ADHD Professionals",
-    desc: "Structured visual missions replace overwhelming to-do lists. ARC gives your brain the timed, biology-aligned triggers it actually responds to.",
+    desc: "Structured visual missions replace overwhelming to-do lists. Biology-aligned triggers your brain actually responds to.",
   },
   {
     icon: "😴",
     title: "Sleep Seekers",
-    desc: "Struggling with insomnia or mid-day fatigue? ARC's adenosine and melatonin protocols attack the root cause — not just the symptoms.",
+    desc: "Sleeping 7-8 hours but still exhausted? It's a timing problem, not a duration problem. ARC fixes the root cause.",
+  },
+  {
+    icon: "🧬",
+    title: "Biohackers",
+    desc: "Real data and correlations — not just streaks and checkboxes. Understand the cortisol-melatonin rhythm driving your entire day.",
   },
   {
     icon: "💻",
@@ -152,16 +174,50 @@ export const audience = [
   },
 ];
 
+export const notifications = [
+  {
+    time: "~90 min after wake",
+    title: "Coffee time",
+    body: "Your adenosine has cleared. Coffee now gives you clean energy without the afternoon crash.",
+    color: "#CCFF00",
+  },
+  {
+    time: "~early afternoon",
+    title: "Caffeine wall — stop now",
+    body: "Every coffee after this point costs you 15–20 min of deep sleep. Your cutoff is now.",
+    color: "#ff6b35",
+  },
+  {
+    time: "~1 hr before sleep",
+    title: "Start winding down",
+    body: "Melatonin production is ramping up. Dim lights and reduce screen brightness.",
+    color: "#a78bfa",
+  },
+];
+
 export const plans = [
-  { name: "Weekly", price: "$3.99", period: "/ week", highlight: false, badge: null as string | null },
-  { name: "Monthly", price: "$9.99", period: "/ month", highlight: false, badge: null as string | null },
-  { name: "Yearly", price: "$29.99", period: "/ year", highlight: true, badge: "Save 75%" as string | null },
+  {
+    name: "Weekly",
+    price: "$4.99",
+    period: "/ week",
+    highlight: false,
+    badge: null as string | null,
+    note: "Cancel anytime",
+  },
+  {
+    name: "Annual",
+    price: "$34.99",
+    period: "/ year",
+    highlight: true,
+    badge: "Save 86%" as string | null,
+    note: "3-day free trial",
+  },
 ];
 
 export const faqs = [
   {
     q: "What is a chronotype?",
-    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 15-point diagnosis.",
+    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 22-point precision diagnosis.",
   },
   {
     q: "How is ARC different from a sleep tracker?",
@@ -181,12 +237,11 @@ export const faqs = [
   },
   {
     q: "Is there a free trial?",
-    a: "Yes. All ARC Pro plans include a 3-day free trial. The free tier includes core chronotype discovery and daily trajectory features with no time limit.",
+    a: "The Annual plan includes a 3-day free trial. The Weekly plan is instant access with no trial — cancel anytime. The free tier includes core chronotype discovery and daily trajectory with no time limit.",
   },
 ];
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
 export const jsonLdApp = {
   "@context": "https://schema.org",
@@ -200,22 +255,26 @@ export const jsonLdApp = {
   inLanguage: "en-US",
   countriesSupported: "US, CA, GB, AU, IN",
   description:
-    "Circadian rhythm tracker that syncs your schedule with your biology. Discover your chronotype (Lion, Bear, Wolf, or Dolphin) and unlock peak performance with science-backed daily trajectory, caffeine cutoff tracking, and morning sunlight anchoring.",
+    "Stop fighting your body. ARC syncs your schedule with your biology using a 22-point chronotype diagnosis. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
   url: APP_STORE_URL,
   downloadUrl: APP_STORE_URL,
   installUrl: APP_STORE_URL,
   featureList: [
-    "15-Point Precision Chronotype Diagnosis",
+    "22-Point Precision Chronotype Diagnosis",
     "Dynamic 24-Hour Daily Trajectory",
     "Chronotype Discovery: Lion, Bear, Wolf, Dolphin",
-    "Caffeine Half-Life Tracking & Cutoff Calculator",
+    "Live Caffeine Decay Curve & Sleep-Safe Prediction",
     "Peak Focus Windows for Deep Work",
     "Morning Sunlight Anchoring Protocol",
+    "Manual Sleep Check-in with Recovery Mode",
+    "Contextual Intel Feed — Behavior-Aware Briefings",
+    "Adaptive Protocols: Weekend, Travel, Recovery",
     "Biological Briefings with Science Citations",
     "Local-First SQLite Storage — Zero Cloud Sync",
     "Adenosine Clear Timing",
     "Digital Sunset Protocol",
     "Melatonin Optimization",
+    "Social Jetlag Tracking",
     "Smart Notifications: Sunlight, Caffeine, Wind-Down",
   ],
   screenshot: screenshots.map((s) => ({
@@ -229,29 +288,24 @@ export const jsonLdApp = {
       price: "0",
       priceCurrency: "USD",
       name: "Free Tier",
-      description: "Core chronotype discovery and daily trajectory — free forever.",
+      description:
+        "Core chronotype discovery and daily trajectory — free forever.",
     },
     {
       "@type": "Offer",
-      price: "3.99",
+      price: "4.99",
       priceCurrency: "USD",
       name: "ARC Pro — Weekly",
       billingIncrement: "P1W",
+      description: "Cancel anytime. No free trial.",
     },
     {
       "@type": "Offer",
-      price: "9.99",
+      price: "34.99",
       priceCurrency: "USD",
-      name: "ARC Pro — Monthly",
-      billingIncrement: "P1M",
-    },
-    {
-      "@type": "Offer",
-      price: "29.99",
-      priceCurrency: "USD",
-      name: "ARC Pro — Yearly",
+      name: "ARC Pro — Annual",
       billingIncrement: "P1Y",
-      description: "Save 75% vs weekly. Includes 3-day free trial.",
+      description: "Save 86% vs weekly. Includes 3-day free trial.",
     },
   ],
   aggregateRating: {

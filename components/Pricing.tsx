@@ -21,9 +21,7 @@ export function Pricing() {
             <span className="text-[#CCFF00]">Upgrade when ready.</span>
           </h2>
           <p className="text-zinc-500 text-sm">
-            Annual plan includes a{" "}
-            <span className="text-[#CCFF00] font-semibold">3-day free trial</span>
-            . Weekly is instant access, cancel anytime.
+            Cancel anytime. Both plans unlock every feature instantly.
           </p>
         </div>
 
@@ -82,7 +80,7 @@ export function Pricing() {
                     : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
                 }`}
               >
-                {plan.note === "3-day free trial" ? "Start Free Trial" : "Get Instant Access"}
+                Get Instant Access
               </a>
             </li>
           ))}

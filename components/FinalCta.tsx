@@ -29,14 +29,16 @@ export function FinalCta() {
         </h2>
 
         <p className="text-zinc-400 text-lg max-w-md">
-          Stop guessing when to focus, rest, and recharge. ARC shows you exactly
-          when — backed by science.
+          You&apos;ve tried sleeping more. Drinking more coffee. Going to bed
+          earlier. None of it worked — because{" "}
+          <strong className="text-white">timing</strong> was the real problem
+          all along.
         </p>
 
         <AppStoreButton size="lg" />
 
         <p className="text-zinc-600 text-xs">
-          Free to download · 3-day Pro trial · No credit card needed
+          Free to download · Cancel anytime · No commitment
         </p>
       </div>
     </section>

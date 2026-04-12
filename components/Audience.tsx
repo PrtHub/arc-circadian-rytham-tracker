@@ -9,15 +9,15 @@ export function Audience() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
           <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-            Who It&apos;s For
+            Sound Familiar?
           </p>
           <h2
             id="audience-heading"
             className="text-4xl sm:text-5xl font-black tracking-tighter"
           >
-            High performers
+            Built for people who are
             <br />
-            <span className="text-[#CCFF00]">think in energy.</span>
+            <span className="text-[#CCFF00]">done guessing.</span>
           </h2>
         </div>
 

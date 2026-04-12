@@ -10,15 +10,15 @@ export function Features() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
           <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-            What&apos;s Inside
+            What You Get
           </p>
           <h2
             id="features-heading"
             className="text-4xl sm:text-5xl font-black tracking-tighter"
           >
-            Every tool your
+            Finally understand
             <br />
-            <span className="text-[#CCFF00]">biology needs.</span>
+            <span className="text-[#CCFF00]">why you feel this way.</span>
           </h2>
         </div>
 

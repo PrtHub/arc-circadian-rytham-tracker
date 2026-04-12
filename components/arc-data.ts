@@ -210,7 +210,7 @@ export const plans = [
     period: "/ year",
     highlight: true,
     badge: "Save 86%" as string | null,
-    note: "3-day free trial",
+    note: "Cancels anytime",
   },
 ];
 
@@ -236,8 +236,8 @@ export const faqs = [
     a: "Caffeine has a half-life of 5–6 hours. ARC calculates your personal cutoff time based on your sleep schedule so caffeine doesn't interfere with your sleep quality.",
   },
   {
-    q: "Is there a free trial?",
-    a: "The Annual plan includes a 3-day free trial. The Weekly plan is instant access with no trial — cancel anytime. The free tier includes core chronotype discovery and daily trajectory with no time limit.",
+    q: "Is there a free tier?",
+    a: "Yes — the free tier includes core chronotype discovery and daily trajectory with no time limit. Pro unlocks all features. Both paid plans are cancel anytime, no commitment.",
   },
 ];
 
@@ -297,7 +297,7 @@ export const jsonLdApp = {
       priceCurrency: "USD",
       name: "ARC Pro — Weekly",
       billingIncrement: "P1W",
-      description: "Cancel anytime. No free trial.",
+      description: "Cancel anytime.",
     },
     {
       "@type": "Offer",
@@ -305,7 +305,7 @@ export const jsonLdApp = {
       priceCurrency: "USD",
       name: "ARC Pro — Annual",
       billingIncrement: "P1Y",
-      description: "Save 86% vs weekly. Includes 3-day free trial.",
+      description: "Save 86% vs weekly. Cancel anytime.",
     },
   ],
   aggregateRating: {

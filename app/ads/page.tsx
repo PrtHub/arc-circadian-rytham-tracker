@@ -5,13 +5,10 @@ import html2canvas from "html2canvas-pro";
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /*  DOWNLOAD — clone element to body at full size, capture, remove           */
-/*  This avoids the CSS transform scaling issue with html2canvas.            */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function useDownload() {
   return useCallback(async (el: HTMLElement | null, filename: string) => {
     if (!el) return;
-
-    // Clone the full-size creative and render it offscreen at actual pixel size
     const clone = el.cloneNode(true) as HTMLElement;
     clone.style.position = "fixed";
     clone.style.top = "-99999px";
@@ -19,10 +16,7 @@ function useDownload() {
     clone.style.zIndex = "-1";
     clone.style.transform = "none";
     document.body.appendChild(clone);
-
-    // Wait a tick for images to resolve in the clone
     await new Promise((r) => setTimeout(r, 100));
-
     const canvas = await html2canvas(clone, {
       scale: 2,
       backgroundColor: "#000000",
@@ -30,9 +24,7 @@ function useDownload() {
       logging: false,
       allowTaint: true,
     });
-
     document.body.removeChild(clone);
-
     const link = document.createElement("a");
     link.download = `${filename}.png`;
     link.href = canvas.toDataURL("image/png", 1.0);
@@ -41,7 +33,7 @@ function useDownload() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD FRAME — fixed pixel render + scale-down display + download           */
+/*  AD FRAME                                                                  */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function AdFrame({
   id,
@@ -131,1515 +123,1434 @@ function AdFrame({
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  S = inline style helper (keeps JSX readable)                            */
+/*  SHARED                                                                    */
 /* ═══════════════════════════════════════════════════════════════════════════ */
-const S = {
-  glow: (
-    color: string,
-    size: number,
-    x = "50%",
-    y = "50%",
-    opacity = 0.25,
-  ): React.CSSProperties => ({
-    position: "absolute",
-    top: y,
-    left: x,
-    transform: "translate(-50%, -50%)",
-    width: size,
-    height: size,
-    borderRadius: "50%",
-    background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-    pointerEvents: "none",
-    opacity,
-  }),
-  badge: (bg: string, color: string): React.CSSProperties => ({
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    background: bg,
-    border: `1.5px solid ${color}33`,
-    borderRadius: 100,
-    padding: "10px 22px",
-    fontSize: 15,
-    fontWeight: 800,
-    letterSpacing: "0.2em",
-    textTransform: "uppercase",
-    color,
-  }),
-  cta: (): React.CSSProperties => ({
-    background: "#CCFF00",
-    color: "#000",
-    fontSize: 20,
-    fontWeight: 900,
-    padding: "16px 40px",
-    borderRadius: 100,
-    textTransform: "uppercase",
-    letterSpacing: "0.1em",
-  }),
-};
+const FF =
+  "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+
+function Glow({
+  color,
+  size,
+  x = "50%",
+  y = "50%",
+  opacity = 0.25,
+}: {
+  color: string;
+  size: number;
+  x?: string;
+  y?: string;
+  opacity?: number;
+}) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: y,
+        left: x,
+        transform: "translate(-50%, -50%)",
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
+        pointerEvents: "none",
+        opacity,
+      }}
+    />
+  );
+}
+
+function Cta({ label }: { label: string }) {
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        width: "fit-content",
+        background: "#CCFF00",
+        color: "#000",
+        fontSize: 18,
+        fontWeight: 900,
+        padding: "16px 36px",
+        borderRadius: 100,
+        letterSpacing: "0.06em",
+        fontFamily: FF,
+        whiteSpace: "nowrap",
+        boxShadow:
+          "0 0 30px rgba(204,255,0,0.3), 0 0 80px rgba(204,255,0,0.1)",
+      }}
+    >
+      {label}
+    </div>
+  );
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 1 — HERO PHONE (Brand statement)                                     */
-/*  Massive phone centered, headline top, phone glowing.                    */
+/*  AD 01 — "Slept 8 hours. Still can't keep my eyes open at work."          */
+/*  Mirror their morning. No science. Just their life. 1:1                  */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function Ad01() {
   return (
-    <AdFrame id="hero-phone" label="Brand · Hero" w={1080} h={1080}>
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#FF3B30" size={900} x="50%" y="30%" opacity={0.15} />
+
       <div
         style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          paddingTop: 72,
+          fontSize: 78,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.08,
+          letterSpacing: "-0.04em",
+          marginBottom: 48,
           position: "relative",
-          background: "#000",
+          zIndex: 1,
         }}
       >
-        {/* BIG glow behind phone */}
-        <div style={S.glow("rgba(204,255,0,0.3)", 700, "50%", "60%")} />
-        <div style={S.glow("rgba(204,255,0,0.08)", 1000, "50%", "55%")} />
-
-        {/* Headline */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            textAlign: "center",
-            marginBottom: 24,
-          }}
-        >
-          <p
-            style={{
-              fontSize: 80,
-              lineHeight: 0.92,
-              fontWeight: 900,
-              letterSpacing: "-0.05em",
-              color: "#fff",
-              margin: 0,
-            }}
-          >
-            Stop fighting
-          </p>
-          <p
-            style={{
-              fontSize: 88,
-              lineHeight: 0.92,
-              fontWeight: 900,
-              letterSpacing: "-0.05em",
-              color: "#CCFF00",
-              margin: 0,
-            }}
-          >
-            your body.
-          </p>
-        </div>
-
-        {/* HUGE phone — overflows bottom */}
-        <div style={{ position: "relative", zIndex: 10, width: 420 }}>
-          <img
-            src="/01-cut.png"
-            alt=""
-            style={{ width: "100%", height: "auto" }}
-          />
-        </div>
-
-        {/* Bottom fade */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 20,
-            height: 280,
-            background: "linear-gradient(to top, #000 30%, transparent)",
-          }}
-        />
-
-        {/* Bottom bar */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            left: 72,
-            right: 72,
-            zIndex: 30,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: "50%",
-                background: "#CCFF00",
-              }}
-            />
-            <span
-              style={{
-                fontSize: 16,
-                fontWeight: 700,
-                color: "#71717a",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-              }}
-            >
-              Circadian Rhythm Tracker
-            </span>
-          </div>
-          <div style={S.cta()}>Download Free</div>
-        </div>
+        Slept 8 hours.
+        <br />
+        <br />
+        Still can&apos;t keep
+        <br />
+        my eyes open
+        <br />
+        <span style={{ color: "#FF3B30" }}>at work.</span>
       </div>
-    </AdFrame>
+
+      <div
+        style={{
+          width: 60,
+          height: 3,
+          background: "#333",
+          borderRadius: 2,
+          marginBottom: 40,
+        }}
+      />
+
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 60,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        What if the problem was never{" "}
+        <span style={{ color: "#bbb" }}>how long</span> you slept?
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Out What's Wrong →" />
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 2 — CHRONOTYPE QUIZ (Curiosity)                                      */
-/*  Big emojis, bold question, clean.                                       */
+/*  AD 02 — "That 3PM feeling where you'd sell your soul for a nap."         */
+/*  Mirror the afternoon crash moment. Everyone knows this. 1:1             */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function Ad02() {
   return (
-    <AdFrame id="chronotype-quiz" label="Curiosity · Quiz" w={1080} h={1080}>
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "80px",
+        textAlign: "center",
+      }}
+    >
+      <Glow color="#FF9500" size={1000} x="50%" y="40%" opacity={0.15} />
+
       <div
         style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 56,
-          background: "#000",
+          fontSize: 156,
+          fontWeight: 900,
+          color: "#FF9500",
+          lineHeight: 0.9,
+          letterSpacing: "-0.06em",
+          marginBottom: 40,
+          fontVariantNumeric: "tabular-nums",
           position: "relative",
+          zIndex: 1,
         }}
       >
-        <div style={S.glow("rgba(204,255,0,0.06)", 800, "50%", "35%")} />
+        3 PM
+      </div>
 
-        {/* Badge */}
-        <div style={S.badge("rgba(204,255,0,0.08)", "#CCFF00")}>
-          <div
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: "#CCFF00",
-            }}
-          />
-          22-Point Diagnosis
-        </div>
+      <div
+        style={{
+          fontSize: 52,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.15,
+          letterSpacing: "-0.03em",
+          maxWidth: 800,
+          marginBottom: 48,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        That feeling where you&apos;d sell your soul for a nap.
+      </div>
 
-        {/* Big emojis */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            gap: 28,
-            fontSize: 90,
-          }}
-        >
-          <span>🦁</span>
-          <span>🐻</span>
-          <span>🐺</span>
-          <span>🐬</span>
-        </div>
-
-        {/* Question */}
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
-            style={{
-              fontSize: 76,
-              lineHeight: 1.0,
-              fontWeight: 900,
-              letterSpacing: "-0.05em",
-              color: "#fff",
-              margin: 0,
-            }}
-          >
-            Which one
-            <br />
-            are <span style={{ color: "#CCFF00" }}>you</span>?
-          </p>
-        </div>
-
-        {/* Chronotype names */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            gap: 32,
-            fontSize: 16,
-            fontWeight: 700,
-            color: "#555",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-          }}
-        >
-          <span>Lion</span>
-          <span style={{ color: "#333" }}>·</span>
-          <span>Bear</span>
-          <span style={{ color: "#333" }}>·</span>
-          <span>Wolf</span>
-          <span style={{ color: "#333" }}>·</span>
-          <span>Dolphin</span>
-        </div>
-
-        <div style={S.cta()}>Find Your Chronotype →</div>
-
-        <span
-          style={{
-            position: "absolute",
-            bottom: 36,
-            fontSize: 16,
-            color: "#2a2a2a",
-            fontWeight: 600,
-          }}
-        >
-          arcapp.sbs
+      <div
+        style={{
+          fontSize: 24,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        It happens at the same time every day.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          Shouldn&apos;t you know why?
         </span>
       </div>
-    </AdFrame>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="See Your Energy Pattern →" />
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 3 — CAFFEINE SPLIT (Shock)                                           */
-/*  Left: 3PM coffee. Right: Midnight still active. Dramatic split.        */
+/*  AD 03 — "I go to bed tired. Then lie there for 2 hours wide awake."      */
+/*  The can't-fall-asleep pain. Universally felt. 4:5                       */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function Ad03() {
   return (
-    <AdFrame id="caffeine-split" label="Shock · Split" w={1080} h={1080}>
+    <div
+      style={{
+        width: 1080,
+        height: 1350,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#3B82F6" size={800} x="50%" y="25%" opacity={0.12} />
+      <Glow color="#A855F7" size={500} x="20%" y="70%" opacity={0.08} />
+
+      {/* Stars */}
+      {[
+        { x: 150, y: 100, s: 2 },
+        { x: 400, y: 180, s: 1.5 },
+        { x: 800, y: 140, s: 2.5 },
+        { x: 950, y: 280, s: 1.5 },
+        { x: 250, y: 420, s: 2 },
+        { x: 880, y: 380, s: 1.5 },
+      ].map((d, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            top: d.y,
+            left: d.x,
+            width: d.s,
+            height: d.s,
+            borderRadius: "50%",
+            background: "#fff",
+            opacity: 0.12,
+            pointerEvents: "none",
+          }}
+        />
+      ))}
+
       <div
         style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          background: "#000",
+          fontSize: 42,
+          fontWeight: 300,
+          color: "#3B82F6",
+          letterSpacing: "0.12em",
+          marginBottom: 56,
+          fontVariantNumeric: "tabular-nums",
           position: "relative",
+          zIndex: 1,
         }}
       >
-        {/* Left half */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 20,
-            borderRight: "1px solid #1a1a1a",
-            position: "relative",
-          }}
-        >
-          <div style={S.glow("rgba(204,255,0,0.12)", 400, "50%", "50%")} />
-          <span
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
-              color: "#555",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            3:00 PM
-          </span>
-          <span style={{ fontSize: 120, position: "relative", zIndex: 10 }}>
-            ☕
-          </span>
-          <span
-            style={{
-              fontSize: 56,
-              fontWeight: 900,
-              color: "#fff",
-              letterSpacing: "-0.03em",
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            95 mg
-          </span>
-          <span
-            style={{
-              fontSize: 18,
-              color: "#555",
-              fontWeight: 600,
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            You feel great.
-          </span>
-        </div>
-
-        {/* Right half */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 20,
-            position: "relative",
-          }}
-        >
-          <div style={S.glow("rgba(255,107,53,0.15)", 400, "50%", "50%")} />
-          <span
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
-              color: "#555",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            12:00 AM
-          </span>
-          <span style={{ fontSize: 120, position: "relative", zIndex: 10 }}>
-            😵
-          </span>
-          <span
-            style={{
-              fontSize: 56,
-              fontWeight: 900,
-              color: "#ff6b35",
-              letterSpacing: "-0.03em",
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            24 mg
-          </span>
-          <span
-            style={{
-              fontSize: 18,
-              color: "#ff6b35",
-              fontWeight: 600,
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            Still active.
-          </span>
-        </div>
-
-        {/* Center divider badge */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 20,
-            background: "#111",
-            border: "2px solid #333",
-            borderRadius: 100,
-            padding: "12px 24px",
-          }}
-        >
-          <span
-            style={{
-              fontSize: 14,
-              fontWeight: 800,
-              color: "#ff6b35",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-            }}
-          >
-            5h half-life
-          </span>
-        </div>
-
-        {/* Bottom CTA */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            left: 0,
-            right: 0,
-            zIndex: 20,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <p
-            style={{
-              fontSize: 36,
-              fontWeight: 900,
-              color: "#fff",
-              letterSpacing: "-0.03em",
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
-            ARC shows your{" "}
-            <span style={{ color: "#CCFF00" }}>exact cutoff.</span>
-          </p>
-          <div style={S.cta()}>Track Your Caffeine →</div>
-        </div>
+        11:43 PM
       </div>
-    </AdFrame>
+
+      <div
+        style={{
+          fontSize: 72,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 48,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        I go to bed
+        <br />
+        tired.
+        <br />
+        <br />
+        Then lie there
+        <br />
+        for 2 hours
+        <br />
+        <span style={{ color: "#A855F7" }}>wide awake.</span>
+      </div>
+
+      <div
+        style={{
+          width: 50,
+          height: 3,
+          background: "#A855F7",
+          opacity: 0.4,
+          borderRadius: 2,
+          marginBottom: 44,
+        }}
+      />
+
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        There&apos;s a window when your body actually{" "}
+        <span style={{ color: "#bbb" }}>wants</span> to sleep.
+        <br />
+        Miss it, and you wait 2 more hours.
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Your Sleep Window →" />
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 4 — NOTIFICATION STACK (Social Proof)                                 */
-/*  Beautiful iOS-style notifications.                                       */
-/* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad05() {
-  const notifs = [
-    {
-      time: "7:12 AM",
-      icon: "☀️",
-      title: "Good morning, Bear.",
-      body: "Get outside. 10 min of light anchors your whole day.",
-      glow: "#CCFF00",
-    },
-    {
-      time: "8:42 AM",
-      icon: "☕",
-      title: "Coffee time.",
-      body: "Adenosine cleared. Your brew hits clean now — no crash.",
-      glow: "#CCFF00",
-    },
-    {
-      time: "2:30 PM",
-      icon: "🚫",
-      title: "Caffeine wall — stop.",
-      body: "Every cup from here costs you 15 min of deep sleep.",
-      glow: "#ff6b35",
-    },
-    {
-      time: "9:45 PM",
-      icon: "🌙",
-      title: "Wind down.",
-      body: "Melatonin rising. Dim lights. Kill bright screens.",
-      glow: "#a78bfa",
-    },
-  ];
-  return (
-    <AdFrame id="notifications" label="Demo · Notifications" w={1080} h={1080}>
-      <div
-        style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 40,
-          background: "#000",
-          position: "relative",
-          padding: "0 80px",
-        }}
-      >
-        <div style={S.glow("rgba(204,255,0,0.04)", 900, "50%", "50%")} />
-
-        <p
-          style={{
-            position: "relative",
-            zIndex: 10,
-            fontSize: 18,
-            fontWeight: 700,
-            letterSpacing: "0.3em",
-            color: "#444",
-            textTransform: "uppercase",
-          }}
-        >
-          Smart Notifications
-        </p>
-
-        {/* Notification stack */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            gap: 14,
-            width: "100%",
-          }}
-        >
-          {notifs.map((n) => (
-            <div
-              key={n.time}
-              style={{
-                background: "#111",
-                border: "1px solid #1e1e1e",
-                borderRadius: 24,
-                padding: "22px 28px",
-                display: "flex",
-                gap: 18,
-                alignItems: "flex-start",
-              }}
-            >
-              <span style={{ fontSize: 32, marginTop: 2 }}>{n.icon}</span>
-              <div style={{ flex: 1 }}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: 6,
-                  }}
-                >
-                  <span
-                    style={{ color: "#fff", fontSize: 20, fontWeight: 800 }}
-                  >
-                    {n.title}
-                  </span>
-                  <span
-                    style={{
-                      color: "#333",
-                      fontSize: 14,
-                      flexShrink: 0,
-                      marginLeft: 16,
-                    }}
-                  >
-                    {n.time}
-                  </span>
-                </div>
-                <p
-                  style={{
-                    color: "#666",
-                    fontSize: 16,
-                    lineHeight: 1.4,
-                    margin: 0,
-                  }}
-                >
-                  {n.body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
-            style={{
-              fontSize: 44,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#fff",
-              lineHeight: 1.15,
-              margin: 0,
-            }}
-          >
-            Timed to <span style={{ color: "#CCFF00" }}>your biology.</span>
-          </p>
-          <p
-            style={{
-              fontSize: 22,
-              color: "#444",
-              fontWeight: 600,
-              marginTop: 8,
-            }}
-          >
-            Not a generic reminder app.
-          </p>
-        </div>
-      </div>
-    </AdFrame>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 5 — SUNLIGHT TIMER + PHONE (Feature)                                 */
+/*  AD 04 — "My 4th coffee today and I still feel nothing."                  */
+/*  Caffeine dependency pain — not a science lesson. 1:1                    */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 function Ad04() {
   return (
-    <AdFrame id="sunlight" label="Feature · Sunlight" w={1080} h={1080}>
-      <div
-        style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          alignItems: "stretch",
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        {/* Warm glow behind phone */}
-        <div style={S.glow("rgba(251,191,36,0.18)", 700, "72%", "55%")} />
-
-        {/* Left content — vertically centered */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            flex: 1,
-            paddingLeft: 80,
-            paddingRight: 24,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            gap: 32,
-          }}
-        >
-          <div style={{ ...S.badge("rgba(251,191,36,0.1)", "#fbbf24"), alignSelf: "flex-start" }}>
-            <div
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: "50%",
-                background: "#fbbf24",
-              }}
-            />
-            Stanford Protocol
-          </div>
-
-          <div>
-            <p
-              style={{
-                fontSize: 120,
-                lineHeight: 0.85,
-                fontWeight: 900,
-                letterSpacing: "-0.06em",
-                color: "#fbbf24",
-                margin: 0,
-              }}
-            >
-              10
-            </p>
-            <p
-              style={{
-                fontSize: 52,
-                lineHeight: 1.05,
-                fontWeight: 900,
-                letterSpacing: "-0.04em",
-                color: "#fff",
-                margin: "4px 0 0",
-              }}
-            >
-              minutes of
-              <br />
-              morning light.
-            </p>
-          </div>
-
-          <p
-            style={{
-              fontSize: 18,
-              color: "#666",
-              lineHeight: 1.6,
-              maxWidth: 380,
-              margin: 0,
-            }}
-          >
-            Sets your melatonin timer 14–16 hours later. ARC tracks it live.
-          </p>
-
-          <div style={{ ...S.cta(), alignSelf: "flex-start" }}>Track It →</div>
-        </div>
-
-        {/* Right phone — vertically centered */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            width: 420,
-            display: "flex",
-            alignItems: "center",
-            marginRight: -20,
-          }}
-        >
-          <img
-            src="/02.png"
-            alt=""
-            style={{ width: "100%", height: "auto", borderRadius: 28 }}
-          />
-        </div>
-
-        <span style={{ position: "absolute", top: 36, right: 48, fontSize: 18, fontWeight: 900, color: "rgba(255,255,255,0.06)", letterSpacing: "0.2em" }}>ARC.</span>
-      </div>
-    </AdFrame>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 6 — TEXT ONLY (Curiosity / Statement)                                 */
-/* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad06_text() {
-  return (
-    <AdFrame
-      id="curiosity-text"
-      label="Curiosity · Statement"
-      w={1080}
-      h={1080}
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
     >
+      <Glow color="#FF8800" size={800} x="40%" y="40%" opacity={0.15} />
+
+      {/* Coffee count */}
       <div
         style={{
-          width: 1080,
-          height: 1080,
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 44,
-          background: "#000",
+          gap: 16,
+          marginBottom: 52,
           position: "relative",
+          zIndex: 1,
         }}
       >
-        <div style={S.glow("rgba(204,255,0,0.04)", 800, "50%", "50%")} />
-
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
+        {["☕", "☕", "☕", "☕"].map((c, i) => (
+          <div
+            key={i}
             style={{
-              fontSize: 78,
-              lineHeight: 1.0,
-              fontWeight: 900,
-              letterSpacing: "-0.05em",
-              color: "#fff",
-              margin: 0,
+              width: 56,
+              height: 56,
+              borderRadius: 14,
+              background: i < 3 ? "#FF880015" : "#FF880008",
+              border: `1.5px solid ${i < 3 ? "#FF880030" : "#FF880015"}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 28,
+              opacity: i < 3 ? 0.4 : 1,
             }}
           >
-            What if your body
-            <br />
-            already knows the
-            <br />
-            <span style={{ color: "#CCFF00" }}>perfect schedule?</span>
-          </p>
-        </div>
+            {c}
+          </div>
+        ))}
+      </div>
 
-        <div
-          style={{ width: 60, height: 3, background: "#222", borderRadius: 2 }}
-        />
+      <div
+        style={{
+          fontSize: 76,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 44,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        4th coffee today.
+        <br />
+        <br />
+        Still feel{" "}
+        <span style={{ color: "#FF8800" }}>nothing.</span>
+      </div>
 
-        <p
-          style={{
-            position: "relative",
-            zIndex: 10,
-            fontSize: 22,
-            color: "#555",
-            textAlign: "center",
-            lineHeight: 1.6,
-            maxWidth: 560,
-            margin: 0,
-          }}
-        >
-          A 22-point diagnosis maps your chronotype.
-          <br />
-          ARC builds your biology&apos;s ideal day.
-        </p>
+      <div
+        style={{
+          width: 50,
+          height: 3,
+          background: "#FF8800",
+          opacity: 0.3,
+          borderRadius: 2,
+          marginBottom: 40,
+        }}
+      />
 
-        <div style={S.cta()}>Discover Yours →</div>
-
-        <span
-          style={{
-            position: "absolute",
-            top: 44,
-            fontSize: 22,
-            fontWeight: 900,
-            color: "rgba(255,255,255,0.05)",
-            letterSpacing: "0.5em",
-            textTransform: "uppercase",
-          }}
-        >
-          ARC
-        </span>
-        <span
-          style={{
-            position: "absolute",
-            bottom: 36,
-            fontSize: 16,
-            color: "#222",
-            fontWeight: 600,
-          }}
-        >
-          arcapp.sbs
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        It&apos;s not that you need more coffee.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          You&apos;re drinking it at the wrong time.
         </span>
       </div>
-    </AdFrame>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Fix Your Coffee Timing →" />
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 7 — SOCIAL PROOF (Big stat)                                           */
+/*  AD 05 — "Sunday night. Already dreading the 6AM alarm."                  */
+/*  Sunday scaries + alarm dread = emotional gut punch. 4:5                 */
 /* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad07_proof() {
+function Ad05() {
   return (
-    <AdFrame id="social-proof" label="Social Proof" w={1080} h={1080}>
+    <div
+      style={{
+        width: 1080,
+        height: 1350,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#FF3B30" size={700} x="70%" y="20%" opacity={0.12} />
+      <Glow color="#CCFF00" size={500} x="20%" y="80%" opacity={0.08} />
+
       <div
         style={{
-          width: 1080,
-          height: 1080,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 44,
-          background: "#000",
+          fontSize: 20,
+          fontWeight: 600,
+          color: "#777",
+          letterSpacing: "0.1em",
+          marginBottom: 44,
           position: "relative",
+          zIndex: 1,
         }}
       >
-        <div style={S.glow("rgba(204,255,0,0.08)", 700, "50%", "40%")} />
+        Sunday, 9:47 PM
+      </div>
 
-        <span
-          style={{
-            position: "relative",
-            zIndex: 10,
-            fontSize: 16,
-            fontWeight: 700,
-            letterSpacing: "0.3em",
-            color: "#444",
-            textTransform: "uppercase",
-          }}
-        >
-          Since Launch
-        </span>
+      <div
+        style={{
+          fontSize: 80,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Already dreading
+        <br />
+        the <span style={{ color: "#FF3B30" }}>6 AM</span> alarm.
+      </div>
 
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
-            style={{
-              fontSize: 220,
-              lineHeight: 0.8,
-              fontWeight: 900,
-              letterSpacing: "-0.07em",
-              color: "#CCFF00",
-              margin: 0,
-            }}
-          >
-            201
-            <span
-              style={{ fontSize: 80, verticalAlign: "top", lineHeight: 0.8 }}
-            >
-              +
-            </span>
-          </p>
-          <p
-            style={{
-              fontSize: 52,
-              lineHeight: 1.15,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#fff",
-              margin: "16px 0 0",
-            }}
-          >
-            people synced
-            <br />
-            their biology.
-          </p>
-        </div>
+      <div
+        style={{
+          fontSize: 30,
+          fontWeight: 400,
+          color: "#888",
+          lineHeight: 1.6,
+          marginBottom: 24,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Every week. Same cycle:
+      </div>
 
-        {/* Review card */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            background: "#111",
-            border: "1px solid #222",
-            borderRadius: 24,
-            padding: "24px 32px",
-            maxWidth: 580,
-            display: "flex",
-            gap: 20,
-            alignItems: "flex-start",
-          }}
-        >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
+          marginBottom: 60,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {[
+          "Force yourself awake",
+          "Drag through the morning",
+          "Crash by afternoon",
+          "Can't sleep at night",
+          "Repeat",
+        ].map((line, i) => (
           <div
+            key={i}
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: 8,
-              flex: 1,
-            }}
-          >
-            <span style={{ color: "#CCFF00", fontSize: 20, letterSpacing: 2 }}>
-              ★★★★★
-            </span>
-            <p
-              style={{
-                color: "#888",
-                fontSize: 17,
-                lineHeight: 1.5,
-                margin: 0,
-                fontStyle: "italic",
-              }}
-            >
-              &ldquo;Finally understand why I crash at 2 PM. The caffeine
-              tracker alone is worth it.&rdquo;
-            </p>
-          </div>
-        </div>
-
-        <div style={S.cta()}>Join Them →</div>
-      </div>
-    </AdFrame>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 8 — 8HRS EXHAUSTED (4:5 Pain Point)                                  */
-/* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad08_sleep() {
-  return (
-    <AdFrame id="8hrs-exhausted" label="Pain · Timing" w={1080} h={1350}>
-      <div
-        style={{
-          width: 1080,
-          height: 1350,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingTop: 80,
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        <div style={S.glow("rgba(204,255,0,0.06)", 800, "50%", "25%")} />
-
-        <span
-          style={{
-            position: "relative",
-            zIndex: 10,
-            fontSize: 16,
-            fontWeight: 700,
-            letterSpacing: "0.35em",
-            color: "#444",
-            textTransform: "uppercase",
-          }}
-        >
-          The Timing Problem
-        </span>
-
-        {/* Giant stat */}
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
-            style={{
-              fontSize: 260,
-              lineHeight: 0.75,
-              fontWeight: 900,
-              letterSpacing: "-0.08em",
-              color: "#fff",
-              margin: 0,
-            }}
-          >
-            8<span style={{ fontSize: 100, color: "#333" }}>hrs</span>
-          </p>
-          <p
-            style={{
-              fontSize: 56,
-              lineHeight: 1.1,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#fff",
-              margin: "20px 0 0",
-            }}
-          >
-            of sleep.
-            <br />
-            Still <span style={{ color: "#CCFF00" }}>exhausted.</span>
-          </p>
-          <div
-            style={{
-              width: 80,
-              height: 3,
-              background: "#222",
-              margin: "28px auto",
-              borderRadius: 2,
-            }}
-          />
-          <p
-            style={{ fontSize: 24, color: "#555", lineHeight: 1.5, margin: 0 }}
-          >
-            It&apos;s not <em>how long</em>. It&apos;s{" "}
-            <strong style={{ color: "#fff" }}>when.</strong>
-          </p>
-        </div>
-
-        {/* Phone overflowing bottom */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            width: 380,
-            marginBottom: -200,
-          }}
-        >
-          <img
-            src="/01-cut.png"
-            alt=""
-            style={{ width: "100%", height: "auto" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: 32,
-              boxShadow: "0 0 120px rgba(204,255,0,0.12)",
-            }}
-          />
-        </div>
-
-        {/* Bottom fade + CTA */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 20,
-            background: "linear-gradient(to top, #000 40%, transparent)",
-            paddingTop: 200,
-            paddingBottom: 52,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 14,
-          }}
-        >
-          <div style={S.cta()}>Fix Your Timing →</div>
-          <span style={{ fontSize: 14, color: "#333", fontWeight: 600 }}>
-            Free on the App Store
-          </span>
-        </div>
-      </div>
-    </AdFrame>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 9 — ADHD BRAIN (4:5)                                                 */
-/* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad09_adhd() {
-  const blocks = [
-    { time: "7:30", icon: "☀️", name: "Sunlight Anchoring", tag: "LIVE" },
-    { time: "9:00", icon: "⚡", name: "Peak Focus Window", tag: "2H" },
-    { time: "9:15", icon: "☕", name: "First Coffee", tag: "CLEAR" },
-    { time: "12:30", icon: "🚶", name: "Movement Break", tag: "15M" },
-    { time: "9:30", icon: "🌙", name: "Wind Down", tag: "START" },
-  ];
-  return (
-    <AdFrame id="adhd-protocol" label="ADHD · Protocol" w={1080} h={1350}>
-      <div
-        style={{
-          width: 1080,
-          height: 1350,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "72px 72px 56px",
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        <div style={S.glow("rgba(204,255,0,0.05)", 700, "50%", "70%")} />
-
-        <div style={S.badge("rgba(204,255,0,0.08)", "#CCFF00")}>
-          <div
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: "#CCFF00",
-            }}
-          />
-          Built for ADHD
-        </div>
-
-        {/* Headline */}
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <p
-            style={{
-              fontSize: 60,
-              lineHeight: 1.05,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#fff",
-              margin: 0,
-            }}
-          >
-            Not another
-          </p>
-          <p
-            style={{
-              fontSize: 60,
-              lineHeight: 1.05,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#555",
-              margin: 0,
-              textDecoration: "line-through",
-            }}
-          >
-            to-do list.
-          </p>
-          <p
-            style={{
-              fontSize: 60,
-              lineHeight: 1.05,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#CCFF00",
-              margin: "8px 0 0",
-            }}
-          >
-            A biology schedule.
-          </p>
-        </div>
-
-        {/* Protocol blocks */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            gap: 10,
-            width: "100%",
-          }}
-        >
-          {blocks.map((b) => (
-            <div
-              key={b.name}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 20,
-                background: "#0a0a0a",
-                border: "1px solid #1a1a1a",
-                borderRadius: 20,
-                padding: "18px 24px",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  color: "#555",
-                  fontFamily: "monospace",
-                  width: 52,
-                  flexShrink: 0,
-                }}
-              >
-                {b.time}
-              </span>
-              <span style={{ fontSize: 28 }}>{b.icon}</span>
-              <span
-                style={{
-                  fontSize: 20,
-                  color: "#fff",
-                  fontWeight: 700,
-                  flex: 1,
-                }}
-              >
-                {b.name}
-              </span>
-              <span
-                style={{
-                  fontSize: 12,
-                  color: "#CCFF00",
-                  fontWeight: 800,
-                  background: "rgba(204,255,0,0.1)",
-                  padding: "6px 14px",
-                  borderRadius: 8,
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {b.tag}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div style={S.cta()}>Get Your Protocol →</div>
-          <span style={{ fontSize: 14, color: "#444", fontWeight: 600 }}>
-            Timed. Visual. Biology-aligned.
-          </span>
-        </div>
-      </div>
-    </AdFrame>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════ */
-/*  AD 10 — CAFFEINE TRACKER SHOWCASE (4:5)                                  */
-/*  Massive phone screenshot as hero.                                        */
-/* ═══════════════════════════════════════════════════════════════════════════ */
-function Ad10_caffeine() {
-  return (
-    <AdFrame id="caffeine-hero" label="Feature · Caffeine" w={1080} h={1350}>
-      <div
-        style={{
-          width: 1080,
-          height: 1350,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "64px 72px 52px",
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        <div style={S.glow("rgba(204,255,0,0.18)", 600, "50%", "50%")} />
-
-        {/* Top */}
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-          <div
-            style={{
-              ...S.badge("rgba(204,255,0,0.08)", "#CCFF00"),
-              marginBottom: 24,
+              alignItems: "center",
+              gap: 16,
             }}
           >
             <div
               style={{
-                width: 8,
-                height: 8,
+                width: 6,
+                height: 6,
                 borderRadius: "50%",
-                background: "#CCFF00",
+                background: i === 4 ? "#FF3B30" : "#333",
+                flexShrink: 0,
               }}
             />
-            Flagship Feature
+            <div
+              style={{
+                fontSize: 24,
+                color: i === 4 ? "#FF3B30" : "#555",
+                fontWeight: i === 4 ? 700 : 400,
+                fontStyle: i === 4 ? "italic" : "normal",
+              }}
+            >
+              {line}
+            </div>
           </div>
-          <p
-            style={{
-              fontSize: 52,
-              lineHeight: 1.1,
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              color: "#fff",
-              margin: 0,
-            }}
-          >
-            Know the <span style={{ color: "#CCFF00" }}>exact minute</span>
-            <br />
-            to stop coffee.
-          </p>
-        </div>
-
-        {/* HUGE phone */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            width: 480,
-            margin: "16px 0",
-          }}
-        >
-          <img
-            src="/03.png"
-            alt=""
-            style={{ width: "100%", height: "auto", borderRadius: 32 }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: 32,
-              boxShadow:
-                "0 0 100px rgba(204,255,0,0.12), inset 0 0 0 1px rgba(204,255,0,0.08)",
-            }}
-          />
-        </div>
-
-        {/* Bottom */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 18,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              gap: 28,
-              fontSize: 15,
-              fontWeight: 700,
-              color: "#555",
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-            }}
-          >
-            <span>Live Curve</span>
-            <span style={{ color: "#222" }}>·</span>
-            <span>Sleep-Safe</span>
-            <span style={{ color: "#222" }}>·</span>
-            <span>mg Tracking</span>
-          </div>
-          <div style={S.cta()}>Track Your Caffeine →</div>
-        </div>
+        ))}
       </div>
-    </AdFrame>
+
+      <div
+        style={{
+          fontSize: 28,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        What if 6 AM was never{" "}
+        <span style={{ color: "#CCFF00", fontWeight: 600 }}>your</span> time to
+        wake up?
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Your Real Wake Time →" />
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  PAGE                                                                     */
+/*  AD 06 — "I've tried everything. Melatonin. No screens. Meditation."      */
+/*  The exhausted-of-trying pain. Deep emotional hook. 1:1                  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function Ad06() {
+  return (
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#A855F7" size={800} x="60%" y="35%" opacity={0.14} />
+
+      {/* Tried list — crossed out */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {["Melatonin", "No screens after 9", "Meditation apps", "Magnesium", "Weighted blanket"].map(
+          (item) => (
+            <div
+              key={item}
+              style={{
+                fontSize: 28,
+                color: "#777",
+                fontWeight: 500,
+                textDecoration: "line-through",
+                textDecorationColor: "#FF3B3066",
+              }}
+            >
+              ✓ {item}
+            </div>
+          )
+        )}
+      </div>
+
+      <div
+        style={{
+          fontSize: 72,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 44,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        I&apos;ve tried
+        <br />
+        <span style={{ color: "#A855F7" }}>everything.</span>
+        <br />
+        <br />
+        Still tired.
+      </div>
+
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Maybe the problem isn&apos;t what you&apos;re doing.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          Maybe it&apos;s{" "}
+          <span style={{ color: "#CCFF00", fontWeight: 600 }}>when</span>{" "}
+          you&apos;re doing it.
+        </span>
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="See What's Actually Wrong →" />
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  AD 07 — "Everyone's asleep. I'm still wired."                            */
+/*  Night owl loneliness. Deeply personal. 1:1                              */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function Ad07() {
+  return (
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "80px",
+        textAlign: "center",
+        overflow: "hidden",
+      }}
+    >
+      <Glow color="#3B82F6" size={1000} x="50%" y="25%" opacity={0.12} />
+      <Glow color="#A855F7" size={600} x="30%" y="70%" opacity={0.08} />
+
+      {/* Stars */}
+      {[
+        { x: 120, y: 90, s: 2 },
+        { x: 340, y: 160, s: 1.5 },
+        { x: 780, y: 120, s: 2.5 },
+        { x: 920, y: 240, s: 1.5 },
+        { x: 200, y: 380, s: 2 },
+        { x: 860, y: 420, s: 1.5 },
+        { x: 480, y: 80, s: 2 },
+        { x: 650, y: 200, s: 1.5 },
+      ].map((dot, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            top: dot.y,
+            left: dot.x,
+            width: dot.s,
+            height: dot.s,
+            borderRadius: "50%",
+            background: "#fff",
+            opacity: 0.15,
+            pointerEvents: "none",
+          }}
+        />
+      ))}
+
+      <div
+        style={{
+          fontSize: 44,
+          fontWeight: 300,
+          color: "#3B82F6",
+          letterSpacing: "0.12em",
+          marginBottom: 52,
+          fontVariantNumeric: "tabular-nums",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        12:47 AM
+      </div>
+
+      <div
+        style={{
+          fontSize: 76,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Everyone&apos;s asleep.
+        <br />
+        <br />
+        <span style={{ color: "#A855F7" }}>I&apos;m still wired.</span>
+      </div>
+
+      <div
+        style={{
+          width: 50,
+          height: 3,
+          background: "#A855F7",
+          borderRadius: 2,
+          marginBottom: 44,
+          opacity: 0.4,
+          position: "relative",
+          zIndex: 1,
+        }}
+      />
+
+      <div
+        style={{
+          fontSize: 28,
+          fontWeight: 400,
+          color: "#999",
+          lineHeight: 1.6,
+          maxWidth: 700,
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Nothing&apos;s wrong with you.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          Your brain just runs on a different clock.
+        </span>
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Your Clock →" />
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  AD 08 — "I wake up before my alarm and I'm STILL exhausted."             */
+/*  The broken-rest pain. Very common, very frustrating. 4:5                */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function Ad08() {
+  return (
+    <div
+      style={{
+        width: 1080,
+        height: 1350,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#FF3B30" size={700} x="60%" y="25%" opacity={0.12} />
+      <Glow color="#3B82F6" size={500} x="30%" y="75%" opacity={0.08} />
+
+      {/* Fake alarm display */}
+      <div
+        style={{
+          background: "#080808",
+          border: "1px solid #151515",
+          borderRadius: 24,
+          padding: "32px 36px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        <div>
+          <div
+            style={{
+              fontSize: 48,
+              fontWeight: 300,
+              color: "#fff",
+              fontVariantNumeric: "tabular-nums",
+              letterSpacing: "0.05em",
+            }}
+          >
+            5:47 AM
+          </div>
+          <div style={{ fontSize: 16, color: "#777", marginTop: 4 }}>
+            Alarm set for 6:30 AM
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 16,
+            fontWeight: 700,
+            color: "#FF3B30",
+            background: "#FF3B3015",
+            padding: "8px 16px",
+            borderRadius: 10,
+          }}
+        >
+          43 min early
+        </div>
+      </div>
+
+      <div
+        style={{
+          fontSize: 76,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 48,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Woke up before
+        <br />
+        my alarm.
+        <br />
+        <br />
+        Still feel like{" "}
+        <span style={{ color: "#FF3B30" }}>garbage.</span>
+      </div>
+
+      <div
+        style={{
+          width: 50,
+          height: 3,
+          background: "#333",
+          borderRadius: 2,
+          marginBottom: 44,
+        }}
+      />
+
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        More sleep didn&apos;t fix it.
+        <br />
+        Less sleep didn&apos;t fix it.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          Maybe the timing is what&apos;s{" "}
+          <span style={{ color: "#CCFF00", fontWeight: 600 }}>broken</span>.
+        </span>
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Check Your Timing →" />
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  AD 09 — The nightly scroll spiral. Timeline of their actual night. 1:1  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function Ad09() {
+  const timeline = [
+    { time: "11:02 PM", text: "I'll just check one more thing", color: "#999" },
+    { time: "11:47 PM", text: "Okay, after this video", color: "#999" },
+    { time: "12:33 AM", text: "Just 5 more minutes", color: "#3B82F6" },
+    { time: "1:58 AM", text: "Why am I still awake", color: "#A855F7" },
+    { time: "6:30 AM", text: "💀", color: "#FF3B30" },
+  ];
+
+  return (
+    <div
+      style={{
+        width: 1080,
+        height: 1080,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#3B82F6" size={800} x="40%" y="40%" opacity={0.1} />
+      <Glow color="#A855F7" size={500} x="70%" y="70%" opacity={0.08} />
+
+      <div
+        style={{
+          fontSize: 20,
+          fontWeight: 600,
+          color: "#777",
+          letterSpacing: "0.08em",
+          marginBottom: 44,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Every. Single. Night.
+      </div>
+
+      {/* Timeline */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 0,
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {timeline.map((t, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 24,
+              padding: "18px 0",
+              borderBottom: i < timeline.length - 1 ? "1px solid #0f0f0f" : "none",
+            }}
+          >
+            <div
+              style={{
+                fontSize: 28,
+                fontWeight: 800,
+                color: t.color,
+                fontVariantNumeric: "tabular-nums",
+                minWidth: 200,
+                letterSpacing: "0.02em",
+              }}
+            >
+              {t.time}
+            </div>
+            <div
+              style={{
+                fontSize: i === timeline.length - 1 ? 36 : 26,
+                fontWeight: i === timeline.length - 1 ? 900 : 400,
+                color: i === timeline.length - 1 ? "#FF3B30" : "#444",
+                fontStyle: i < timeline.length - 1 ? "italic" : "normal",
+              }}
+            >
+              {t.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          fontSize: 56,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 44,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        It&apos;s not a{" "}
+        <span style={{ color: "#777", textDecoration: "line-through", textDecorationColor: "#FF3B3066" }}>
+          discipline
+        </span>
+        <br />
+        problem.
+      </div>
+
+      <div
+        style={{
+          fontSize: 26,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 48,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Your body wasn&apos;t ready for sleep at 11.
+        <br />
+        <span style={{ color: "#bbb" }}>So you scrolled until it was.</span>
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Your Real Bedtime →" />
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  AD 10 — "Why do I feel most alive at 11PM when the day is over?"         */
+/*  The Wolf frustration. Peak energy at the wrong time. 4:5                */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function Ad10() {
+  return (
+    <div
+      style={{
+        width: 1080,
+        height: 1350,
+        background: "#000",
+        fontFamily: FF,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 88px",
+      }}
+    >
+      <Glow color="#CCFF00" size={800} x="60%" y="30%" opacity={0.1} />
+      <Glow color="#A855F7" size={500} x="30%" y="80%" opacity={0.1} />
+
+      <div
+        style={{
+          fontSize: 74,
+          fontWeight: 900,
+          color: "#fff",
+          lineHeight: 1.1,
+          letterSpacing: "-0.04em",
+          marginBottom: 52,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Why do I feel
+        <br />
+        most alive at
+        <br />
+        <span style={{ color: "#CCFF00" }}>11 PM</span>
+        <br />
+        <br />
+        when the day
+        <br />
+        is already <span style={{ color: "#999" }}>over?</span>
+      </div>
+
+      <div
+        style={{
+          width: 50,
+          height: 3,
+          background: "#CCFF00",
+          opacity: 0.3,
+          borderRadius: 2,
+          marginBottom: 44,
+        }}
+      />
+
+      <div
+        style={{
+          fontSize: 28,
+          color: "#999",
+          lineHeight: 1.6,
+          marginBottom: 24,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        Sluggish all morning.
+        <br />
+        Useless after lunch.
+        <br />
+        <span style={{ color: "#bbb" }}>
+          Finally sharp at{" "}
+          <span style={{ color: "#CCFF00", fontWeight: 600 }}>10 PM</span>.
+        </span>
+      </div>
+
+      <div
+        style={{
+          fontSize: 24,
+          color: "#888",
+          lineHeight: 1.6,
+          marginBottom: 56,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        You&apos;re not broken. Your peak time is just
+        <br />
+        different from what the world expects.
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Cta label="Find Your Peak Time →" />
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  CAPTIONS                                                                  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+const captions = [
+  {
+    id: "AD01",
+    hook: "Slept 8 hours. Still can't keep my eyes open at 11AM.",
+    body: `Sound familiar?
+
+You did everything right. Went to bed early. Got your 8 hours. Woke up to the alarm.
+
+And by mid-morning you're already done.
+
+Here's what nobody tells you: the TIMING of your sleep matters more than the length. Sleeping 8 hours at the wrong time for your body is worse than 6 at the right time.
+
+ARC figures out your personal rhythm and shows you when to actually sleep — for your biology, not a generic recommendation.
+
+Download free → arcapp.sbs`,
+    tags: "#TiredAllTheTime #SleepProblems #WhyAmISoTired #ARC #CircadianRhythm",
+  },
+  {
+    id: "AD02",
+    hook: "3PM. The exact moment your soul leaves your body every single day.",
+    body: `It's not the lunch. It's not because you didn't sleep enough. It's not laziness.
+
+Your body has a built-in energy crash every afternoon. The exact time depends on your biology.
+
+Some people crash at 1PM. Some at 3PM. Some barely crash at all.
+
+The difference? Their circadian rhythm.
+
+ARC maps your personal energy pattern so you can plan around it instead of fighting through it.
+
+Download free → arcapp.sbs`,
+    tags: "#AfternoonCrash #3PMSlump #TiredAtWork #ARC #EnergyLevels",
+  },
+  {
+    id: "AD03",
+    hook: "Go to bed exhausted. Lie there for 2 hours. Stare at the ceiling. Finally fall asleep at 1AM.",
+    body: `Then the alarm goes off at 6:30 and you want to die.
+
+This isn't insomnia. This is a timing mismatch.
+
+Your body has a "sleep window" — roughly 60–90 minutes where it's actually ready to fall asleep. Hit it and you're out in minutes. Miss it and you lie there for hours.
+
+Most people have no idea when their window opens. They just go to bed when the clock says they should.
+
+ARC tracks your personal sleep window and tells you when your body actually wants to sleep.
+
+arcapp.sbs`,
+    tags: "#CantSleep #Insomnia #SleepWindow #LyingAwake #ARC #SleepHelp",
+  },
+  {
+    id: "AD04",
+    hook: "4th coffee today. Still feel absolutely nothing.",
+    body: `At some point coffee stopped working. You kept drinking it anyway.
+
+Here's what's happening: you're drinking coffee when your cortisol is already high. So the caffeine does basically nothing. Then it stacks up and hits you at 10PM when you're trying to sleep.
+
+The fix isn't less coffee. It's better timing.
+
+There are 2–3 windows per day when caffeine actually works with your biology instead of against it. They're different for everyone.
+
+ARC calculates your personal coffee timing based on your rhythm.
+
+Try free → arcapp.sbs`,
+    tags: "#CoffeeTiming #CaffeineCrash #TiredButWired #ARC #SleepScience",
+  },
+  {
+    id: "AD05",
+    hook: "Sunday night. Already dreading the alarm. Every single week.",
+    body: `The Sunday scaries aren't just about work.
+
+They're about knowing you'll spend the next 5 days forcing your body to operate on someone else's schedule.
+
+Wake up at 6 when your body wants 8.
+Be "productive" at 9 when your brain doesn't turn on until 11.
+Crash at 2 when you should be peaking.
+Can't sleep at 10 because your body isn't tired yet.
+
+What if the schedule was the problem — not you?
+
+ARC finds when YOUR body actually wants to wake up, work, and sleep.
+
+arcapp.sbs · Free download`,
+    tags: "#SundayScaries #MondayDread #WakeUpTime #ARC #CircadianRhythm #Alarm",
+  },
+  {
+    id: "AD06",
+    hook: "Melatonin. Blue light glasses. Meditation. Magnesium. Weighted blanket. Still tired.",
+    body: `You've tried everything the internet told you to try.
+
+Nothing worked. Or it worked for a week and stopped.
+
+Here's why: all those "fixes" treat the symptoms. None of them address the actual problem — you're living on the wrong schedule for your biology.
+
+Your body has a built-in clock. When your daily routine doesn't match it, no supplement or gadget fixes the mismatch.
+
+ARC identifies your actual biological rhythm and shows you exactly how your current schedule is misaligned.
+
+Start free → arcapp.sbs`,
+    tags: "#TriedEverything #StillTired #SleepHelp #ARC #Melatonin #Insomnia",
+  },
+  {
+    id: "AD07",
+    hook: "12:47 AM. Everyone in the house is asleep. I'm reorganizing my entire Spotify.",
+    body: `Not tired. Not even close.
+
+Brain is sharp. Ideas are flowing. You feel more alive right now than you did all day.
+
+And tomorrow morning you'll hate yourself for it.
+
+Here's the thing — you're not doing anything wrong. Some people are wired to peak late. It's genetic. It's called being a Wolf chronotype.
+
+The problem is that the world doesn't run on your schedule. So every morning is a fight.
+
+ARC identifies your type and helps you build a life that works with your natural clock instead of against it.
+
+arcapp.sbs · Free download`,
+    tags: "#NightOwl #CantSleep #WideAwake #Wolf #ARC #Chronotype #LateNight",
+  },
+  {
+    id: "AD08",
+    hook: "Woke up 43 minutes before my alarm. Still feel like I got hit by a truck.",
+    body: `More sleep doesn't help. Less sleep doesn't help. Different mattress didn't help. Earlier bedtime didn't help.
+
+What if the problem was never the amount of sleep?
+
+Your body cycles through 90-minute sleep stages. If your alarm hits in the middle of deep sleep — even after 8 hours — you wake up feeling destroyed.
+
+The timing of when you fall asleep determines which stage you're in when you wake up.
+
+ARC calculates your ideal sleep and wake times based on your personal rhythm. Not generic advice. YOUR biology.
+
+arcapp.sbs`,
+    tags: "#WokeUpTired #MorningPerson #SleepCycles #ARC #AlwaysTired #SleepQuality",
+  },
+  {
+    id: "AD09",
+    hook: "11PM: 'just one more video.' 1:58AM: 'why am I still awake.' 6:30AM: dead.",
+    body: `Every night. Same spiral.
+
+You tell yourself 11PM. But at 11 you're not tired. So you scroll. One video becomes ten. One article becomes a rabbit hole.
+
+By 2AM you finally feel sleepy. By 6:30AM the alarm destroys you.
+
+Everyone calls this a phone addiction or a discipline problem. It's not.
+
+Your body literally wasn't ready to sleep at 11. You weren't scrolling because you're weak — you were scrolling because your biology hadn't sent the sleep signal yet.
+
+What if you knew the exact time your body is actually ready? So you could stop forcing a bedtime that doesn't work?
+
+ARC tracks your personal sleep window and tells you when to wind down — for real.
+
+arcapp.sbs`,
+    tags: "#LateNightScrolling #CantSleep #ScreenTime #Bedtime #ARC #SleepWindow",
+  },
+  {
+    id: "AD10",
+    hook: "Why am I sharpest at 11PM when the day is already over?",
+    body: `Sluggish all morning. Useless after lunch. Brain fog until 4PM.
+
+Then suddenly at 10PM... clarity. Ideas. Energy. Focus.
+
+The world's most productive hours — wasted because everyone else is asleep and the workday ended 5 hours ago.
+
+This is what it feels like to be a late chronotype living in an early-bird world.
+
+You're not lazy. You're not unmotivated. Your peak just hits at a different time.
+
+ARC identifies your peak time and helps you restructure around it — so your best hours aren't wasted.
+
+arcapp.sbs · Free download`,
+    tags: "#NightOwl #PeakTime #LateChronotype #ARC #Productivity #CircadianRhythm",
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  PAGE                                                                      */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 export default function AdsPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <div className="border-b border-white/5 px-8 py-5 flex items-center justify-between">
-        <div>
-          <h1 className="text-lg font-black tracking-tighter">
-            ARC<span className="text-[#CCFF00]">.</span> Ad Creatives
-          </h1>
-          <p className="text-xs text-zinc-500 mt-0.5">
-            Scroll → Click Download PNG → Post to Meta / Instagram / X
-          </p>
-        </div>
-        <div className="flex items-center gap-3 text-xs text-zinc-600">
-          <span className="bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-lg">
-            2x Resolution
-          </span>
+      <div className="px-10 pt-16 pb-10 border-b border-white/5">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <span className="text-xs font-black tracking-widest text-[#CCFF00] uppercase block mb-3">
+              ARC — Creative Studio
+            </span>
+            <h1 className="text-4xl font-black tracking-tight text-white">
+              Ad Creatives
+            </h1>
+            <p className="text-zinc-500 text-sm mt-2">
+              10 social ads · Mirror their pain · Download 2x PNG
+            </p>
+          </div>
+          <div className="text-right shrink-0">
+            <div className="text-[10px] font-bold tracking-widest text-zinc-700 uppercase">
+              Strategy
+            </div>
+            <div className="text-xs text-zinc-500 mt-1">
+              Their moment → Their feeling → A way out
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="py-10 space-y-12">
-        {/* 1:1 */}
-        <section>
-          <div className="flex items-center gap-4 mb-5 px-8">
-            <h2 className="text-sm font-black tracking-widest uppercase text-zinc-400">
-              1:1 Feed Posts
-            </h2>
-            <div className="flex-1 h-px bg-zinc-800" />
-            <span className="text-[10px] text-zinc-600 tracking-wider">
-              ← SCROLL →
-            </span>
-          </div>
-          <div className="overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            <div className="flex gap-8 px-8 w-max snap-x snap-mandatory pb-2">
-              <Ad01 />
-              <Ad02 />
-              <Ad03 />
-              <Ad04 />
-              <Ad05 />
-              <Ad06_text />
-              <Ad07_proof />
-            </div>
-          </div>
-        </section>
+      {/* Ad carousel */}
+      <div className="overflow-x-auto scrollbar-none py-12 px-10">
+        <div className="flex gap-12 w-max snap-x snap-mandatory">
+          <AdFrame id="01" label="Exhaustion · 1:1" w={1080} h={1080}>
+            <Ad01 />
+          </AdFrame>
+          <AdFrame id="02" label="Crash · 1:1" w={1080} h={1080}>
+            <Ad02 />
+          </AdFrame>
+          <AdFrame id="03" label="Can't Sleep · 4:5" w={1080} h={1350}>
+            <Ad03 />
+          </AdFrame>
+          <AdFrame id="04" label="Caffeine · 1:1" w={1080} h={1080}>
+            <Ad04 />
+          </AdFrame>
+          <AdFrame id="05" label="Alarm Dread · 4:5" w={1080} h={1350}>
+            <Ad05 />
+          </AdFrame>
+          <AdFrame id="06" label="Tried Everything · 1:1" w={1080} h={1080}>
+            <Ad06 />
+          </AdFrame>
+          <AdFrame id="07" label="Night Owl · 1:1" w={1080} h={1080}>
+            <Ad07 />
+          </AdFrame>
+          <AdFrame id="08" label="Broken Rest · 4:5" w={1080} h={1350}>
+            <Ad08 />
+          </AdFrame>
+          <AdFrame id="09" label="Scroll Spiral · 1:1" w={1080} h={1080}>
+            <Ad09 />
+          </AdFrame>
+          <AdFrame id="10" label="Wrong Peak · 4:5" w={1080} h={1350}>
+            <Ad10 />
+          </AdFrame>
+        </div>
+      </div>
 
-        {/* 4:5 */}
-        <section>
-          <div className="flex items-center gap-4 mb-5 px-8">
-            <h2 className="text-sm font-black tracking-widest uppercase text-zinc-400">
-              4:5 Portrait Posts
-            </h2>
-            <div className="flex-1 h-px bg-zinc-800" />
-            <span className="text-[10px] text-zinc-600 tracking-wider">
-              ← SCROLL →
-            </span>
-          </div>
-          <div className="overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            <div className="flex gap-8 px-8 w-max snap-x snap-mandatory pb-2">
-              <Ad08_sleep />
-              <Ad09_adhd />
-              <Ad10_caffeine />
-            </div>
-          </div>
-        </section>
-
-        {/* Caption Copy Bank */}
-        <section className="px-8 max-w-5xl mx-auto">
-          <div className="flex items-center gap-4 mb-5">
-            <h2 className="text-sm font-black tracking-widest uppercase text-zinc-400">
-              Caption Copy
-            </h2>
-            <div className="flex-1 h-px bg-zinc-800" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              {
-                ad: "hero-phone",
-                angle: "Brand · Hero",
-                copy: "Stop fighting your body. Start working with it.\n\nARC is a circadian rhythm tracker that maps your Perfect Day using chronobiology.\n\n🧬 22-point chronotype diagnosis\n☕ Live caffeine decay tracking\n☀️ Morning sunlight timer\n🔔 Smart bio-notifications timed to YOUR schedule\n🔒 100% local — your data never leaves your phone\n\nYour energy has a schedule. ARC just shows it to you.\n\nFree on the App Store → arcapp.sbs",
-              },
-              {
-                ad: "chronotype-quiz",
-                angle: "Quiz · Chronotype",
-                copy: "There are 4 chronotypes: 🦁 Lion · 🐻 Bear · 🐺 Wolf · 🐬 Dolphin\n\nYours determines:\n→ When your brain peaks\n→ When to have your first coffee\n→ When you should do deep work\n→ When your body actually wants to sleep\n\nMost people have NO idea which one they are.\n\nARC identifies yours through a 22-point precision diagnosis, then builds your perfect day around it.\n\nWhich one are you? Find out in 3 min → arcapp.sbs",
-              },
-              {
-                ad: "caffeine-split",
-                angle: "Shock · Caffeine Split",
-                copy: "Your 3 PM espresso is still 25% active at midnight. ☕→😵\n\nCaffeine has a 5-hour half-life. That means:\n• 3:00 PM — 95 mg (you feel great)\n• 8:00 PM — 47 mg (still wired)\n• 12:00 AM — 24 mg (disrupting your deep sleep)\n\nMost people have no idea they're sabotaging tonight's sleep with an afternoon cup.\n\nARC shows your live caffeine mg level, real-time decay curve, and the exact \"sleep-safe\" minute.\n\nStop guessing. Start tracking → arcapp.sbs",
-              },
-              {
-                ad: "sunlight",
-                angle: "Feature · Sunlight",
-                copy: "10 minutes of morning sunlight before 10 AM is the single most powerful thing you can do for your energy.\n\nHere's why:\n→ Triggers a cortisol spike that wakes your brain up properly\n→ Sets a melatonin timer 14–16 hours later (hello, perfect bedtime)\n→ Clears leftover adenosine from the night\n\nSkip it and your sleep tonight suffers. Do it consistently and everything changes.\n\nARC tracks your morning sunlight with a live timer. Built on Stanford sleep science.\n\nAnchor your rhythm → arcapp.sbs",
-              },
-              {
-                ad: "notifications",
-                angle: "Demo · Notifications",
-                copy: "This is what ARC sends you throughout the day:\n\n☀️ 7:12 AM — \"Good morning, Bear. Get outside. 10 min of light anchors your whole day.\"\n\n☕ 8:42 AM — \"Coffee time. Adenosine cleared. Your brew will hit clean now.\"\n\n🚫 2:30 PM — \"Caffeine wall — stop now. Every cup from here costs 15 min of deep sleep.\"\n\n🌙 9:45 PM — \"Start winding down. Melatonin is rising. Dim lights.\"\n\nNot generic reminders. Every nudge is timed to YOUR chronotype and YOUR biology.\n\nGet your personalized nudges → arcapp.sbs",
-              },
-              {
-                ad: "curiosity-text",
-                angle: "Curiosity · Statement",
-                copy: "What if your body already knows the perfect schedule?\n\nWhen to focus. When to rest. When to drink coffee. When to wind down.\n\nIt does. It's called your chronotype — and it's been running in the background your entire life.\n\nARC uses a 22-point diagnosis to map yours and build a live 24-hour protocol around it.\n\nNo hardware. No guesswork. Just your biology, decoded.\n\nDiscover yours → arcapp.sbs",
-              },
-              {
-                ad: "social-proof",
-                angle: "Social Proof · Stat",
-                copy: "201+ people have synced their schedule with their biology using ARC.\n\n⭐⭐⭐⭐⭐ \"Finally understand why I crash at 2 PM. The caffeine tracker alone is worth it.\"\n\nARC is a circadian rhythm tracker that doesn't just track your sleep — it tells you how to structure your entire day.\n\n→ 22-point chronotype diagnosis\n→ Live caffeine decay curve\n→ Morning sunlight timer\n→ Smart notifications timed to your biology\n\nJoin them. Free on the App Store → arcapp.sbs",
-              },
-              {
-                ad: "8hrs-exhausted",
-                angle: "Pain · Sleep Timing",
-                copy: "8 hours of sleep. Still exhausted.\n\nSound familiar?\n\nHere's the thing nobody tells you: it was never about how LONG you sleep. It's about WHEN.\n\nYour body has a natural rhythm — when it wants to sleep, wake, focus, and rest. Fight that rhythm and no amount of hours will fix the fatigue.\n\nARC maps your rhythm with a 22-point chronotype diagnosis and builds a daily protocol to fix your timing — not just your duration.\n\nFix your timing → arcapp.sbs",
-              },
-              {
-                ad: "adhd-protocol",
-                angle: "ADHD · Protocol",
-                copy: "If you have ADHD, another to-do list isn't the answer.\n\nYour brain doesn't respond to open-ended tasks. It needs timed, visual, biology-aligned structure.\n\nARC builds a live 24-hour protocol based on your chronotype:\n☀️ 7:30 — Sunlight Anchoring (live timer)\n⚡ 9:00 — Peak Focus Window (2h block)\n☕ 9:15 — First Coffee (adenosine clear)\n🚶 12:30 — Movement Break (15 min)\n🌙 9:30 — Wind Down (start)\n\nEvery block is timed to YOUR biology. Not a generic schedule. Not someone else's routine. Yours.\n\nGet your protocol → arcapp.sbs",
-              },
-              {
-                ad: "caffeine-hero",
-                angle: "Feature · Caffeine Tracker",
-                copy: "This is ARC's flagship feature: the live caffeine tracker.\n\nEvery time you drink coffee, log it. ARC shows you:\n→ Your active caffeine in mg — right now\n→ A real-time decay curve based on 5-hour half-life\n→ The exact minute it's \"sleep-safe\"\n→ Your personal caffeine wall — the last safe cup\n\nMost people drink coffee on autopilot and wonder why they can't sleep. ARC makes the invisible visible.\n\nTrack your caffeine → arcapp.sbs",
-              },
-            ].map((c) => (
-              <div
-                key={c.ad}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 space-y-2"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#CCFF00]">
-                    {c.angle}
-                  </span>
-                  <span className="text-[9px] font-mono text-zinc-700">{c.ad}</span>
-                </div>
-                <p className="text-zinc-400 text-xs leading-relaxed whitespace-pre-line">
-                  {c.copy}
-                </p>
+      {/* Caption bank */}
+      <div className="px-10 pb-24">
+        <div className="border-t border-white/5 pt-12 mb-8">
+          <h2 className="text-xl font-black tracking-tight text-white">
+            Caption Bank
+          </h2>
+          <p className="text-zinc-600 text-sm mt-1">
+            Copy-ready for Instagram, TikTok, Twitter/X, LinkedIn
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {captions.map((c) => (
+            <div
+              key={c.id}
+              className="bg-[#080808] border border-white/5 rounded-2xl p-6"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[10px] font-black tracking-widest text-[#CCFF00] bg-[#CCFF00]/10 px-3 py-1 rounded-full">
+                  {c.id}
+                </span>
               </div>
-            ))}
-          </div>
-        </section>
+              <p className="text-white font-bold text-sm mb-3 leading-relaxed">
+                {c.hook}
+              </p>
+              <pre className="text-zinc-500 text-xs leading-relaxed whitespace-pre-wrap font-sans mb-4">
+                {c.body}
+              </pre>
+              <p className="text-zinc-700 text-xs">{c.tags}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

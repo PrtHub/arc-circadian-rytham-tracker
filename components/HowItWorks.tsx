@@ -12,14 +12,14 @@ export function HowItWorks() {
         {/* Steps */}
         <div>
           <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-            The Process
+            Takes 3 Minutes
           </p>
           <h2
             id="hiw-heading"
             className="text-4xl sm:text-5xl font-black tracking-tighter mb-12"
           >
-            Three steps to your<br />
-            <span className="text-[#CCFF00]">Perfect Day.</span>
+            Find out what&apos;s<br />
+            <span className="text-[#CCFF00]">actually wrong.</span>
           </h2>
 
           <ol className="relative space-y-10" aria-label="How ARC works">

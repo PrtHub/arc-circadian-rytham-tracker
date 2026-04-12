@@ -21,19 +21,23 @@ export function Hero() {
         <div className="flex flex-col items-start gap-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/30 bg-[#CCFF00]/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-[#CCFF00] uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] animate-pulse" />
-            iOS App · Science-Backed
+            Tired of being tired?
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter">
-            Stop Fighting
+            It&apos;s not you.
             <br />
-            Your <span className="text-[#CCFF00]">Biology</span>
+            It&apos;s your <span className="text-[#CCFF00]">timing.</span>
           </h1>
 
           <p className="text-lg text-zinc-400 leading-relaxed max-w-md">
-            ARC maps your <strong className="text-white">Perfect Day</strong>{" "}
-            using chronobiology. Discover your chronotype, find your Peak Focus
-            Windows, and unlock performance that lasts.
+            Exhausted after 8 hours? Crashing every afternoon? Wide awake at
+            midnight?{" "}
+            <strong className="text-white">
+              Your body runs on its own clock
+            </strong>{" "}
+            — and you&apos;ve been ignoring it. ARC shows you your real schedule
+            so you can finally work with it.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -61,11 +65,11 @@ export function Hero() {
           {/* Trust signals */}
           <div className="flex items-center gap-6 text-sm text-zinc-500 pt-2">
             <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">201+</span> downloads
+              <span className="text-[#CCFF00] font-bold">250+</span> downloads
             </span>
             <span className="w-px h-4 bg-zinc-800" />
             <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">Annual</span> free trial
+              <span className="text-[#CCFF00] font-bold">Science</span>-backed
             </span>
             <span className="w-px h-4 bg-zinc-800" />
             <span className="flex items-center gap-1.5">

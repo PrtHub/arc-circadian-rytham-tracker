@@ -3,7 +3,7 @@ const stats = [
   { value: "22-pt", label: "Precision Diagnosis" },
   { value: "4", label: "Chronotypes Mapped" },
   { value: "Local-First", label: "SQLite · Zero Cloud" },
-  { value: "3-Day", label: "Free Trial" },
+  { value: "100%", label: "On-Device Privacy" },
 ];
 
 export function SocialProof() {

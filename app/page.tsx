@@ -20,7 +20,7 @@ import { jsonLdApp, jsonLdFaq, jsonLdOrganization, jsonLdWebPage } from "@/compo
 export const metadata: Metadata = {
   title: "ARC: Circadian Rhythm Tracker — Sync Your Biology, Peak Every Day",
   description:
-    "Stop fighting your biology. ARC maps your Perfect Day using chronobiology. Discover your chronotype (Lion, Bear, Wolf, or Dolphin), find Peak Focus Windows, optimize caffeine cutoff, and anchor your sleep-wake cycle. Science-backed, privacy-first iOS app.",
+    "Exhausted after 8 hours? Crashing every afternoon? Your body runs on its own clock. ARC shows you your real schedule — when to sleep, focus, drink coffee, and wind down. Based on your chronotype (Lion, Bear, Wolf, or Dolphin). Science-backed, privacy-first iOS app.",
   keywords:
     "circadian rhythm tracker, chronotype test, chronotype quiz, sleep optimization, peak focus windows, caffeine timing, biohacking app, iOS health app, chronobiology, circadian rhythm app, lion chronotype, bear chronotype, wolf chronotype, dolphin chronotype, sleep science, cortisol rhythm, melatonin optimization",
   openGraph: {

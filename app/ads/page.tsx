@@ -1,7 +1,22 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import html2canvas from "html2canvas-pro";
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  GOOGLE FONTS — loaded at runtime for html2canvas compatibility           */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+function useFonts() {
+  useEffect(() => {
+    if (document.getElementById("ad-fonts")) return;
+    const link = document.createElement("link");
+    link.id = "ad-fonts";
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap";
+    document.head.appendChild(link);
+  }, []);
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /*  DOWNLOAD — clone element to body at full size, capture, remove           */
@@ -125,8 +140,10 @@ function AdFrame({
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /*  SHARED                                                                    */
 /* ═══════════════════════════════════════════════════════════════════════════ */
-const FF =
-  "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+/* Font stack — 3 voices for different ad moods */
+const FF = "'Inter', system-ui, -apple-system, sans-serif";
+
+const FF_MONO = "'Space Mono', 'Courier New', monospace";
 
 function Glow({
   color,
@@ -206,11 +223,12 @@ function Ad01() {
 
       <div
         style={{
+          fontFamily: FF,
           fontSize: 78,
-          fontWeight: 900,
+          fontWeight: 700,
           color: "#fff",
-          lineHeight: 1.08,
-          letterSpacing: "-0.04em",
+          lineHeight: 1.12,
+          letterSpacing: "-0.02em",
           marginBottom: 48,
           position: "relative",
           zIndex: 1,
@@ -298,11 +316,12 @@ function Ad02() {
 
       <div
         style={{
-          fontSize: 52,
-          fontWeight: 900,
+          fontFamily: FF,
+          fontSize: 50,
+          fontWeight: 400,
           color: "#fff",
-          lineHeight: 1.15,
-          letterSpacing: "-0.03em",
+          lineHeight: 1.2,
+          letterSpacing: "-0.01em",
           maxWidth: 800,
           marginBottom: 48,
           position: "relative",
@@ -385,10 +404,11 @@ function Ad03() {
 
       <div
         style={{
-          fontSize: 42,
-          fontWeight: 300,
+          fontFamily: FF_MONO,
+          fontSize: 40,
+          fontWeight: 400,
           color: "#3B82F6",
-          letterSpacing: "0.12em",
+          letterSpacing: "0.08em",
           marginBottom: 56,
           fontVariantNumeric: "tabular-nums",
           position: "relative",
@@ -400,11 +420,12 @@ function Ad03() {
 
       <div
         style={{
-          fontSize: 72,
-          fontWeight: 900,
+          fontFamily: FF,
+          fontSize: 70,
+          fontWeight: 700,
           color: "#fff",
-          lineHeight: 1.1,
-          letterSpacing: "-0.04em",
+          lineHeight: 1.12,
+          letterSpacing: "-0.02em",
           marginBottom: 48,
           position: "relative",
           zIndex: 1,
@@ -586,10 +607,11 @@ function Ad05() {
 
       <div
         style={{
+          fontFamily: FF_MONO,
           fontSize: 20,
-          fontWeight: 600,
+          fontWeight: 400,
           color: "#777",
-          letterSpacing: "0.1em",
+          letterSpacing: "0.06em",
           marginBottom: 44,
           position: "relative",
           zIndex: 1,
@@ -751,11 +773,12 @@ function Ad06() {
 
       <div
         style={{
+          fontFamily: FF,
           fontSize: 72,
-          fontWeight: 900,
+          fontWeight: 700,
           color: "#fff",
-          lineHeight: 1.1,
-          letterSpacing: "-0.04em",
+          lineHeight: 1.12,
+          letterSpacing: "-0.02em",
           marginBottom: 44,
           position: "relative",
           zIndex: 1,
@@ -849,10 +872,11 @@ function Ad07() {
 
       <div
         style={{
-          fontSize: 44,
-          fontWeight: 300,
+          fontFamily: FF_MONO,
+          fontSize: 40,
+          fontWeight: 400,
           color: "#3B82F6",
-          letterSpacing: "0.12em",
+          letterSpacing: "0.08em",
           marginBottom: 52,
           fontVariantNumeric: "tabular-nums",
           position: "relative",
@@ -864,11 +888,12 @@ function Ad07() {
 
       <div
         style={{
-          fontSize: 76,
-          fontWeight: 900,
+          fontFamily: FF,
+          fontSize: 74,
+          fontWeight: 700,
           color: "#fff",
-          lineHeight: 1.1,
-          letterSpacing: "-0.04em",
+          lineHeight: 1.12,
+          letterSpacing: "-0.02em",
           marginBottom: 52,
           position: "relative",
           zIndex: 1,
@@ -959,11 +984,12 @@ function Ad08() {
         <div>
           <div
             style={{
-              fontSize: 48,
-              fontWeight: 300,
+              fontFamily: FF_MONO,
+              fontSize: 46,
+              fontWeight: 700,
               color: "#fff",
               fontVariantNumeric: "tabular-nums",
-              letterSpacing: "0.05em",
+              letterSpacing: "0.04em",
             }}
           >
             5:47 AM
@@ -1457,6 +1483,7 @@ arcapp.sbs · Free download`,
 /*  PAGE                                                                      */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 export default function AdsPage() {
+  useFonts();
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}

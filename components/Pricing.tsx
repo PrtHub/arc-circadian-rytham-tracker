@@ -1,6 +1,20 @@
+"use client";
+
 import { plans, APP_STORE_URL } from "@/components/arc-data";
+import mixpanel from "mixpanel-browser";
 
 export function Pricing() {
+  const handlePlanClick = (planName: string) => {
+    try {
+      mixpanel.track("App Store Button Clicked", {
+        location: "pricing_tier",
+        plan: planName,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <section
       id="pricing"
@@ -71,6 +85,7 @@ export function Pricing() {
 
               <a
                 href={APP_STORE_URL}
+                onClick={() => handlePlanClick(plan.name)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Get ARC ${plan.name} plan`}

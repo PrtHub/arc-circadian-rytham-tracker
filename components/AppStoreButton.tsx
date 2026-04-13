@@ -1,14 +1,30 @@
+"use client";
+
 import { APP_STORE_URL } from "@/components/arc-data";
+import mixpanel from "mixpanel-browser";
 
 interface AppStoreButtonProps {
   size?: "default" | "lg";
+  location?: string;
 }
 
-export function AppStoreButton({ size = "default" }: AppStoreButtonProps) {
+export function AppStoreButton({ size = "default", location = "unknown" }: AppStoreButtonProps) {
   const isLarge = size === "lg";
+  
+  const handleClick = () => {
+    try {
+      mixpanel.track("App Store Button Clicked", {
+        location: location,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <a
       href={APP_STORE_URL}
+      onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Download ARC on the App Store"

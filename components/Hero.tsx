@@ -41,7 +41,7 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <AppStoreButton size="lg" />
+            <AppStoreButton size="lg" location="hero" />
             <a
               href="#how-it-works"
               className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 px-8 py-4 text-sm font-semibold text-zinc-300 hover:bg-white/5 hover:text-white transition-all"

@@ -45,7 +45,7 @@ export function Nav() {
           </Link>
         </div>
 
-        <AppStoreButton />
+        <AppStoreButton location="navbar" />
       </nav>
     </header>
   );

@@ -35,7 +35,7 @@ export function FinalCta() {
           all along.
         </p>
 
-        <AppStoreButton size="lg" />
+        <AppStoreButton size="lg" location="final_cta" />
 
         <p className="text-zinc-600 text-xs">
           Free to download · Cancel anytime · No commitment

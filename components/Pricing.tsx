@@ -40,7 +40,7 @@ export function Pricing() {
         </div>
 
         <ul
-          className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
+          className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto"
           aria-label="Pricing plans"
         >
           {plans.map((plan) => (

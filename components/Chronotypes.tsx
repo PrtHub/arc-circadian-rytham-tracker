@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { chronotypes } from "@/components/arc-data";
 
 export function Chronotypes() {
@@ -34,20 +35,25 @@ export function Chronotypes() {
           {chronotypes.map((c) => (
             <li
               key={c.name}
-              className="rounded-2xl border border-white/5 bg-[#111] p-6 hover:border-[#CCFF00]/30 transition-all hover:-translate-y-0.5 group"
+              className="rounded-2xl border border-white/5 bg-[#111] hover:border-[#CCFF00]/30 transition-all hover:-translate-y-0.5 group flex flex-col"
             >
-              <div className="text-5xl mb-5" aria-hidden="true">
-                {c.icon}
-              </div>
-              <div className="flex items-baseline gap-2 mb-1">
-                <h3 className="font-black text-xl text-white group-hover:text-[#CCFF00] transition-colors">
-                  {c.name}
-                </h3>
-                <span className="text-xs font-semibold tracking-wider text-[#CCFF00]/60 uppercase">
-                  {c.tagline}
-                </span>
-              </div>
-              <p className="text-sm text-zinc-500 leading-relaxed">{c.desc}</p>
+              <Link href={`/chronotype/${c.name.toLowerCase()}`} className="p-6 flex-1 flex flex-col">
+                <div className="text-5xl mb-5" aria-hidden="true">
+                  {c.icon}
+                </div>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <h3 className="font-black text-xl text-white group-hover:text-[#CCFF00] transition-colors">
+                    {c.name}
+                  </h3>
+                  <span className="text-xs font-semibold tracking-wider text-[#CCFF00]/60 uppercase">
+                    {c.tagline}
+                  </span>
+                </div>
+                <p className="text-sm text-zinc-500 leading-relaxed mb-4 flex-1">{c.desc}</p>
+                <div className="text-[#CCFF00] text-xs font-bold uppercase tracking-wider group-hover:underline mt-auto">
+                  Read full guide →
+                </div>
+              </Link>
             </li>
           ))}
         </ul>

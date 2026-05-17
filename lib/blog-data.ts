@@ -30,17 +30,17 @@ Most popular apps fall into the sleep tracker camp. Very few are actually built 
 
 ### 1. ARC: Circadian Rhythm Tracker — Best Overall
 
-ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 22-point onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
+ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 35-step onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
 
 Key features: Caffeine half-life tracker, live sunlight timer, Morning Sleep Check-in with recovery mode, Contextual Intel briefings, and chronotype-aware notifications.
 
-Platform: iOS only. Free tier available. Annual plan: $34.99/year.
+Platform: iOS only. Free tier available. Annual plan: $29.99/year.
 
 ### 2. Rise Science — Best for Energy Prediction
 
 Rise is the most well-funded pure circadian app. It uses a proprietary algorithm to predict your energy levels throughout the day and identify your "peak" and "dip" windows. The UX is polished and the Energy Schedule feature is genuinely useful.
 
-Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 22-point diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
+Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 35-step diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
 
 Price: $69.99/year (significantly more expensive than ARC).
 
@@ -94,7 +94,7 @@ ARC is the only app that answers the question your body is actually asking: *Wha
     content: `
 # Oura Ring vs ARC: Hardware vs. Software Circadian Tracking
 
-The Oura Ring is beautiful, expensive, and packed with sensors. ARC is an iPhone app with a 22-point chronotype diagnosis, live caffeine tracking, and zero hardware required. Which one actually moves the needle on your daily energy and performance?
+The Oura Ring is beautiful, expensive, and packed with sensors. ARC is an iPhone app with a 35-step chronotype diagnosis, live caffeine tracking, and zero hardware required. Which one actually moves the needle on your daily energy and performance?
 
 ### What Oura Does Well
 
@@ -114,7 +114,7 @@ Oura also requires you to pay $299–$449 for the ring plus $5.99/month for the 
 
 ARC does not measure your HRV. But it does something arguably more valuable: it tells you exactly what to do with your biology today.
 
-The 22-point precision diagnosis identifies your chronotype and builds a live Daily Trajectory — a 24-hour protocol with your specific Peak Focus Window, optimal first-coffee timing, sunlight anchoring target (with a live timer), and wind-down sequence. The caffeine tracker shows your active mg in real time with a sleep-safe prediction that updates every time you log a drink.
+The 35-step precision diagnosis identifies your chronotype and builds a live Daily Trajectory — a 24-hour protocol with your specific Peak Focus Window, optimal first-coffee timing, sunlight anchoring target (with a live timer), and wind-down sequence. The caffeine tracker shows your active mg in real time with a sleep-safe prediction that updates every time you log a drink.
 
 ARC's Morning Sleep Check-in captures sleep quality each morning and adjusts today's protocol. A poor night triggers recovery mode: delay caffeine 90 minutes, get sunlight earlier, avoid intense cognitive work until your second focus window.
 
@@ -132,7 +132,7 @@ If you are a biohacker who wants objective biological data and has $400 to spare
 
 The best answer for serious performers: use both. Let Oura track your HRV and readiness. Let ARC tell you what to do about it.
 
-For everyone else, ARC at $34.99/year delivers more actionable circadian guidance than any hardware on the market.
+For everyone else, ARC at $29.99/year delivers more actionable circadian guidance than any hardware on the market.
     `,
   },
   {
@@ -168,7 +168,7 @@ For knowledge workers — founders, engineers, writers, researchers — cognitiv
 
 ARC is built around chronobiology: the science of how your biology's internal clock (not your physical strain) affects your cognition, focus, creativity, and energy throughout the day.
 
-The 22-point diagnosis maps your sleep profile, energy patterns, caffeine habits, and lifestyle context to identify your chronotype and generate a personalized daily protocol. The focus is entirely on when to think, create, rest, caffeinate, and sleep — not on how hard you worked out.
+The 35-step diagnosis maps your sleep profile, energy patterns, caffeine habits, and lifestyle context to identify your chronotype and generate a personalized daily protocol. The focus is entirely on when to think, create, rest, caffeinate, and sleep — not on how hard you worked out.
 
 ARC's live caffeine decay tracker is a feature WHOOP has no equivalent of. Knowing that your 3:30 PM espresso still has 25% of its caffeine active at midnight is the kind of insight that changes behaviour immediately.
 
@@ -208,13 +208,13 @@ The Energy Schedule visualization is genuinely well-designed. It gives you a bir
 
 ### How ARC Works
 
-ARC's approach starts with a 22-point precision diagnosis that collects your sleep profile, energy map, caffeine habits, and lifestyle context from scratch — rather than relying on historical Apple Health data. This gives ARC an accurate chronotype identification even for new users who have not been tracking sleep for months.
+ARC's approach starts with a 35-step precision diagnosis that collects your sleep profile, energy map, caffeine habits, and lifestyle context from scratch — rather than relying on historical Apple Health data. This gives ARC an accurate chronotype identification even for new users who have not been tracking sleep for months.
 
 From the diagnosis, ARC generates a live Daily Trajectory: a 24-hour protocol that tells you your Peak Focus Window, when to get sunlight, when to have your first coffee, and when to start winding down. The trajectory adapts daily based on your Morning Sleep Check-in.
 
 ### Key Differences
 
-Onboarding: Rise requires existing sleep data. ARC builds your profile from a structured 22-point questionnaire — no historical data needed, accurate from day one.
+Onboarding: Rise requires existing sleep data. ARC builds your profile from a structured 35-step questionnaire — no historical data needed, accurate from day one.
 
 Caffeine tracking: ARC has a live caffeine decay tracker with mg-level monitoring and a sleep-safe prediction. Rise has no caffeine feature.
 
@@ -226,7 +226,7 @@ Smart notifications: ARC sends chronotype-aware notifications at biologically co
 
 Privacy: ARC is local-first with SQLite on-device storage. Rise uses cloud sync.
 
-Price: Rise costs $69.99/year. ARC costs $34.99/year — half the price.
+Price: Rise costs $69.99/year. ARC costs $29.99/year — half the price.
 
 ### Where Rise Wins
 
@@ -318,9 +318,9 @@ If you bought Oura for the second set of questions, you need a different tool.
 
 ### Alternative 1: ARC Circadian Rhythm Tracker (Best Overall)
 
-ARC is the most direct alternative to Oura's circadian features — without any hardware. The 22-point chronotype diagnosis gives you a deeper understanding of your biology than Oura's onboarding. The Daily Trajectory prescribes your entire day. The caffeine tracker (Oura has no equivalent) gives you a live decay curve and sleep-safe prediction.
+ARC is the most direct alternative to Oura's circadian features — without any hardware. The 35-step chronotype diagnosis gives you a deeper understanding of your biology than Oura's onboarding. The Daily Trajectory prescribes your entire day. The caffeine tracker (Oura has no equivalent) gives you a live decay curve and sleep-safe prediction.
 
-Cost: $34.99/year. No hardware. Works on any iPhone.
+Cost: $29.99/year. No hardware. Works on any iPhone.
 
 ARC is not a biometric recorder — it is a circadian operating system. For knowledge workers focused on cognitive performance rather than athletic recovery, ARC is more actionable than Oura.
 
@@ -384,7 +384,7 @@ Huberman describes a predictable 3-phase cognitive pattern across the day: a mor
 
 For Lion chronotypes, this window is typically 8–11 AM. For Bears, it is 9 AM–12 PM. For Wolves, it shifts to the afternoon or early evening.
 
-ARC's Daily Trajectory maps your Peak Focus Window based on your 22-point chronotype diagnosis and schedules it prominently in your day.
+ARC's Daily Trajectory maps your Peak Focus Window based on your 35-step chronotype diagnosis and schedules it prominently in your day.
 
 ### Protocol 4: Caffeine Cutoff Based on Half-Life
 
@@ -420,7 +420,7 @@ You do not need to remember five separate rules. You need one app that handles t
 
 AutoSleep by Tantsissa is one of the most respected apps in the Apple Watch ecosystem. It tracks sleep stages, calculates a readiness score, and gives you a detailed breakdown of your night's recovery. For $5.99 one-time, it is arguably the best value in health tech.
 
-ARC: Circadian Rhythm Tracker is an iPhone app with no hardware requirement. It identifies your chronotype through a 22-point diagnosis, builds a live daily protocol, and tracks your caffeine and sunlight with precision that no wearable can replicate.
+ARC: Circadian Rhythm Tracker is an iPhone app with no hardware requirement. It identifies your chronotype through a 35-step diagnosis, builds a live daily protocol, and tracks your caffeine and sunlight with precision that no wearable can replicate.
 
 These two apps do not compete. They complete each other.
 
@@ -1177,4 +1177,164 @@ If you want to shift your sleep schedule, you use light exposure relative to you
 Understanding your specific Tmin is the ultimate key to hacking jetlag or adjusting to a new work schedule without feeling miserable.
     `,
   },
+  {
+    slug: "huberman-morning-routine-app",
+    title: "The Huberman Morning Routine: How to Automate It with ARC",
+    excerpt:
+      "Andrew Huberman popularized the science of morning sunlight and delayed caffeine. Here is how to actually execute the protocol every day without fail.",
+    date: "2026-05-18",
+    category: "Science",
+    readTime: "9 min",
+    content: `
+# Automating the Huberman Protocol
+
+If you listen to the Huberman Lab podcast, you already know the two non-negotiable rules for biological optimization: get sunlight in your eyes within 30-60 minutes of waking, and delay your first coffee by 90-120 minutes. 
+
+Understanding the science is easy. Executing it consistently in the real world is where people fail. That's why we built ARC.
+
+### Why You Need to Delay Caffeine
+When you wake up, your brain still has lingering adenosine (the molecule that makes you feel sleepy). If you drink coffee immediately, the caffeine blocks the adenosine receptors but doesn't clear the molecule. When the caffeine wears off in the afternoon, the built-up adenosine floods your receptors, causing a massive crash.
+
+By delaying caffeine for 90-120 minutes, you allow your natural cortisol spike to clear out the morning adenosine. This results in smooth, crash-free energy all day. 
+
+### Why You Need Morning Sunlight
+Morning sunlight viewing sets your circadian clock. It triggers a healthy cortisol pulse, which not only gives you morning energy but also sets a biological timer. Exactly 12-14 hours after your morning sunlight exposure, your pineal gland will start releasing melatonin, ensuring you can fall asleep easily that night.
+
+### How ARC Automates This For You
+Instead of trying to remember these timings, ARC calculates them dynamically based on your unique chronotype and actual wake time:
+
+1. **The Sunlight Timer:** When you log your wake time, ARC gives you a live countdown to get your sunlight exposure.
+2. **The Adenosine Clearance Wait:** ARC tells you exactly how many minutes are left before it is biologically safe to have your first coffee.
+3. **The Daily Trajectory:** ARC maps out your entire day—when your peak focus window opens, when your caffeine cutoff hits, and when you should start winding down—all anchored to that initial morning protocol.
+
+Stop guessing your timings. Let ARC do the math so you can focus on executing.
+    `,
+  },
+  {
+    slug: "caffeine-half-life-calculator-science",
+    title: "Caffeine Half-Life Explained: Why Your 3 PM Coffee Ruins Your Sleep",
+    excerpt:
+      "Caffeine doesn't wear off in a few hours. It has a half-life of 5 to 7 hours. Here is why you need a live decay tracker.",
+    date: "2026-05-17",
+    category: "Science",
+    readTime: "7 min",
+    content: `
+# The Hidden Mathematics of Caffeine
+
+Most people treat coffee like a light switch: you drink it, it turns you on for a few hours, and then it wears off. Biologically, nothing could be further from the truth. Caffeine operates like a pharmaceutical drug with a highly specific half-life.
+
+### What is a Half-Life?
+The half-life of caffeine in a healthy adult is roughly 5 to 7 hours. This means that 5 to 7 hours after you finish your coffee, *half* of the caffeine is still active in your bloodstream, actively blocking adenosine receptors in your brain and preventing deep sleep.
+
+### The 3 PM Espresso Math
+Let's look at the math of a 3:00 PM espresso (which typically contains about 100mg of caffeine), assuming a standard 6-hour half-life:
+
+*   **3:00 PM:** 100mg active
+*   **9:00 PM:** 50mg still active
+*   **3:00 AM:** 25mg still active
+
+If you go to bed at 11:00 PM, you still have nearly 40mg of caffeine active in your brain. You might be exhausted enough to fall asleep, but that caffeine will absolutely destroy your deep sleep architecture. You will wake up feeling groggy, reach for more coffee, and repeat the vicious cycle.
+
+### How to Stop the Cycle
+To protect your sleep, you need to keep your active caffeine levels below 15-20mg by bedtime. But doing this math in your head every time you have a cup of tea or an energy drink is impossible.
+
+This is the flagship feature of ARC. The app features a live SVG caffeine decay curve. You log your drink, and ARC shows you a real-time graph of exactly how many milligrams are active in your system. It calculates your specific "Sleep-Safe Threshold" and tells you the exact minute you need to stop drinking coffee today.
+    `,
+  },
+  {
+    slug: "what-is-social-jetlag",
+    title: "Social Jetlag: Why Monday Mornings Hurt So Much",
+    excerpt:
+      "If you sleep in on weekends, you are inducing a state of physiological jetlag. Here is how to fix your weekend schedule.",
+    date: "2026-05-16",
+    category: "Productivity",
+    readTime: "8 min",
+    content: `
+# The Epidemic of Social Jetlag
+
+You eat clean all week, you go to bed at 10 PM on weekdays, but by Monday morning, you feel like you've been hit by a truck. The culprit is not your workload. The culprit is **Social Jetlag**.
+
+### What is Social Jetlag?
+Social jetlag occurs when your biological time (your chronotype's natural rhythm) is misaligned with your social time (the schedule dictated by your job or weekend plans). 
+
+If you wake up at 6:30 AM for work Monday through Friday, but stay up late and sleep in until 9:30 AM on Saturday and Sunday, you have just shifted your circadian rhythm across three time zones. Biologically, it is the exact equivalent of flying from New York to Los Angeles on Friday night, and flying back on Sunday night. 
+
+No wonder Monday feels terrible.
+
+### The Consequences
+Research links chronic social jetlag to severe metabolic disruption, weight gain, increased risk of heart disease, and massive cognitive deficits early in the week.
+
+### How to Fix It
+The rule of circadian biology is consistency. Your brain does not know what a "weekend" is. It only responds to light, temperature, and timing.
+
+1. **The 1-Hour Rule:** Your weekend wake time should never differ from your weekday wake time by more than 1 hour.
+2. **Anchor with Light:** Even if you sleep in slightly, you must get bright sunlight in your eyes as soon as you wake up to prevent your rhythm from drifting further.
+3. **Use ARC to Map the Drift:** ARC's morning check-in tracks your wake times. If it detects a drift, it automatically triggers a "Recovery Protocol" for the day, adjusting your caffeine cutoff and light exposure targets to gently pull your circadian rhythm back into alignment without shocking your system.
+    `,
+  },
+  {
+    slug: "adhd-dopamine-focus-routine",
+    title: "ADHD and Circadian Rhythms: Why Traditional Productivity Fails",
+    excerpt:
+      "People with ADHD often have delayed circadian rhythms. Traditional 9-to-5 productivity advice is biologically hostile to them.",
+    date: "2026-05-15",
+    category: "Productivity",
+    readTime: "10 min",
+    content: `
+# The Biological Reality of ADHD
+
+If you have ADHD, you have probably been told that you just need to "try harder," "use a planner," or "make a list." But if you have tried these things and failed, it is not a lack of willpower. It is a biological mismatch.
+
+### The Delayed Rhythm
+Extensive research shows a strong correlation between ADHD and a delayed circadian rhythm (often aligning with the "Wolf" chronotype). This means your natural cortisol spike, your core temperature minimum, and your melatonin onset all happen significantly later than the general population.
+
+When society forces you to wake up at 7:00 AM, your brain is biologically still in its deep sleep phase. When society demands peak focus at 9:00 AM, your dopamine levels haven't naturally risen yet. But when 8:00 PM rolls around and everyone else is winding down, your brain finally clicks into gear.
+
+### Why To-Do Lists Fail
+Traditional to-do lists rely on internal executive function to prioritize tasks and initiate action. ADHD is fundamentally an impairment of executive function and dopamine regulation. Staring at a massive list of tasks causes overwhelm and paralysis, not action.
+
+### The Circadian Solution for ADHD
+You cannot fight your biology, but you can leverage it. ARC was designed to provide external biological structure for an internal executive function deficit.
+
+1. **Mapping Peak Focus:** Instead of trying to force focus at 9 AM, ARC maps your specific chronotype to find your biological "Peak Focus Window" (often in the late afternoon for those with ADHD). You save your hardest tasks for this specific, finite block of time.
+2. **External Cues:** ARC relies on physical, biological anchors—like sunlight timers and caffeine metabolism—to trigger physiological shifts, rather than relying on sheer willpower.
+3. **Structured Missions:** Instead of endless lists, ARC's Daily Trajectory gives you exactly one biological objective at a time. It tells you "Get Sunlight Now," "Focus Now," or "Stop Caffeine Now." 
+
+By aligning your tasks with your natural dopamine and cortisol peaks, you stop fighting your brain and start working with it.
+    `,
+  },
+  {
+    slug: "sleep-debt-myth-busted",
+    title: "The Sleep Debt Myth: Why You Can't Catch Up on Weekends",
+    excerpt:
+      "Thinking you can sleep 5 hours a night during the week and 'catch up' with 10 hours on Sunday is destroying your health.",
+    date: "2026-05-14",
+    category: "Science",
+    readTime: "6 min",
+    content: `
+# The Bank Account Fallacy
+
+We treat sleep like a bank account: if you are in debt by 5 hours on Friday, you think you can just deposit 5 extra hours on Saturday and the balance is zero. 
+
+Circadian biology does not have a bank account. It only has a rhythm. 
+
+### Why Catch-Up Sleep Doesn't Work
+When you deprive yourself of sleep, you suffer cumulative cognitive and metabolic damage. When you "binge sleep" on the weekend to catch up, you aren't reversing that damage. Instead, you are committing a secondary circadian offense: you are shifting your biological clock (causing Social Jetlag).
+
+Binge sleeping delays your temperature minimum and your melatonin onset. This guarantees that you will not be able to fall asleep on Sunday night, creating massive sleep deprivation on Monday morning, starting the cycle all over again.
+
+### The Asymmetry of Sleep
+You cannot catch up on lost sleep linearly. If you miss an hour of deep sleep, you cannot just sleep an extra hour the next day to get it back. Sleep architecture is highly specific. 
+
+### How to Actually Recover
+If you have a terrible night of sleep, the worst thing you can do is sleep in excessively the next day. Here is the biologically correct way to recover:
+
+1. **Wake Up at the Same Time:** Do not alter your wake time by more than 30 minutes.
+2. **Aggressive Morning Light:** Get double the amount of morning sunlight exposure to strongly anchor your rhythm despite the fatigue.
+3. **Strategic Napping:** If you must, take a short 20-30 minute nap *before* 3:00 PM. Anything longer, or later, will destroy your sleep pressure for the upcoming night.
+4. **Follow the ARC Recovery Protocol:** When you log a bad night's sleep in ARC's Morning Check-in, the app automatically switches to Recovery Mode. It pushes your caffeine timeline back, alerts you to get early sunlight, and schedules a much earlier wind-down sequence for that evening.
+
+You can't pay back sleep debt. You can only reset the rhythm.
+    `,
+  }
 ];

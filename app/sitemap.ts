@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
+import { chronotypeDetails } from "@/lib/chronotype-data";
+import { audienceDetails } from "@/lib/audience-data";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
@@ -9,6 +11,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const chronotypes = Object.keys(chronotypeDetails).map((slug) => ({
+    url: `${SITE_URL}/chronotype/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  const audiences = Object.keys(audienceDetails).map((slug) => ({
+    url: `${SITE_URL}/for/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
   }));
 
   return [
@@ -24,6 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    ...chronotypes,
+    ...audiences,
     ...blogs,
   ];
 }

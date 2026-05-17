@@ -27,7 +27,7 @@ export const screenshots = [
 export const features = [
   {
     icon: "🎯",
-    title: "22-Point Precision Diagnosis",
+    title: "35-Step Personalized Onboarding",
     desc: "Builds your full biological profile — sleep schedule, energy map, caffeine habits, lifestyle context — before the first paywall.",
   },
   {
@@ -81,7 +81,7 @@ export const steps = [
   {
     step: "01",
     title: "Take the Diagnosis",
-    desc: "Answer 22 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
+    desc: "Answer 35 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
   },
   {
     step: "02",
@@ -146,31 +146,37 @@ export const audience = [
     icon: "🚀",
     title: "High-Performers",
     desc: "Founders, engineers, and creators who need maximum focus hours. ARC maps your peak windows so you stop guessing.",
+    slug: "founders"
   },
   {
     icon: "☕",
     title: "Coffee Drinkers",
     desc: "You drink coffee every day but have never understood how it actually interacts with your sleep. ARC shows you the exact cutoff minute.",
+    slug: "coffee-drinkers"
   },
   {
     icon: "🧠",
     title: "ADHD Professionals",
     desc: "Structured visual missions replace overwhelming to-do lists. Biology-aligned triggers your brain actually responds to.",
+    slug: "adhd"
   },
   {
     icon: "😴",
     title: "Sleep Seekers",
     desc: "Sleeping 7-8 hours but still exhausted? It's a timing problem, not a duration problem. ARC fixes the root cause.",
+    slug: "sleep-seekers"
   },
   {
     icon: "🧬",
     title: "Biohackers",
     desc: "Real data and correlations — not just streaks and checkboxes. Understand the cortisol-melatonin rhythm driving your entire day.",
+    slug: "biohackers"
   },
   {
-    icon: "💻",
-    title: "Remote Workers",
-    desc: "Design your flexible schedule around biology, not just calendar availability.",
+    icon: "🐺",
+    title: "Shift Workers",
+    desc: "Design your flexible schedule around biology, not just calendar availability. Anchor your rhythm regardless of when you wake up.",
+    slug: "shift-workers"
   },
 ];
 
@@ -205,19 +211,27 @@ export const plans = [
     note: "Cancel anytime",
   },
   {
+    name: "Monthly",
+    price: "$9.99",
+    period: "/ month",
+    highlight: false,
+    badge: null as string | null,
+    note: "Cancel anytime",
+  },
+  {
     name: "Annual",
-    price: "$34.99",
+    price: "$29.99",
     period: "/ year",
     highlight: true,
-    badge: "Save 86%" as string | null,
-    note: "Cancels anytime",
+    badge: "Save 88%" as string | null,
+    note: "Includes 3-day free trial",
   },
 ];
 
 export const faqs = [
   {
     q: "What is a chronotype?",
-    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 22-point precision diagnosis.",
+    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 35-step personalized onboarding.",
   },
   {
     q: "How is ARC different from a sleep tracker?",
@@ -237,7 +251,7 @@ export const faqs = [
   },
   {
     q: "Is there a free tier?",
-    a: "Yes — the free tier includes core chronotype discovery and daily trajectory with no time limit. Pro unlocks all features. Both paid plans are cancel anytime, no commitment.",
+    a: "Yes — the free tier includes core chronotype discovery and daily trajectory with no time limit. Pro unlocks all features. All paid plans are cancel anytime, no commitment.",
   },
 ];
 
@@ -255,12 +269,12 @@ export const jsonLdApp = {
   inLanguage: "en-US",
   countriesSupported: "US, CA, GB, AU, IN",
   description:
-    "Stop fighting your body. ARC syncs your schedule with your biology using a 22-point chronotype diagnosis. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
+    "Stop fighting your body. ARC syncs your schedule with your biology using a 35-step personalized onboarding. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
   url: APP_STORE_URL,
   downloadUrl: APP_STORE_URL,
   installUrl: APP_STORE_URL,
   featureList: [
-    "22-Point Precision Chronotype Diagnosis",
+    "35-Step Personalized Onboarding",
     "Dynamic 24-Hour Daily Trajectory",
     "Chronotype Discovery: Lion, Bear, Wolf, Dolphin",
     "Live Caffeine Decay Curve & Sleep-Safe Prediction",
@@ -301,11 +315,19 @@ export const jsonLdApp = {
     },
     {
       "@type": "Offer",
-      price: "34.99",
+      price: "9.99",
+      priceCurrency: "USD",
+      name: "ARC Pro — Monthly",
+      billingIncrement: "P1M",
+      description: "Cancel anytime.",
+    },
+    {
+      "@type": "Offer",
+      price: "29.99",
       priceCurrency: "USD",
       name: "ARC Pro — Annual",
       billingIncrement: "P1Y",
-      description: "Save 86% vs weekly. Cancel anytime.",
+      description: "Save 88% vs weekly. Includes 3-day free trial.",
     },
   ],
   aggregateRating: {

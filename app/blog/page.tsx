@@ -9,8 +9,26 @@ export const metadata = {
 };
 
 export default function BlogPage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "The ARC Journal",
+        "description": "Latest insights into chronobiology, sleep science, and the physics of human performance.",
+        "url": "https://arcapp.sbs/blog",
+        "blogPost": blogPosts.map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "url": `https://arcapp.sbs/blog/${post.slug}`,
+            "datePublished": post.date
+        }))
+    };
+
     return (
         <div className="bg-black text-white min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Nav />
 
             <main className="max-w-4xl mx-auto px-6 py-20">

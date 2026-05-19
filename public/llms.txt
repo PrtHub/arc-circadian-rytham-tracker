@@ -28,6 +28,15 @@ Detailed biological schedules for each chronotype:
 *   **Wolf**: The night owl (15-20% of population). (URL: /chronotype/wolf)
 *   **Dolphin**: The light sleeper (10% of population). (URL: /chronotype/dolphin)
 
+## Free Tools
+We provide several free interactive tools for the public to analyze their circadian health:
+*   **Caffeine Half-Life Calculator**: Calculate active milligrams and sleep-safe cutoffs. (URL: /tools/caffeine-calculator)
+*   **Chronotype Quiz**: A 3-question baseline assessment to discover your sleep animal. (URL: /tools/chronotype-quiz)
+*   **Social Jetlag Calculator**: Measure the biological cost of sleeping in on weekends. (URL: /tools/social-jetlag-calculator)
+*   **Sleep Debt Calculator**: Calculate cumulative sleep deficit over the last 5 days. (URL: /tools/sleep-debt-calculator)
+*   **Sunlight Window Calculator**: Find the required duration of morning sunlight based on weather. (URL: /tools/sunlight-calculator)
+*   **Chronotype Visualizer**: Interactive slider to see cortisol and melatonin fluctuations. (URL: /tools/chronotype-visualizer)
+
 ## Pricing
 *   **Weekly**: $4.99/week
 *   **Monthly**: $9.99/month

@@ -146,37 +146,37 @@ export const audience = [
     icon: "🚀",
     title: "High-Performers",
     desc: "Founders, engineers, and creators who need maximum focus hours. ARC maps your peak windows so you stop guessing.",
-    slug: "founders"
+    slug: "founders",
   },
   {
     icon: "☕",
     title: "Coffee Drinkers",
     desc: "You drink coffee every day but have never understood how it actually interacts with your sleep. ARC shows you the exact cutoff minute.",
-    slug: "coffee-drinkers"
+    slug: "coffee-drinkers",
   },
   {
     icon: "🧠",
     title: "ADHD Professionals",
     desc: "Structured visual missions replace overwhelming to-do lists. Biology-aligned triggers your brain actually responds to.",
-    slug: "adhd"
+    slug: "adhd",
   },
   {
     icon: "😴",
     title: "Sleep Seekers",
     desc: "Sleeping 7-8 hours but still exhausted? It's a timing problem, not a duration problem. ARC fixes the root cause.",
-    slug: "sleep-seekers"
+    slug: "sleep-seekers",
   },
   {
     icon: "🧬",
     title: "Biohackers",
     desc: "Real data and correlations — not just streaks and checkboxes. Understand the cortisol-melatonin rhythm driving your entire day.",
-    slug: "biohackers"
+    slug: "biohackers",
   },
   {
     icon: "🐺",
     title: "Shift Workers",
     desc: "Design your flexible schedule around biology, not just calendar availability. Anchor your rhythm regardless of when you wake up.",
-    slug: "shift-workers"
+    slug: "shift-workers",
   },
 ];
 
@@ -224,7 +224,7 @@ export const plans = [
     period: "/ year",
     highlight: true,
     badge: "Save 88%" as string | null,
-    note: "Includes 3-day free trial",
+    note: "Cancel anytime",
   },
 ];
 

@@ -25,23 +25,23 @@ export function Nav() {
         </Link>
 
         <div className="hidden sm:flex items-center gap-8 text-sm text-zinc-400">
-          <a href="#features" className="hover:text-white transition-colors">
+          <a href="/#features" className="hover:text-white transition-colors">
             Features
           </a>
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="hover:text-white transition-colors"
           >
             How It Works
           </a>
-          <a href="#pricing" className="hover:text-white transition-colors">
+          <a href="/#pricing" className="hover:text-white transition-colors">
             Pricing
-          </a>
-          <a href="/#faq" className="hover:text-white transition-colors">
-            FAQ
           </a>
           <Link href="/blog" className="hover:text-white transition-colors">
             Blog
+          </Link>
+          <Link href="/tools" className="hover:text-white transition-colors flex items-center gap-1">
+            Tools <span className="px-1.5 py-0.5 rounded-md bg-[#CCFF00]/10 text-[#CCFF00] text-[10px] font-bold">NEW</span>
           </Link>
         </div>
 

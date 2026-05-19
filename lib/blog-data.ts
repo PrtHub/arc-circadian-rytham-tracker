@@ -189,7 +189,8 @@ Use both if: you want the full picture — physical recovery from WHOOP, cogniti
   },
   {
     slug: "rise-app-vs-arc-circadian-rhythm-comparison",
-    title: "Rise App vs ARC: Which Circadian Rhythm App Is Right for You in 2026?",
+    title:
+      "Rise App vs ARC: Which Circadian Rhythm App Is Right for You in 2026?",
     excerpt:
       "Rise predicts your energy. ARC prescribes your day. Both claim to use circadian science — here's what actually makes them different.",
     date: "2026-04-02",
@@ -293,7 +294,8 @@ Yes. Sleep Cycle for a gentle wake. ARC for everything after that. The two apps 
   },
   {
     slug: "oura-ring-alternative-circadian-tracking-no-hardware",
-    title: "Best Oura Ring Alternative: Circadian Tracking Without the Hardware",
+    title:
+      "Best Oura Ring Alternative: Circadian Tracking Without the Hardware",
     excerpt:
       "You do not need a $400 ring to optimize your circadian rhythm. Here are the best software-only alternatives — and why one stands above the rest.",
     date: "2026-03-31",
@@ -349,7 +351,8 @@ If you want raw biometric data and can afford the hardware: Oura Ring is excelle
   },
   {
     slug: "huberman-lab-sleep-protocol-how-to-follow-it-daily",
-    title: "The Huberman Lab Sleep Protocol: How to Actually Follow It Every Day",
+    title:
+      "The Huberman Lab Sleep Protocol: How to Actually Follow It Every Day",
     excerpt:
       "Dr. Andrew Huberman's circadian protocols are backed by Stanford neuroscience. Here is how to implement them practically — not just in theory.",
     date: "2026-03-30",
@@ -937,7 +940,8 @@ Even if you are unconscious, caffeine prevents your brain from entering the esse
   },
   {
     slug: "morning-walk-sunlight-huberman-protocol",
-    title: "Forward Ambulation: Why Morning Walks Multiply the Effects of Sunlight",
+    title:
+      "Forward Ambulation: Why Morning Walks Multiply the Effects of Sunlight",
     excerpt:
       "Combining early light exposure with optic flow is the ultimate biological hack for alertness.",
     date: "2026-02-15",
@@ -1201,7 +1205,7 @@ By delaying caffeine for 90-120 minutes, you allow your natural cortisol spike t
 Morning sunlight viewing sets your circadian clock. It triggers a healthy cortisol pulse, which not only gives you morning energy but also sets a biological timer. Exactly 12-14 hours after your morning sunlight exposure, your pineal gland will start releasing melatonin, ensuring you can fall asleep easily that night.
 
 ### How ARC Automates This For You
-Instead of trying to remember these timings, ARC calculates them dynamically based on your unique chronotype and actual wake time:
+Instead of trying to remember these timings, ARC calculates them dynamically based on your unique chronotype (take our free [Chronotype Quiz](/tools/chronotype-quiz) to find yours) and actual wake time:
 
 1. **The Sunlight Timer:** When you log your wake time, ARC gives you a live countdown to get your sunlight exposure.
 2. **The Adenosine Clearance Wait:** ARC tells you exactly how many minutes are left before it is biologically safe to have your first coffee.
@@ -1212,7 +1216,8 @@ Stop guessing your timings. Let ARC do the math so you can focus on executing.
   },
   {
     slug: "caffeine-half-life-calculator-science",
-    title: "Caffeine Half-Life Explained: Why Your 3 PM Coffee Ruins Your Sleep",
+    title:
+      "Caffeine Half-Life Explained: Why Your 3 PM Coffee Ruins Your Sleep",
     excerpt:
       "Caffeine doesn't wear off in a few hours. It has a half-life of 5 to 7 hours. Here is why you need a live decay tracker.",
     date: "2026-05-17",
@@ -1236,7 +1241,7 @@ Let's look at the math of a 3:00 PM espresso (which typically contains about 100
 If you go to bed at 11:00 PM, you still have nearly 40mg of caffeine active in your brain. You might be exhausted enough to fall asleep, but that caffeine will absolutely destroy your deep sleep architecture. You will wake up feeling groggy, reach for more coffee, and repeat the vicious cycle.
 
 ### How to Stop the Cycle
-To protect your sleep, you need to keep your active caffeine levels below 15-20mg by bedtime. But doing this math in your head every time you have a cup of tea or an energy drink is impossible.
+To protect your sleep, you need to keep your active caffeine levels below 15-20mg by bedtime. But doing this math in your head every time you have a cup of tea or an energy drink is impossible. Use our free [Caffeine Half-Life Calculator](/tools/caffeine-calculator) to find your exact cutoff time.
 
 This is the flagship feature of ARC. The app features a live SVG caffeine decay curve. You log your drink, and ARC shows you a real-time graph of exactly how many milligrams are active in your system. It calculates your specific "Sleep-Safe Threshold" and tells you the exact minute you need to stop drinking coffee today.
     `,
@@ -1259,7 +1264,7 @@ Social jetlag occurs when your biological time (your chronotype's natural rhythm
 
 If you wake up at 6:30 AM for work Monday through Friday, but stay up late and sleep in until 9:30 AM on Saturday and Sunday, you have just shifted your circadian rhythm across three time zones. Biologically, it is the exact equivalent of flying from New York to Los Angeles on Friday night, and flying back on Sunday night. 
 
-No wonder Monday feels terrible.
+No wonder Monday feels terrible. Calculate your exact weekly time zone shift using our free [Social Jetlag Calculator](/tools/social-jetlag-calculator).
 
 ### The Consequences
 Research links chronic social jetlag to severe metabolic disruption, weight gain, increased risk of heart disease, and massive cognitive deficits early in the week.
@@ -1316,7 +1321,7 @@ By aligning your tasks with your natural dopamine and cortisol peaks, you stop f
 
 We treat sleep like a bank account: if you are in debt by 5 hours on Friday, you think you can just deposit 5 extra hours on Saturday and the balance is zero. 
 
-Circadian biology does not have a bank account. It only has a rhythm. 
+Circadian biology does not have a bank account. It only has a rhythm. Calculate your cumulative deficit with our free [Sleep Debt Calculator](/tools/sleep-debt-calculator). 
 
 ### Why Catch-Up Sleep Doesn't Work
 When you deprive yourself of sleep, you suffer cumulative cognitive and metabolic damage. When you "binge sleep" on the weekend to catch up, you aren't reversing that damage. Instead, you are committing a secondary circadian offense: you are shifting your biological clock (causing Social Jetlag).
@@ -1336,5 +1341,109 @@ If you have a terrible night of sleep, the worst thing you can do is sleep in ex
 
 You can't pay back sleep debt. You can only reset the rhythm.
     `,
-  }
+  },
+  {
+    slug: "what-is-circadian-rhythm-beginner-guide",
+    title: "What is a Circadian Rhythm? A Beginner's Guide",
+    excerpt:
+      "You hear the term 'circadian rhythm' everywhere, but what does it actually mean? Here is the simple science of your body's internal clock.",
+    date: "2026-05-13",
+    category: "Education",
+    readTime: "7 min",
+    content: `
+# Your Body's Internal Clock
+
+At this very moment, thousands of biological processes are happening inside you. Your cells are dividing, your liver is processing toxins, and your brain is sorting memories. None of this happens at random. It is all controlled by a master clock in your brain called the suprachiasmatic nucleus (SCN).
+
+This master clock runs your **circadian rhythm**—a natural, internal process that regulates the sleep-wake cycle and repeats roughly every 24 hours.
+
+### Why It Matters
+Your circadian rhythm doesn't just tell you when to sleep. It controls:
+*   **Hormone release**: When you get bursts of energy or feel calm.
+*   **Body temperature**: Which dips at night to help you sleep and rises in the morning.
+*   **Digestion**: Why eating late at night feels heavy and disrupts sleep.
+
+### The Problem with Modern Life
+For millions of years, humans lived in perfect sync with the sun. We woke up when it was light and slept when it was dark. 
+
+Today, we live in a world of artificial light, indoor living, and 24/7 stimulation. We are actively fighting our biology. This mismatch leads to chronic fatigue, brain fog, weight gain, and long-term health issues.
+
+### How to Re-Sync Your Rhythm
+The good news is you can reset your clock. Your rhythm is guided by external cues called *zeitgebers* (German for "time givers").
+
+1.  **Light**: The most powerful cue. Viewing bright light in the morning anchors your rhythm.
+2.  **Timing**: Eating and exercising at the same time every day reinforces the schedule.
+
+### Let ARC Guide You
+Understanding your rhythm is one thing; living it is another. ARC was built to take the guesswork out of chronobiology. By mapping your specific chronotype, ARC gives you a live daily trajectory so you know exactly when to work, eat, and sleep according to your unique biology.
+    `,
+  },
+  {
+    slug: "science-of-light-and-sleep",
+    title: "The Science of Light: How Sunlight and Blue Light Rule Your Day",
+    excerpt:
+      "Light is the primary driver of your circadian rhythm. Learn how to use sunlight to boost energy and dark to ensure deep sleep.",
+    date: "2026-05-12",
+    category: "Education",
+    readTime: "8 min",
+    content: `
+# Light as a Biological Signal
+
+To your brain, light is not just something that helps you see. It is a powerful chemical signal that tells your body what time of day it is and how to behave.
+
+When light enters your eyes, it hits specialized cells called intrinsically photosensitive retinal ganglion cells (ipRGCs). These cells don't help you see shapes or colors; they only detect the presence of blue-wavelength light (which is abundant in sunlight) and send a direct signal to your master clock.
+
+### The Power of Morning Sunlight
+When you view bright sunlight in the morning, those cells signal your brain to stop producing melatonin (the sleep hormone) and start producing cortisol (the alertness hormone). 
+
+This cortisol pulse does two things:
+1.  It gives you immediate energy and focus for the day.
+2.  It sets a biological timer in your brain. Exactly 12 to 14 hours later, your brain will start producing melatonin again, making it easy to fall asleep.
+
+If you don't get morning light, your brain doesn't know when the day started, and your melatonin production will be delayed, leading to late-night restlessness.
+
+### The Danger of Evening Blue Light
+The screens we use—phones, laptops, and TVs—emit the exact same wavelength of blue light as the morning sun. 
+
+When you look at your phone at 10:00 PM, you are effectively telling your brain, "The sun is rising!" Your brain immediately halts melatonin production, pushing your sleep back by hours and reducing the quality of the sleep you do get.
+
+### How to Master the Light Cycle
+1.  **Get 10-15 minutes of sunlight** within an hour of waking up.
+2.  **Dim lights** and use blue-light blockers 2 hours before bed.
+
+ARC makes this easy. The app includes a live sunlight timer that tells you exactly how much light you need based on the weather and your chronotype, and sends alerts when it's time to start dimming lights in the evening.
+    `,
+  },
+  {
+    slug: "chronotypes-explained-not-lazy",
+    title: "Chronotypes Explained: Why You Aren't Lazy, You're Just a Wolf",
+    excerpt:
+      "Struggling to wake up at 6 AM doesn't mean you lack discipline. It means you have a different chronotype. Stop fighting your genetics.",
+    date: "2026-05-11",
+    category: "Education",
+    readTime: "6 min",
+    content: `
+# It's Not a Discipline Problem, It's a Genetic One
+
+Society has a bias toward early risers. The "5 AM Club" and "early bird gets the worm" mentality suggests that successful, disciplined people wake up early, and those who sleep in are lazy.
+
+Chronobiology proves this is false. Your preferred sleep and wake times are largely determined by your genetics. This genetic preference is called your **chronotype**.
+
+### The Four Chronotypes
+Scientists and sleep experts generally categorize humans into four chronotypes:
+
+1.  **The Lion**: Naturally wakes up early (5 AM - 6 AM). Peak focus is in the morning. They crash in the late afternoon. (15% of people)
+2.  **The Bear**: Follows the sun. Wakes up around 7 AM. Peak focus is mid-morning to early afternoon. (50% of people)
+3.  **The Wolf**: The classic night owl. Struggles to wake up before 9 AM. Peak focus isn't until the late afternoon or evening. (15-20% of people)
+4.  **The Dolphin**: Sensitive, light sleepers. Often have irregular schedules and nervous energy. (10% of people)
+
+### Stop Fighting Your Biology
+If you are a Wolf, trying to force yourself to be productive at 8:00 AM is like forcing a fish to climb a tree. You are fighting your core body temperature minimum and your natural dopamine curves.
+
+Instead of feeling guilty for not being a morning person, you should optimize your schedule around when your brain is naturally sharpest.
+
+### Find Your Chronotype with ARC
+ARC's onboarding includes a precision diagnosis that identifies your chronotype. Instead of giving you generic advice, ARC builds a customized 24-hour protocol specifically for your chronotype. If you are a Wolf, ARC won't tell you to wake up at 5 AM. It will tell you how to structure your day starting at 9 AM for maximum performance.
+    `,
+  },
 ];

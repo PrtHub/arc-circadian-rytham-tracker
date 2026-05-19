@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4 tracking-wide text-sm uppercase text-[#CCFF00]">Chronotypes</h3>
+            <h3 className="text-[#CCFF00] font-bold mb-4 tracking-wide text-sm uppercase">Chronotypes</h3>
             <ul className="space-y-3 text-sm text-zinc-500">
               <li><Link href="/chronotype/lion" className="hover:text-white transition-colors">Lion Schedule</Link></li>
               <li><Link href="/chronotype/bear" className="hover:text-white transition-colors">Bear Schedule</Link></li>
@@ -43,17 +43,19 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4 tracking-wide text-sm uppercase text-[#CCFF00]">Resources</h3>
+            <h3 className="text-[#CCFF00] font-bold mb-4 tracking-wide text-sm uppercase">Resources</h3>
             <ul className="space-y-3 text-sm text-zinc-500">
               <li><Link href="/blog" className="hover:text-white transition-colors">Science & Articles</Link></li>
-              <li><a href="/#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><Link href="/tools" className="hover:text-white transition-colors">Free Tools</Link></li>
+              <li><Link href="/tools/caffeine-calculator" className="hover:text-white transition-colors">Caffeine Calculator</Link></li>
+              <li><Link href="/tools/chronotype-quiz" className="hover:text-white transition-colors">Chronotype Quiz</Link></li>
               <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
               <li><a href="/#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4 tracking-wide text-sm uppercase text-[#CCFF00]">Use Cases</h3>
+            <h3 className="text-[#CCFF00] font-bold mb-4 tracking-wide text-sm uppercase">Use Cases</h3>
             <ul className="space-y-3 text-sm text-zinc-500">
               <li><Link href="/for/founders" className="hover:text-white transition-colors">For Founders</Link></li>
               <li><Link href="/for/adhd" className="hover:text-white transition-colors">For ADHD</Link></li>

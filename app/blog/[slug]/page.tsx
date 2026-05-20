@@ -44,6 +44,52 @@ export async function generateMetadata({
     };
 }
 
+function parseMarkdownText(text: string) {
+    const parts: React.ReactNode[] = [];
+    const regex = /(\*\*.*?\*\*|\[.*?\]\(.*?\))/g;
+    const tokens = text.split(regex);
+    
+    tokens.forEach((token, index) => {
+        if (token.startsWith("**") && token.endsWith("**")) {
+            const boldText = token.slice(2, -2);
+            parts.push(<strong key={index} className="text-white font-extrabold">{boldText}</strong>);
+        } else if (token.startsWith("[") && token.includes("](")) {
+            const closingBracketIndex = token.indexOf("](");
+            const linkText = token.slice(1, closingBracketIndex);
+            const linkUrl = token.slice(closingBracketIndex + 2, -1);
+            
+            const isExternal = linkUrl.startsWith("http") || linkUrl.startsWith("mailto");
+            if (isExternal) {
+                parts.push(
+                    <a
+                        key={index}
+                        href={linkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#CCFF00] font-semibold underline decoration-[#CCFF00]/30 hover:decoration-[#CCFF00] transition-colors"
+                    >
+                        {linkText}
+                    </a>
+                );
+            } else {
+                parts.push(
+                    <Link
+                        key={index}
+                        href={linkUrl}
+                        className="text-[#CCFF00] font-semibold underline decoration-[#CCFF00]/30 hover:decoration-[#CCFF00] transition-colors"
+                    >
+                        {linkText}
+                    </Link>
+                );
+            }
+        } else {
+            parts.push(token);
+        }
+    });
+
+    return parts;
+}
+
 export default async function BlogPostPage({
     params,
 }: {
@@ -123,7 +169,7 @@ export default async function BlogPostPage({
                                 if (line.startsWith("### ")) {
                                     return (
                                         <h3 key={i} className="text-xl font-semibold text-white mb-4 mt-12 lowercase [font-variant:small-caps] tracking-wider">
-                                            {line.replace("### ", "")}
+                                            {parseMarkdownText(line.replace("### ", ""))}
                                         </h3>
                                     );
                                 }
@@ -132,7 +178,7 @@ export default async function BlogPostPage({
                                     return (
                                         <div key={i} className="flex gap-3 items-start my-2">
                                             <span className="text-[#CCFF00] mt-2">•</span>
-                                            <span>{line.replace(/^[*+-] /, "")}</span>
+                                            <span>{parseMarkdownText(line.replace(/^[*+-] /, ""))}</span>
                                         </div>
                                     );
                                 }
@@ -141,12 +187,12 @@ export default async function BlogPostPage({
                                     return (
                                         <div key={i} className="flex gap-3 items-start my-2">
                                             <span className="text-[#CCFF00] font-bold min-w-[20px]">{line.match(/^\d+\./)?.[0]}</span>
-                                            <span>{line.replace(/^\d+\. /, "")}</span>
+                                            <span>{parseMarkdownText(line.replace(/^\d+\. /, ""))}</span>
                                         </div>
                                     );
                                 }
 
-                                return <p key={i} className="mb-6">{line}</p>;
+                                return <p key={i} className="mb-6">{parseMarkdownText(line)}</p>;
                             })}
                     </div>
                 </section>

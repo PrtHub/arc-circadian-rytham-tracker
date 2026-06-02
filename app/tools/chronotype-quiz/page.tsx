@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import ChronotypeQuizClient from "./ChronotypeQuizClient";
 
 export const metadata: Metadata = {
-  title: "Free Chronotype Quiz | Find Your Biological Rhythm",
-  description: "Are you a Lion, Bear, Wolf, or Dolphin? Take this free chronotype test to discover your biological sleep preference and optimize your daily schedule.",
+  title: "Chronotype Quiz (Free) - Find Your Sleep Animal (Lion, Bear, Wolf)",
+  description: "Are you a Lion, Bear, Wolf, or Dolphin? Take this free 2-minute chronotype test to discover your biological rhythm and optimize your schedule.",
   keywords: "chronotype quiz, chronotype test, am I a lion or bear, sleep animal quiz, find my chronotype, circadian rhythm test",
 };
 

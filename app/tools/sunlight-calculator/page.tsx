@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import SunlightCalculatorClient from "./SunlightCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Sunlight Window Calculator | Free ARC Tool",
-  description: "Calculate how much morning sunlight you need based on the weather to set your circadian rhythm and boost energy.",
+  title: "Sunlight Window Calculator (Free) - Huberman Morning Sun Timer",
+  description: "Calculate how much morning sunlight exposure you need based on cloud cover and weather to set your internal clock and boost cortisol.",
   keywords: "sunlight calculator, morning sunlight duration, Huberman protocol, circadian rhythm light, set internal clock",
 };
 

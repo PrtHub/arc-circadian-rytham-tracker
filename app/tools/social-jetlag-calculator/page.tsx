@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import SocialJetlagClient from "./SocialJetlagClient";
 
 export const metadata: Metadata = {
-  title: "Social Jetlag Calculator | Free ARC Tool",
-  description: "Calculate your social jetlag to see how much your weekend sleep habits are disrupting your circadian rhythm. Find out why Monday mornings hurt so much.",
+  title: "Social Jetlag Calculator (Free) - Measure Weekend Sleep Shift",
+  description: "Calculate your social jetlag to see how your weekend sleep-in habits shift your internal circadian clock. Fix Monday morning fatigue.",
   keywords: "social jetlag calculator, weekend sleep in, monday morning fatigue, fix sleep schedule, circadian rhythm shift",
 };
 

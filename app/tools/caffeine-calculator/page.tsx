@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import CaffeineCalculatorClient from "./CaffeineCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Caffeine Half-Life Calculator | Free ARC Tool",
-  description: "Calculate your exact caffeine cutoff time. Enter your bedtime and drink strength to find out when to stop drinking coffee to protect your deep sleep.",
+  title: "Caffeine Half-Life Calculator (Free) - Find Your Coffee Cutoff",
+  description: "Calculate when to stop drinking coffee to protect deep sleep. Input your bedtime and cup strength to calculate active caffeine half-life decay.",
   keywords: "caffeine half life calculator, when to stop drinking coffee, caffeine cutoff time, sleep tracker tool, caffeine decay calculator",
 };
 

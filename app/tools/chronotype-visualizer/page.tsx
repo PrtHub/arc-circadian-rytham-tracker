@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import VisualizerClient from "./VisualizerClient";
 
 export const metadata: Metadata = {
-  title: "Interactive Chronotype Visualizer | Free ARC Tool",
-  description: "Visualize your cortisol and melatonin curves based on your chronotype. See how your body's master hormones fluctuate throughout the day.",
+  title: "Chronotype Visualizer (Free) - Cortisol & Melatonin Graph",
+  description: "Interactive chronotype visualizer. Slide through the day to graph your cortisol and melatonin hormones based on your biological animal type.",
   keywords: "chronotype visualizer, cortisol curve, melatonin onset, circadian rhythm graph, sleep animal behavior",
 };
 

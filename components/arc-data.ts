@@ -27,7 +27,7 @@ export const screenshots = [
 export const features = [
   {
     icon: "🎯",
-    title: "35-Step Personalized Onboarding",
+    title: "32-Step Personalized Onboarding",
     desc: "Builds your full biological profile — sleep schedule, energy map, caffeine habits, lifestyle context — before the first paywall.",
   },
   {
@@ -42,8 +42,13 @@ export const features = [
   },
   {
     icon: "☕",
-    title: "Caffeine Half-Life Tracking",
-    desc: "Log every drink. Watch the live decay curve. Know the exact minute it's safe to sleep.",
+    title: "Caffeine Scrubber & Forecast",
+    desc: "Log each drink. Watch the live 12-hour SVG decay curve and drag anywhere on the curve to see exact future mg levels.",
+  },
+  {
+    icon: "🤖",
+    title: "AI Intelligence Layer",
+    desc: "Personalized morning debrief and on-demand fatigue diagnosis powered by Google Gemini via OpenRouter.",
   },
   {
     icon: "⚡",
@@ -58,12 +63,17 @@ export const features = [
   {
     icon: "😴",
     title: "Manual Sleep Check-in",
-    desc: "Rate last night's sleep each morning. Poor sleep triggers a recovery-mode protocol — sunlight early, caffeine delayed 90 minutes.",
+    desc: "Rate last night's sleep each morning. Poor sleep triggers recovery-mode protocol adjustments.",
   },
   {
     icon: "📡",
     title: "Contextual Intel Feed",
     desc: "Daily briefings driven by your actual yesterday — not a static article library. Behavior-aware coaching that adapts.",
+  },
+  {
+    icon: "📊",
+    title: "Actionable Insights",
+    desc: "Sync score overlays, photon latency bars, anchor stability lines, and weekly reports with recommendations.",
   },
   {
     icon: "🔬",
@@ -81,7 +91,7 @@ export const steps = [
   {
     step: "01",
     title: "Take the Diagnosis",
-    desc: "Answer 35 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
+    desc: "Answer 32 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
   },
   {
     step: "02",
@@ -231,7 +241,7 @@ export const plans = [
 export const faqs = [
   {
     q: "What is a chronotype?",
-    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 35-step personalized onboarding.",
+    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 32-step personalized onboarding.",
   },
   {
     q: "How is ARC different from a sleep tracker?",
@@ -269,15 +279,16 @@ export const jsonLdApp = {
   inLanguage: "en-US",
   countriesSupported: "US, CA, GB, AU, IN",
   description:
-    "Stop fighting your body. ARC syncs your schedule with your biology using a 35-step personalized onboarding. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
+    "Stop fighting your body. ARC syncs your schedule with your biology using a 32-step personalized onboarding. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
   url: APP_STORE_URL,
   downloadUrl: APP_STORE_URL,
   installUrl: APP_STORE_URL,
   featureList: [
-    "35-Step Personalized Onboarding",
+    "32-Step Personalized Onboarding",
     "Dynamic 24-Hour Daily Trajectory",
     "Chronotype Discovery: Lion, Bear, Wolf, Dolphin",
-    "Live Caffeine Decay Curve & Sleep-Safe Prediction",
+    "Live Caffeine Decay Curve with Tap-to-Scrub Gesture & Sleep-Safe Prediction",
+    "AI Intelligence Layer with Morning Debrief & Fatigue Diagnosis",
     "Peak Focus Windows for Deep Work",
     "Morning Sunlight Anchoring Protocol",
     "Manual Sleep Check-in with Recovery Mode",
@@ -327,7 +338,7 @@ export const jsonLdApp = {
       priceCurrency: "USD",
       name: "ARC Pro — Annual",
       billingIncrement: "P1Y",
-      description: "Save 88% vs weekly. Includes 3-day free trial.",
+      description: "Save 88% vs weekly. Best value.",
     },
   ],
   aggregateRating: {

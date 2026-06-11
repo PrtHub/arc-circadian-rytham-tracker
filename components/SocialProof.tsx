@@ -1,6 +1,6 @@
 const stats = [
   { value: "250+", label: "Downloads" },
-  { value: "35-Step", label: "Precision Onboarding" },
+  { value: "32-Step", label: "Precision Onboarding" },
   { value: "4", label: "Chronotypes Mapped" },
   { value: "Local-First", label: "SQLite · Zero Cloud" },
   { value: "100%", label: "On-Device Privacy" },

@@ -28,7 +28,7 @@ export const audienceDetails: Record<string, AudienceDetail> = {
     description: "You treat your time like an asset, but what about your energy? ARC is the biological operating system for founders and engineers who need maximum focus hours without burning out.",
     painPoints: ["Guessing when to do deep work", "Caffeine-induced sleep disruption", "Brain fog during crucial afternoon meetings", "Weekend 'social jetlag' ruining Monday"],
     arcSolution: "ARC uses peer-reviewed chronobiology to tell you exactly when your brain is sharpest, allowing you to schedule highly demanding cognitive work at the precise right biological moment.",
-    features: ["35-step precision chronotype diagnosis", "Caffeine half-life & cutoff prediction", "Daily recovery mode after poor sleep", "100% on-device privacy"]
+    features: ["32-step precision chronotype diagnosis", "Caffeine half-life & cutoff prediction", "Daily recovery mode after poor sleep", "100% on-device privacy"]
   },
   "shift-workers": {
     slug: "shift-workers",

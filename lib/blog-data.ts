@@ -32,7 +32,7 @@ Most popular apps fall into the sleep tracker camp. Very few are actually built 
 
 ### 1. ARC: Circadian Rhythm Tracker — Best Overall
 
-ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 35-step onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
+ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 32-step onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
 
 Key features: Caffeine half-life tracker, live sunlight timer, Morning Sleep Check-in with recovery mode, Contextual Intel briefings, and chronotype-aware notifications.
 
@@ -42,7 +42,7 @@ Platform: iOS only. Free tier available. Annual plan: $29.99/year.
 
 Rise is the most well-funded pure circadian app. It uses a proprietary algorithm to predict your energy levels throughout the day and identify your "peak" and "dip" windows. The UX is polished and the Energy Schedule feature is genuinely useful.
 
-Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 35-step diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
+Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 32-step diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
 
 Price: $69.99/year (significantly more expensive than ARC).
 
@@ -98,7 +98,7 @@ ARC is the only app that answers the question your body is actually asking: *Wha
 
 **Quick Answer:** Choose the **Oura Ring** if you want passive, highly accurate biometric trends (HRV, sleep stages, body temperature) and have $300+ to spend. Choose **[ARC](/tools/chronotype-quiz)** if you want active, daily behavioral protocols (exact caffeine cutoffs, morning sunlight timers, peak work hours) without buying expensive hardware.
 
-The Oura Ring is beautiful, expensive, and packed with sensors. ARC is an iPhone app with a 35-step chronotype diagnosis, live caffeine tracking, and zero hardware required. Which one actually moves the needle on your daily energy and performance?
+The Oura Ring is beautiful, expensive, and packed with sensors. ARC is an iPhone app with a 32-step chronotype diagnosis, live caffeine tracking, and zero hardware required. Which one actually moves the needle on your daily energy and performance?
 
 ### What Oura Does Well
 
@@ -118,7 +118,7 @@ Oura also requires you to pay $299–$449 for the ring plus $5.99/month for the 
 
 ARC does not measure your HRV. But it does something arguably more valuable: it tells you exactly what to do with your biology today.
 
-The 35-step precision diagnosis identifies your chronotype and builds a live Daily Trajectory — a 24-hour protocol with your specific Peak Focus Window, optimal first-coffee timing, sunlight anchoring target (with a live timer), and wind-down sequence. The caffeine tracker shows your active mg in real time with a sleep-safe prediction that updates every time you log a drink.
+The 32-step precision diagnosis identifies your chronotype and builds a live Daily Trajectory — a 24-hour protocol with your specific Peak Focus Window, optimal first-coffee timing, sunlight anchoring target (with a live timer), and wind-down sequence. The caffeine tracker shows your active mg in real time with a sleep-safe prediction that updates every time you log a drink.
 
 ARC's Morning Sleep Check-in captures sleep quality each morning and adjusts today's protocol. A poor night triggers recovery mode: delay caffeine 90 minutes, get sunlight earlier, avoid intense cognitive work until your second focus window.
 
@@ -174,7 +174,7 @@ For knowledge workers — founders, engineers, writers, researchers — cognitiv
 
 ARC is built around chronobiology: the science of how your biology's internal clock (not your physical strain) affects your cognition, focus, creativity, and energy throughout the day.
 
-The 35-step diagnosis maps your sleep profile, energy patterns, caffeine habits, and lifestyle context to identify your chronotype and generate a personalized daily protocol. The focus is entirely on when to think, create, rest, caffeinate, and sleep — not on how hard you worked out.
+The 32-step diagnosis maps your sleep profile, energy patterns, caffeine habits, and lifestyle context to identify your chronotype and generate a personalized daily protocol. The focus is entirely on when to think, create, rest, caffeinate, and sleep — not on how hard you worked out.
 
 ARC's live caffeine decay tracker is a feature WHOOP has no equivalent of. Knowing that your 3:30 PM espresso still has 25% of its caffeine active at midnight is the kind of insight that changes behaviour immediately.
 
@@ -205,7 +205,7 @@ Use both if: you want the full picture — physical recovery from WHOOP, cogniti
     content: `
 # Rise App vs ARC: A Head-to-Head Comparison
 
-**Quick Answer:** **Rise App** tracks your historical sleep data to predict hourly energy peaks and dips, costing $69.99/year. **[ARC](/tools/chronotype-quiz)** uses a 35-step chronotype quiz to prescribe active daily protocols (including morning sunlight timers and live caffeine decay tracking), costing $29.99/year with on-device SQLite privacy.
+**Quick Answer:** **Rise App** tracks your historical sleep data to predict hourly energy peaks and dips, costing $69.99/year. **[ARC](/tools/chronotype-quiz)** uses a 32-step chronotype quiz to prescribe active daily protocols (including morning sunlight timers and live caffeine decay tracking), costing $29.99/year with on-device SQLite privacy.
 
 Rise Science raised $12 million to build the best circadian rhythm app on the market. ARC is a lean, focused competitor built by a founder who got obsessed with chronobiology. Both apps make serious claims about circadian science. Here is the honest comparison.
 
@@ -217,13 +217,13 @@ The Energy Schedule visualization is genuinely well-designed. It gives you a bir
 
 ### How ARC Works
 
-ARC's approach starts with a 35-step precision diagnosis that collects your sleep profile, energy map, caffeine habits, and lifestyle context from scratch — rather than relying on historical Apple Health data. This gives ARC an accurate chronotype identification even for new users who have not been tracking sleep for months.
+ARC's approach starts with a 32-step precision diagnosis that collects your sleep profile, energy map, caffeine habits, and lifestyle context from scratch — rather than relying on historical Apple Health data. This gives ARC an accurate chronotype identification even for new users who have not been tracking sleep for months.
 
 From the diagnosis, ARC generates a live Daily Trajectory: a 24-hour protocol that tells you your Peak Focus Window, when to get sunlight, when to have your first coffee, and when to start winding down. The trajectory adapts daily based on your Morning Sleep Check-in.
 
 ### Key Differences
 
-Onboarding: Rise requires existing sleep data. ARC builds your profile from a structured 35-step questionnaire — no historical data needed, accurate from day one.
+Onboarding: Rise requires existing sleep data. ARC builds your profile from a structured 32-step questionnaire — no historical data needed, accurate from day one.
 
 Caffeine tracking: ARC has a live caffeine decay tracker with mg-level monitoring and a sleep-safe prediction. Rise has no caffeine feature.
 
@@ -328,7 +328,7 @@ If you bought Oura for the second set of questions, you need a different tool.
 
 ### Alternative 1: ARC Circadian Rhythm Tracker (Best Overall)
 
-ARC is the most direct alternative to Oura's circadian features — without any hardware. The 35-step chronotype diagnosis gives you a deeper understanding of your biology than Oura's onboarding. The Daily Trajectory prescribes your entire day. The caffeine tracker (Oura has no equivalent) gives you a live decay curve and sleep-safe prediction.
+ARC is the most direct alternative to Oura's circadian features — without any hardware. The 32-step chronotype diagnosis gives you a deeper understanding of your biology than Oura's onboarding. The Daily Trajectory prescribes your entire day. The caffeine tracker (Oura has no equivalent) gives you a live decay curve and sleep-safe prediction.
 
 Cost: $29.99/year. No hardware. Works on any iPhone.
 
@@ -395,7 +395,7 @@ Huberman describes a predictable 3-phase cognitive pattern across the day: a mor
 
 For Lion chronotypes, this window is typically 8–11 AM. For Bears, it is 9 AM–12 PM. For Wolves, it shifts to the afternoon or early evening.
 
-ARC's Daily Trajectory maps your Peak Focus Window based on your 35-step chronotype diagnosis and schedules it prominently in your day.
+ARC's Daily Trajectory maps your Peak Focus Window based on your 32-step chronotype diagnosis and schedules it prominently in your day.
 
 ### Protocol 4: Caffeine Cutoff Based on Half-Life
 
@@ -431,7 +431,7 @@ You do not need to remember five separate rules. You need one app that handles t
 
 AutoSleep by Tantsissa is one of the most respected apps in the Apple Watch ecosystem. It tracks sleep stages, calculates a readiness score, and gives you a detailed breakdown of your night's recovery. For $5.99 one-time, it is arguably the best value in health tech.
 
-ARC: Circadian Rhythm Tracker is an iPhone app with no hardware requirement. It identifies your chronotype through a 35-step diagnosis, builds a live daily protocol, and tracks your caffeine and sunlight with precision that no wearable can replicate.
+ARC: Circadian Rhythm Tracker is an iPhone app with no hardware requirement. It identifies your chronotype through a 32-step diagnosis, builds a live daily protocol, and tracks your caffeine and sunlight with precision that no wearable can replicate.
 
 These two apps do not compete. They complete each other.
 

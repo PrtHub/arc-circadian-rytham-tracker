@@ -112,7 +112,7 @@ export default function ChronotypeQuizClient() {
         <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/10 to-transparent rounded-3xl p-10 text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Want true clinical precision?</h2>
           <p className="text-zinc-400 mb-8 max-w-lg mx-auto leading-relaxed text-lg">
-            This 3-question quiz is just a baseline estimate. The ARC app features a clinical-grade <strong>35-Step Precision Diagnosis</strong> that maps your exact peak focus windows, caffeine cutoffs, and biological schedule.
+            This 3-question quiz is just a baseline estimate. The ARC app features a clinical-grade <strong>32-Step Precision Diagnosis</strong> that maps your exact peak focus windows, caffeine cutoffs, and biological schedule.
           </p>
           <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-black py-4 px-10 rounded-full hover:bg-white transition-colors text-lg">
             Unlock the Full Diagnosis

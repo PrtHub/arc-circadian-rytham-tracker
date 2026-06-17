@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Sunlight Window Calculator (Free) - Huberman Morning Sun Timer",
   description: "Calculate how much morning sunlight exposure you need based on cloud cover and weather to set your internal clock and boost cortisol.",
   keywords: "sunlight calculator, morning sunlight duration, Huberman protocol, circadian rhythm light, set internal clock",
+  alternates: {
+    canonical: "/tools/sunlight-calculator",
+  },
 };
 
 export default function SunlightCalculatorPage() {

@@ -18,16 +18,60 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return { title: "Not Found" };
   }
 
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+
   return {
     title: `${audience.title} | ARC App`,
     description: audience.description,
     keywords: `${audience.name} sleep optimization, ${audience.name} circadian rhythm, focus app for ${audience.name}, chronotype`,
+    alternates: {
+      canonical: `${SITE_URL}/for/${params.slug}`,
+    },
     openGraph: {
       title: audience.title,
       description: audience.description,
     },
   };
 }
+
+const audienceCtaDetails: Record<string, { title: string; desc: string; buttonText: string; href: string }> = {
+  adhd: {
+    title: "Find Your Chronotype Strategy",
+    desc: "Discover your genetic chronotype (often Wolves have ADHD) to map your tasks to your peak dopamine windows.",
+    buttonText: "Take Chronotype Quiz",
+    href: "/tools/chronotype-quiz"
+  },
+  founders: {
+    title: "Optimize Your Peak Focus Windows",
+    desc: "Stop guessing when you are sharpest. Take our 2-minute sleep animal diagnosis to unlock your productivity blueprint.",
+    buttonText: "Verify Your Chronotype",
+    href: "/tools/chronotype-quiz"
+  },
+  "shift-workers": {
+    title: "Inverted Schedule Diagnosis",
+    desc: "We support shift-workers and night owls. Discover your biological chronotype to build a customizable schedule.",
+    buttonText: "Find Your Chronotype",
+    href: "/tools/chronotype-quiz"
+  },
+  "coffee-drinkers": {
+    title: "Calculate Your Live Caffeine Decay",
+    desc: "Input your bedtime and drink history to see exactly when your body clears caffeine to protect deep sleep.",
+    buttonText: "Caffeine Calculator",
+    href: "/tools/caffeine-calculator"
+  },
+  "sleep-seekers": {
+    title: "Measure Your Sleep Debt",
+    desc: "Sleeping 8 hours but still tired? Calculate your cumulative biological sleep deficit and get a recovery protocol.",
+    buttonText: "Sleep Debt Calculator",
+    href: "/tools/sleep-debt-calculator"
+  },
+  biohackers: {
+    title: "Calculate Your Sunlight Window",
+    desc: "Reset your master clock by calculating exactly how many minutes of outdoor light you need based on cloud cover.",
+    buttonText: "Sunlight Calculator",
+    href: "/tools/sunlight-calculator"
+  }
+};
 
 export default async function AudiencePage(props: Props) {
   const params = await props.params;
@@ -101,6 +145,29 @@ export default async function AudiencePage(props: Props) {
               </ul>
             </div>
           </section>
+
+          {/* Custom SEO Interactive CTA Banner */}
+          {audienceCtaDetails[audience.slug] && (
+            <div className="mb-16 p-8 rounded-3xl bg-linear-to-b from-[#CCFF00]/10 to-transparent border border-[#CCFF00]/20 flex flex-col md:flex-row justify-between items-center gap-6">
+              <div>
+                <h3 className="text-2xl font-extrabold tracking-tighter mb-2 text-white">
+                  {audienceCtaDetails[audience.slug].title}
+                </h3>
+                <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
+                  {audienceCtaDetails[audience.slug].desc}
+                </p>
+              </div>
+              <Link
+                href={audienceCtaDetails[audience.slug].href}
+                className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#CCFF00] px-6 py-3.5 text-sm font-black text-black hover:scale-105 transition-all"
+              >
+                {audienceCtaDetails[audience.slug].buttonText}
+                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
+          )}
 
         </main>
         <FinalCta />

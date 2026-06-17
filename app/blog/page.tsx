@@ -1,11 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Blog | ARC Circadian Rhythm Tracker",
     description: "Learn about chronobiology, sleep optimization, and peak performance on the ARC blog.",
+    alternates: {
+        canonical: "/blog",
+    },
 };
 
 export default function BlogPage() {

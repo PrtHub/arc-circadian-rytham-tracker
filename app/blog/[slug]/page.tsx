@@ -166,6 +166,60 @@ export default async function BlogPostPage({
                             .map((line, i) => {
                                 if (line.startsWith("# ")) return null;
 
+                                const alertMatch = line.match(/^>\s*\[!(TIP|NOTE|WARNING|IMPORTANT|CAUTION)\]\s*(.*)$/i);
+                                if (alertMatch) {
+                                    const type = alertMatch[1].toUpperCase();
+                                    const content = alertMatch[2];
+                                    
+                                    let styles = {
+                                        border: "border-[#CCFF00]/20",
+                                        bg: "bg-[#CCFF00]/5",
+                                        text: "text-[#CCFF00]",
+                                        label: "Tip",
+                                        icon: "💡"
+                                    };
+                                    
+                                    if (type === "NOTE") {
+                                        styles = {
+                                            border: "border-zinc-800",
+                                            bg: "bg-zinc-900/40",
+                                            text: "text-zinc-300",
+                                            label: "Note",
+                                            icon: "ℹ️"
+                                        };
+                                    } else if (type === "WARNING" || type === "CAUTION") {
+                                        styles = {
+                                            border: "border-amber-500/20",
+                                            bg: "bg-amber-500/5",
+                                            text: "text-amber-400",
+                                            label: "Warning",
+                                            icon: "⚠️"
+                                        };
+                                    } else if (type === "IMPORTANT") {
+                                        styles = {
+                                            border: "border-purple-500/20",
+                                            bg: "bg-purple-500/5",
+                                            text: "text-purple-400",
+                                            label: "Important",
+                                            icon: "✨"
+                                        };
+                                    }
+                                    
+                                    return (
+                                        <div key={i} className={`my-8 p-6 rounded-2xl border ${styles.border} ${styles.bg} flex gap-4 items-start`}>
+                                            <span className="text-2xl shrink-0">{styles.icon}</span>
+                                            <div>
+                                                <span className={`text-xs font-black uppercase tracking-widest ${styles.text} block mb-1`}>
+                                                    {styles.label}
+                                                </span>
+                                                <div className="text-zinc-300 text-base leading-relaxed">
+                                                    {parseMarkdownText(content)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+
                                 if (line.startsWith("### ")) {
                                     return (
                                         <h3 key={i} className="text-xl font-semibold text-white mb-4 mt-12 lowercase [font-variant:small-caps] tracking-wider">

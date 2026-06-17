@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Chronotype Visualizer (Free) - Cortisol & Melatonin Graph",
   description: "Interactive chronotype visualizer. Slide through the day to graph your cortisol and melatonin hormones based on your biological animal type.",
   keywords: "chronotype visualizer, cortisol curve, melatonin onset, circadian rhythm graph, sleep animal behavior",
+  alternates: {
+    canonical: "/tools/chronotype-visualizer",
+  },
 };
 
 export default function VisualizerPage() {

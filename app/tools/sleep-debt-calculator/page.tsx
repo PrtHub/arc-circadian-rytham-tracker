@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Sleep Debt Calculator (Free) - Calculate Your Sleep Deficit",
   description: "Calculate your cumulative sleep debt and deficit over the last 5 days. Get a science-backed sleep recovery plan to catch up safely.",
   keywords: "sleep debt calculator, sleep deprivation test, calculate sleep debt, how to catch up on sleep, sleep tracker tool",
+  alternates: {
+    canonical: "/tools/sleep-debt-calculator",
+  },
 };
 
 export default function SleepDebtPage() {

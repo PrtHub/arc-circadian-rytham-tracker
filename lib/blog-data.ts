@@ -1218,6 +1218,8 @@ By delaying caffeine for 90-120 minutes, you allow your natural cortisol spike t
 ### Why You Need Morning Sunlight
 Morning sunlight viewing sets your circadian clock. It triggers a healthy cortisol pulse, which not only gives you morning energy but also sets a biological timer. Exactly 12-14 hours after your morning sunlight exposure, your pineal gland will start releasing melatonin, ensuring you can fall asleep easily that night.
 
+> [!TIP] **Optimize Your Sun Window:** Calculate exactly how many minutes of light exposure your eyes need based on your local weather with our free [Sunlight Window Calculator](/tools/sunlight-calculator).
+
 ### How ARC Automates This For You
 Instead of trying to remember these timings, ARC calculates them dynamically based on your unique chronotype (take our free [Chronotype Quiz](/tools/chronotype-quiz) to find yours) and actual wake time:
 
@@ -1226,6 +1228,10 @@ Instead of trying to remember these timings, ARC calculates them dynamically bas
 3. **The Daily Trajectory:** ARC maps out your entire day—when your peak focus window opens, when your caffeine cutoff hits, and when you should start winding down—all anchored to that initial morning protocol.
 
 Stop guessing your timings. Let ARC do the math so you can focus on executing.
+
+### Scientific References
+- *Huberman, A. D. (2021). Sleep Toolkit: Protocols for Optimizing Your Sleep & State of Mind. Huberman Lab Podcast, Episode 2.*
+- *Zeitzer, J. M., et al. (2000). Sensitivity of the human circadian pacemaker to nocturnal light: quantification of light-induced phase shifts. Journal of Physiology, 526(3), 695-702.*
     `,
   },
   {
@@ -1254,10 +1260,16 @@ Let's look at the math of a 3:00 PM espresso (which typically contains about 100
 
 If you go to bed at 11:00 PM, you still have nearly 40mg of caffeine active in your brain. You might be exhausted enough to fall asleep, but that caffeine will absolutely destroy your deep sleep architecture. You will wake up feeling groggy, reach for more coffee, and repeat the vicious cycle.
 
+> [!TIP] **Calculate Your Bedtime Decay:** Use our free [Caffeine Half-Life Calculator](/tools/caffeine-calculator) to view your exact hourly decay graph and determine your personalized sleep-safe cutoff time.
+
 ### How to Stop the Cycle
 To protect your sleep, you need to keep your active caffeine levels below 15-20mg by bedtime. But doing this math in your head every time you have a cup of tea or an energy drink is impossible. Use our free [Caffeine Half-Life Calculator](/tools/caffeine-calculator) to find your exact cutoff time.
 
 This is the flagship feature of ARC. The app features a live SVG caffeine decay curve. You log your drink, and ARC shows you a real-time graph of exactly how many milligrams are active in your system. It calculates your specific "Sleep-Safe Threshold" and tells you the exact minute you need to stop drinking coffee today.
+
+### Scientific References
+- *Drake, C., et al. (2013). Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. Journal of Clinical Sleep Medicine, 9(11), 1195-1200.*
+- *Landolt, H. P., et al. (2015). Caffeine effects on sleep and the sleep electroencephalogram. Handbook of Experimental Pharmacology, 225, 33-53.*
     `,
   },
   {
@@ -1278,7 +1290,7 @@ Social jetlag occurs when your biological time (your chronotype's natural rhythm
 
 If you wake up at 6:30 AM for work Monday through Friday, but stay up late and sleep in until 9:30 AM on Saturday and Sunday, you have just shifted your circadian rhythm across three time zones. Biologically, it is the exact equivalent of flying from New York to Los Angeles on Friday night, and flying back on Sunday night. 
 
-No wonder Monday feels terrible. Calculate your exact weekly time zone shift using our free [Social Jetlag Calculator](/tools/social-jetlag-calculator).
+> [!TIP] **Measure Your Weekly Drift:** Use our free [Social Jetlag Calculator](/tools/social-jetlag-calculator) to see the exact time zone shift you are inducing every weekend and view its metabolic impact.
 
 ### The Consequences
 Research links chronic social jetlag to severe metabolic disruption, weight gain, increased risk of heart disease, and massive cognitive deficits early in the week.
@@ -1289,6 +1301,12 @@ The rule of circadian biology is consistency. Your brain does not know what a "w
 1. **The 1-Hour Rule:** Your weekend wake time should never differ from your weekday wake time by more than 1 hour.
 2. **Anchor with Light:** Even if you sleep in slightly, you must get bright sunlight in your eyes as soon as you wake up to prevent your rhythm from drifting further.
 3. **Use ARC to Map the Drift:** ARC's morning check-in tracks your wake times. If it detects a drift, it automatically triggers a "Recovery Protocol" for the day, adjusting your caffeine cutoff and light exposure targets to gently pull your circadian rhythm back into alignment without shocking your system.
+
+You can't pay back sleep debt. You can only reset the rhythm.
+
+### Scientific References
+- *Roenneberg, T., et al. (2012). Social jetlag and obesity. Current Biology, 22(10), 939-943.*
+- *Wittmann, M., et al. (2006). Social jetlag: misalignment of biological and social time. Chronobiology International, 23(1-2), 497-509.*
     `,
   },
   {
@@ -1335,7 +1353,9 @@ By aligning your tasks with your natural dopamine and cortisol peaks, you stop f
 
 We treat sleep like a bank account: if you are in debt by 5 hours on Friday, you think you can just deposit 5 extra hours on Saturday and the balance is zero. 
 
-Circadian biology does not have a bank account. It only has a rhythm. Calculate your cumulative deficit with our free [Sleep Debt Calculator](/tools/sleep-debt-calculator). 
+Circadian biology does not have a bank account. It only has a rhythm. 
+
+> [!TIP] **Measure Your Cumulative Debt:** Use our free [Sleep Debt Calculator](/tools/sleep-debt-calculator) to compute your exact biological deficit and discover a safe, personalized recovery strategy.
 
 ### Why Catch-Up Sleep Doesn't Work
 When you deprive yourself of sleep, you suffer cumulative cognitive and metabolic damage. When you "binge sleep" on the weekend to catch up, you aren't reversing that damage. Instead, you are committing a secondary circadian offense: you are shifting your biological clock (causing Social Jetlag).
@@ -1354,6 +1374,10 @@ If you have a terrible night of sleep, the worst thing you can do is sleep in ex
 4. **Follow the ARC Recovery Protocol:** When you log a bad night's sleep in ARC's Morning Check-in, the app automatically switches to Recovery Mode. It pushes your caffeine timeline back, alerts you to get early sunlight, and schedules a much earlier wind-down sequence for that evening.
 
 You can't pay back sleep debt. You can only reset the rhythm.
+
+### Scientific References
+- *Kitamura, S., et al. (2016). Estimating individual optimal sleep duration and its response to sleep debt. Scientific Reports, 6, 34272.*
+- *Depner, C. M., et al. (2019). Ad libitum weekend recovery sleep fails to prevent metabolic dysregulation during a repeating pattern of insufficient sleep. Current Biology, 29(6), 957-967.*
     `,
   },
   {

@@ -30,7 +30,10 @@ Detailed biological schedules for each chronotype:
 
 ## Free Tools
 We provide several free interactive tools for the public to analyze their circadian health:
-*   **Caffeine Half-Life Calculator**: Calculate active milligrams and sleep-safe cutoffs. (URL: /tools/caffeine-calculator)
+*   **Caffeine Half-Life Calculator**: Calculate active milligrams and sleep-safe cutoffs with a searchable brand database. (URL: /tools/caffeine-calculator)
+*   **Huberman Sleep Cocktail Builder**: Optimize dosage, safety, and timings of science-backed sleep compounds. (URL: /tools/sleep-cocktail)
+*   **Circadian Jetlag Planner**: Generate a 3-day phase advance/delay travel recovery timeline. (URL: /tools/jetlag-planner)
+*   **Chronotype Compatibility Quiz**: Map sleep schedule compatibility and co-alertness windows with a partner. (URL: /tools/chronotype-compatibility)
 *   **Chronotype Quiz**: A 3-question baseline assessment to discover your sleep animal. (URL: /tools/chronotype-quiz)
 *   **Social Jetlag Calculator**: Measure the biological cost of sleeping in on weekends. (URL: /tools/social-jetlag-calculator)
 *   **Sleep Debt Calculator**: Calculate cumulative sleep deficit over the last 5 days. (URL: /tools/sleep-debt-calculator)

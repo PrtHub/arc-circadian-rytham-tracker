@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Caffeine Half-Life Calculator (Free) - Find Your Coffee Cutoff",
   description: "Calculate when to stop drinking coffee to protect deep sleep. Input your bedtime and cup strength to calculate active caffeine half-life decay.",
   keywords: "caffeine half life calculator, when to stop drinking coffee, caffeine cutoff time, sleep tracker tool, caffeine decay calculator",
+  alternates: {
+    canonical: "/tools/caffeine-calculator",
+  },
 };
 
 export default function CaffeineCalculatorPage() {

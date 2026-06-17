@@ -1,10 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Free Circadian Rhythm Tools | ARC",
   description: "Free tools to calculate your caffeine half-life, discover your chronotype, and optimize your biological clock.",
+  alternates: {
+    canonical: "/tools",
+  },
 };
 
 const tools = [
@@ -13,6 +17,27 @@ const tools = [
     description: "Find out exactly when you need to stop drinking coffee to protect your deep sleep. Calculates active milligrams based on standard metabolic decay.",
     icon: "☕",
     href: "/tools/caffeine-calculator",
+    status: "Live",
+  },
+  {
+    title: "Huberman Sleep Cocktail Builder",
+    description: "Optimize dosage, safety, and timings of Stanford's recommended sleep compounds based on your specific nighttime struggles.",
+    icon: "💊",
+    href: "/tools/sleep-cocktail",
+    status: "Live",
+  },
+  {
+    title: "Circadian Jetlag Planner",
+    description: "Shift your circadian rhythm. Generate a personalized 3-day phase advance/delay schedule based on origin and destination offsets.",
+    icon: "🛫",
+    href: "/tools/jetlag-planner",
+    status: "Live",
+  },
+  {
+    title: "Chronotype Compatibility Quiz",
+    description: "Map sleep schedule compatibility with your partner. Discover alert/sleep overlap graphs and cohabitation adjustments.",
+    icon: "💞",
+    href: "/tools/chronotype-compatibility",
     status: "Live",
   },
   {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Social Jetlag Calculator (Free) - Measure Weekend Sleep Shift",
   description: "Calculate your social jetlag to see how your weekend sleep-in habits shift your internal circadian clock. Fix Monday morning fatigue.",
   keywords: "social jetlag calculator, weekend sleep in, monday morning fatigue, fix sleep schedule, circadian rhythm shift",
+  alternates: {
+    canonical: "/tools/social-jetlag-calculator",
+  },
 };
 
 export default function SocialJetlagPage() {

@@ -48,7 +48,11 @@ export function Footer() {
               <li><Link href="/blog" className="hover:text-white transition-colors">Science & Articles</Link></li>
               <li><Link href="/tools" className="hover:text-white transition-colors">Free Tools</Link></li>
               <li><Link href="/tools/caffeine-calculator" className="hover:text-white transition-colors">Caffeine Calculator</Link></li>
-              <li><Link href="/tools/chronotype-quiz" className="hover:text-white transition-colors">Chronotype Quiz</Link></li>
+              <li><Link href="/tools/sleep-cocktail" className="hover:text-white transition-colors">Sleep Cocktail Stack</Link></li>
+              <li><Link href="/tools/jetlag-planner" className="hover:text-white transition-colors">Jetlag Planner</Link></li>
+              <li><Link href="/tools/chronotype-compatibility" className="hover:text-white transition-colors">Partner Compatibility</Link></li>
+              <li><Link href="/tools/jetlag-calculator" className="hover:text-white transition-colors">Jetlag Calculator</Link></li>
+              <li><Link href="/tools/chronotype-calculator" className="hover:text-white transition-colors">Chronotype Calculator</Link></li>
               <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
               <li><a href="/#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>

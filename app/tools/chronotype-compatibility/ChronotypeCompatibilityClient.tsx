@@ -137,10 +137,12 @@ export default function ChronotypeCompatibilityClient() {
           {/* Partner A Select */}
           <div>
             <label className="block text-sm font-bold text-zinc-300 mb-3">Partner A Chronotype</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Partner A Chronotype Selection">
               {CHRONOTYPES.map((c) => (
                 <button
                   key={`a-${c.slug}`}
+                  role="radio"
+                  aria-checked={partnerA === c.slug}
                   onClick={() => setPartnerA(c.slug)}
                   className={`p-4 rounded-xl border text-left transition-all flex flex-col justify-between ${
                     partnerA === c.slug
@@ -161,10 +163,12 @@ export default function ChronotypeCompatibilityClient() {
           {/* Partner B Select */}
           <div>
             <label className="block text-sm font-bold text-zinc-300 mb-3">Partner B Chronotype</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Partner B Chronotype Selection">
               {CHRONOTYPES.map((c) => (
                 <button
                   key={`b-${c.slug}`}
+                  role="radio"
+                  aria-checked={partnerB === c.slug}
                   onClick={() => setPartnerB(c.slug)}
                   className={`p-4 rounded-xl border text-left transition-all flex flex-col justify-between ${
                     partnerB === c.slug

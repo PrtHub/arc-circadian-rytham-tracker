@@ -107,6 +107,8 @@ export default function SleepCocktailClient() {
           ].map((item) => (
             <button
               key={item.key}
+              role="checkbox"
+              aria-checked={issues[item.key as keyof typeof issues]}
               onClick={() => toggleIssue(item.key as keyof typeof issues)}
               className={`p-5 rounded-2xl border text-left transition-all flex items-start gap-4 ${issues[item.key as keyof typeof issues]
                 ? "border-[#CCFF00] bg-[#CCFF00]/5 text-white"

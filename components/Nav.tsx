@@ -40,6 +40,12 @@ export function Nav() {
           <Link href="/blog" className="hover:text-white transition-colors">
             Blog
           </Link>
+          <Link href="/science" className="hover:text-white transition-colors">
+            Science
+          </Link>
+          <Link href="/books" className="hover:text-white transition-colors">
+            Books
+          </Link>
           <Link href="/tools" className="hover:text-white transition-colors flex items-center gap-1">
             Tools <span className="px-1.5 py-0.5 rounded-md bg-[#CCFF00]/10 text-[#CCFF00] text-[10px] font-bold">NEW</span>
           </Link>

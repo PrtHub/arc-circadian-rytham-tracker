@@ -39,6 +39,31 @@ We provide several free interactive tools for the public to analyze their circad
 *   **Sleep Debt Calculator**: Calculate cumulative sleep deficit over the last 5 days. (URL: /tools/sleep-debt-calculator)
 *   **Sunlight Window Calculator**: Find the required duration of morning sunlight based on weather. (URL: /tools/sunlight-calculator)
 *   **Chronotype Visualizer**: Interactive slider to see cortisol and melatonin fluctuations. (URL: /tools/chronotype-visualizer)
+*   **Sleep Cycle Calculator**: Calculate optimal bedtime and wake schedules based on 90-minute sleep cycles. (URL: /tools/sleep-cycle-calculator)
+
+## Science Articles & Guides
+We publish deep-dives into chronobiology and sleep architecture:
+*   **The Science of Coffee Timing**: Why delaying caffeine by 90 minutes prevents the afternoon crash. (URL: /blog/science-of-coffee-timing-delay-90-minutes)
+*   **Social Jetlag & Weekend Sleep**: The biological cost of shifting your wake window on weekends. (URL: /blog/social-jetlag-weekend-sleep-in-cost)
+*   **Best Circadian Rhythm Apps**: An objective comparison of Rise, Oura, WHOOP, and ARC. (URL: /blog/best-circadian-rhythm-apps-2026)
+*   **Oura Ring vs ARC**: Comparing ring biometrics with chronotype-based behavior software. (URL: /blog/oura-ring-vs-arc-circadian-rhythm-tracker)
+
+## Science & Protocols Hub
+Detailed biological references, step-by-step schedules, and glossary indices:
+*   **Science & Protocols Index**: Main directory of circadian science resources. (URL: /science)
+*   **Caffeine Tolerance Reset Protocol**: 7-day stepped withdrawal schedule to restore receptor sensitivity. (URL: /science/caffeine-tolerance-reset-protocol)
+*   **Adenosine & Sleep Pressure**: Neurological review of energy metabolism and adenosine receptors. (URL: /science/adenosine-sleep-pressure)
+*   **What is a Zeitgeber?**: Defining the environmental synchronizers of human physiology. (URL: /science/what-is-zeitgeber)
+*   **Ultimate Circadian Reset Guide**: 48-hour light, temperature, and feeding sequence to anchor your SCN. (URL: /science/ultimate-circadian-reset-guide)
+
+## Recommended Literature & Books
+Reviews and biological takeaways of key circadian & sleep texts:
+*   **Recommended Books Index**: Main directory of sleep literature reviews. (URL: /books)
+*   **The Power of When**: Dr. Michael Breus's guide to Lions, Bears, Wolves, and Dolphins. (URL: /books/the-power-of-when)
+*   **Why We Sleep**: Dr. Matthew Walker's neuroscientific review of sleep stages and caffeine. (URL: /books/why-we-sleep)
+*   **Change Your Schedule, Change Your Life**: Dr. Suhas Kshirsagar's guide to clock genes and routine timing. (URL: /books/change-your-schedule-change-your-life)
+*   **The Circadian Code**: Dr. Satchin Panda's guide to time-restricted feeding and SCN alignment. (URL: /books/the-circadian-code)
+*   **Lifespan**: Dr. David Sinclair's genetic review of sirtuins and epigenetic longevity. (URL: /books/lifespan)
 
 ## Pricing
 *   **Weekly**: $4.99/week

@@ -8,7 +8,7 @@ export function Footer() {
       role="contentinfo"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
           <div className="col-span-2 lg:col-span-2">
             <Link
               href="/"
@@ -45,16 +45,25 @@ export function Footer() {
           <div>
             <h3 className="text-[#CCFF00] font-bold mb-4 tracking-wide text-sm uppercase">Resources</h3>
             <ul className="space-y-3 text-sm text-zinc-500">
-              <li><Link href="/blog" className="hover:text-white transition-colors">Science & Articles</Link></li>
-              <li><Link href="/tools" className="hover:text-white transition-colors">Free Tools</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Journal Blog</Link></li>
+              <li><Link href="/science" className="hover:text-white transition-colors">Science & Protocols</Link></li>
+              <li><Link href="/books" className="hover:text-white transition-colors">Recommended Books</Link></li>
+              <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
+              <li><a href="/#faq" className="hover:text-white transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[#CCFF00] font-bold mb-4 tracking-wide text-sm uppercase">Free Tools</h3>
+            <ul className="space-y-3 text-sm text-zinc-500">
+              <li><Link href="/tools" className="hover:text-white transition-colors">All Free Tools</Link></li>
               <li><Link href="/tools/caffeine-calculator" className="hover:text-white transition-colors">Caffeine Calculator</Link></li>
               <li><Link href="/tools/sleep-cocktail" className="hover:text-white transition-colors">Sleep Cocktail Stack</Link></li>
               <li><Link href="/tools/jetlag-planner" className="hover:text-white transition-colors">Jetlag Planner</Link></li>
               <li><Link href="/tools/chronotype-compatibility" className="hover:text-white transition-colors">Partner Compatibility</Link></li>
+              <li><Link href="/tools/sleep-cycle-calculator" className="hover:text-white transition-colors">Sleep Cycle Calculator</Link></li>
               <li><Link href="/tools/jetlag-calculator" className="hover:text-white transition-colors">Jetlag Calculator</Link></li>
               <li><Link href="/tools/chronotype-calculator" className="hover:text-white transition-colors">Chronotype Calculator</Link></li>
-              <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
-              <li><a href="/#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 

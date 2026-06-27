@@ -82,6 +82,17 @@ const nextConfig: NextConfig = {
         destination: "/tools/chronotype-visualizer",
         permanent: true,
       },
+      // Sleep Cycle Calculator
+      {
+        source: "/tools/sleep-cycle",
+        destination: "/tools/sleep-cycle-calculator",
+        permanent: true,
+      },
+      {
+        source: "/tools/sleep-calculator",
+        destination: "/tools/sleep-cycle-calculator",
+        permanent: true,
+      },
       // Blog Redirects
       {
         source: "/blogs",

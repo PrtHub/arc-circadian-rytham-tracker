@@ -1484,4 +1484,91 @@ Instead of feeling guilty for not being a morning person, you should optimize yo
 ARC's onboarding includes a precision diagnosis that identifies your chronotype. Instead of giving you generic advice, ARC builds a customized 24-hour protocol specifically for your chronotype. If you are a Wolf, ARC won't tell you to wake up at 5 AM. It will tell you how to structure your day starting at 9 AM for maximum performance.
     `,
   },
+  {
+    slug: "science-of-coffee-timing-delay-90-minutes",
+    title: "The Science of Coffee Timing: Why Your First Cup Should Be Delayed 90 Minutes",
+    excerpt: "Drinking coffee the moment you wake up is a recipe for an afternoon crash. Learn the science of adenosine clearance and when to time your first cup.",
+    date: "2026-06-25",
+    category: "Education",
+    readTime: "7 min",
+    content: `
+# The Coffee Timing Mistake
+
+For many, the morning routine is automatic: open eyes, walk to the kitchen, and brew a cup of coffee. It feels like the only way to shake off the morning grogginess. 
+
+But from a biological perspective, this is the worst time to consume caffeine. Doing so practically guarantees a mid-afternoon energy crash and desensitizes your brain to caffeine over time.
+
+### The Adenosine Connection
+
+To understand why, we need to look at a chemical called **adenosine**. 
+
+Adenosine is a molecule that builds up in your brain for every hour you are awake. It creates "sleep pressure"—the natural feeling of being tired. When you sleep, your brain clears out this accumulated adenosine, resetting your levels to zero.
+
+However, when you first wake up, there is still a small, residual amount of adenosine lingering in your system. This is what causes that initial "sleep inertia" or grogginess.
+
+### How Caffeine Interacts
+
+Caffeine doesn't actually give you energy; it is an adenosine antagonist. It has a molecular structure very similar to adenosine, allowing it to bind to your brain's adenosine receptors, blocking them. 
+
+If you drink coffee immediately upon waking, the caffeine blocks those receptors before the lingering adenosine has a chance to clear out. The adenosine is forced to circulate in your bloodstream, waiting.
+
+As the caffeine is metabolized by your liver 5 to 7 hours later (around 2:00 PM or 3:00 PM), it releases its grip on those receptors. The accumulated, circulating adenosine then floods your brain all at once, causing a severe afternoon crash.
+
+### The 90-Minute Delay Protocol
+
+By waiting 90 to 120 minutes after waking before having your first cup, you allow your body's natural cortisol levels to peak and clear out the remaining adenosine organically. 
+
+When you finally introduce caffeine, the receptors are clean, and you get a smooth, sustained increase in focus and energy without the afternoon debt.
+
+### Optimize with ARC
+
+ARC takes the guesswork out of caffeine timing. Based on your wake-up time and chronotype, ARC calculates your exact "Adenosine Clearance Window" and sends a notification when it is biologically safe to consume your first cup, protecting you from the crash.
+    `,
+  },
+  {
+    slug: "social-jetlag-weekend-sleep-in-cost",
+    title: "Social Jetlag: The Hidden Cost of Sleeping In on Weekends",
+    excerpt: "Shifting your sleep schedule on the weekend by just 2 hours is the biological equivalent of flying across two time zones. Here is how it ruins your Monday.",
+    date: "2026-06-20",
+    category: "Education",
+    readTime: "8 min",
+    content: `
+# The Weekend Drift
+
+It is a common scenario: after a long, exhausting workweek, you look forward to the weekend to "catch up" on sleep. You stay up late on Friday and Saturday, and sleep in until 10:00 AM or 11:00 AM. 
+
+While it feels relaxing in the moment, this sleep schedule drift has a dark side. Chronobiologists call this phenomenon **Social Jetlag**.
+
+### The Time Zone Equivalence
+
+Social Jetlag is the discrepancy between your biological clock (determined by your chronotype) and your social clock (your work or school schedule). 
+
+If you wake up at 7:00 AM on weekdays, but sleep in until 9:30 AM on weekends, you have shifted your sleep window by 2.5 hours. Biologically, this is the exact equivalent of flying from New York to Denver and back every single weekend.
+
+Your master clock (the suprachiasmatic nucleus) has no idea that it is the weekend. It only responds to light, temperature, and feeding times. Shifting your schedule confuses your organs, which operate on localized clock genes.
+
+### The Monday Morning Hangover
+
+When you sleep in on Sunday morning, you delay your master clock. Consequently, your body won't begin producing melatonin until much later on Sunday night. 
+
+You lie in bed Sunday night staring at the ceiling, unable to sleep. When your alarm goes off at 7:00 AM on Monday, you wake up in the middle of a deep sleep cycle, experiencing severe brain fog, fatigue, and irritability. This is the Monday morning circadian hangover.
+
+### Health and Metabolic Toll
+
+Research shows that chronic social jetlag is associated with:
+1.  **Metabolic Disruption**: Increased risk of weight gain and insulin resistance.
+2.  **Cognitive Decline**: Lower focus, memory retention, and creativity early in the week.
+3.  **Depression**: Higher rates of mood swings and seasonal affective disorders.
+
+### How to Prevent the Shift
+
+1.  **Keep a Consistent Wake Time**: Try to wake up within 60 minutes of your weekday wake time on weekends.
+2.  **Use Early Bedtimes Instead**: If you are sleep-deprived, go to bed earlier on Saturday night rather than waking up later on Sunday.
+3.  **Get Morning Sun**: Reinforce your clock by stepping outside immediately upon waking on the weekend.
+
+### Calculate Your Deficit
+
+Use ARC's **[Social Jetlag Calculator](/tools/social-jetlag-calculator)** to see exactly how many biological time zones you are flying every weekend, and get personalized advice on how to transition back to your work schedule without Monday fatigue.
+    `,
+  },
 ];

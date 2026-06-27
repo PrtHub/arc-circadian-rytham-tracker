@@ -2,6 +2,8 @@ import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
 import { chronotypeDetails } from "@/lib/chronotype-data";
 import { audienceDetails } from "@/lib/audience-data";
+import { scienceArticles } from "@/lib/science-data";
+import { booksData } from "@/lib/book-data";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
@@ -88,7 +90,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/tools/sleep-cycle-calculator`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
+
+  const sciences = scienceArticles.map((article) => ({
+    url: `${SITE_URL}/science/${article.slug}`,
+    lastModified: new Date(article.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  const books = booksData.map((book) => ({
+    url: `${SITE_URL}/books/${book.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   return [
     {
@@ -103,9 +125,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/science`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/books`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     ...chronotypes,
     ...audiences,
     ...tools,
     ...blogs,
+    ...sciences,
+    ...books,
   ];
 }

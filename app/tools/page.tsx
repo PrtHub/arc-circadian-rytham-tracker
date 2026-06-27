@@ -75,6 +75,13 @@ const tools = [
     href: "/tools/chronotype-visualizer",
     status: "Live",
   },
+  {
+    title: "Sleep Cycle Calculator",
+    description: "Calculate the exact times to go to bed or wake up based on 90-minute sleep cycles. Banish morning grogginess and sleep in sync with your brain.",
+    icon: "⏰",
+    href: "/tools/sleep-cycle-calculator",
+    status: "Live",
+  },
 ];
 
 export default function ToolsIndex() {

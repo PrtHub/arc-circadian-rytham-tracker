@@ -47,27 +47,26 @@ export function Science() {
         {/* Header */}
         <div className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div>
-            <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-              The Science
+            <p className="text-xs font-bold tracking-widest text-[#CCFF00] uppercase mb-3 font-mono">
+              THE SCIENCE
             </p>
             <h2
               id="science-heading"
               className="text-4xl sm:text-5xl font-black tracking-tighter"
             >
-              Biology you can
+              Built on chronobiology,
               <br />
-              <span className="text-[#CCFF00]">actually use.</span>
+              <span className="text-[#CCFF00]">not hustle culture.</span>
             </h2>
           </div>
-          <p className="text-zinc-500 text-sm max-w-sm leading-relaxed">
-            ARC is built on peer-reviewed chronobiology — not habit tracking
-            folklore. Here&apos;s the science powering every recommendation.
+          <p className="text-zinc-400 text-sm max-w-sm leading-relaxed">
+            Your energy isn&apos;t random — it follows a circadian rhythm set by light, sleep, and timing. ARC turns decades of sleep and circadian science into simple, personalized actions.
           </p>
         </div>
 
         {/* Mechanism cards */}
         <ul
-          className="grid sm:grid-cols-3 gap-4 mb-10"
+          className="grid sm:grid-cols-3 gap-4 mb-8"
           aria-label="Biological mechanisms"
         >
           {mechanisms.map((m) => (
@@ -97,6 +96,24 @@ export function Science() {
             </li>
           ))}
         </ul>
+
+        {/* Stat Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-center">
+          {[
+            { value: "4", label: "Chronotypes mapped" },
+            { value: "~16h", label: "Caffeine half-life range" },
+            { value: "1", label: "Clear action at a time" },
+          ].map((stat) => (
+            <div key={stat.label} className="rounded-2xl border border-white/5 bg-[#111] py-8 flex flex-col gap-1 items-center hover:border-[#CCFF00]/20 transition-colors">
+              <span className="text-4xl sm:text-5xl font-black text-[#CCFF00] font-sans tracking-tighter">
+                {stat.value}
+              </span>
+              <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase font-mono mt-1">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {/* Biological Briefing callout */}
         <div className="rounded-2xl border border-[#CCFF00]/20 bg-[#CCFF00]/5 p-6 mb-10 flex flex-col sm:flex-row items-start gap-4">

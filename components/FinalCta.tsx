@@ -16,23 +16,20 @@ export function FinalCta() {
       />
 
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10">
-        <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase">
-          Start Today
+        <p className="text-xs font-bold tracking-widest text-[#CCFF00] uppercase font-mono">
+          START TODAY
         </p>
 
         <h2
           id="cta-heading"
           className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter"
         >
-          Your biology has
-          <br />a <span className="text-[#CCFF00]">schedule.</span>
+          Stop fighting
+          <br /><span className="text-[#CCFF00]">your clock.</span>
         </h2>
 
         <p className="text-zinc-400 text-lg max-w-md">
-          You&apos;ve tried sleeping more. Drinking more coffee. Going to bed
-          earlier. None of it worked — because{" "}
-          <strong className="text-white">timing</strong> was the real problem
-          all along.
+          Find your chronotype and build a day that works with your biology.
         </p>
 
         <AppStoreButton size="lg" location="final_cta" />

@@ -23,24 +23,24 @@ export function Pricing() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-            Pricing
+          <p className="text-xs font-bold tracking-widest text-[#CCFF00] uppercase mb-3 font-mono">
+            PRICING
           </p>
           <h2
             id="pricing-heading"
             className="text-4xl sm:text-5xl font-black tracking-tighter mb-4"
           >
-            Start free.
+            Start syncing
             <br />
-            <span className="text-[#CCFF00]">Upgrade when ready.</span>
+            <span className="text-[#CCFF00]">today.</span>
           </h2>
-          <p className="text-zinc-500 text-sm">
-            Cancel anytime. Both plans unlock every feature instantly.
+          <p className="text-zinc-400 text-sm">
+            Subscription auto-renews, cancel anytime. Managed through the App Store.
           </p>
         </div>
 
         <ul
-          className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto"
+          className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
           aria-label="Pricing plans"
         >
           {plans.map((plan) => (

@@ -110,25 +110,25 @@ export const chronotypes = [
     icon: "🦁",
     name: "Lion",
     tagline: "Early Riser",
-    desc: "Peak energy in the morning. You do your best deep work before noon. Protect your mornings fiercely.",
+    desc: "Early riser, peaks before noon, fades by evening.",
   },
   {
     icon: "🐻",
     name: "Bear",
     tagline: "Solar Rhythm",
-    desc: "You follow the sun. Steady energy during daylight with a natural afternoon dip. The most common chronotype.",
+    desc: "Follows the sun; most of the world runs on Bear time.",
   },
   {
     icon: "🐺",
     name: "Wolf",
     tagline: "Night Owl",
-    desc: "Peak creativity and energy in the evening. You're wired for late nights and slow mornings.",
+    desc: "Slow mornings, sharp late — built for the night.",
   },
   {
     icon: "🐬",
     name: "Dolphin",
     tagline: "Light Sleeper",
-    desc: "Irregular patterns and light sleep. Highly alert and anxious. Your schedule needs the most precision.",
+    desc: "Light, sensitive sleeper with a busy mind.",
   },
 ];
 
@@ -221,47 +221,39 @@ export const plans = [
     note: "Cancel anytime",
   },
   {
-    name: "Monthly",
-    price: "$9.99",
-    period: "/ month",
-    highlight: false,
-    badge: null as string | null,
-    note: "Cancel anytime",
-  },
-  {
     name: "Annual",
-    price: "$29.99",
+    price: "$39.99",
     period: "/ year",
     highlight: true,
-    badge: "Save 88%" as string | null,
-    note: "Cancel anytime",
+    badge: "Most Popular" as string | null,
+    note: "~$0.58 / week • Save 88%",
   },
 ];
 
 export const faqs = [
   {
-    q: "What is a chronotype?",
-    a: "A chronotype is your body's natural preference for when to sleep and wake. There are four types: Lion (early riser), Bear (solar rhythm), Wolf (night owl), and Dolphin (light sleeper). ARC identifies yours through a 32-step personalized onboarding.",
+    q: "What's a chronotype?",
+    a: "Your body's natural timing type — when you're wired to sleep, wake, and peak. ARC sorts you into one of four (Lion, Bear, Wolf, Dolphin).",
   },
   {
-    q: "How is ARC different from a sleep tracker?",
-    a: "Sleep trackers tell you how well you slept last night. ARC tells you how to structure your entire day — when to do deep work, when to have caffeine, when to get sunlight, and when to wind down. It's proactive, not reactive.",
+    q: "Do I need a wearable?",
+    a: "No. ARC works from a few simple inputs and gets smarter as you log.",
   },
   {
-    q: "Is ARC based on real science?",
-    a: "Yes. ARC is powered by peer-reviewed chronobiology research from Dr. Andrew Huberman (Stanford Neuroscience) and Dr. Matthew Walker (UC Berkeley). Every recommendation has a scientific basis.",
+    q: "Does it work for shift workers?",
+    a: "Yes — there's a dedicated night-shift protocol that inverts the guidance safely.",
   },
   {
-    q: "Does ARC collect my health data?",
-    a: "No. ARC uses a local-first architecture — all your data is stored on your device using SQLite. Nothing is sent to external servers. You can delete everything at any time from app settings.",
+    q: "Will it wake me up / is it an alarm?",
+    a: "No. ARC is a coach, not an alarm clock — gentle, well-timed nudges you fully control.",
   },
   {
-    q: "What does the caffeine cutoff feature do?",
-    a: "Caffeine has a half-life of 5–6 hours. ARC calculates your personal cutoff time based on your sleep schedule so caffeine doesn't interfere with your sleep quality.",
+    q: "Is my data private?",
+    a: "Your data stays on your device. See our Privacy Policy.",
   },
   {
-    q: "Is there a free tier?",
-    a: "Yes — the free tier includes core chronotype discovery and daily trajectory with no time limit. Pro unlocks all features. All paid plans are cancel anytime, no commitment.",
+    q: "How do I cancel?",
+    a: "Anytime, through your App Store subscription settings.",
   },
 ];
 

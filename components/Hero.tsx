@@ -19,63 +19,35 @@ export function Hero() {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         {/* Left */}
         <div className="flex flex-col items-start gap-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/30 bg-[#CCFF00]/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-[#CCFF00] uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/30 bg-[#CCFF00]/5 px-4 py-1.5 text-xs font-bold tracking-widest text-[#CCFF00] uppercase font-mono">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] animate-pulse" />
-            Tired of being tired?
+            KNOW YOUR TYPE
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter">
-            It&apos;s not you.
+            You&apos;re not lazy.
             <br />
-            It&apos;s your <span className="text-[#CCFF00]">timing.</span>
+            You&apos;re on the <span className="text-[#CCFF00]">wrong clock.</span>
           </h1>
 
-          <p className="text-lg text-zinc-400 leading-relaxed max-w-md">
-            Exhausted after 8 hours? Crashing every afternoon? Wide awake at
-            midnight?{" "}
-            <strong className="text-white">
-              Your body runs on its own clock
-            </strong>{" "}
-            — and you&apos;ve been ignoring it. ARC shows you your real schedule
-            so you can finally work with it.
+          <p className="text-lg text-zinc-400 leading-relaxed max-w-lg">
+            Most advice treats everyone the same. ARC finds your chronotype and builds your entire day around your real biological rhythm — so focus, energy, and sleep come naturally.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <AppStoreButton size="lg" location="hero" />
             <a
               href="#how-it-works"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 px-8 py-4 text-sm font-semibold text-zinc-300 hover:bg-white/5 hover:text-white transition-all"
+              className="inline-flex items-center justify-center gap-1 text-zinc-400 hover:text-white text-sm font-bold transition-all py-3 px-4 hover:translate-y-0.5"
             >
-              See How It Works
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-4 h-4"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              See how it works ↓
             </a>
           </div>
 
           {/* Trust signals */}
-          <div className="flex items-center gap-6 text-sm text-zinc-500 pt-2">
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">250+</span> downloads
-            </span>
-            <span className="w-px h-4 bg-zinc-800" />
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">Science</span>-backed
-            </span>
-            <span className="w-px h-4 bg-zinc-800" />
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#CCFF00] font-bold">Local-first</span>{" "}
-              privacy
-            </span>
+          <div className="flex items-center gap-2 text-xs font-bold text-zinc-500 pt-2 tracking-wide font-mono uppercase">
+            <span className="text-[#CCFF00] text-sm">★★★★★</span>
+            <span>Loved by night owls, early birds & everyone in between.</span>
           </div>
         </div>
 

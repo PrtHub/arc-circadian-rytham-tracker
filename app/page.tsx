@@ -3,13 +3,12 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
-import { Screenshots } from "@/components/Screenshots";
+import { Problem } from "@/components/Problem";
+import { Chronotypes } from "@/components/Chronotypes";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Chronotypes } from "@/components/Chronotypes";
-import { Highlights } from "@/components/Highlights";
 import { Science } from "@/components/Science";
-import { Notifications } from "@/components/Notifications";
+import { Testimonials } from "@/components/Testimonials";
 import { Audience } from "@/components/Audience";
 import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
@@ -18,25 +17,26 @@ import { Footer } from "@/components/Footer";
 import { jsonLdApp, jsonLdFaq, jsonLdOrganization, jsonLdWebPage } from "@/components/arc-data";
 
 export const metadata: Metadata = {
-  title: "ARC: Circadian Rhythm Tracker — Sync Your Biology, Peak Every Day",
+  title: "ARC — Circadian Rhythm & Sleep | Energy Tracker & Chronotype",
   description:
-    "Exhausted after 8 hours? Crashing every afternoon? Your body runs on its own clock. ARC shows you your real schedule — when to sleep, focus, drink coffee, and wind down. Based on your chronotype (Lion, Bear, Wolf, or Dolphin). Science-backed, privacy-first iOS app.",
+    "You're not lazy — you're on the wrong clock. ARC finds your chronotype and builds your day around your real biological rhythm: when to get light, drink coffee, focus, and sleep.",
   keywords:
-    "circadian rhythm tracker, chronotype test, chronotype quiz, sleep optimization, peak focus windows, caffeine timing, biohacking app, iOS health app, chronobiology, circadian rhythm app, lion chronotype, bear chronotype, wolf chronotype, dolphin chronotype, sleep science, cortisol rhythm, melatonin optimization",
+    "chronotype, circadian rhythm, sleep, energy, caffeine timing, morning light, productivity, focus, lion chronotype, bear chronotype, wolf chronotype, dolphin chronotype, circadian rhythm tracker",
   alternates: {
-    canonical: "/",
+    canonical: "https://arcapp.sbs",
   },
   openGraph: {
-    title: "ARC: Circadian Rhythm Tracker",
+    title: "ARC — Circadian Rhythm & Sleep",
     description:
-      "Discover your chronotype and unlock peak performance. Built on Stanford & UC Berkeley sleep science.",
+      "You're not lazy. You're on the wrong clock. Find your biological timing with ARC.",
     type: "website",
+    url: "https://arcapp.sbs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARC: Circadian Rhythm Tracker",
+    title: "ARC — Circadian Rhythm & Sleep",
     description:
-      "Discover your chronotype. Find your Peak Focus Windows. Optimize caffeine timing.",
+      "You're not lazy. You're on the wrong clock. Discover your chronotype with ARC.",
   },
 };
 
@@ -60,18 +60,17 @@ export default function ArcPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
-      <div className="bg-black text-white min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
+      <div className="bg-[#050505] text-[#F2F2F2] min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
         <Nav />
         <main>
           <Hero />
           <SocialProof />
-          <Screenshots />
+          <Problem />
+          <Chronotypes />
           <Features />
           <HowItWorks />
-          <Chronotypes />
-          <Highlights />
           <Science />
-          <Notifications />
+          <Testimonials />
           <Audience />
           <Pricing />
           <Faq />

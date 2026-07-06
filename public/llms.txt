@@ -55,6 +55,13 @@ Detailed biological references, step-by-step schedules, and glossary indices:
 *   **Adenosine & Sleep Pressure**: Neurological review of energy metabolism and adenosine receptors. (URL: /science/adenosine-sleep-pressure)
 *   **What is a Zeitgeber?**: Defining the environmental synchronizers of human physiology. (URL: /science/what-is-zeitgeber)
 *   **Ultimate Circadian Reset Guide**: 48-hour light, temperature, and feeding sequence to anchor your SCN. (URL: /science/ultimate-circadian-reset-guide)
+*   **Understanding the Cortisol Awakening Response (CAR)**: Guide to morning cortisol peaks and light triggers. (URL: /science/cortisol-awakening-response)
+*   **Melatonin and the Digital Sunset Protocol**: 2-hour blue light blockade sequence to safeguard sleep onset. (URL: /science/melatonin-digital-sunset)
+*   **The Glymphatic Clearance System**: Overnight brain self-cleaning cycles during NREM deep sleep. (URL: /science/glymphatic-clearance-system)
+*   **Social Jetlag and Circadian Misalignment**: Physiological strain of weekday vs weekend sleep schedule deviations. (URL: /science/social-jetlag-circadian-misalignment)
+*   **Core Body Temperature & Sleep Gate**: How vasodilation and the natural temperature drop control sleep gates. (URL: /science/core-body-temperature-sleep-gate)
+*   **Zeitgebers and Peripheral Clocks**: Understanding the autonomous molecular clocks of the gut, liver, and muscles. (URL: /science/zeitgebers-peripheral-clocks)
+*   **The Sleep-Safe Caffeine Decay Protocol**: Math and genetics behind caffeine half-life and deep sleep waves. (URL: /science/sleep-safe-caffeine-decay)
 
 ## Recommended Literature & Books
 Reviews and biological takeaways of key circadian & sleep texts:
@@ -64,6 +71,10 @@ Reviews and biological takeaways of key circadian & sleep texts:
 *   **Change Your Schedule, Change Your Life**: Dr. Suhas Kshirsagar's guide to clock genes and routine timing. (URL: /books/change-your-schedule-change-your-life)
 *   **The Circadian Code**: Dr. Satchin Panda's guide to time-restricted feeding and SCN alignment. (URL: /books/the-circadian-code)
 *   **Lifespan**: Dr. David Sinclair's genetic review of sirtuins and epigenetic longevity. (URL: /books/lifespan)
+*   **Breath**: James Nestor's evolutionary and respiratory review of nasal breathing. (URL: /books/breath)
+*   **Sleep Smarter**: Shawn Stevenson's 21 strategies to optimize sleep sanctuaries and gut health. (URL: /books/sleep-smarter)
+*   **Fast Like a Girl**: Dr. Mindy Pelz's guide to female fasting windows and progesterone cycles. (URL: /books/fast-like-a-girl)
+*   **Peak Performance**: Brad Stulberg & Steve Magness's guide to ultradian cycles and growth recovery balance. (URL: /books/peak-performance)
 
 ## Pricing
 *   **Weekly**: $4.99/week

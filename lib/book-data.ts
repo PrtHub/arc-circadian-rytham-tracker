@@ -210,4 +210,138 @@ Dr. Sinclair recommends activating protective "survival genes" through **hormesi
 ARC acts as a biological shield against epigenetic wear. By aligning your daily sleep, focus, and light schedules with your genetic chronotype, ARC minimizes chronic environmental stress and ensures your body's restorative repair systems have designated, uninterrupted windows of operation every single night.
     `,
   },
+  {
+    slug: "breath",
+    title: "Breath",
+    subtitle: "The New Science of a Lost Art",
+    author: "James Nestor",
+    authorTitle: "Science Journalist & Author",
+    publishedDate: "2020",
+    rating: "4.8/5",
+    keyMetric: "Nasal Breathing",
+    excerpt: "James Nestor explores the evolutionary shift from nasal to mouth breathing and how correcting your respiratory habits resolves sleep apnea, snoring, and circadian fatigue.",
+    arcConnection: "Guides ARC's breathing protocol recommendations during stress checks and morning lung oxygenation timers.",
+    content: `
+# Breath: The New Science of a Lost Art
+
+In *Breath*, science journalist James Nestor investigates a basic but neglected aspect of human health: how we breathe. Nestor travels the world to explore the evolutionary, physiological, and neurological differences between mouth breathing and nasal breathing, showing that how we inhale and exhale dictates our sleep quality, metabolic speed, and stress levels.
+
+### Mouth Breathing vs. Nasal Breathing
+Nestor explains that humans have become chronic mouth breathers due to changes in jaw structure caused by modern soft diets. This shift has severe biological consequences:
+*   **Mouth Breathing**: Bypasses the body's natural air filtration and humidification systems. It triggers the sympathetic nervous system ("fight or flight"), raising heart rate, increasing blood pressure, and contributing to sleep apnea, snoring, and daytime fatigue.
+*   **Nasal Breathing**: Releases **nitric oxide**, a molecule that plays a vital role in increasing oxygen circulation, dilating blood vessels, and activating the parasympathetic nervous system ("rest and digest"). 
+
+### Sleep Apnea and Circadian Sleep Structure
+Mouth breathing during sleep causes the soft tissues in the back of the mouth to collapse, obstructing the airway. This results in **sleep apnea** and snoring, which fragment sleep architecture by forcing the brain to wake up briefly to gasp for air, preventing you from reaching slow-wave deep sleep.
+
+> [!TIP]
+> Nestor details "mouth taping"—using a small strip of surgical tape to keep lips closed during sleep—as a simple, effective method to force nasal breathing, eliminate snoring, and deepen sleep.
+
+### Respiratory Protocols
+Nestor outlines key exercises to restore optimal breathing:
+1.  **Slower Breathing**: Breathe in for 5.5 seconds, and out for 5.5 seconds (about 5.5 breaths per minute). This matches the natural resonance rhythm of human blood circulation.
+2.  **Hypoventilation**: Practice breathing less to build carbon dioxide tolerance, which enhances oxygen delivery to cells via the Bohr effect.
+
+### How ARC Applies This
+ARC incorporates Nestor's research into daily check-ins and recovery guides. The app prompts you to practice **Nasal Oxygenation** during morning light windows and offers structured 5.5-second breathing guides during high-stress alert periods to help you reset your nervous system.
+    `,
+  },
+  {
+    slug: "sleep-smarter",
+    title: "Sleep Smarter",
+    subtitle: "21 Essential Strategies to Sleep Your Way to a Better Body, Better Health, and Bigger Success",
+    author: "Shawn Stevenson",
+    authorTitle: "Nutritionist & Sleep Researcher",
+    publishedDate: "2016",
+    rating: "4.7/5",
+    keyMetric: "Light & Sanctuary",
+    excerpt: "Shawn Stevenson provides 21 practical lifestyle adjustments covering bedroom environment, gut health, and light signals to double your deep sleep.",
+    arcConnection: "Informs ARC's bedroom setup checks, evening temperature cooling prompts, and dietary timing recommendations.",
+    content: `
+# Sleep Smarter: 21 Strategies to Optimize Sleep
+
+In *Sleep Smarter*, nutritionist and wellness coach Shawn Stevenson presents a guide to improving sleep quality. Stevenson argues that sleep is the single most powerful driver of physical repair, fat loss, and mental clarity, and provides 21 practical strategies to optimize your sleep environment and daily habits.
+
+### Designing the Sleep Sanctuary
+Stevenson stresses that the bedroom should be treated as a biological sanctuary optimized for melatonin production and core temperature drops:
+*   **Blackout Environments**: Even trace amounts of light (like a standby LED) hitting your skin can disrupt melatonin synthesis. Use blackout curtains and eliminate ambient light sources.
+*   **Temperature Control**: Your body must drop its core temperature to initiate deep sleep. Set your room temperature to exactly **60-68°F (15-20°C)**.
+*   **Electromagnetic Fields (EMFs)**: Move phones and Wi-Fi routers away from the bed to reduce neurological arousal during sleep.
+
+### Gut Health and Sleep Neurotransmitters
+Your gut microbiome is heavily involved in regulating sleep. 
+*   **Serotonin Production**: Over 90% of your body's serotonin—the chemical precursor to melatonin—is manufactured in the gut. An inflamed, poorly nourished gut reduces serotonin production, directly impacting sleep latency.
+*   **Magnesium Loading**: Stevenson recommends loading up on magnesium, a mineral that relaxes the central nervous system and helps muscles release tension.
+
+> [!WARNING]
+> Consuming alcohol before bed sedates the brain but destroys sleep architecture, blocking REM sleep and causing micro-awakenings throughout the night.
+
+### How ARC Applies This
+ARC translates Stevenson's sleep hygiene checklist into interactive daily prompts. The app tracks your sleep setup parameters, reminds you to set your room thermostat before bed, and guides you on magnesium and fluid timing so you don't disrupt your sleep gates.
+    `,
+  },
+  {
+    slug: "fast-like-a-girl",
+    title: "Fast Like a Girl",
+    subtitle: "A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones",
+    author: "Dr. Mindy Pelz",
+    authorTitle: "Holistic Health Expert & Author",
+    publishedDate: "2022",
+    rating: "4.8/5",
+    keyMetric: "Hormonal Fasting",
+    excerpt: "Dr. Mindy Pelz outlines how women must customize fasting windows, nutrition, and circadian timing around their monthly menstrual cycle.",
+    arcConnection: "Powers ARC's female-specific dietary timing alerts and fasting cycle notifications.",
+    content: `
+# Fast Like a Girl: Circadian & Cycle Alignment
+
+In *Fast Like a Girl*, Dr. Mindy Pelz provides a guide to fasting specifically tailored for women. Dr. Pelz explains that while standard time-restricted feeding is highly beneficial, women must adapt their eating windows and fast lengths to align with the fluctuations of their monthly hormonal cycles (estrogen, progesterone, and luteinizing hormone).
+
+### The Three Hormonal Phases
+Dr. Pelz breaks the menstrual cycle into three distinct phases, each requiring different fasting and nutritional strategies:
+1.  **The Power Phase (Days 1-10)**: Estrogen is building. Estrogen thrives on low insulin and low cortisol. This is the optimal window for longer fasting windows (13 to 72 hours) and ketogenic, low-carb eating.
+2.  **The Manifestation Phase (Days 11-15)**: Ovulation occurs. Estrogen peaks and testosterone rises. High stress or long fasts can disrupt ovulation. Keep fasting windows short (under 13-15 hours) and focus on hormone-supporting foods.
+3.  **The Nurture Phase (Days 20 to the start of menstruation)**: Progesterone is building. Progesterone requires higher glucose levels and is highly sensitive to stress. Fasting during this phase raises cortisol, which suppresses progesterone, leading to anxiety, cravings, and disrupted sleep. **Fasting should be avoided during this phase.**
+
+> [!IMPORTANT]
+> Forcing a strict 16:8 fasting protocol during the Nurture Phase can disrupt progesterone production, leading to sleep onset insomnia and mood imbalances.
+
+### How ARC Applies This
+ARC integrates Dr. Pelz's menstrual-circadian alignment research by offering custom cycle tracking options. For female users, ARC adapts daily time-restricted feeding targets automatically, softening fasting gates and suggesting carbohydrate and cortisol-reduction routines during the Nurture Phase to protect sleep quality.
+    `,
+  },
+  {
+    slug: "peak-performance",
+    title: "Peak Performance",
+    subtitle: "Elevate Your Game, Avoid Burnout, and Thrive with the New Science of Success",
+    author: "Brad Stulberg & Steve Magness",
+    authorTitle: "Coaching & Performance Experts",
+    publishedDate: "2017",
+    rating: "4.6/5",
+    keyMetric: "Stress + Rest",
+    excerpt: "A guide on how to alternate high-stress cognitive output with deep biological recovery to achieve long-term cognitive peak.",
+    arcConnection: "Directly informs ARC's scheduling of Focus blocks vs biological recovery breaks.",
+    content: `
+# Peak Performance: Stress + Rest = Growth
+
+In *Peak Performance*, Brad Stulberg and Steve Magness outline the scientific patterns shared by top performers across athletics, arts, and business. The authors present a core formula for sustainable growth and success: **Stress + Rest = Growth**. 
+
+They argue that peak performance is not about working continuously, but about matching intense, focused effort with deep, deliberate recovery.
+
+### The Ultradian Rhythm of Work
+Human focus operates on **ultradian cycles** of approximately 90 minutes. Trying to push past 90 minutes of high-intensity focus results in diminishing returns and cognitive fatigue:
+*   **The Sprints**: Structure work into deep focus blocks of 50 to 90 minutes. During this time, eliminate all distractions.
+*   **The Recovery**: Follow every sprint with a 10 to 15-minute recovery block. This rest allows the brain to clear metabolic waste and consolidate information.
+
+### Sleep as the Ultimate Recovery
+Stulberg and Magness highlight that sleep is the single most powerful recovery tool. During sleep, human growth hormone (HGH) peaks, rebuilding muscles, and the brain processes new skills and concepts. 
+
+The authors argue that cutting sleep short to work longer hours is a biological deficit that lowers cognitive capacity and increases the risk of burnout.
+
+> [!NOTE]
+> Active recovery—such as taking a walk in nature or meditating—is far more effective at restoring focus than passive distraction (like scrolling social media).
+
+### How ARC Applies This
+ARC structures your daily timeline around these performance cycles. The app schedules **Peak Focus Blocks** aligned with your chronotype and prompts you to start **Active Recovery Gates** (suggesting walks, breathing exercises, or hydration breaks) between work sprints, helping you maintain energy without burning out.
+    `,
+  },
 ];

@@ -146,6 +146,17 @@ const nextConfig: NextConfig = {
         destination: "/for/:slug",
         permanent: true,
       },
+      // Legal Redirects
+      {
+        source: "/privacy-policy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service",
+        destination: "/terms",
+        permanent: true,
+      },
     ];
   },
 };

@@ -28,7 +28,11 @@ The reason to keep the app after week one is that it tells you your afternoon
 crashes went from three and a half a week to one — measured, from your own
 check-ins, not asserted.
 
-Everything runs on device. No account, no login, no server holding anything.
+No account, no login, and no server holding your history — the log is local
+SQLite. One exception, and it is worth stating plainly rather than in a footnote:
+the daily sentence is written by a model, so a short summary of your timing (wake,
+bed, dip, today's caffeine) is sent to generate it. Everything else, including
+every number on Trends, is computed on the phone.
 
 ---
 
@@ -56,19 +60,25 @@ The problem is that reading true things is a week-one activity. Once you have re
 the article on light anchoring, you have read it. There was no reason for day
 thirty to be different from day two.
 
-2.0 inverts that. The app no longer explains circadian rhythm in general; it
-explains **today**, in one sentence, using this person's own numbers, and then
-asks for one thing. The articles are gone. The claims are now measured rather than
-stated.
+2.0 inverts that. The app no longer _leads_ with circadian rhythm in general; it
+explains **today**, in one sentence, using this person's own numbers, then plans
+the day around them. The claims are measured rather than stated.
 
-|                 | 1.8                              | 2.0                                                                                      |
-| --------------- | -------------------------------- | ---------------------------------------------------------------------------------------- |
-| Core surface    | Daily briefing + article library | One sentence, one action                                                                 |
-| Caffeine advice | `wake + 8h`, a fixed constant    | Computed from bedtime, sensitivity, and everything drunk today                           |
-| Light advice    | "Get morning light"              | Real sunrise for the device's time zone, with an indoor fallback when the window is dark |
-| Proof           | None                             | Crash rate, dip timing, adherence — from the user's own check-ins                        |
-| Month two       | Same as month one                | Five event loops that fire on things you could not have worked out yourself              |
-| Tabs            | Today, Intel, Trends, more       | Two. Everything else is a sheet                                                          |
+The articles came back, and that reversal is worth being straight about. They were
+cut on the reasoning above — reading is a week-one activity — and cutting them
+removed a whole tab from a paying user's app while replacing nothing. They now sit
+in a **Learn** tab as a reference you go to rather than a feed you are served, and
+they have been rewritten to stop contradicting the engine (§6.10).
+
+|                 | 1.8                              | 2.0                                                                                            |
+| --------------- | -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Core surface    | Daily briefing + article library | One sentence, then a plan for the day                                                          |
+| Caffeine advice | `wake + 8h`, a fixed constant    | Computed from bedtime, sensitivity, and everything drunk today                                 |
+| Light advice    | "Get morning light"              | Real sunrise for the device's time zone, with an indoor fallback when the window is dark       |
+| Proof           | None                             | Crash rate, dip timing, adherence, and what each habit changed — from the user's own check-ins |
+| Month two       | Same as month one                | Seven event loops, plus a five-day experiment with a verdict                                   |
+| Articles        | Intel tab, a feed                | Learn tab, 23 pieces, checked against the engine                                               |
+| Tabs            | Today, Intel, Trends, more       | Three. Everything else is a sheet                                                              |
 
 The cost of that inversion is real and is recorded in §10.
 
@@ -92,15 +102,25 @@ time — the most prominent number in the app after the sentence — moves
 immediately, and the caffeine curve under it redraws with the real decay.
 
 **2:40pm.** The dip. _"You're 40 minutes into your afternoon dip. This is
-adenosine, not laziness."_ The action is **move for five minutes**, not another
-coffee, and the reason is one tap away under **Why this works**.
+adenosine, not laziness."_ The ask is **walk for 15 minutes**, not another coffee,
+and the reason is one tap away under **Why this?**. Underneath it the rest of the
+day is listed — what is already closed, what is still open, what the window has
+gone on — because the ask is the first item of a plan rather than a card floating
+above one.
 
 **Evening.** The cutoff has passed. The sentence says melatonin is rising and, if
 there is still caffeine on board, names the milligrams and says plainly that this
 is what keeps people staring at the ceiling.
 
+**Around day ten.** The app stops taking their word for it. Enough check-ins have
+landed to measure the dip, and if the measured hour falls outside the window they
+picked in onboarding it says so: _"You told us your energy crashes between 1 and 3.
+It actually lands at 3:40pm."_ Everything timed against the dip moves with it.
+
 **Once a month.** A full-screen takeover with the payoff: the crash rate, then
-versus now.
+versus now. It also has a permanent home on Trends, because a takeover on a
+28-day cooldown put the thing they came for out of reach the moment it was
+dismissed.
 
 ---
 
@@ -622,17 +642,62 @@ run through the same check to prove they are fair.
 The voice is fixed by one line: **"This is adenosine, not laziness."** Mechanism,
 never verdict. The app will name a rough night; it never implies fault.
 
-### 6.2 The one action
+### 6.2 The one ask
 
-Exactly one, resolved from phase and context. Eleven exist — get light, light
-indoors, avoid light, start the hard task, protect the peak, move, dim the room,
-stop caffeine, recover, rest, or simply _settled_ when nothing is owed.
+Exactly one, resolved from phase and context. Twelve exist — get light, light
+indoors, avoid light, start the hard task, protect the peak, move, take a break,
+dim the room, stop caffeine, recover, rest, or simply _settled_ when nothing is
+owed.
 
-Only ever one is shown, because a list is a decision and a decision at 7am is a
+Only ever one is offered, because a list is a decision and a decision at 7am is a
 tax. It can be deferred with **Not now**, which snoozes it and lets the next-best
 one surface; deferrals expire on their own.
 
-### 6.3 The caffeine cutoff
+**It is drawn as the first item of the day's plan, not as a card above it.** For
+most of the rebuild it was both: a card rendered the ask, and the plan rendered a
+row for the same block a few hundred pixels below — the same sentence twice on one
+screen. Before that the two _disagreed_, the card saying "move for 15 minutes"
+where the row said "walk for 15 minutes": one ask in two vocabularies. There is now
+one place that can say what to do next, structurally unable to contradict the list
+under it.
+
+Tapping it does what the ask needs. The four that have something to record open
+their logging surface; the eight that cannot be completed in an app — you cannot
+press a button to have dimmed the room — draw no chevron at all and leave the
+labelled **Why this?** as the way in. A chevron that promises an action it cannot
+perform is worse than no chevron.
+
+### 6.3 The day's plan
+
+The list the ask belongs to, and the answer to "so what do I actually do today".
+
+It is **not a schedule.** Every block is derived from the event log, so it is
+different an hour from now and different tomorrow:
+
+- Logging a walk closes the movement block.
+- Missing the light window inserts a compensatory walk that was not there at
+  breakfast.
+- A low logged before the predicted dip re-times the rest of the afternoon.
+- Someone who told onboarding they do not drink caffeine gets no coffee block —
+  and no cutoff either.
+- A wolf's bedtime at 01:00 sits at the _end_ of the list, not the start of it.
+
+Each block carries **why it is there** — `routine`, `learned` or `adapted` — and
+only the non-routine ones say so, because a badge on all nine is noise. Tapping an
+open block logs what closes it: fifteen minutes of movement, ten of deliberate
+rest, forty-five of focused work, or the light and coffee sheets, which are worth
+opening because one is a live timer and the other needs a drink type.
+
+Two things are deliberately **not** in it:
+
+- **The caffeine cutoff.** The same screen prints that time at 66pt a few hundred
+  pixels above, and a boundary you satisfy by _not_ acting is not a task. It was a
+  block until it was noticed that it also flipped to "done" the moment the clock
+  passed it — so an afternoon in which nothing happened scored two out of four.
+- **Anything closed by time rather than by the user.** Progress counts asks that
+  were actually met.
+
+### 6.4 The caffeine cutoff
 
 The **last safe coffee** time, and the number most likely to be wrong if done
 naively. It is computed from four inputs: bedtime, caffeine sensitivity, every
@@ -650,7 +715,7 @@ real bug in an earlier version.
 In 1.8 this was `wake + 8h`, which ignored bedtime, sensitivity and intake
 entirely.
 
-### 6.4 Morning light
+### 6.5 Morning light
 
 The single biggest lever in the app, and the one most easily made absurd. ARC uses
 the **real solar position** for the device's time zone rather than assuming
@@ -669,7 +734,7 @@ the Trends panel. It was previously four different numbers in four files, and a
 user could tap a 10-minute ask, watch a timer open on `0/20`, and at ten minutes
 be told the goal was met by one screen and not by another.
 
-### 6.5 The five things it learns from
+### 6.6 What it learns from
 
 All logging is one tap.
 
@@ -678,27 +743,74 @@ All logging is one tap.
 | **Coffee**                       | The cutoff and the curve, immediately                                                |
 | **Light**                        | A live timer toward the day's target, mirrored to the lock screen                    |
 | **Energy** — low / medium / high | The primary outcome metric; every Trends claim is built on it                        |
+| **Movement, rest, focus**        | Closes plan blocks, and feeds what each habit changed                                |
 | **Wake time**                    | Guessed from first open, correctable in one tap; corrections beat guesses everywhere |
 | **Sleep** — hours and quality    | What triggers recovery mode                                                          |
 
 Everything writes to an append-only event log, and every log visibly moves
 something on screen. Nothing is collected that the app does not then use.
 
-### 6.6 Trends — the proof
+**Movement, rest and focus were previously only recordable from inside the plan** —
+a block closed when you tapped it. So a walk nobody had asked for could not be
+logged at all: no block, no way in. That skewed everything downstream, because the
+comparison of days-with against days-without counts a walk the app never heard
+about as a day without one.
 
-The second and only other tab. Panels in priority order, each carrying its own
-confidence flag so nothing claims more than it knows:
+**And a log can be taken back.** Every kind is withdrawable with one undo, and a
+withdrawal marks the row rather than deleting it — three central readers filter
+retracted rows and a build-time check proves no fourth reader forgets to. A log you
+cannot correct is a log you stop trusting, and the whole product rests on the
+honesty of this table.
+
+**Energy is asked once per phase**, and only ever by one control. The inline
+check-in and the log button used to put the same question on screen together, with
+two different rules over two different stores about whether it was still open.
+
+### 6.7 Trends — the proof
+
+Panels in priority order, each carrying its own confidence flag so nothing claims
+more than it knows:
 
 - **Today** — mg and light minutes so far, so day one is not an empty state
-- **Current experiment** — the running one and its progress, or a proposal
-- **Afternoon crashes** — per week, as a bar chart, with the trend
-- **Your two levers** — 14-day dot strips for morning light and cutoff held
-- **Your dip lands** — the median offset after waking, from real check-ins
+- **The experiment** — the running one and its progress, its verdict, or a proposal
+- **Afternoon crashes** — per week, as a bar chart, with the trend, and the
+  month-versus-month report once there is a month of it
+- **Your two levers** — 14-day dot strips for morning light and cutoff held, and
+  underneath them **what each one changed**: the dip lands earlier on the days you
+  held it, or it does not, or there is not enough to say
+- **Your dip lands** — the median offset after waking, from real check-ins — and
+  the correction, where the measured hour falls outside the window they picked
 - **Schedule drift** — whether the wake time is sliding
+
+Empty panels say what they are waiting for, in their own units: ten days for the
+crash trend, four afternoon check-ins for the dip, wake times in each of two
+fortnights for drift. They used to share one vague sentence about "about a week",
+which was wrong for most of them, during the exact window in which someone decides
+whether to keep paying.
 
 The point of this tab is not data. It is the sentence's receipt.
 
-### 6.7 The event loops — why month two happens
+### 6.8 One change, five days
+
+The weekly loop, and the app's answer to "why open this on day thirty".
+
+It proposes **one** change — an earlier cutoff, morning light, a walk before the
+dip, rest at the dip, a consistent wake time — runs it for five days, and scores it
+against the fortnight before using logs already made. The verdict includes **"no
+difference"**, which is a real result: it takes something off the list permanently,
+and lists that only grow get abandoned whole.
+
+One change rather than five, because five changed at once teaches you nothing you
+can keep. Five days rather than one, because a good Wednesday proves nothing. And
+scored against recorded history rather than memory, because memory of energy is
+what the whole product exists to replace.
+
+It is offered from day ten, needs three logged lows before the two dip experiments
+can be proposed at all, and re-tests an old lever after ninety days rather than
+going permanently blank once each has run once. Home and Trends read it from one
+place, so the two tabs cannot offer different experiments.
+
+### 6.9 The event loops — why month two happens
 
 A daily sentence goes stale. Being told something you could not plausibly have
 worked out yourself does not. At most one of these is active at a time, each with
@@ -725,14 +837,50 @@ its own cooldown, in priority order:
    cannot tell "winter arrived" from "they stopped tapping the button", and would
    have handed a lapsing user their own disengagement back as a finding about the
    weather.
+6. **The dip correction** — _"you said between 1 and 3; it actually lands at
+   3:40."_ The one thing here the user could not have noticed alone: they have been
+   walking around believing the wrong time about their own body, and every plan the
+   app made before the measurement landed was built on that belief.
 
 **Plus the monthly report.** At 28 observed days: the symptom, measured.
 
-All six render as full-screen, dismissible takeovers — deliberately not a
+All seven render as full-screen, dismissible takeovers — deliberately not a
 notification and not a card, because this is the moment the subscription justifies
-itself.
+itself. **Two of them also have permanent homes on Trends**, since a takeover on a
+28-day or 90-day cooldown put the two most valuable sentences in the product out of
+reach the moment they were dismissed.
 
-### 6.8 Off the app
+### 6.10 Learn
+
+The third tab: 23 pieces on light, caffeine, sleep and protocols, in English and
+German. A reference, not a feed — nothing is pushed, nothing is unread-badged, and
+the daily briefing that surrounded them in 1.8 was not restored.
+
+The fifteen restored from 1.8 needed work before they could sit next to the app.
+
+**They contradicted the engine in five places.** One told users to stop caffeine
+"ten hours before sleep" while the app solved for under 50 mg at bedtime — nearer
+five hours for an average metaboliser. One gave a flat "half-life of ~6 hours" in a
+product that asks whether yours is 4, 5.5 or 7 and computes everything from the
+answer. Two disagreed about the morning-light dose, and neither matched the app's
+twenty minutes. When prose and engine disagree, it is the _app_ that looks broken.
+
+**And they carried seven statistics that could not be sourced** — a 65% dopamine
+restoration, a 33% obesity risk per hour of social jetlag, 30% higher motivation
+scores. Each was invented or a misquote of a single small study. They are gone,
+replaced by the mechanism and by honest uncertainty: _"the association is
+consistent; the size of it is not settled."_
+
+**Eight new pieces** cover what the app does and never explained: the afternoon dip
+itself, why the cutoff moves with the cup and the drinker, fast and slow caffeine
+metabolisers, why the app changes its mind about your dip, the five-day experiment
+method, light in winter, crossing time zones, and alcohol.
+
+A build-time check reads the engine's constants and fails if the prose drifts from
+them, holds a denylist so the retired statistics cannot be pasted back, and fails
+any article missing its German translation.
+
+### 6.11 Off the app
 
 **Widgets.** A Today widget (small, medium, and a lock-screen rectangular family)
 and a caffeine cutoff widget (small, circular, inline). The Today widget leads with
@@ -751,7 +899,7 @@ Dynamic Island, so the phone can be put away while the user is actually outside.
 morning, caffeine, energy, wind-down, extras — plus a dedicated set for night
 shift work.
 
-### 6.9 Onboarding
+### 6.12 Onboarding
 
 Twenty-two steps in six acts, ordered so the pain is named before the profile is
 asked for, and the payoff lands before the paywall:
@@ -763,20 +911,43 @@ asked for, and the payoff lands before the paywall:
 5. **Diagnosis** — the mistake, identity, preview, notifications _(one-way from here)_
 6. **Conversion** — testimonials, future self, risk reversal, paywall
 
+Three of those screens carry a promise, and each is now derived rather than
+written:
+
+- **Preview** draws the day it just computed — light window, first coffee, peak,
+  the dip they described, cutoff, wind-down, bed — sorted by time and using the
+  same functions the app itself runs. It previously used the chronotype table where
+  the app used their stated focus window, so it could show a peak of 09:00 for an
+  app that would open at 13:30.
+- **Future self** names a date four weeks out and, under it, three dated things the
+  app will actually do: day 10 it stops taking their word for the dip, day 15 the
+  first experiment returns a verdict, day 28 the first month is measured. Those
+  three numbers are read from the engine's own thresholds, not typed in, so moving
+  a constant moves the promise.
+- **Risk reversal** shows a free-trial line only when the store is really offering
+  one, and states plainly that the daily sentence is generated by a model and what
+  is sent to it.
+
 Chronotype — **lion, bear, wolf, dolphin** — is set here, and it is not cosmetic:
 it moves every phase boundary, so two users opening the app in the same minute can
 be in different phases, with different actions and different gradients.
 
-### 6.10 Subscription
+### 6.13 Subscription
 
 RevenueCat behind a single entitlement, weekly and annual, with the annual price
 shown per-week for comparison. Hard gate after onboarding, a separate gate for
 lapsed users, and a win-back offer.
 
 Every price, currency and trial claim is read from the live store product rather
-than written into the app. An earlier build printed a hardcoded dollar amount above
-a correctly localised rupee price, and advertised a seven-day trial as static text
-in three places — an App Store review risk as well as a wrong promise.
+than written into the app, and there is now exactly **one** derivation of the trial
+that every screen shares. An earlier build printed a hardcoded dollar amount above
+a correctly localised rupee price; later, the paywall was fixed to read the store
+while the screen immediately before it went on asserting "seven days free" as flat
+text — false for anyone choosing the weekly plan, since the trial is configured on
+annual. Two screens making one claim from two sources is how that happens.
+
+A build-time check now holds it: the trial has to come from the store, and the
+privacy line has to name the model while the app is still calling out to one.
 
 ---
 
@@ -796,7 +967,9 @@ Worth stating, because most of the decisions above follow from them.
   slot; the app is complete without it.
 - **The fewest permissions that work.** No location, no health data, no account.
   Location comes from the time zone; wake time comes from the app being opened.
-- **On device by default.** Local SQLite, append-only, no sync, no server.
+- **On device by default.** Local SQLite, append-only, no sync, no account. The
+  generated sentence is the one thing that leaves the phone, and the app is
+  complete without it.
 - **Corrections beat guesses**, everywhere. The app guesses the wake time, and a
   one-tap correction overrides it in every calculation that reads it.
 - **The ground is the identity.** Every surface is translucent enough that the
@@ -818,28 +991,42 @@ Worth stating, because most of the decisions above follow from them.
 - **No wearable or HealthKit integration.** It would raise the accuracy ceiling and
   cut the addressable market to people who own the hardware.
 - **No social layer.**
-- **No article library.** This is the 1.8 Intel tab, and its removal is the single
-  biggest thing an existing user will notice — see below.
+- **No feed.** The articles exist, but as a reference in the Learn tab rather than
+  as a daily briefing pushed at the user. Nothing on any surface is there to be
+  consumed on a schedule.
 
 ---
 
 ## 9. Platform and languages
 
 - iOS, Expo SDK 57, New Architecture. Bundle `com.prhub.arc`, version 2.0.0.
-- **English and German, complete** — 995 keys across five namespaces, including
-  every widget string, every Live Activity string, and all 221 notification
-  strings. Widget text is resolved in the app and handed to the widget, because the
-  widget runtime has no access to the translation layer.
+- **English and German, complete** — 963 keys per language across five namespaces,
+  including every widget string, every Live Activity string and every notification.
+  Widget text is resolved in the app and handed to the widget, because the widget
+  runtime has no access to the translation layer.
 - 12/24-hour clock seeded from the **device** setting rather than hardcoded. It was
   previously fixed to 12-hour, so the German build read "1:47 PM" on its most
   prominent number until the user found the toggle.
 - Neutral Latin American Spanish is under consideration.
 
-**Correctness is checked rather than trusted:** 224 assertions over the pure
-engines against synthetic histories — which is how travel, DST, drift and the
-monthly report get verified without a month or a plane ticket — plus 1,186
-localised key renders, and separate gates for widget-runtime safety, screen copy
-coverage, and text contrast against every phase gradient.
+**Correctness is checked rather than trusted.** Seven gates run against the
+codebase, and each exists because something in this list was a real bug first:
+
+| Gate             | Holds                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `check:logic`    | **521 assertions** over the pure engines against synthetic histories — how travel, DST, drift and the monthly report get verified without a month or a plane ticket |
+| `check:copy`     | **1,514 localised key renders**, and every interpolation actually filled                                                                                            |
+| `check:screen`   | Every phase, action and sentence the Today screen can reach has copy                                                                                                |
+| `check:contrast` | 33 palette-and-role pairs against the WCAG floor                                                                                                                    |
+| `check:widgets`  | No widget calls a function its runtime cannot see; no prop ships unrendered                                                                                         |
+| `check:events`   | Every read of the event log skips retracted rows                                                                                                                    |
+| `check:articles` | No article contradicts an engine constant; no retired claim returns                                                                                                 |
+
+The pattern worth naming: **each gate was written after the bug, and then proven by
+re-introducing it.** A check that has never been watched to fail is a check that
+reports on nothing — three of them turned out to be matching text inside their own
+explanatory comments, and one accepted the old copy for a new constant, certifying
+exactly the drift it existed to catch.
 
 ---
 
@@ -847,11 +1034,11 @@ coverage, and text contrast against every phase gradient.
 
 **Open product decisions**
 
-- **The Intel tab.** Fifteen articles with German translations, plus a daily
-  briefing, existed in 1.8 and have no replacement in 2.0. All of it was free, so
-  nobody subscribed specifically for it — but it is a whole tab that vanishes for
-  an existing paying user, and that is the kind of change that produces "where did
-  my app go" reviews. Unresolved.
+- ~~**The Intel tab.**~~ **Settled.** The fifteen articles were restored verbatim
+  from 1.8 into a third tab, then rewritten: eight new pieces added, five direct
+  contradictions of the engine fixed, and seven unsourceable statistics removed.
+  A build-time check now holds the prose to the engine's own constants. The daily
+  briefing was not restored and will not be — it was the feed, not the library.
 - **iPad.** `supportsTablet: true` shipped in 1.8 and cannot be withdrawn from a
   released bundle, so the 13-inch App Store screenshot slot is owed. The frames
   render, but there is no tablet layout behind them.
@@ -862,7 +1049,7 @@ coverage, and text contrast against every phase gradient.
   which means it is embedded in the bundle and extractable from a shipped build. It
   wants a proxy before release. The app degrades cleanly to written copy without
   it, so this is a cost exposure rather than a functional dependency.
-- 16 outstanding React Compiler lint errors, six of them in the caffeine curve
+- 15 outstanding React Compiler lint errors, six of them in the caffeine curve
   reading refs during render.
 - Widget code compiles to Swift at build time and does not hot-reload, so widget
   changes need a full build to verify.

@@ -27,81 +27,71 @@ export const screenshots = [
 export const features = [
   {
     icon: "🎯",
-    title: "32-Step Personalized Onboarding",
-    desc: "Builds your full biological profile — sleep schedule, energy map, caffeine habits, lifestyle context — before the first paywall.",
+    title: "22-Step Diagnostic Onboarding",
+    desc: "Builds your full biological profile across 6 acts — wake timing, energy map, caffeine habits, and chronotype — before the paywall.",
   },
   {
-    icon: "🕐",
-    title: "Dynamic Daily Trajectory",
-    desc: "A live 24-hour timeline of biological missions — from sunrise to sleep.",
+    icon: "🌅",
+    title: "Living Light Phase Ground",
+    desc: "A three-stop gradient keyed to your biological phase, transitioning across 7 skies (night, rise, morning, peak, dip, evening, windDown).",
   },
   {
-    icon: "🦁",
-    title: "Chronotype Discovery",
-    desc: "Lion, Bear, Wolf, or Dolphin — your identity mapped to your biology.",
+    icon: "🧭",
+    title: "The One Ask & Day Plan",
+    desc: "One sentence and one prioritized action at a time. A dynamic plan that adapts to what you log rather than a rigid calendar.",
   },
   {
     icon: "☕",
-    title: "Caffeine Scrubber & Forecast",
-    desc: "Log each drink. Watch the live 12-hour SVG decay curve and drag anywhere on the curve to see exact future mg levels.",
-  },
-  {
-    icon: "🤖",
-    title: "AI Intelligence Layer",
-    desc: "Personalized morning debrief and on-demand fatigue diagnosis powered by Google Gemini via OpenRouter.",
-  },
-  {
-    icon: "⚡",
-    title: "Peak Focus Windows",
-    desc: "Scientifically timed deep work intervals when your brain is sharpest.",
+    title: "Dynamic Caffeine Cutoff",
+    desc: "Calculates the exact minute your last coffee must clear to leave under 50mg active caffeine at bedtime, adapting with every drink logged.",
   },
   {
     icon: "☀️",
-    title: "Morning Sunlight Anchoring",
-    desc: "Cortisol & melatonin rhythm optimization starting the moment you wake.",
+    title: "Solar Morning Light Anchor",
+    desc: "Astronomical sunrise calculated from your time zone with zero GPS tracking. 20-min Live Activity timer runs in your Dynamic Island.",
   },
   {
-    icon: "😴",
-    title: "Manual Sleep Check-in",
-    desc: "Rate last night's sleep each morning. Poor sleep triggers recovery-mode protocol adjustments.",
+    icon: "🧪",
+    title: "5-Day Experiment Loops",
+    desc: "Test one habit change at a time for five days against your recorded history, with honest verdicts including 'no difference'.",
   },
   {
-    icon: "📡",
-    title: "Contextual Intel Feed",
-    desc: "Daily briefings driven by your actual yesterday — not a static article library. Behavior-aware coaching that adapts.",
+    icon: "🔄",
+    title: "7 Biological Event Loops",
+    desc: "Automated triage for sleep debt recovery, jet lag seek/avoid-light windows, schedule drift, seasonal shifts, and dip corrections.",
   },
   {
     icon: "📊",
-    title: "Actionable Insights",
-    desc: "Sync score overlays, photon latency bars, anchor stability lines, and weekly reports with recommendations.",
+    title: "Measured Proof & Receipts",
+    desc: "Track your afternoon crash rate drop from 3.5 to 1.0 a week from real check-ins, with 14-day adherence dot strips and monthly reports.",
   },
   {
-    icon: "🔬",
-    title: "Biological Briefings",
-    desc: "Context-aware coaching with the peer-reviewed science behind each action.",
+    icon: "📚",
+    title: "Vetted Learn Reference Library",
+    desc: "23 scientific guides on light, caffeine, sleep, and chronobiology, held to strict engine accuracy with zero unverified claims.",
   },
   {
     icon: "🔒",
     title: "Local-First Architecture",
-    desc: "SQLite on-device storage. Your biological data never leaves your phone.",
+    desc: "100% on-device SQLite storage. No account, no login, and no server holding your biological history.",
   },
 ];
 
 export const steps = [
   {
     step: "01",
-    title: "Discover your type",
-    desc: "A 22-step onboarding across 6 acts reveals your chronotype, real peak windows, and biological sleep pressure curve.",
+    title: "Discover your profile",
+    desc: "A 22-step onboarding across 6 acts reveals your chronotype, focus peaks, and natural circadian sleep pressure.",
   },
   {
     step: "02",
-    title: "Follow your protocol",
-    desc: "One sentence, one action at a time. ARC tells you the single most effective thing to do right now, with live Dynamic Island timers and dynamic caffeine cutoffs.",
+    title: "Follow your plan",
+    desc: "One sentence, one action at a time. Follow a live dynamic day plan with Dynamic Island timers and dynamic caffeine cutoffs.",
   },
   {
     step: "03",
-    title: "Feel the measured shift",
-    desc: "Watch your measured afternoon crashes drop from 3.5 to 1 a week — proven from your own check-ins, backed by 14-day adherence strips and monthly reports.",
+    title: "Get the measured receipts",
+    desc: "Watch your afternoon crashes drop from 3.5 to 1.0 a week—proven from your own check-ins and verified by 5-day experiment loops.",
   },
 ];
 
@@ -116,7 +106,7 @@ export const chronotypes = [
     icon: "🐻",
     name: "Bear",
     tagline: "Solar Rhythm",
-    desc: "Follows the sun; most of the world runs on Bear time.",
+    desc: "Follows the sun; 50% of the world runs on Bear time.",
   },
   {
     icon: "🐺",
@@ -134,20 +124,20 @@ export const chronotypes = [
 
 export const highlights = [
   {
-    title: "Science-Backed, Not Guesswork",
-    desc: "Built on peer-reviewed circadian research from Stanford Neuroscience and UC Berkeley Sleep Science. Every recommendation has a citation.",
+    title: "Mechanism, Never Verdict",
+    desc: "ARC explains why you feel tired ('This is adenosine, not laziness') without guilt trips, arbitrary 0-100 sleep scores, rings, or streaks.",
   },
   {
     title: "Privacy-First Architecture",
-    desc: "All data stays on your device with local-first SQLite storage. No cloud sync, no data harvesting — ever.",
+    desc: "Local-first SQLite storage on your iPhone. No account, no cloud database, and zero health tracking sent to remote servers.",
   },
   {
-    title: "Not Another Habit Tracker",
-    desc: "ARC doesn't just track what you do — it tells you when to do it. Aligned with your biology, not arbitrary goals.",
+    title: "One Question, One Action",
+    desc: "No cluttered dashboards or 7am decision fatigue. Exactly one prioritized ask at a time, drawn as the first item of your day's plan.",
   },
   {
-    title: "Built for High Performers",
-    desc: "Designed for founders, creators, and biohackers who treat their energy like a resource — not an afterthought.",
+    title: "Measured Proof Over Weeks",
+    desc: "ARC doesn't just assert facts; it proves them by measuring your crash reduction and testing protocols with 5-day experiments.",
   },
 ];
 
@@ -193,21 +183,21 @@ export const audience = [
 export const notifications = [
   {
     time: "~90 min after wake",
-    title: "Coffee time",
+    title: "Coffee window opens",
     body: "Your adenosine has cleared. Coffee now gives you clean energy without the afternoon crash.",
     color: "#CCFF00",
   },
   {
-    time: "~early afternoon",
-    title: "Caffeine wall — stop now",
-    body: "Every coffee after this point costs you 15–20 min of deep sleep. Your cutoff is now.",
-    color: "#ff6b35",
+    time: "Dynamic Cutoff",
+    title: "Last safe coffee — stop now",
+    body: "Every coffee after this point leaves >50mg active at bed, disrupting deep slow-wave sleep.",
+    color: "#FF4500",
   },
   {
-    time: "~1 hr before sleep",
+    time: "Evening Wind-down",
     title: "Start winding down",
-    body: "Melatonin production is ramping up. Dim lights and reduce screen brightness.",
-    color: "#a78bfa",
+    body: "Melatonin production is ramping up. Dim lights and initiate circadian quiet hours.",
+    color: "#7B61FF",
   },
 ];
 
@@ -218,42 +208,50 @@ export const plans = [
     period: "/ week",
     highlight: false,
     badge: null as string | null,
-    note: "Cancel anytime",
+    note: "Cancel anytime in App Store",
   },
   {
     name: "Annual",
     price: "$39.99",
     period: "/ year",
     highlight: true,
-    badge: "Most Popular" as string | null,
-    note: "~$0.58 / week • Save 88%",
+    badge: "Best Value" as string | null,
+    note: "~$0.77 / week • Includes full ARC 2.0 features",
   },
 ];
 
 export const faqs = [
   {
-    q: "What's a chronotype?",
-    a: "Your body's natural timing type — when you're wired to sleep, wake, and peak. ARC sorts you into one of four (Lion, Bear, Wolf, Dolphin).",
+    q: "Why doesn't ARC have sleep scores (0-100), rings, or streaks?",
+    a: "A number out of 100 invites gaming an arbitrary score rather than understanding your body. Breaking a streak causes app abandonment. ARC rejects gamification and focuses on physiological mechanisms ('This is adenosine, not laziness') and measured proof—like halving your afternoon crashes.",
   },
   {
-    q: "Do I need a wearable?",
-    a: "No. ARC works from a few simple inputs and gets smarter as you log.",
+    q: "How does the dynamic caffeine cutoff work?",
+    a: "Unlike generic 'no coffee 8 hours before bed' rules, ARC computes your cutoff dynamically from your target bedtime, personal metabolic sensitivity (fast, normal, or slow), and every drink logged today to ensure under 50mg of active circulating caffeine remains at bedtime.",
   },
   {
-    q: "Does it work for shift workers?",
-    a: "Yes — there's a dedicated night-shift protocol that inverts the guidance safely.",
+    q: "Do I need a wearable or Apple Watch?",
+    a: "No. ARC works completely standalone from your wake time, light timers, and quick one-tap check-ins. It calculates your biological rhythm without requiring expensive hardware.",
   },
   {
-    q: "Will it wake me up / is it an alarm?",
-    a: "No. ARC is a coach, not an alarm clock — gentle, well-timed nudges you fully control.",
+    q: "Does ARC require GPS location permissions for morning light?",
+    a: "No location permission is ever requested. ARC calculates the true astronomical sunrise and solar angles directly from your device's time zone.",
+  },
+  {
+    q: "What is the 5-day experiment loop?",
+    a: "ARC tests one habit change at a time (like an earlier cutoff or pre-dip walk) for five days against your recorded history, scoring the outcome with honest verdicts including 'no difference'.",
   },
   {
     q: "Is my data private?",
-    a: "Your data stays on your device. See our Privacy Policy.",
+    a: "Yes. ARC is built on local-first SQLite on your iPhone. There are no accounts, no logins, and no remote cloud database holding your check-ins or habits.",
+  },
+  {
+    q: "Does it work for shift workers?",
+    a: "Yes. ARC features dedicated night-shift and flexible protocols that invert and calibrate guidance around your actual wake time.",
   },
   {
     q: "How do I cancel?",
-    a: "Anytime, through your App Store subscription settings.",
+    a: "Anytime in one tap through your Apple ID subscription settings.",
   },
 ];
 
@@ -263,36 +261,31 @@ export const jsonLdApp = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "ARC: Circadian Rhythm Tracker",
-  alternateName: ["ARC Circadian Rhythm Tracker", "ARC Sync Your Life"],
+  alternateName: ["ARC Circadian Rhythm Tracker", "ARC 2.0 Living Light"],
   operatingSystem: "iOS 16.0 or later",
   applicationCategory: "HealthApplication",
   applicationSubCategory: "Lifestyle",
-  softwareVersion: "1.0.9",
+  softwareVersion: "2.0.0",
   inLanguage: "en-US",
-  countriesSupported: "US, CA, GB, AU, IN",
+  countriesSupported: "US, CA, GB, AU, IN, DE",
   description:
-    "Stop fighting your body. ARC syncs your schedule with your biology using a 32-step personalized onboarding. Discover if you're a Lion, Bear, Wolf, or Dolphin — then get a live daily protocol with caffeine decay tracking, sunlight timer, and smart notifications timed to your biology.",
+    "ARC 2.0 Living Light. Stop fighting your body. Discover your chronotype and follow your personalized day plan with dynamic caffeine cutoff, solar morning light Live Activities, and 5-day habit experiment loops.",
   url: APP_STORE_URL,
   downloadUrl: APP_STORE_URL,
   installUrl: APP_STORE_URL,
   featureList: [
-    "32-Step Personalized Onboarding",
-    "Dynamic 24-Hour Daily Trajectory",
-    "Chronotype Discovery: Lion, Bear, Wolf, Dolphin",
-    "Live Caffeine Decay Curve with Tap-to-Scrub Gesture & Sleep-Safe Prediction",
-    "AI Intelligence Layer with Morning Debrief & Fatigue Diagnosis",
-    "Peak Focus Windows for Deep Work",
-    "Morning Sunlight Anchoring Protocol",
-    "Manual Sleep Check-in with Recovery Mode",
-    "Contextual Intel Feed — Behavior-Aware Briefings",
-    "Adaptive Protocols: Weekend, Travel, Recovery",
-    "Biological Briefings with Science Citations",
-    "Local-First SQLite Storage — Zero Cloud Sync",
-    "Adenosine Clear Timing",
-    "Digital Sunset Protocol",
-    "Melatonin Optimization",
-    "Social Jetlag Tracking",
-    "Smart Notifications: Sunlight, Caffeine, Wind-Down",
+    "22-Step Diagnostic Onboarding across 6 Acts",
+    "Living Light Visual Identity with 7 Biological Phase Gradients",
+    "The One Ask & Dynamic Day Plan",
+    "Dynamic Caffeine Cutoff (<50mg target at bedtime)",
+    "Live SVG Caffeine Decay Curve with Tap-to-Scrub",
+    "Astronomical Solar Morning Light Engine (No GPS Required)",
+    "Live Activity & Dynamic Island 20-Min Timer",
+    "5-Day Single-Variable Experiment Loops",
+    "7 Biological Event Loops (Recovery, Travel/Jet Lag, Drift, DST, Dip Correction)",
+    "Measured Proof (Afternoon crashes dropping from 3.5 to 1.0/wk)",
+    "23 Vetted Scientific Articles in Learn Library",
+    "Local-First SQLite On-Device Storage (No Account Required)",
   ],
   screenshot: screenshots.map((s) => ({
     "@type": "ImageObject",

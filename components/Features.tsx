@@ -1,28 +1,28 @@
 const pillars = [
   {
     eyebrow: "ONE CLEAR MOVE",
-    title: "Your daily protocol",
-    desc: "One sentence, one action. A screen gradient keyed to your biological phase. A single focused action for each moment of your day — a live ring counts down your current window. No cluttered dashboard, no decision fatigue at 7am.",
+    title: "The day's plan & one ask",
+    desc: "One sentence, then a plan for the day. Exactly one prioritized ask at a time—get light, start your hard task, or take a walk—drawn as the first item of your plan. No cluttered dashboard, no decision fatigue at 7am.",
   },
   {
     eyebrow: "NEVER CRASH AT 3PM",
     title: "Dynamic caffeine cutoff",
-    desc: "The last safe coffee time, computed dynamically from your bedtime, caffeine sensitivity, and every drink logged today. Three distinct states (ahead, passed, exhausted) ensure under 50mg of active caffeine at bedtime.",
+    desc: "The last safe coffee time, computed dynamically from your bedtime, caffeine sensitivity, and every drink logged today. Three distinct states (ahead, passed, exhausted) ensure under 50mg of active caffeine remains at bedtime.",
   },
   {
     eyebrow: "ANCHOR YOUR CLOCK",
-    title: "Morning light window",
-    desc: "Real solar sunrise calculated from your device's timezone — zero GPS permission needed. A 20-minute timer runs as a Live Activity in your Dynamic Island so your phone stays in your pocket, with indoor fallbacks for dark winter mornings.",
+    title: "Solar morning light",
+    desc: "Real astronomical sunrise calculated from your device's timezone with zero GPS permission. A 20-minute calibrated timer runs as a Live Activity in your Dynamic Island so your phone stays in your pocket, with indoor fallbacks for dark winter mornings.",
   },
   {
     eyebrow: "MECHANISM, NOT GUILT",
     title: "Tuned to your real biology",
-    desc: "A daily morning briefing written in your own numbers. 'This is adenosine, not laziness.' Mechanism, never verdict — no guilt trips, streaks, or arbitrary grades. Just clear physiological facts.",
+    desc: "Every day explained in your own numbers. 'This is adenosine, not laziness.' Mechanism, never verdict—no guilt trips, arbitrary 0-100 sleep scores, rings, or streaks. Just clear physiological facts.",
   },
   {
     eyebrow: "MEASURED PROOF",
     title: "Receipts over weeks",
-    desc: "Watch your afternoon crashes drop from 3.5 to 1 a week — measured from your own check-ins, not asserted. 14-day adherence dot strips, median dip timing, and automated event loops for recovery, travel, and seasonal light.",
+    desc: "Watch your afternoon crashes drop from 3.5 to 1.0 a week—measured from your own check-ins, not asserted. Backed by 14-day adherence dot strips, 5-day habit experiment loops, and 7 automated biological event loops.",
   },
 ];
 
@@ -35,17 +35,17 @@ export function Features() {
     >
       {/* Decorative glows */}
       <div
-        className="pointer-events-none absolute right-[-20%] top-[10%] w-[600px] h-[600px] rounded-full bg-[var(--accent)]/5 blur-[150px]"
+        className="pointer-events-none absolute right-[-20%] top-[10%] w-150 h-150 rounded-full bg-(--accent)/5 blur-[150px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-[-20%] bottom-[10%] w-[600px] h-[600px] rounded-full bg-[var(--aura-sleep)]/5 blur-[150px]"
+        className="pointer-events-none absolute left-[-20%] bottom-[10%] w-150 h-150 rounded-full bg-(--aura-sleep)/5 blur-[150px]"
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto">
         <header className="mb-24 text-center">
-          <span className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase font-mono border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold tracking-widest text-accent uppercase font-mono border border-(--accent)/30 bg-(--accent)/5 px-3 py-1 rounded-full">
             THE PILLARS
           </span>
           <h2
@@ -54,7 +54,7 @@ export function Features() {
           >
             Tactical features.
             <br />
-            <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl lg:text-7xl">Biological precision.</span>
+            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl lg:text-7xl">Biological precision.</span>
           </h2>
         </header>
 

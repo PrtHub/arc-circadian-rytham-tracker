@@ -10,7 +10,7 @@ export function HowItWorks() {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         {/* Steps */}
         <div>
-          <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
+          <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3 font-mono">
             HOW IT WORKS
           </p>
           <h2
@@ -19,7 +19,7 @@ export function HowItWorks() {
           >
             From confused to in-sync
             <br />
-            <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">in one evening.</span>
+            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">in one evening.</span>
           </h2>
 
           <ol className="relative space-y-10" aria-label="How ARC works">
@@ -28,17 +28,17 @@ export function HowItWorks() {
                 {i < steps.length - 1 && (
                   <div
                     aria-hidden="true"
-                    className="absolute left-[1.6rem] top-10 w-px h-14 bg-linear-to-b from-[var(--accent)]/40 to-transparent"
+                    className="absolute left-[1.6rem] top-10 w-px h-14 bg-linear-to-b from-(--accent)/40 to-transparent"
                   />
                 )}
                 <div
                   aria-hidden="true"
-                  className="absolute left-0 top-0 w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/30 flex items-center justify-center text-[var(--accent)] text-xs font-black font-mono"
+                  className="absolute left-0 top-0 w-10 h-10 rounded-xl bg-(--accent)/10 border border-(--accent)/30 flex items-center justify-center text-accent text-xs font-black font-mono"
                 >
                   {s.step}
                 </div>
                 <h3 className="font-bold text-lg text-white mb-1">{s.title}</h3>
-                <p className="text-[var(--fg-muted)] text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-(--fg-muted) text-sm leading-relaxed">{s.desc}</p>
               </li>
             ))}
           </ol>

@@ -20,14 +20,14 @@ export function Problem() {
     >
       {/* Background glow */}
       <div
-        className="pointer-events-none absolute -left-1/4 top-1/4 w-[500px] h-[500px] rounded-full bg-[var(--aura-crash)]/5 blur-[120px]"
+        className="pointer-events-none absolute -left-1/4 top-1/4 w-125 h-125 rounded-full bg-(--aura-crash)/5 blur-[120px]"
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* Left: Content */}
         <div className="flex flex-col items-start gap-6">
-          <span className="text-xs font-bold tracking-widest text-[var(--aura-crash)] uppercase font-mono border border-[var(--aura-crash)]/30 bg-[var(--aura-crash)]/5 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold tracking-widest text-(--aura-crash) uppercase font-mono border border-(--aura-crash)/30 bg-(--aura-crash)/5 px-3 py-1 rounded-full">
             THE MISALIGNMENT
           </span>
 
@@ -37,10 +37,10 @@ export function Problem() {
           >
             Tired in a way
             <br />
-            <span className="font-display italic font-normal text-[var(--aura-crash)] text-5xl sm:text-6xl lg:text-7xl">sleep doesn&apos;t fix?</span>
+            <span className="font-display italic font-normal text-(--aura-crash) text-5xl sm:text-6xl lg:text-7xl">sleep doesn&apos;t fix?</span>
           </h2>
 
-          <p className="text-lg text-[var(--fg-muted)] leading-relaxed max-w-lg">
+          <p className="text-lg text-(--fg-muted) leading-relaxed max-w-lg">
             You&apos;ve been told you&apos;re undisciplined because you can&apos;t function at 8:00 AM, or you&apos;re wired at midnight. It&apos;s not a character flaw — <strong className="text-white">it&apos;s your chronotype</strong>. Your body runs on a biological clock, and most of us are fighting ours all day.
           </p>
 
@@ -71,7 +71,7 @@ export function Problem() {
                 </span>
                 <div>
                   <h3 className="font-bold text-white text-sm">{item.title}</h3>
-                  <p className="text-xs text-[var(--fg-muted)] leading-relaxed mt-0.5">{item.desc}</p>
+                  <p className="text-xs text-(--fg-muted) leading-relaxed mt-0.5">{item.desc}</p>
                 </div>
               </li>
             ))}
@@ -82,7 +82,7 @@ export function Problem() {
         <div className="flex justify-center items-center">
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-white/10 bg-black/40 backdrop-blur-3xl flex items-center justify-center shadow-2xl">
             {/* Ambient glows behind radar */}
-            <div className="absolute inset-0 rounded-full bg-radial from-[var(--aura-crash)]/10 to-transparent opacity-60" />
+            <div className="absolute inset-0 rounded-full bg-radial from-(--aura-crash)/10 to-transparent opacity-60" />
             
             {/* Clock ticks / radar lines */}
             <div className="absolute w-11/12 h-11/12 rounded-full border border-dashed border-white/10" />
@@ -90,38 +90,38 @@ export function Problem() {
             <div className="absolute w-5/12 h-5/12 rounded-full border border-white/5" />
             
             {/* Out-of-sync indicators */}
-            <div className="absolute top-12 left-12 w-3 h-3 rounded-full bg-[var(--aura-crash)] animate-ping" />
-            <div className="absolute top-12 left-12 w-3 h-3 rounded-full bg-[var(--aura-crash)]" />
+            <div className="absolute top-12 left-12 w-3 h-3 rounded-full bg-(--aura-crash) animate-ping" />
+            <div className="absolute top-12 left-12 w-3 h-3 rounded-full bg-(--aura-crash)" />
             
             {/* Safe zone indicator */}
-            <div className="absolute bottom-16 right-16 w-2 h-2 rounded-full bg-[var(--accent)]" />
+            <div className="absolute bottom-16 right-16 w-2 h-2 rounded-full bg-accent" />
             
             {/* Radar hand sweeps dynamically */}
             <div className="absolute inset-0 flex items-center justify-center animate-spin" style={{ animationDuration: "12s" }}>
-              <div className="w-1/2 h-[1px] bg-linear-to-r from-transparent to-[var(--aura-crash)]/60 relative origin-left" />
+              <div className="w-1/2 h-[1px] bg-linear-to-r from-transparent to-(--aura-crash)/60 relative origin-left" />
             </div>
 
             {/* Central biological core status */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center">
-              <span className="text-xs font-mono uppercase tracking-widest text-[var(--aura-crash)] font-black animate-pulse">
+              <span className="text-xs font-mono uppercase tracking-widest text-(--aura-crash) font-black animate-pulse">
                 OUT OF SYNC
               </span>
               <span className="text-4xl font-extrabold text-white mt-1 select-none font-sans">
                 -3.5h
               </span>
-              <span className="text-[10px] text-[var(--fg-muted)] font-mono mt-1 uppercase tracking-wider">
+              <span className="text-[10px] text-(--fg-muted) font-mono mt-1 uppercase tracking-wider">
                 CIRCADIAN DRIFT
               </span>
             </div>
 
             {/* Custom tactical label boxes floating inside the clock container */}
-            <div className="absolute top-6 right-1/4 sunken-card px-2.5 py-1 text-[9px] font-mono text-[var(--fg-muted)] select-none shadow-lg">
+            <div className="absolute top-6 right-1/4 sunken-card px-2.5 py-1 text-[9px] font-mono text-(--fg-muted) select-none shadow-lg">
               ☕ COFFEE BLOCKADE
             </div>
-            <div className="absolute bottom-12 left-6 sunken-card px-2.5 py-1 text-[9px] font-mono text-[var(--aura-crash)] select-none shadow-lg font-bold">
+            <div className="absolute bottom-12 left-6 sunken-card px-2.5 py-1 text-[9px] font-mono text-(--aura-crash) select-none shadow-lg font-bold">
               ⚠️ NOCTURNAL CRASH
             </div>
-            <div className="absolute right-6 bottom-1/3 sunken-card px-2.5 py-1 text-[9px] font-mono text-[var(--accent)] select-none shadow-lg font-bold">
+            <div className="absolute right-6 bottom-1/3 sunken-card px-2.5 py-1 text-[9px] font-mono text-accent select-none shadow-lg font-bold">
               ☀️ OPTIMAL SYNC
             </div>
           </div>

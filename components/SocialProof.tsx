@@ -16,20 +16,20 @@ export function SocialProof() {
         {stats.map(({ icon, value, label, note }) => (
           <div
             key={label}
-            className="raised-card p-4 rounded-2xl flex flex-col justify-between text-left hover:border-[var(--accent)]/40 transition-all group"
+            className="raised-card p-4 rounded-2xl flex flex-col justify-between text-left hover:border-(--accent)/40 transition-all group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-lg">{icon}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] opacity-50 group-hover:opacity-100 transition-opacity" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-50 group-hover:opacity-100 transition-opacity" />
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-[var(--accent)] font-sans tracking-tight block transition-colors">
+              <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-accent font-sans tracking-tight block transition-colors">
                 {value}
               </span>
               <span className="text-xs font-bold text-zinc-300 block mt-1 font-mono uppercase tracking-tight leading-tight">
                 {label}
               </span>
-              <span className="text-[10px] text-[var(--fg-muted)] block mt-0.5 font-mono">
+              <span className="text-[10px] text-(--fg-muted) block mt-0.5 font-mono">
                 {note}
               </span>
             </div>

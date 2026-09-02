@@ -27,30 +27,30 @@ export function Hero() {
             You&apos;re not lazy.
             <br />
             You&apos;re on the{" "}
-            <span className="font-display italic font-normal text-[var(--accent)] text-6xl sm:text-7xl lg:text-8xl">
+            <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl lg:text-8xl">
               wrong clock.
             </span>
           </h1>
 
-          <p className="text-lg text-[var(--fg-muted)] leading-relaxed max-w-lg">
-            Generic advice treats everyone the same. ARC finds your chronotype and builds
-            your entire day around your real biological rhythm — so focus, energy, and sleep come naturally.
+          <p className="text-lg text-(--fg-muted) leading-relaxed max-w-lg">
+            ARC explains why you feel tired right now, gives you the one thing worth doing about it,
+            and proves the answer over weeks by halving your afternoon crashes.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
             <AppStoreButton size="lg" location="hero" />
             <a
               href="#how-it-works"
-              className="inline-flex items-center justify-center gap-1.5 text-[var(--fg-muted)] hover:text-white text-sm font-bold font-mono transition-all py-3.5 px-5 rounded-full border border-white/10 hover:bg-white/5"
+              className="inline-flex items-center justify-center gap-1.5 text-(--fg-muted) hover:text-white text-sm font-bold font-mono transition-all py-3.5 px-5 rounded-full border border-white/10 hover:bg-white/5"
             >
               See how it works ↓
             </a>
           </div>
 
           {/* Social Proof */}
-          <div className="flex items-center gap-2.5 text-xs font-bold text-[var(--fg-muted)] pt-1 font-mono uppercase tracking-wide">
-            <span className="text-[var(--accent)] text-sm tracking-wider">★★★★★</span>
-            <span>4.9 on App Store · 100% Privacy · No Wearables Required</span>
+          <div className="flex items-center gap-2.5 text-xs font-bold text-(--fg-muted) pt-1 font-mono uppercase tracking-wide">
+            <span className="text-accent text-sm tracking-wider">★★★★★</span>
+            <span>4.9 on App Store · 100% On-Device Privacy · No Wearables Required</span>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ export function Hero() {
                 <div
                   className="relative w-full min-h-[585px] rounded-[40px] overflow-hidden px-4.5 pt-3.5 pb-4 flex flex-col justify-between text-left border border-white/10"
                   style={{
-                    background: "linear-gradient(180deg, #09121f 0%, #101e30 40%, #13243a 100%)",
+                    background: "linear-gradient(180deg, #12203E 0%, #22405F 55%, #355E78 100%)",
                     color: "#F4F9FC",
                   }}
                 >
@@ -103,8 +103,8 @@ export function Hero() {
 
                   {/* 2. Top Header: MORNING & Settings Gear */}
                   <div className="flex items-center justify-between pt-3">
-                    <span className="text-[10px] font-mono tracking-widest text-zinc-400 uppercase font-bold">
-                      MORNING
+                    <span className="text-[10px] font-mono tracking-widest text-[#FFD9A0] uppercase font-bold">
+                      MORNING PHASE
                     </span>
                     <button
                       type="button"
@@ -118,7 +118,7 @@ export function Hero() {
                   {/* 3. The Daily Directive Sentence (Editorial Serif) */}
                   <div className="py-1">
                     <p className="font-display italic text-[1.18rem] sm:text-[1.24rem] leading-[1.28] text-white">
-                      &ldquo;Your poor sleep quality and lack of light anchoring mean your cortisol levels are struggling to wake your brain up effectively.&rdquo;
+                      &ldquo;You&apos;re in your light window. Twenty minutes outside now sets up your whole day.&rdquo;
                     </p>
                   </div>
 

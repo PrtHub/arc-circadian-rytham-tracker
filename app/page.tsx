@@ -17,26 +17,44 @@ import { Footer } from "@/components/Footer";
 import { jsonLdApp, jsonLdFaq, jsonLdOrganization, jsonLdWebPage } from "@/components/arc-data";
 
 export const metadata: Metadata = {
-  title: "ARC — Circadian Rhythm & Sleep | Energy Tracker & Chronotype",
+  title: "ARC 2.0 — Circadian Rhythm Tracker, Chronotype Quiz & Sleep Science",
   description:
-    "You're not lazy — you're on the wrong clock. ARC finds your chronotype and builds your day around your real biological rhythm: when to get light, drink coffee, focus, and sleep.",
-  keywords:
-    "chronotype, circadian rhythm, sleep, energy, caffeine timing, morning light, productivity, focus, lion chronotype, bear chronotype, wolf chronotype, dolphin chronotype, circadian rhythm tracker",
+    "You're not lazy — you're on the wrong clock. ARC 2.0 finds your chronotype (Lion, Bear, Wolf, Dolphin) and builds your day around your biology: dynamic caffeine cutoff, solar morning light Live Activity, and measured afternoon crash reduction.",
+  keywords: [
+    "chronotype",
+    "circadian rhythm",
+    "sleep tracker",
+    "energy tracker",
+    "caffeine timing",
+    "morning light",
+    "productivity",
+    "focus",
+    "lion chronotype",
+    "bear chronotype",
+    "wolf chronotype",
+    "dolphin chronotype",
+    "circadian rhythm tracker",
+    "arc 2.0",
+    "living light",
+  ],
   alternates: {
     canonical: "https://arcapp.sbs",
   },
   openGraph: {
-    title: "ARC — Circadian Rhythm & Sleep",
+    title: "ARC 2.0 — Circadian Rhythm Tracker & Chronotype App",
     description:
-      "You're not lazy. You're on the wrong clock. Find your biological timing with ARC.",
+      "You're not lazy. You're on the wrong clock. Discover your biological timing with ARC 2.0 Living Light.",
     type: "website",
     url: "https://arcapp.sbs",
+    siteName: "ARC Circadian Rhythm Tracker",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARC — Circadian Rhythm & Sleep",
+    title: "ARC 2.0 — Circadian Rhythm Tracker & Chronotype App",
     description:
-      "You're not lazy. You're on the wrong clock. Discover your chronotype with ARC.",
+      "You're not lazy. You're on the wrong clock. Find your chronotype and follow your personalized day plan with ARC 2.0.",
+    creator: "@iPritamX",
   },
 };
 

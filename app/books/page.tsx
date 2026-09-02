@@ -5,10 +5,23 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Recommended Circadian & Sleep Books | ARC",
-  description: "Explore book reviews and deep scientific takeaways from Matthew Walker, Michael Breus, and Suhas Kshirsagar on chronobiology and sleep.",
+  title: "Best Circadian Rhythm & Sleep Books | ARC 2.0 Reading List",
+  description:
+    "Curated reviews and takeaways from essential chronobiology texts: Matthew Walker, Dr. Michael Breus, and Suhas Kshirsagar on circadian health and energy.",
+  keywords: [
+    "best sleep books",
+    "circadian rhythm books",
+    "the power of when summary",
+    "why we sleep summary",
+    "chronotype books",
+  ],
   alternates: {
     canonical: "/books",
+  },
+  openGraph: {
+    title: "Best Circadian Rhythm & Sleep Books | ARC 2.0 Reading List",
+    description: "Curated reviews and scientific summaries of foundational texts in chronobiology, sleep science, and human performance.",
+    url: "https://arcapp.sbs/books",
   },
 };
 

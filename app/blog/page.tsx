@@ -5,10 +5,23 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "Blog | ARC Circadian Rhythm Tracker",
-    description: "Learn about chronobiology, sleep optimization, and peak performance on the ARC blog.",
+    title: "Circadian Science & Sleep Journal | ARC 2.0 Blog",
+    description: "Deep-dive articles on chronobiology, caffeine metabolism, circadian light anchoring, and practical sleep architecture from the ARC scientific team.",
+    keywords: [
+        "chronobiology blog",
+        "circadian rhythm articles",
+        "sleep science guides",
+        "caffeine half life",
+        "morning light science",
+        "sleep architecture",
+    ],
     alternates: {
         canonical: "/blog",
+    },
+    openGraph: {
+        title: "Circadian Science & Sleep Journal | ARC 2.0 Blog",
+        description: "Evidence-based articles on circadian timing, caffeine decay, and human energy optimization.",
+        url: "https://arcapp.sbs/blog",
     },
 };
 

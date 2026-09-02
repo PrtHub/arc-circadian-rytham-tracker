@@ -4,10 +4,26 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Free Circadian Rhythm Tools | ARC",
-  description: "Free tools to calculate your caffeine half-life, discover your chronotype, and optimize your biological clock.",
+  title: "Free Circadian Rhythm & Sleep Calculators | ARC 2.0",
+  description:
+    "Explore 10+ free, science-backed circadian rhythm calculators: dynamic caffeine cutoff, chronotype quiz, sleep debt, sunlight window, and jet lag recovery planner.",
+  keywords: [
+    "circadian rhythm calculators",
+    "free sleep calculator",
+    "caffeine half life calculator",
+    "chronotype quiz",
+    "sleep debt calculator",
+    "jet lag planner",
+    "sunlight calculator",
+  ],
   alternates: {
     canonical: "/tools",
+  },
+  openGraph: {
+    title: "Free Circadian Rhythm & Sleep Calculators | ARC 2.0",
+    description:
+      "Calculate your caffeine cutoff, discover your chronotype, analyze sleep cycles, and plan jet lag shifts with free science-backed tools.",
+    url: "https://arcapp.sbs/tools",
   },
 };
 

@@ -10,15 +10,16 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
-        userAgent: "ChatGPT-User",
-        allow: "/",
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-      },
-      {
-        userAgent: "ClaudeBot",
+        userAgent: [
+          "Googlebot",
+          "Applebot",
+          "Bingbot",
+          "DuckDuckBot",
+          "ChatGPT-User",
+          "GPTBot",
+          "PerplexityBot",
+          "ClaudeBot",
+        ],
         allow: "/",
       },
     ],

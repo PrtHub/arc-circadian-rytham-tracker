@@ -30,17 +30,36 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "ARC: Circadian Rhythm Tracker — Sync Your Biology, Peak Every Day",
-    template: "%s | ARC Circadian Rhythm Tracker",
+    default: "ARC 2.0 Living Light — Circadian Rhythm Tracker & Chronotype App",
+    template: "%s | ARC 2.0 Circadian Rhythm Tracker",
   },
 
   description:
-    "Stop fighting your biology. ARC maps your Perfect Day using chronobiology. Discover your chronotype (Lion, Bear, Wolf, or Dolphin), find Peak Focus Windows, optimize caffeine cutoff, and anchor your sleep-wake cycle. Science-backed, privacy-first iOS app.",
+    "Stop fighting your biology. ARC 2.0 Living Light maps your day around your chronotype. Dynamic caffeine cutoff, astronomical solar morning light Live Activity, and measured afternoon crash reduction on an on-device, local-first engine.",
 
-  keywords:
-    "circadian rhythm tracker, chronotype test, chronotype quiz, sleep optimization, peak focus windows, caffeine timing, biohacking app, iOS health app, chronobiology, circadian rhythm app, lion chronotype, bear chronotype, wolf chronotype, dolphin chronotype, sleep science, cortisol rhythm, melatonin optimization, adenosine, Huberman, sleep tracker, circadian clock",
+  keywords: [
+    "circadian rhythm tracker",
+    "chronotype test",
+    "chronotype quiz",
+    "lion chronotype",
+    "bear chronotype",
+    "wolf chronotype",
+    "dolphin chronotype",
+    "caffeine cutoff calculator",
+    "caffeine half life",
+    "morning light timer",
+    "adenosine sleep pressure",
+    "afternoon crash cure",
+    "sleep science app",
+    "living light",
+    "local first health app",
+    "iOS circadian tracker",
+    "Stanford sleep science",
+    "Huberman morning light",
+    "social jetlag calculator",
+  ],
 
-  applicationName: "ARC: Circadian Rhythm Tracker",
+  applicationName: "ARC 2.0 Living Light",
   authors: [{ name: "Pritam", url: "mailto:pritamfinds@gmail.com" }],
   creator: "Pritam",
   publisher: "ARC",
@@ -51,9 +70,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "ARC: Circadian Rhythm Tracker — Sync Your Biology, Peak Every Day",
+    title: "ARC 2.0 Living Light — Circadian Rhythm Tracker & Chronotype App",
     description:
-      "Discover your chronotype and unlock peak performance. 201+ downloads. Built on Stanford & UC Berkeley sleep science. Privacy-first, local-only data.",
+      "Stop fighting your body. Discover your chronotype, follow your dynamic daily plan, calculate your exact last safe coffee cutoff, and cut afternoon crashes in half.",
     siteName: "ARC: Circadian Rhythm Tracker",
     url: SITE_URL,
     locale: "en_US",
@@ -62,10 +81,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ARC: Circadian Rhythm Tracker",
+    title: "ARC 2.0 Living Light — Circadian Rhythm Tracker",
     description:
-      "201+ downloads. Discover your chronotype. Find Peak Focus Windows. Optimize caffeine timing. Science-backed iOS app.",
-    creator: "@pritamfinds",
+      "Stop fighting your body. Discover your chronotype, track dynamic caffeine decay, and halve your afternoon crashes with ARC 2.0.",
+    creator: "@iPritamX",
   },
 
   appleWebApp: {
@@ -154,7 +173,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <CircadianThemeProvider />
-        <FloatingSupport />
+        {/* <FloatingSupport /> */}
         <MixpanelTracker />
       </body>
     </html>

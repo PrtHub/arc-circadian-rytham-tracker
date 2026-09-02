@@ -5,10 +5,24 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Science & Protocols | ARC Circadian Rhythm Tracker",
-  description: "Explore protocols, biological mechanisms, glossary terms, and guides from the ARC scientific team.",
+  title: "Circadian Protocols & Chronobiology Research | ARC 2.0 Science",
+  description:
+    "Explore peer-reviewed circadian protocols, adenosine clearance mechanics, zeitgeber anchors, and chronobiology glossary terms from the ARC scientific team.",
+  keywords: [
+    "circadian protocols",
+    "chronobiology research",
+    "adenosine sleep pressure",
+    "caffeine tolerance reset",
+    "zeitgeber meaning",
+    "cortisol awakening response",
+  ],
   alternates: {
     canonical: "/science",
+  },
+  openGraph: {
+    title: "Circadian Protocols & Chronobiology Research | ARC 2.0 Science",
+    description: "Evidence-based protocols and research detailing circadian physiology, adenosine clearance, and light exposure.",
+    url: "https://arcapp.sbs/science",
   },
 };
 

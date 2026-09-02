@@ -21,15 +21,24 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
   return {
-    title: `${audience.title} | ARC App`,
+    title: `${audience.title} | ARC 2.0 Living Light`,
     description: audience.description,
     keywords: `${audience.name} sleep optimization, ${audience.name} circadian rhythm, focus app for ${audience.name}, chronotype`,
     alternates: {
       canonical: `${SITE_URL}/for/${params.slug}`,
     },
     openGraph: {
-      title: audience.title,
+      title: `${audience.title} | ARC 2.0`,
       description: audience.description,
+      url: `${SITE_URL}/for/${params.slug}`,
+      siteName: "ARC Circadian Rhythm Tracker",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${audience.title} | ARC 2.0`,
+      description: audience.description,
+      creator: "@iPritamX",
     },
   };
 }

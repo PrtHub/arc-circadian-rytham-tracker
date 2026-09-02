@@ -21,15 +21,24 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
   return {
-    title: `${chronotype.name} Chronotype Schedule & Sleep Optimization | ARC`,
+    title: `${chronotype.name} Chronotype Schedule & Sleep Optimization | ARC 2.0`,
     description: `Learn the ideal daily schedule, peak focus windows, and caffeine cutoff for the ${chronotype.name} chronotype. Stop fighting your biology.`,
     keywords: `${chronotype.name} chronotype, ${chronotype.name} sleep schedule, chronotype test, chronobiology, peak focus window, circadian rhythm`,
     alternates: {
       canonical: `${SITE_URL}/chronotype/${params.slug}`,
     },
     openGraph: {
-      title: `${chronotype.name} Chronotype Guide`,
+      title: `${chronotype.name} Chronotype Guide | ARC 2.0 Living Light`,
       description: chronotype.description,
+      url: `${SITE_URL}/chronotype/${params.slug}`,
+      siteName: "ARC Circadian Rhythm Tracker",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${chronotype.name} Chronotype Schedule & Optimization`,
+      description: chronotype.description,
+      creator: "@iPritamX",
     },
   };
 }

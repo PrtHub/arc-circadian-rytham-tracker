@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AppStoreButton } from "@/components/AppStoreButton";
-import { AnnouncementBanner } from "@/components/AnnouncementBanner";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +25,6 @@ export function Nav() {
           : "bg-[#070a18]/80 backdrop-blur-md border-b border-white/5"
       }`}
     >
-      <AnnouncementBanner />
       <nav
         className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between gap-4"
         aria-label="Main navigation"
@@ -45,15 +43,15 @@ export function Nav() {
               height={32}
               className="rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform"
             />
-            <div className="absolute inset-0 rounded-xl bg-[var(--accent)]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 rounded-xl bg-(--accent)/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <span className="font-sans font-black tracking-tight flex items-center text-lg sm:text-xl">
-            ARC<span className="text-[var(--accent)] text-2xl leading-none">.</span>
+            ARC<span className="text-accent text-2xl leading-none">.</span>
           </span>
         </Link>
 
         {/* Center: Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm text-[var(--fg-muted)] font-medium">
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm text-(--fg-muted) font-medium">
           <a
             href="/#features"
             className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
@@ -77,7 +75,7 @@ export function Nav() {
             className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono flex items-center gap-1.5"
           >
             Tools
-            <span className="px-1.5 py-0.5 rounded-full bg-[var(--accent)] text-black text-[9px] font-black font-mono leading-none">
+            <span className="px-1.5 py-0.5 rounded-full bg-accent text-black text-[9px] font-black font-mono leading-none">
               10+
             </span>
           </Link>
@@ -134,63 +132,63 @@ export function Nav() {
             <a
               href="/#features"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
               <span>Features</span>
-              <span className="text-xs text-[var(--fg-muted)]">01</span>
+              <span className="text-xs text-(--fg-muted)">01</span>
             </a>
             <a
               href="/#how-it-works"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
               <span>How It Works</span>
-              <span className="text-xs text-[var(--fg-muted)]">02</span>
+              <span className="text-xs text-(--fg-muted)">02</span>
             </a>
             <a
               href="/#pricing"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
               <span>Pricing</span>
-              <span className="text-xs text-[var(--fg-muted)]">03</span>
+              <span className="text-xs text-(--fg-muted)">03</span>
             </a>
             <Link
               href="/tools"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
               <div className="flex items-center gap-2">
-                <span>Free Calculators & Tools</span>
-                <span className="px-2 py-0.5 rounded-full bg-[var(--accent)] text-black text-[10px] font-black">
+                <span>Free Calculators &amp; Tools</span>
+                <span className="px-2 py-0.5 rounded-full bg-accent text-black text-[10px] font-black">
                   10+
                 </span>
               </div>
-              <span className="text-xs text-[var(--fg-muted)]">→</span>
+              <span className="text-xs text-(--fg-muted)">→</span>
             </Link>
             <Link
               href="/science"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
               <span>Science Protocols</span>
-              <span className="text-xs text-[var(--fg-muted)]">→</span>
+              <span className="text-xs text-(--fg-muted)">→</span>
             </Link>
             <Link
               href="/books"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
-              <span>Literature & Book Reviews</span>
-              <span className="text-xs text-[var(--fg-muted)]">→</span>
+              <span>Literature &amp; Book Reviews</span>
+              <span className="text-xs text-(--fg-muted)">→</span>
             </Link>
             <Link
               href="/blog"
               onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-[var(--fg)] hover:text-white transition-colors flex items-center justify-between"
+              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
             >
-              <span>ARC Journal & Articles</span>
-              <span className="text-xs text-[var(--fg-muted)]">→</span>
+              <span>ARC Journal &amp; Articles</span>
+              <span className="text-xs text-(--fg-muted)">→</span>
             </Link>
 
             <div className="pt-4 mt-2 border-t border-white/10 sm:hidden">

@@ -18,8 +18,8 @@ export function Hero() {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Left Column: Focused Copy & Value Proposition */}
         <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-3.5 py-1 text-xs font-bold tracking-widest text-[var(--accent)] uppercase font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-ping" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-(--accent)/30 bg-(--accent)/10 px-3.5 py-1 text-xs font-bold tracking-widest text-accent uppercase font-mono">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
             ARC 2.0 · LIVING LIGHT
           </div>
 

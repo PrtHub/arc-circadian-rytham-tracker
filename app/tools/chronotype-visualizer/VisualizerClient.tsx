@@ -45,15 +45,15 @@ export default function VisualizerClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[var(--fg-muted)] hover:text-white mb-8 transition-colors font-mono">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Day in the Life <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">Visualizer</span>
+          Day in the Life <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Visualizer</span>
         </h1>
-        <p className="text-[var(--fg-muted)] text-lg">
+        <p className="text-(--fg-muted) text-lg">
           Slide through the day to see how your master hormones fluctuate based on your genetic chronotype.
         </p>
       </header>
@@ -66,8 +66,8 @@ export default function VisualizerClient() {
               onClick={() => setChronotype(t)}
               className={`px-5 py-2.5 rounded-full font-bold capitalize transition-colors ${
                 chronotype === t 
-                  ? "bg-[var(--accent)] text-black shadow-[0_0_15px_rgba(204,255,0,0.2)]" 
-                  : "bg-white/5 text-[var(--fg-muted)] border border-white/10 hover:text-white"
+                  ? "bg-accent text-black shadow-[0_0_15px_rgba(204,255,0,0.2)]" 
+                  : "bg-white/5 text-(--fg-muted) border border-white/10 hover:text-white"
               }`}
             >
               {t}
@@ -77,7 +77,7 @@ export default function VisualizerClient() {
 
         <div className="mb-12 text-center">
           <div className="text-6xl font-black text-white mb-2 font-mono">{getHourLabel(hour)}</div>
-          <p className="text-[var(--accent)] font-bold text-sm uppercase tracking-wider font-mono">{getStatusText()}</p>
+          <p className="text-accent font-bold text-sm uppercase tracking-wider font-mono">{getStatusText()}</p>
         </div>
 
         <div className="mb-12 px-4">
@@ -92,7 +92,7 @@ export default function VisualizerClient() {
               accentColor: "var(--accent)"
             }}
           />
-          <div className="flex justify-between text-xs text-[var(--fg-muted)] mt-2 font-mono">
+          <div className="flex justify-between text-xs text-(--fg-muted) mt-2 font-mono">
             <span>6:00 AM</span>
             <span>12:00 PM</span>
             <span>6:00 PM</span>
@@ -102,30 +102,38 @@ export default function VisualizerClient() {
 
         <div className="grid grid-cols-2 gap-6">
           <div className="sunken-card p-6 text-center border border-white/5">
-            <p className="text-xs text-[var(--fg-muted)] font-bold uppercase mb-2 font-mono">Cortisol (Alertness)</p>
-            <div className="text-4xl font-black text-[var(--aura-sun)] mb-4 font-mono">{Math.round(cortisol)}%</div>
+            <p className="text-xs text-(--fg-muted) font-bold uppercase mb-2 font-mono">Cortisol (Alertness)</p>
+            <div className="text-4xl font-black text-(--aura-sun) mb-4 font-mono">{Math.round(cortisol)}%</div>
             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-              <div className="bg-[var(--aura-sun)] h-full transition-all duration-300" style={{ width: `${cortisol}%` }}></div>
+              <div className="bg-(--aura-sun) h-full transition-all duration-300" style={{ width: `${cortisol}%` }}></div>
             </div>
           </div>
           
           <div className="sunken-card p-6 text-center border border-white/5">
-            <p className="text-xs text-[var(--fg-muted)] font-bold uppercase mb-2 font-mono">Melatonin (Sleepiness)</p>
-            <div className="text-4xl font-black text-[var(--aura-sleep)] mb-4 font-mono">{Math.round(melatonin)}%</div>
+            <p className="text-xs text-(--fg-muted) font-bold uppercase mb-2 font-mono">Melatonin (Sleepiness)</p>
+            <div className="text-4xl font-black text-(--aura-sleep) mb-4 font-mono">{Math.round(melatonin)}%</div>
             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-              <div className="bg-[var(--aura-sleep)] h-full transition-all duration-300" style={{ width: `${melatonin}%` }}></div>
+              <div className="bg-(--aura-sleep) h-full transition-all duration-300" style={{ width: `${melatonin}%` }}></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="raised-card p-8 text-center border-[var(--accent)]/30">
-        <h2 className="text-2xl font-bold mb-4 text-[var(--accent)]">Live the perfect day</h2>
-        <p className="text-[var(--fg-muted)] mb-6 max-w-lg mx-auto leading-relaxed">
+      <div className="raised-card p-8 text-center border-(--accent)/30">
+        <h2 className="text-2xl font-bold mb-4 text-white">Live the perfect day</h2>
+        <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto leading-relaxed text-sm">
           Knowing the curves is step one. The ARC app actively builds your schedule to align with these exact peaks and valleys automatically.
         </p>
-        <a href="/#pricing" className="inline-block bg-[var(--accent)] text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
-          Get ARC Pro
+        <a
+          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-accent text-black font-extrabold py-3.5 px-8 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono text-sm"
+        >
+          Download ARC App
+          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
+          </svg>
         </a>
       </div>
     </main>

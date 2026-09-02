@@ -46,13 +46,16 @@ export async function generateMetadata({
 
 function parseMarkdownText(text: string) {
   const parts: React.ReactNode[] = [];
-  const regex = /(\*\*.*?\*\*|\[.*?\]\(.*?\))/g;
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\))/g;
   const tokens = text.split(regex);
 
   tokens.forEach((token, index) => {
     if (token.startsWith("**") && token.endsWith("**")) {
       const boldText = token.slice(2, -2);
       parts.push(<strong key={index} className="text-white font-extrabold">{boldText}</strong>);
+    } else if (token.startsWith("*") && token.endsWith("*") && token.length > 2) {
+      const italicText = token.slice(1, -1);
+      parts.push(<em key={index} className="italic text-zinc-200">{italicText}</em>);
     } else if (token.startsWith("[") && token.includes("](")) {
       const closingBracketIndex = token.indexOf("](");
       const linkText = token.slice(1, closingBracketIndex);
@@ -120,15 +123,20 @@ export default async function ScienceDetailPage({
   };
 
   return (
-    <div className="text-white min-h-screen">
+    <div className="text-white min-h-screen relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+
+      {/* Decorative Radial Glowing Blobs */}
+      <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
+
       <Nav />
 
-      <main className="max-w-3xl mx-auto px-6 py-20">
-        <header className="mb-20">
+      <main className="max-w-3xl mx-auto px-6 py-20 relative">
+        <header className="mb-16">
           <Link
             href="/science"
             className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:-translate-x-1 transition-transform mb-8 font-mono"
@@ -147,11 +155,11 @@ export default async function ScienceDetailPage({
             Back to Science Hub
           </Link>
           <div className="flex items-center gap-3 mb-6 text-xs font-bold tracking-widest text-accent uppercase font-mono">
-            <span>{article.categoryLabel}</span>
+            <span className="px-3 py-1 rounded-full border border-(--accent)/20 bg-(--accent)/10">{article.categoryLabel}</span>
             <span className="w-1 h-1 rounded-full bg-zinc-800" />
             <span className="text-(--fg-muted)">{article.readTime} read</span>
           </div>
-          <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-8 leading-none">
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-6 leading-tight">
             {article.title}
           </h1>
           <p className="text-(--fg-muted) text-xl leading-relaxed">{article.excerpt}</p>
@@ -165,6 +173,10 @@ export default async function ScienceDetailPage({
               .filter((line) => line.trim() !== "")
               .map((line, i) => {
                 if (line.startsWith("# ")) return null;
+
+                if (line.trim() === "---") {
+                  return <hr key={i} className="my-10 border-white/10" />;
+                }
 
                 const alertMatch = line.match(/^>\s*\[!(TIP|NOTE|WARNING|IMPORTANT|CAUTION)\]\s*(.*)$/i);
                 if (alertMatch) {
@@ -220,18 +232,42 @@ export default async function ScienceDetailPage({
                   );
                 }
 
+                if (line.startsWith("> ")) {
+                  return (
+                    <blockquote key={i} className="my-6 pl-5 border-l-2 border-accent italic text-zinc-300 bg-white/5 py-3 pr-4 rounded-r-xl">
+                      {parseMarkdownText(line.replace(/^>\s*/, ""))}
+                    </blockquote>
+                  );
+                }
+
+                if (line.startsWith("## ")) {
+                  return (
+                    <h2 key={i} className="text-2xl sm:text-3xl font-black text-white mt-14 mb-4 tracking-tight border-b border-white/10 pb-3">
+                      {parseMarkdownText(line.replace(/^##\s+/, ""))}
+                    </h2>
+                  );
+                }
+
                 if (line.startsWith("### ")) {
                   return (
-                    <h3 key={i} className="text-xl font-bold text-white mb-4 mt-12 lowercase [font-variant:small-caps] tracking-wider">
-                      {parseMarkdownText(line.replace("### ", ""))}
+                    <h3 key={i} className="text-xl sm:text-2xl font-bold text-white mt-10 mb-4 tracking-tight">
+                      {parseMarkdownText(line.replace(/^###\s+/, ""))}
                     </h3>
+                  );
+                }
+
+                if (line.startsWith("#### ")) {
+                  return (
+                    <h4 key={i} className="text-lg font-bold text-accent mt-8 mb-3 tracking-tight font-mono">
+                      {parseMarkdownText(line.replace(/^####\s+/, ""))}
+                    </h4>
                   );
                 }
 
                 if (line.startsWith("* ") || line.startsWith("- ")) {
                   return (
                     <div key={i} className="flex gap-3 items-start my-2">
-                      <span className="text-accent mt-2">•</span>
+                      <span className="text-accent mt-2 font-bold">•</span>
                       <span>{parseMarkdownText(line.replace(/^[*+-] /, ""))}</span>
                     </div>
                   );

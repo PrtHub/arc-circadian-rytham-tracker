@@ -4,13 +4,13 @@ export function Notifications() {
   return (
     <section className="py-24 px-6 max-w-4xl mx-auto">
       <div className="text-center mb-14">
-        <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
+        <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3 font-mono">
           Smart Notifications
         </p>
         <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
           Nudges that speak your biology
         </h2>
-        <p className="mt-4 text-[var(--fg-muted)] max-w-xl mx-auto">
+        <p className="mt-4 text-(--fg-muted) max-w-xl mx-auto">
           Not generic reminders. Every alert is timed to your chronotype and written in plain language — so you know exactly why it matters.
         </p>
       </div>

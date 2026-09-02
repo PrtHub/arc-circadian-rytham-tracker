@@ -45,29 +45,29 @@ export default function VisualizerClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[var(--fg-muted)] hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Day in the Life <span className="text-[#CCFF00]">Visualizer</span>
+          Day in the Life <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">Visualizer</span>
         </h1>
-        <p className="text-zinc-400 text-lg">
+        <p className="text-[var(--fg-muted)] text-lg">
           Slide through the day to see how your master hormones fluctuate based on your genetic chronotype.
         </p>
       </header>
 
-      <div className="bg-[#111] border border-white/10 p-6 sm:p-10 rounded-3xl mb-12 shadow-2xl">
-        <div className="flex gap-4 mb-8 justify-center flex-wrap">
+      <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
+        <div className="flex gap-4 mb-8 justify-center flex-wrap font-mono text-xs">
           {["lion", "bear", "wolf", "dolphin"].map((t) => (
             <button
               key={t}
               onClick={() => setChronotype(t)}
-              className={`px-5 py-2 rounded-full font-bold capitalize transition-colors ${
+              className={`px-5 py-2.5 rounded-full font-bold capitalize transition-colors ${
                 chronotype === t 
-                  ? "bg-[#CCFF00] text-black" 
-                  : "bg-black text-zinc-500 border border-white/10 hover:text-white"
+                  ? "bg-[var(--accent)] text-black shadow-[0_0_15px_rgba(204,255,0,0.2)]" 
+                  : "bg-white/5 text-[var(--fg-muted)] border border-white/10 hover:text-white"
               }`}
             >
               {t}
@@ -76,8 +76,8 @@ export default function VisualizerClient() {
         </div>
 
         <div className="mb-12 text-center">
-          <div className="text-6xl font-black text-white mb-2">{getHourLabel(hour)}</div>
-          <p className="text-[#CCFF00] font-bold text-sm uppercase tracking-wider">{getStatusText()}</p>
+          <div className="text-6xl font-black text-white mb-2 font-mono">{getHourLabel(hour)}</div>
+          <p className="text-[var(--accent)] font-bold text-sm uppercase tracking-wider font-mono">{getStatusText()}</p>
         </div>
 
         <div className="mb-12 px-4">
@@ -87,12 +87,12 @@ export default function VisualizerClient() {
             max="24"
             value={hour}
             onChange={(e) => setHour(Number(e.target.value))}
-            className="w-full h-2 bg-black rounded-lg appearance-none cursor-pointer border border-white/10 focus:outline-none"
+            className="w-full h-2 bg-black/60 rounded-lg appearance-none cursor-pointer border border-white/10 focus:outline-none"
             style={{
-              accentColor: "#CCFF00"
+              accentColor: "var(--accent)"
             }}
           />
-          <div className="flex justify-between text-xs text-zinc-600 mt-2">
+          <div className="flex justify-between text-xs text-[var(--fg-muted)] mt-2 font-mono">
             <span>6:00 AM</span>
             <span>12:00 PM</span>
             <span>6:00 PM</span>
@@ -101,30 +101,30 @@ export default function VisualizerClient() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="bg-black border border-white/5 rounded-2xl p-6 text-center">
-            <p className="text-xs text-zinc-500 font-bold uppercase mb-2">Cortisol (Alertness)</p>
-            <div className="text-4xl font-black text-orange-500 mb-4">{Math.round(cortisol)}%</div>
-            <div className="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
-              <div className="bg-orange-500 h-full transition-all duration-300" style={{ width: `${cortisol}%` }}></div>
+          <div className="sunken-card p-6 text-center border border-white/5">
+            <p className="text-xs text-[var(--fg-muted)] font-bold uppercase mb-2 font-mono">Cortisol (Alertness)</p>
+            <div className="text-4xl font-black text-[var(--aura-sun)] mb-4 font-mono">{Math.round(cortisol)}%</div>
+            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+              <div className="bg-[var(--aura-sun)] h-full transition-all duration-300" style={{ width: `${cortisol}%` }}></div>
             </div>
           </div>
           
-          <div className="bg-black border border-white/5 rounded-2xl p-6 text-center">
-            <p className="text-xs text-zinc-500 font-bold uppercase mb-2">Melatonin (Sleepiness)</p>
-            <div className="text-4xl font-black text-blue-500 mb-4">{Math.round(melatonin)}%</div>
-            <div className="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
-              <div className="bg-blue-500 h-full transition-all duration-300" style={{ width: `${melatonin}%` }}></div>
+          <div className="sunken-card p-6 text-center border border-white/5">
+            <p className="text-xs text-[var(--fg-muted)] font-bold uppercase mb-2 font-mono">Melatonin (Sleepiness)</p>
+            <div className="text-4xl font-black text-[var(--aura-sleep)] mb-4 font-mono">{Math.round(melatonin)}%</div>
+            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+              <div className="bg-[var(--aura-sleep)] h-full transition-all duration-300" style={{ width: `${melatonin}%` }}></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/5 to-transparent rounded-3xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-[#CCFF00]">Live the perfect day</h2>
-        <p className="text-zinc-400 mb-6 max-w-lg mx-auto leading-relaxed">
+      <div className="raised-card p-8 text-center border-[var(--accent)]/30">
+        <h2 className="text-2xl font-bold mb-4 text-[var(--accent)]">Live the perfect day</h2>
+        <p className="text-[var(--fg-muted)] mb-6 max-w-lg mx-auto leading-relaxed">
           Knowing the curves is step one. The ARC app actively builds your schedule to align with these exact peaks and valleys automatically.
         </p>
-        <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-full hover:bg-white transition-colors">
+        <a href="/#pricing" className="inline-block bg-[var(--accent)] text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
           Get ARC Pro
         </a>
       </div>

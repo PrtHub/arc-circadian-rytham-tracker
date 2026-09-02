@@ -56,34 +56,34 @@ export default function ChronotypeQuizClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          3-Question <span className="text-[#CCFF00]">Chronotype</span> Quiz
+          3-Question <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Chronotype</span> Quiz
         </h1>
-        <p className="text-zinc-400 text-lg">
+        <p className="text-(--fg-muted) text-lg">
           Stop guessing your biology. Take this rapid assessment to find out if you are a Lion, Bear, Wolf, or Dolphin.
         </p>
       </header>
 
-      <div className="bg-[#111] border border-white/10 p-6 sm:p-10 rounded-3xl mb-12 min-h-[400px] flex flex-col shadow-2xl relative overflow-hidden">
+      <div className="raised-card p-6 sm:p-10 mb-12 min-h-100 flex flex-col shadow-2xl relative overflow-hidden">
         {step < questions.length && (
-          <div className="absolute top-0 left-0 h-1 bg-[#CCFF00] transition-all duration-500" style={{ width: `${(step / questions.length) * 100}%` }}></div>
+          <div className="absolute top-0 left-0 h-1 bg-accent transition-all duration-500" style={{ width: `${(step / questions.length) * 100}%` }}></div>
         )}
         
         {step < questions.length ? (
           <div className="flex-1 flex flex-col">
-            <p className="text-[#CCFF00] font-bold text-sm mb-4 tracking-widest uppercase">Question {step + 1} of {questions.length}</p>
-            <h2 className="text-3xl font-bold mb-8 leading-snug">{questions[step].q}</h2>
+            <p className="text-accent font-bold text-xs mb-4 tracking-widest uppercase font-mono">Question {step + 1} of {questions.length}</p>
+            <h2 className="text-3xl font-bold mb-8 leading-snug text-white">{questions[step].q}</h2>
             <div className="space-y-4 mt-auto">
               {questions[step].options.map((opt, i) => (
                 <button
                   key={i}
                   onClick={() => handleAnswer(opt.score)}
-                  className="w-full text-left p-5 border border-white/10 rounded-xl hover:border-[#CCFF00] hover:bg-[#CCFF00]/5 transition-all text-lg"
+                  className="w-full text-left p-5 sunken-card border border-white/5 hover:border-accent hover:bg-(--accent)/10 transition-all text-base sm:text-lg text-white font-medium"
                 >
                   {opt.text}
                 </button>
@@ -92,16 +92,16 @@ export default function ChronotypeQuizClient() {
           </div>
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-center">
-            <p className="text-zinc-400 font-bold tracking-widest uppercase mb-4">Your Estimated Chronotype</p>
-            <div className="text-7xl mb-6 drop-shadow-[0_0_20px_rgba(204,255,0,0.4)]">{getResult().icon}</div>
-            <h2 className="text-5xl font-black mb-6">The {getResult().name}</h2>
+            <p className="text-(--fg-muted) font-bold tracking-widest uppercase mb-4 text-xs font-mono">Your Estimated Chronotype</p>
+            <div className="text-7xl mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{getResult().icon}</div>
+            <h2 className="text-5xl font-black mb-6 text-white">The {getResult().name}</h2>
             <Link
               href={getResult().link}
-              className="text-[#CCFF00] border-2 border-[#CCFF00] rounded-full px-8 py-3 font-bold hover:bg-[#CCFF00] hover:text-black transition-colors mb-8 text-lg"
+              className="text-black bg-accent rounded-full px-8 py-3.5 font-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all mb-8 text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
             >
               Read the Full {getResult().name} Guide →
             </Link>
-            <button onClick={() => { setStep(0); setAnswers([]); }} className="text-zinc-500 hover:text-white transition-colors">
+            <button onClick={() => { setStep(0); setAnswers([]); }} className="text-(--fg-muted) hover:text-white transition-colors font-mono text-xs">
               Retake Quiz
             </button>
           </div>
@@ -109,12 +109,12 @@ export default function ChronotypeQuizClient() {
       </div>
 
       {step === questions.length && (
-        <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/10 to-transparent rounded-3xl p-10 text-center">
+        <div className="raised-card border-(--accent)/30 p-10 text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Want true clinical precision?</h2>
-          <p className="text-zinc-400 mb-8 max-w-lg mx-auto leading-relaxed text-lg">
+          <p className="text-(--fg-muted) mb-8 max-w-lg mx-auto leading-relaxed text-base">
             This 3-question quiz is just a baseline estimate. The ARC app features a clinical-grade <strong>32-Step Precision Diagnosis</strong> that maps your exact peak focus windows, caffeine cutoffs, and biological schedule.
           </p>
-          <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-black py-4 px-10 rounded-full hover:bg-white transition-colors text-lg">
+          <a href="/#pricing" className="inline-block bg-accent text-black font-black py-4 px-10 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
             Unlock the Full Diagnosis
           </a>
         </div>

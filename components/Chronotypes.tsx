@@ -5,26 +5,25 @@ export function Chronotypes() {
   return (
     <section
       aria-labelledby="chronotypes-heading"
-      className="py-20 px-6 bg-[#0a0a0a]"
+      className="py-20 px-6"
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
-            <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
-              Your Identity
+            <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
+              THE 4 CHRONOTYPES
             </p>
             <h2
               id="chronotypes-heading"
               className="text-4xl sm:text-5xl font-black tracking-tighter"
             >
-              Which one
+              There are four clocks.
               <br />
-              <span className="text-[#CCFF00]">are you?</span>
+              <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">Which is yours?</span>
             </h2>
           </div>
-          <p className="text-zinc-500 text-sm max-w-xs leading-relaxed">
-            Your chronotype is your body&apos;s built-in biological clock. ARC
-            identifies yours in 5 minutes.
+          <p className="text-[var(--fg-muted)] text-sm max-w-xs leading-relaxed">
+            Your chronotype dictates when you&apos;re wired to wake, peak, and sleep. A 60-second quiz in the app pinpoints yours.
           </p>
         </div>
 
@@ -35,22 +34,23 @@ export function Chronotypes() {
           {chronotypes.map((c) => (
             <li
               key={c.name}
-              className="rounded-2xl border border-white/5 bg-[#111] hover:border-[#CCFF00]/30 transition-all hover:-translate-y-0.5 group flex flex-col"
+              data-sky={c.name.toLowerCase()}
+              className="raised-card hover:border-[var(--accent)]/40 transition-all hover:-translate-y-1 group flex flex-col"
             >
               <Link href={`/chronotype/${c.name.toLowerCase()}`} className="p-6 flex-1 flex flex-col">
                 <div className="text-5xl mb-5" aria-hidden="true">
                   {c.icon}
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <h3 className="font-black text-xl text-white group-hover:text-[#CCFF00] transition-colors">
+                  <h3 className="font-black text-xl text-white group-hover:text-[var(--accent)] transition-colors">
                     {c.name}
                   </h3>
-                  <span className="text-xs font-semibold tracking-wider text-[#CCFF00]/60 uppercase">
+                  <span className="text-xs font-semibold tracking-wider text-[var(--accent)]/80 uppercase font-mono">
                     {c.tagline}
                   </span>
                 </div>
-                <p className="text-sm text-zinc-500 leading-relaxed mb-4 flex-1">{c.desc}</p>
-                <div className="text-[#CCFF00] text-xs font-bold uppercase tracking-wider group-hover:underline mt-auto">
+                <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4 flex-1">{c.desc}</p>
+                <div className="text-[var(--accent)] text-xs font-bold uppercase tracking-wider group-hover:underline mt-auto font-mono">
                   Read full guide →
                 </div>
               </Link>

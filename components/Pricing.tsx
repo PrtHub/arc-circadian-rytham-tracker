@@ -23,7 +23,7 @@ export function Pricing() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-xs font-bold tracking-widest text-[#CCFF00] uppercase mb-3 font-mono">
+          <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
             PRICING
           </p>
           <h2
@@ -32,9 +32,9 @@ export function Pricing() {
           >
             Start syncing
             <br />
-            <span className="text-[#CCFF00]">today.</span>
+            <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">today.</span>
           </h2>
-          <p className="text-zinc-400 text-sm">
+          <p className="text-[var(--fg-muted)] text-sm">
             Subscription auto-renews, cancel anytime. Managed through the App Store.
           </p>
         </div>
@@ -46,38 +46,35 @@ export function Pricing() {
           {plans.map((plan) => (
             <li
               key={plan.name}
-              className={`rounded-2xl p-6 flex flex-col gap-5 transition-all ${
+              className={`p-8 flex flex-col gap-6 transition-all rounded-3xl ${
                 plan.highlight
-                  ? "bg-[#CCFF00] text-black border-2 border-[#CCFF00]"
-                  : "bg-[#111] border border-white/5 text-white hover:border-[#CCFF00]/30"
+                  ? "raised-card border-2 border-[var(--accent)] text-white shadow-[0_12px_35px_rgba(0,0,0,0.4)] relative overflow-hidden"
+                  : "raised-card text-white hover:border-[var(--accent)]/40"
               }`}
             >
+              {plan.highlight && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[var(--accent)] to-transparent" />
+              )}
               <div className="flex items-start justify-between">
-                <h3
-                  className={`font-black text-xl ${plan.highlight ? "text-black" : "text-white"}`}
-                >
+                <h3 className="font-black text-xl text-white">
                   {plan.name}
                 </h3>
                 {plan.badge && (
-                  <span className="rounded-full bg-black/20 px-3 py-0.5 text-xs font-black tracking-wide">
+                  <span className="rounded-full bg-[var(--accent)] text-black px-3 py-1 text-xs font-black tracking-wide font-mono uppercase shadow-sm">
                     {plan.badge}
                   </span>
                 )}
               </div>
 
               <div>
-                <span
-                  className={`text-4xl font-black ${plan.highlight ? "text-black" : "text-white"}`}
-                >
+                <span className={`text-4xl font-black ${plan.highlight ? "text-[var(--accent)] font-mono" : "text-white"}`}>
                   {plan.price}
                 </span>
-                <span
-                  className={`text-sm ml-1 ${plan.highlight ? "text-black/60" : "text-zinc-500"}`}
-                >
+                <span className="text-sm ml-1 text-[var(--fg-muted)]">
                   {plan.period}
                 </span>
                 {plan.note && (
-                  <p className={`text-xs mt-1 ${plan.highlight ? "text-black/50" : "text-zinc-600"}`}>
+                  <p className="text-xs mt-1 text-[var(--fg-muted)]">
                     {plan.note}
                   </p>
                 )}
@@ -89,10 +86,10 @@ export function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Get ARC ${plan.name} plan`}
-                className={`w-full text-center rounded-xl py-3 text-sm font-black transition-all ${
+                className={`w-full text-center rounded-2xl py-4 text-sm font-black transition-all font-mono ${
                   plan.highlight
-                    ? "bg-black text-[#CCFF00] hover:bg-zinc-900"
-                    : "bg-white/5 text-white hover:bg-[#CCFF00]/10 hover:text-[#CCFF00]"
+                    ? "bg-[var(--accent)] text-black hover:brightness-110 hover:scale-[1.02] shadow-lg active:scale-95"
+                    : "sunken-card text-white hover:border-[var(--accent)]/50 hover:text-[var(--accent)]"
                 }`}
               >
                 Get Instant Access
@@ -101,9 +98,9 @@ export function Pricing() {
           ))}
         </ul>
 
-        <div className="mt-12 bg-[#111] border border-white/5 rounded-2xl p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-linear-to-b from-[#CCFF00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <p className="text-zinc-300 text-sm leading-relaxed">
+        <div className="mt-12 raised-card p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-linear-to-b from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <p className="text-[var(--fg)] text-sm leading-relaxed">
             <strong className="text-white">
               Have questions or a tight budget?
             </strong>
@@ -115,7 +112,7 @@ export function Pricing() {
           <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
             <a
               href="mailto:pritamfinds@gmail.com"
-              className="text-xs font-bold bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-lg text-white"
+              className="text-xs font-bold bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-lg text-white font-mono"
             >
               Email Us
             </a>
@@ -123,7 +120,7 @@ export function Pricing() {
               href="https://x.com/iPritamX"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-[#CCFF00] bg-[#CCFF00]/10 hover:bg-[#CCFF00]/20 transition-colors px-4 py-2 rounded-lg"
+              className="text-xs font-bold text-[var(--accent)] bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 transition-colors px-4 py-2 rounded-lg font-mono"
             >
               DM on X (@iPritamX)
             </a>
@@ -131,7 +128,7 @@ export function Pricing() {
               href="https://www.instagram.com/arc.sync/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-[#CCFF00] bg-[#CCFF00]/10 hover:bg-[#CCFF00]/20 transition-colors px-4 py-2 rounded-lg"
+              className="text-xs font-bold text-[var(--accent)] bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 transition-colors px-4 py-2 rounded-lg font-mono"
             >
               DM on Insta (@arc.sync)
             </a>

@@ -24,7 +24,7 @@ export default function ChronotypeCompatibilityPage() {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
+    <div className="text-white min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -33,23 +33,23 @@ export default function ChronotypeCompatibilityPage() {
       <ChronotypeCompatibilityClient />
 
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">
-        <h2 className="text-3xl font-black mb-6 tracking-tighter">The Science of Chronotype Alignment</h2>
+        <h2 className="text-3xl font-black mb-6 tracking-tighter text-white">The Science of Chronotype Alignment</h2>
 
-        <div className="prose prose-invert prose-lg max-w-none text-zinc-400">
+        <div className="prose prose-invert prose-lg max-w-none text-[var(--fg-muted)]">
           <p className="leading-relaxed mb-6">
-            Chronotype compatibility is one of the most overlooked components of relationship satisfaction and cohabitation hygiene. When partners have conflicting internal clocks (e.g. an early-rising <strong>Lion</strong> living with a late-night <strong>Wolf</strong>), it creates natural friction points known as "circadian misalignment."
+            Chronotype compatibility is one of the most overlooked components of relationship satisfaction and cohabitation hygiene. When partners have conflicting internal clocks (e.g. an early-rising <strong className="text-white">Lion</strong> living with a late-night <strong className="text-white">Wolf</strong>), it creates natural friction points known as "circadian misalignment."
           </p>
 
           <h3 className="text-2xl font-bold mb-4 text-white mt-10">Understanding the Pairings</h3>
           <ul className="list-disc list-inside space-y-4 mb-6">
             <li>
-              <strong>Matched Chronotypes (e.g. Bear & Bear):</strong> Benefit from identical energy trajectories. They feel alert at the same hours, prefer to eat meals at the same times, and have aligned bedtimes, resulting in natural harmony.
+              <strong className="text-white">Matched Chronotypes (e.g. Bear & Bear):</strong> Benefit from identical energy trajectories. They feel alert at the same hours, prefer to eat meals at the same times, and have aligned bedtimes, resulting in natural harmony.
             </li>
             <li>
-              <strong>Opposite Chronotypes (e.g. Lion & Wolf):</strong> Have the largest bedtime offset (often 2-3 hours). While this allows for independent focused time, it can cause sleep disruption when one partner goes to bed or wakes up while the other is sleeping.
+              <strong className="text-white">Opposite Chronotypes (e.g. Lion & Wolf):</strong> Have the largest bedtime offset (often 2-3 hours). While this allows for independent focused time, it can cause sleep disruption when one partner goes to bed or wakes up while the other is sleeping.
             </li>
             <li>
-              <strong>Sensitive Pairings (involving Dolphins):</strong> Dolphins are highly sensitive, light sleepers. Any chronotype paired with a Dolphin must practice strict noise and light hygiene to prevent chronic sleep fragmentation.
+              <strong className="text-white">Sensitive Pairings (involving Dolphins):</strong> Dolphins are highly sensitive, light sleepers. Any chronotype paired with a Dolphin must practice strict noise and light hygiene to prevent chronic sleep fragmentation.
             </li>
           </ul>
 

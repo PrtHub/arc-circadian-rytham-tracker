@@ -4,13 +4,13 @@ export function Notifications() {
   return (
     <section className="py-24 px-6 max-w-4xl mx-auto">
       <div className="text-center mb-14">
-        <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
+        <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
           Smart Notifications
         </p>
-        <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
           Nudges that speak your biology
         </h2>
-        <p className="mt-4 text-zinc-400 max-w-xl mx-auto">
+        <p className="mt-4 text-[var(--fg-muted)] max-w-xl mx-auto">
           Not generic reminders. Every alert is timed to your chronotype and written in plain language — so you know exactly why it matters.
         </p>
       </div>
@@ -19,7 +19,7 @@ export function Notifications() {
         {notifications.map((n) => (
           <div
             key={n.title}
-            className="flex items-start gap-5 bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6"
+            className="flex items-start gap-5 raised-card p-5 sm:p-6"
           >
             {/* iOS notification dot */}
             <div
@@ -29,17 +29,17 @@ export function Notifications() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-4 flex-wrap">
                 <p className="font-bold text-white">{n.title}</p>
-                <span className="text-xs text-zinc-500 shrink-0">{n.time}</span>
+                <span className="text-xs text-[var(--fg-muted)] shrink-0 font-mono">{n.time}</span>
               </div>
-              <p className="mt-1 text-sm text-zinc-400 leading-relaxed">{n.body}</p>
+              <p className="mt-1 text-sm text-[var(--fg-muted)] leading-relaxed">{n.body}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <p className="text-center text-xs text-zinc-600 mt-8">
+      <p className="text-center text-xs text-[var(--fg-muted)] mt-8">
         All notifications are chronotype-aware and delivered at the right moment for{" "}
-        <span className="text-zinc-400">your</span> schedule — not a generic template.
+        <span className="text-white">your</span> schedule — not a generic template.
       </p>
     </section>
   );

@@ -32,17 +32,17 @@ Most popular apps fall into the sleep tracker camp. Very few are actually built 
 
 ### 1. ARC: Circadian Rhythm Tracker — Best Overall
 
-ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 32-step onboarding diagnosis identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer, and sends smart notifications at the biologically correct moment for your specific chronotype.
+ARC is the only app built *exclusively* around circadian science. Instead of passively recording data, ARC actively prescribes your day. A 22-step onboarding across 6 acts identifies your chronotype (Lion, Bear, Wolf, or Dolphin) and builds a live 24-hour daily trajectory. It tracks your caffeine with a real-time decay curve, times your sunlight exposure with a live timer that runs in your Dynamic Island, and presents one clear sentence and one action at a time.
 
-Key features: Caffeine half-life tracker, live sunlight timer, Morning Sleep Check-in with recovery mode, Contextual Intel briefings, and chronotype-aware notifications.
+Key features: Dynamic moving caffeine cutoff, real solar position morning light window with Dynamic Island Live Activity, 100% on-device SQLite privacy, and measured crash rate reduction tracking.
 
-Platform: iOS only. Free tier available. Annual plan: $29.99/year.
+Platform: iOS only. Annual plan: $29.99/year.
 
 ### 2. Rise Science — Best for Energy Prediction
 
 Rise is the most well-funded pure circadian app. It uses a proprietary algorithm to predict your energy levels throughout the day and identify your "peak" and "dip" windows. The UX is polished and the Energy Schedule feature is genuinely useful.
 
-Where it falls short: Rise does not support caffeine tracking, has no sunlight protocol, and its chronotype model is simpler than ARC's 32-step diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
+Where it falls short: Rise does not support caffeine decay tracking, has no sunlight Live Activity protocol, and its chronotype model is simpler than ARC's 22-step diagnosis. It also requires Apple Health data for best results, which means less accuracy if you don't wear an Apple Watch.
 
 Price: $69.99/year (significantly more expensive than ARC).
 
@@ -1569,6 +1569,84 @@ Research shows that chronic social jetlag is associated with:
 ### Calculate Your Deficit
 
 Use ARC's **[Social Jetlag Calculator](/tools/social-jetlag-calculator)** to see exactly how many biological time zones you are flying every weekend, and get personalized advice on how to transition back to your work schedule without Monday fatigue.
+    `,
+  },
+  {
+    slug: "why-we-removed-the-sleep-score",
+    title: "Why We Removed the Sleep Score: The Case Against Vanity Health Metrics",
+    excerpt: "Sleep scores, rings, and streaks create orthosomnia without changing behavior. Here is why ARC 2.0 replaced arbitrary scores with measured crash reduction.",
+    date: "2026-07-06",
+    category: "Product Philosophy",
+    readTime: "8 min",
+    content: `
+# Why We Removed the Sleep Score
+
+Pick up any mainstream health tracker, and you are greeted with a number out of 100: a "Sleep Score," a "Readiness Score," or a colored ring.
+
+At first glance, a single summary number feels intuitive. But after years of observing real user outcomes, we realized something fundamental: **a score out of 100 invites you to optimize the score, not your day.**
+
+Here is why ARC 2.0 deliberately eliminated the sleep score, rings, streaks, and badges.
+
+### 1. Orthosomnia and the Anxiety Loop
+When you wake up feeling relatively rested, look at your tracker, and see a score of "58/100," your brain immediately shifts into a state of perceived fatigue. Chronobiologists and sleep physicians term this **orthosomnia**—the perfectionist quest for an algorithm's validation that induces psychological stress and sleep anxiety.
+
+Retrospective scores grade you like a school report card. But knowing you had a "bad night" at 7:00 AM does not give you an action; it gives you anxiety.
+
+### 2. A Score Does Not Tell You What to Do
+A score is a verdict, not an operating system.
+*   If your score is 64, should you drink an extra espresso? *(No, that worsens tonight's deep sleep).*
+*   Should you skip morning sunlight? *(No, that delays your cortisol anchor).*
+*   Should you force yourself to take a nap? *(Only if timed to your ultradian dip).*
+
+What people lack is not data about last night—they lack a clear **model of today**, and a single high-leverage action to take right now.
+
+### 3. Mechanism, Never Verdict
+The guiding philosophy of ARC 2.0 is: **"This is adenosine, not laziness."**
+
+ARC will never grade your sleep or congratulate you with a digital badge. If you had a rough night, ARC activates an automated **Recovery Loop** that scales your caffeine cutoff earlier, protects your focus peak, and guides you into restorative rest without judgment.
+
+### 4. The Metric That Actually Matters: Crash Rate Reduction
+Instead of arbitrary sleep scores, ARC 2.0 measures real physiological outcomes from your daily check-ins:
+*   **Afternoon crash rate:** Moving from an average of 3.5 crashes per week down to 1.
+*   **Adherence strips:** 14-day tracking of morning light anchoring and caffeine cutoff adherence.
+*   **Median dip timing:** Pinpointing exactly when your post-lunch adenosine surge arrives so you can schedule deep work around it.
+
+You don't need a wearable ring or a grade out of 100 to feel great. You just need to know why you feel like this right now, and the one thing worth doing about it.
+    `,
+  },
+  {
+    slug: "the-avoid-light-window-jetlag",
+    title: "The Avoid-Light Window: The Missing Half of Jetlag Science",
+    excerpt: "Most travelers know when to seek sunlight. But getting light at the wrong biological hour actually lengthens jet lag. Here is how the avoid-light window works.",
+    date: "2026-07-05",
+    category: "Chronobiology",
+    readTime: "7 min",
+    content: `
+# The Avoid-Light Window: The Missing Half of Jetlag Science
+
+When you cross multiple time zones, your wall clock jumps instantly, but your biological master clock in the suprachiasmatic nucleus (SCN) shifts by only about **one hour per day**.
+
+Almost every travel guide tells you to "get sunlight when you land." But chronobiologists know that **timing is everything**. If you step into bright light at the wrong biological hour, you send a phase-delay signal to a clock that needs a phase-advance—making your jet lag significantly worse.
+
+### The Circadian Phase Response Curve (PRC)
+Your retina's sensitivity to light is not static; it follows a **Phase Response Curve**:
+1.  **Phase Advance Window (Morning biological time)**: Light exposure in the hours following your core body temperature minimum (about 2 hours before natural wake time) pushes your clock earlier (eastward travel).
+2.  **Phase Delay Window (Evening biological time)**: Light exposure in the hours before your core body temperature minimum pushes your clock later (westward travel).
+3.  **The Dead Zone**: Light exposure during biological midday has very little shifting power on master clock timing.
+
+### Why the "Avoid-Light" Window Matters
+If you fly from New York to London (a 5-hour eastward jump) and land at 7:00 AM London time, it is only 2:00 AM biological body time.
+
+If you step outside into bright morning light in London while your body clock is still at 2:00 AM, the photons hit your retina during your **Phase Delay** zone. Instead of advancing your clock to London time, the light tricks your brain into thinking it is yesterday evening—pushing your circadian clock back toward California!
+
+### The Protocol: Seek vs. Avoid
+To shift your rhythm as fast as humanly possible:
+*   **Identify the Core Temperature Minimum (cMin)**: Usually 2 hours prior to your habitual wake time.
+*   **Wear Dark Sunglasses During the Avoid Window**: Block out all bright sunlight and overhead indoor lighting during your personal delay zone.
+*   **Flood the Eyes During the Seek Window**: Once past your cMin, step outside for 20+ minutes of unshaded sunlight to lock in the phase advance.
+
+### Automatic Jetlag Detection in ARC
+ARC detects international travel automatically without requiring location or GPS permissions by reading the device's UTC offset change upon landing. It separates wall clock from body clock and gives you both a **Seek-Light** and an **Avoid-Light** countdown right on your lock screen.
     `,
   },
 ];

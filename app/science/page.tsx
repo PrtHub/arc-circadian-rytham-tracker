@@ -31,27 +31,27 @@ export default function SciencePage() {
   const remaining = scienceArticles.filter(a => a.slug !== featured.slug);
 
   return (
-    <div className="bg-black text-white min-h-screen relative overflow-hidden">
+    <div className="text-white min-h-screen relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* Decorative Radial Glowing Blobs */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#CCFF00]/5 blur-[150px] pointer-events-none -z-10" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
       <Nav />
 
       <main className="max-w-6xl mx-auto px-6 py-20 relative">
         <header className="mb-20 max-w-3xl">
-          <span className="px-3 py-1 rounded-full bg-[#CCFF00]/10 text-[#CCFF00] text-xs font-black uppercase tracking-widest mb-4 inline-block">
+          <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-4 inline-block font-mono border border-(--accent)/20">
             Scientific Reference Library
           </span>
           <h1 className="text-5xl sm:text-7xl font-black tracking-tighter mb-6 leading-none">
-            Science & <span className="text-[#CCFF00]">Protocols</span>.
+            Science & <span className="font-display italic font-normal text-accent text-6xl sm:text-8xl">Protocols</span>.
           </h1>
-          <p className="text-zinc-400 text-lg sm:text-xl leading-relaxed">
+          <p className="text-(--fg-muted) text-lg sm:text-xl leading-relaxed">
             Direct, evidence-based reference materials detailing circadian physiology, adenosine clearance protocols, and chronobiology glossary terms.
           </p>
         </header>
@@ -59,34 +59,34 @@ export default function SciencePage() {
         {/* Featured Section */}
         {featured && (
           <section className="mb-16">
-            <h2 className="text-xs font-black uppercase tracking-widest text-zinc-500 mb-6 block">
+            <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-6 block font-mono">
               Featured Protocol
             </h2>
             <Link
               href={`/science/${featured.slug}`}
-              className="group block relative p-8 sm:p-12 rounded-[36px] border border-[#CCFF00]/20 bg-gradient-to-br from-[#CCFF00]/10 via-[#CCFF00]/2 to-transparent overflow-hidden hover:border-[#CCFF00]/40 transition-all duration-300 hover:shadow-[0_0_50px_rgba(204,255,0,0.05)]"
+              className="group block relative p-8 sm:p-12 rounded-[36px] raised-card hover:border-(--accent)/50 transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.08)]"
             >
               {/* Card internal blur blob */}
-              <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-[#CCFF00]/5 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-(--accent)/10 blur-3xl pointer-events-none" />
 
               <div className="max-w-2xl relative z-10">
-                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase">
-                  <span className="px-3 py-1 rounded-full bg-[#CCFF00] text-black font-black">
+                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase font-mono">
+                  <span className="px-3 py-1 rounded-full bg-accent text-black font-black">
                     {featured.categoryLabel}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                  <span className="text-zinc-400">{featured.readTime} read</span>
+                  <span className="text-(--fg-muted)">{featured.readTime} read</span>
                 </div>
 
-                <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white group-hover:text-[#CCFF00] transition-colors leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white group-hover:text-accent transition-colors leading-tight">
                   {featured.title}
                 </h3>
 
-                <p className="text-zinc-400 leading-relaxed mb-8 text-base sm:text-lg">
+                <p className="text-(--fg-muted) leading-relaxed mb-8 text-base sm:text-lg">
                   {featured.excerpt}
                 </p>
 
-                <span className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-[#CCFF00] group-hover:underline">
+                <span className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-accent group-hover:underline font-mono">
                   Launch Protocol Blueprint
                   <svg
                     viewBox="0 0 20 20"
@@ -107,55 +107,51 @@ export default function SciencePage() {
 
         {/* Resources Grid */}
         <section>
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-500 mb-6 block">
+          <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-6 block font-mono">
             Science Resources & Reference
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {remaining.map((article) => {
-              let glowColor = "hover:border-[#CCFF00]/30 hover:shadow-[0_0_35px_rgba(204,255,0,0.03)]";
-              let catBadge = "text-[#CCFF00] border-[#CCFF00]/20 bg-[#CCFF00]/5";
+              let catBadge = "text-accent border-(--accent)/20 bg-(--accent)/10";
               let catIcon = "📋";
 
               if (article.category === "mechanism") {
-                glowColor = "hover:border-blue-500/30 hover:shadow-[0_0_35px_rgba(59,130,246,0.03)]";
-                catBadge = "text-blue-400 border-blue-500/20 bg-blue-500/5";
+                catBadge = "text-(--aura-ice) border-(--aura-ice)/20 bg-(--aura-ice)/10";
                 catIcon = "🔬";
               } else if (article.category === "glossary") {
-                glowColor = "hover:border-purple-500/30 hover:shadow-[0_0_35px_rgba(168,85,247,0.03)]";
-                catBadge = "text-purple-400 border-purple-500/20 bg-purple-500/5";
+                catBadge = "text-(--aura-sleep) border-(--aura-sleep)/20 bg-(--aura-sleep)/10";
                 catIcon = "📖";
               } else if (article.category === "guide") {
-                glowColor = "hover:border-amber-500/30 hover:shadow-[0_0_35px_rgba(245,158,11,0.03)]";
-                catBadge = "text-amber-400 border-amber-500/20 bg-amber-500/5";
+                catBadge = "text-(--aura-sun) border-(--aura-sun)/20 bg-(--aura-sun)/10";
                 catIcon = "🗺️";
               }
 
               return (
                 <article
                   key={article.slug}
-                  className={`group bg-zinc-950/60 backdrop-blur-md border border-white/5 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 ${glowColor}`}
+                  className="group raised-card overflow-hidden transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 hover:border-(--accent)/40"
                 >
                   <Link href={`/science/${article.slug}`} className="p-8 flex flex-col h-full justify-between">
                     <div>
-                      <div className="flex items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase">
+                      <div className="flex items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase font-mono">
                         <span className={`px-3 py-1 rounded-full border flex items-center gap-1.5 ${catBadge}`}>
                           <span>{catIcon}</span>
                           <span>{article.categoryLabel}</span>
                         </span>
                         <span className="text-zinc-600">•</span>
-                        <span className="text-zinc-500">{article.readTime}</span>
+                        <span className="text-(--fg-muted)">{article.readTime}</span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight mb-3 text-white group-hover:text-white transition-colors">
+                      <h3 className="text-2xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors">
                         {article.title}
                       </h3>
 
-                      <p className="text-zinc-500 leading-relaxed mb-8 text-sm">
+                      <p className="text-(--fg-muted) leading-relaxed mb-8 text-sm">
                         {article.excerpt}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm font-semibold text-[#CCFF00] group-hover:underline">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-accent group-hover:underline font-mono">
                       Access Science
                       <svg
                         viewBox="0 0 20 20"

@@ -47,6 +47,8 @@ We publish deep-dives into chronobiology and sleep architecture:
 *   **Social Jetlag & Weekend Sleep**: The biological cost of shifting your wake window on weekends. (URL: /blog/social-jetlag-weekend-sleep-in-cost)
 *   **Best Circadian Rhythm Apps**: An objective comparison of Rise, Oura, WHOOP, and ARC. (URL: /blog/best-circadian-rhythm-apps-2026)
 *   **Oura Ring vs ARC**: Comparing ring biometrics with chronotype-based behavior software. (URL: /blog/oura-ring-vs-arc-circadian-rhythm-tracker)
+*   **Why We Removed the Sleep Score**: The case against vanity health metrics and orthosomnia. (URL: /blog/why-we-removed-the-sleep-score)
+*   **The Avoid-Light Window in Jetlag**: The missing half of jetlag science and phase response curves. (URL: /blog/the-avoid-light-window-jetlag)
 
 ## Science & Protocols Hub
 Detailed biological references, step-by-step schedules, and glossary indices:

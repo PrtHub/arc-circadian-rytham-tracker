@@ -112,54 +112,54 @@ export default async function ChronotypePage(props: Props) {
       />
       <div className="bg-black text-white min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
         <Nav />
-        <main className="py-20 px-6 max-w-4xl mx-auto">
-          <Link href="/#chronotypes" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+        <main className="max-w-4xl mx-auto py-16 px-6" data-sky={chronotype.slug}>
+          <Link href="/#chronotypes" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
             ← Back to All Chronotypes
           </Link>
           
           <header className="mb-12">
             <div className="text-6xl mb-4">{chronotype.icon}</div>
             <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4">
-              The <span className="text-[#CCFF00]">{chronotype.name}</span> Chronotype
+              The <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl">{chronotype.name}</span> Chronotype
             </h1>
-            <p className="text-xl text-zinc-400 font-medium mb-6">
+            <p className="text-xl text-(--fg-muted) font-medium mb-6">
               {chronotype.tagline} ({chronotype.populationPercentage} of population)
             </p>
-            <p className="text-lg text-zinc-300 leading-relaxed">
+            <p className="text-lg text-(--fg) leading-relaxed">
               {chronotype.description}
             </p>
           </header>
 
-          <section className="mb-12 bg-[#111] border border-white/5 p-8 rounded-3xl">
+          <section className="mb-12 raised-card p-8">
             <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">Ideal Biological Schedule</h2>
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-[#CCFF00] font-semibold text-sm uppercase tracking-wider mb-2">Morning</h3>
+                <h3 className="text-accent font-bold text-xs uppercase tracking-wider mb-2 font-mono">Morning</h3>
                 <ul className="space-y-4">
                   <li>
-                    <span className="block text-zinc-500 text-sm">Natural Wake Time</span>
-                    <span className="font-bold text-lg">{chronotype.idealSchedule.wake}</span>
+                    <span className="block text-(--fg-muted) text-sm">Natural Wake Time</span>
+                    <span className="font-bold text-lg text-white">{chronotype.idealSchedule.wake}</span>
                   </li>
                   <li>
-                    <span className="block text-zinc-500 text-sm">Peak Focus Window</span>
-                    <span className="font-bold text-lg">{chronotype.idealSchedule.focus}</span>
+                    <span className="block text-(--fg-muted) text-sm">Peak Focus Window</span>
+                    <span className="font-bold text-lg text-white">{chronotype.idealSchedule.focus}</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-[#CCFF00] font-semibold text-sm uppercase tracking-wider mb-2">Evening</h3>
+                <h3 className="text-accent font-bold text-xs uppercase tracking-wider mb-2 font-mono">Evening</h3>
                 <ul className="space-y-4">
                   <li>
-                    <span className="block text-zinc-500 text-sm">Caffeine Cutoff</span>
-                    <span className="font-bold text-lg">{chronotype.idealSchedule.caffeineCutoff}</span>
+                    <span className="block text-(--fg-muted) text-sm">Caffeine Cutoff</span>
+                    <span className="font-bold text-lg text-white">{chronotype.idealSchedule.caffeineCutoff}</span>
                   </li>
                   <li>
-                    <span className="block text-zinc-500 text-sm">Wind Down</span>
-                    <span className="font-bold text-lg">{chronotype.idealSchedule.windDown}</span>
+                    <span className="block text-(--fg-muted) text-sm">Wind Down</span>
+                    <span className="font-bold text-lg text-white">{chronotype.idealSchedule.windDown}</span>
                   </li>
                   <li>
-                    <span className="block text-zinc-500 text-sm">Target Sleep</span>
-                    <span className="font-bold text-lg">{chronotype.idealSchedule.sleep}</span>
+                    <span className="block text-(--fg-muted) text-sm">Target Sleep</span>
+                    <span className="font-bold text-lg text-white">{chronotype.idealSchedule.sleep}</span>
                   </li>
                 </ul>
               </div>
@@ -167,7 +167,7 @@ export default async function ChronotypePage(props: Props) {
           </section>
 
           {/* Interactive Quiz CTA Card */}
-          <div className="mb-12 p-8 rounded-3xl bg-linear-to-b from-[#CCFF00]/10 to-transparent border border-[#CCFF00]/20 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="mb-12 p-8 rounded-3xl raised-card border-(--accent)/30 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
               <h3 className="text-2xl font-extrabold tracking-tighter mb-2 text-white">
                 Are you sure you are a {chronotype.name}?
@@ -178,7 +178,7 @@ export default async function ChronotypePage(props: Props) {
             </div>
             <Link
               href="/tools/chronotype-quiz"
-              className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#CCFF00] px-6 py-3.5 text-sm font-black text-black hover:scale-105 transition-all"
+              className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
             >
               Take Chronotype Quiz
               <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
@@ -188,21 +188,21 @@ export default async function ChronotypePage(props: Props) {
           </div>
 
           <section className="grid sm:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white/5 p-6 rounded-2xl">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="text-green-400">✓</span> Strengths
+            <div className="raised-card p-6">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                <span className="text-accent">✓</span> Strengths
               </h3>
-              <ul className="space-y-2 text-zinc-300">
+              <ul className="space-y-2 text-(--fg-muted)">
                 {chronotype.strengths.map((s, i) => (
                   <li key={i}>• {s}</li>
                 ))}
               </ul>
             </div>
-            <div className="bg-white/5 p-6 rounded-2xl">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="text-red-400">✕</span> Challenges
+            <div className="raised-card p-6">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                <span className="text-(--aura-crash)">✕</span> Challenges
               </h3>
-              <ul className="space-y-2 text-zinc-300">
+              <ul className="space-y-2 text-(--fg-muted)">
                 {chronotype.challenges.map((c, i) => (
                   <li key={i}>• {c}</li>
                 ))}
@@ -223,22 +223,22 @@ export default async function ChronotypePage(props: Props) {
 
           {/* FAQ Section */}
           <section className="border-t border-white/10 pt-16 mb-16">
-            <h2 className="text-3xl font-black mb-8 tracking-tighter">
+            <h2 className="text-3xl font-black mb-8 tracking-tighter text-white">
               Frequently Asked Questions about {chronotype.name}s
             </h2>
             <div className="space-y-4">
               {chronotypeFaqs[chronotype.slug]?.map((faq, idx) => (
                 <details
                   key={idx}
-                  className="group border border-white/10 bg-[#111] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden"
+                  className="group raised-card p-6 [&_summary::-webkit-details-marker]:hidden open:border-(--accent)/40 transition-all"
                 >
-                  <summary className="flex justify-between items-center font-bold text-lg cursor-pointer text-white list-none group-open:text-[#CCFF00] transition-colors">
+                  <summary className="flex justify-between items-center font-bold text-lg cursor-pointer text-white list-none group-open:text-accent transition-colors">
                     {faq.q}
-                    <span className="text-zinc-500 group-open:rotate-180 transition-transform duration-200">
+                    <span className="text-zinc-400 group-open:rotate-180 transition-transform duration-200 font-mono">
                       ▼
                     </span>
                   </summary>
-                  <p className="mt-4 text-zinc-400 leading-relaxed text-sm">
+                  <p className="mt-4 text-(--fg-muted) leading-relaxed text-sm">
                     {faq.a}
                   </p>
                 </details>
@@ -248,7 +248,7 @@ export default async function ChronotypePage(props: Props) {
 
           {/* Other Chronotype Links */}
           <section className="border-t border-white/10 pt-16">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-500 mb-6">Explore Other Chronotypes</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-(--fg-muted) mb-6 font-mono">Explore Other Chronotypes</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {Object.values(chronotypeDetails)
                 .filter((c) => c.slug !== chronotype.slug)
@@ -256,11 +256,12 @@ export default async function ChronotypePage(props: Props) {
                   <Link
                     key={c.slug}
                     href={`/chronotype/${c.slug}`}
-                    className="border border-white/5 bg-[#111] p-4 rounded-xl text-center hover:border-[#CCFF00]/30 transition-all block"
+                    data-sky={c.slug}
+                    className="raised-card p-4 text-center hover:border-(--accent)/40 transition-all block group"
                   >
                     <span className="text-2xl block mb-2">{c.icon}</span>
-                    <span className="font-bold text-sm text-white block">{c.name}</span>
-                    <span className="text-zinc-500 text-xs block">{c.tagline}</span>
+                    <span className="font-bold text-sm text-white block group-hover:text-accent transition-colors">{c.name}</span>
+                    <span className="text-(--fg-muted) text-xs block">{c.tagline}</span>
                   </Link>
                 ))}
             </div>

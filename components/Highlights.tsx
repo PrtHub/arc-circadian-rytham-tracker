@@ -5,7 +5,7 @@ export function Highlights() {
     <section aria-labelledby="why-heading" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
             Why ARC
           </p>
           <h2
@@ -14,7 +14,7 @@ export function Highlights() {
           >
             Built different.
             <br />
-            <span className="text-[#CCFF00]">By design.</span>
+            <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">By design.</span>
           </h2>
         </div>
 
@@ -22,11 +22,11 @@ export function Highlights() {
           {highlights.map((h) => (
             <li
               key={h.title}
-              className="rounded-2xl border border-white/5 bg-[#111] p-8 hover:border-[#CCFF00]/20 transition-colors"
+              className="raised-card p-8 hover:border-[var(--accent)]/40 transition-colors"
             >
-              <div className="w-8 h-px bg-[#CCFF00] mb-6" aria-hidden="true" />
+              <div className="w-8 h-px bg-[var(--accent)] mb-6" aria-hidden="true" />
               <h3 className="font-bold text-white text-xl mb-3">{h.title}</h3>
-              <p className="text-zinc-500 leading-relaxed">{h.desc}</p>
+              <p className="text-[var(--fg-muted)] leading-relaxed">{h.desc}</p>
             </li>
           ))}
         </ul>

@@ -138,27 +138,27 @@ export default function JetlagPlannerClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[var(--fg-muted)] hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Circadian <span className="text-[#CCFF00]">Jetlag</span> Planner
+          Circadian <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">Jetlag</span> Planner
         </h1>
-        <p className="text-zinc-400 text-lg">
+        <p className="text-[var(--fg-muted)] text-lg">
           Plan timezone adjustments scientifically. Avoid jetlag by utilizing light, darkness, and caffeine curfew offsets.
         </p>
       </header>
 
-      <div className="bg-[#111] border border-white/10 p-6 sm:p-10 rounded-3xl mb-12 shadow-2xl">
+      <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="grid sm:grid-cols-3 gap-6 mb-8">
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-2">Departing From</label>
+            <label className="block text-xs font-bold text-[var(--accent)] uppercase tracking-wider mb-2 font-mono">Departing From</label>
             <select
               value={originIndex}
               onChange={(e) => setOriginIndex(Number(e.target.value))}
-              className="w-full bg-black border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-[#CCFF00] transition-colors appearance-none"
+              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-[var(--accent)] transition-colors appearance-none font-mono text-xs"
             >
               {TIMEZONES.map((tz, index) => (
                 <option key={tz.name} value={index}>{tz.name}</option>
@@ -166,11 +166,11 @@ export default function JetlagPlannerClient() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-2">Arriving At</label>
+            <label className="block text-xs font-bold text-[var(--accent)] uppercase tracking-wider mb-2 font-mono">Arriving At</label>
             <select
               value={destIndex}
               onChange={(e) => setDestIndex(Number(e.target.value))}
-              className="w-full bg-black border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-[#CCFF00] transition-colors appearance-none"
+              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-[var(--accent)] transition-colors appearance-none font-mono text-xs"
             >
               {TIMEZONES.map((tz, index) => (
                 <option key={tz.name} value={index}>{tz.name}</option>
@@ -178,34 +178,34 @@ export default function JetlagPlannerClient() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-2">Normal Bedtime</label>
+            <label className="block text-xs font-bold text-[var(--accent)] uppercase tracking-wider mb-2 font-mono">Normal Bedtime</label>
             <input
               type="time"
               value={targetBedtime}
               onChange={(e) => setTargetBedtime(e.target.value)}
-              className="w-full bg-black border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-[#CCFF00] transition-colors"
+              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-[var(--accent)] transition-colors font-mono"
             />
           </div>
         </div>
 
         {direction !== "none" ? (
-          <div className="bg-black border border-[#CCFF00]/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden mb-8">
-            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#CCFF00] to-transparent opacity-50"></div>
+          <div className="sunken-card border border-[var(--accent)]/30 p-6 sm:p-8 relative overflow-hidden mb-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[var(--accent)] to-transparent opacity-50"></div>
             
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-1">Total Shift Offset</p>
-                <div className="text-3xl sm:text-4xl font-black text-white">
+                <p className="text-[var(--fg-muted)] text-xs font-bold uppercase tracking-widest mb-1 font-mono">Total Shift Offset</p>
+                <div className="text-3xl sm:text-4xl font-black text-white font-mono">
                   {shiftHours} Hour{shiftHours !== 1 ? "s" : ""} {direction === "advance" ? "Eastward (Advance)" : "Westward (Delay)"}
                 </div>
                 {routeAdjusted && (
-                  <p className="text-xs text-zinc-500 mt-1">
+                  <p className="text-xs text-[var(--fg-muted)] mt-1">
                     💡 Optimized routing: Shortest biological direction selected (shifted by {shiftHours}h instead of {Math.abs(displayOriginalDiff)}h).
                   </p>
                 )}
               </div>
-              <div className="bg-[#CCFF00]/10 border border-[#CCFF00]/30 px-4 py-2.5 rounded-xl self-start">
-                <span className="text-xs font-bold text-[#CCFF00] uppercase tracking-wider block">Primary Strategy</span>
+              <div className="bg-[var(--accent)]/10 border border-[var(--accent)]/30 px-4 py-2.5 rounded-xl self-start font-mono">
+                <span className="text-xs font-bold text-[var(--accent)] uppercase tracking-wider block">Primary Strategy</span>
                 <span className="text-sm font-black text-white mt-0.5 block">
                   {direction === "advance" ? "☀️ Morning Light Seek" : "🌇 Evening Light Seek"}
                 </span>
@@ -213,7 +213,7 @@ export default function JetlagPlannerClient() {
             </div>
           </div>
         ) : (
-          <div className="bg-black border border-white/10 rounded-2xl p-6 text-center text-zinc-500 text-sm mb-8">
+          <div className="sunken-card border border-white/10 p-6 text-center text-[var(--fg-muted)] text-sm mb-8 font-mono">
             Select different origin and destination locations to calculate your jetlag recovery timeline.
           </div>
         )}
@@ -225,29 +225,29 @@ export default function JetlagPlannerClient() {
             {[1, 2, 3].map((day) => {
               const daySched = getDaySchedule(day);
               return (
-                <div key={day} className="bg-black/50 border border-white/5 p-6 rounded-2xl">
+                <div key={day} className="sunken-card border border-white/5 p-6 rounded-2xl">
                   <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-3">
-                    <span className="font-bold text-[#CCFF00] text-sm uppercase tracking-widest">Day {day} Protocol</span>
-                    <span className="text-xs text-zinc-500 font-mono font-medium">{daySched.sleep} (Sleep Window)</span>
+                    <span className="font-bold text-[var(--accent)] text-xs uppercase tracking-widest font-mono">Day {day} Protocol</span>
+                    <span className="text-xs text-[var(--fg-muted)] font-mono font-medium">{daySched.sleep} (Sleep Window)</span>
                   </div>
                   
-                  <p className="text-zinc-400 text-xs leading-relaxed mb-4">{daySched.summary}</p>
+                  <p className="text-[var(--fg-muted)] text-xs leading-relaxed mb-4">{daySched.summary}</p>
                   
                   <div className="grid sm:grid-cols-3 gap-4 text-xs">
-                    <div className="bg-[#111] p-3.5 rounded-xl border border-white/5">
-                      <span className="text-zinc-500 font-bold uppercase tracking-wider block mb-1">☀️ Light Exposure</span>
-                      <span className="text-white font-bold block">{daySched.light}</span>
-                      <span className="text-[10px] text-zinc-500 mt-1 block">Step outside, no sunglasses.</span>
+                    <div className="raised-card p-3.5 rounded-xl border border-white/5">
+                      <span className="text-[var(--fg-muted)] font-bold uppercase tracking-wider block mb-1 font-mono">☀️ Light Exposure</span>
+                      <span className="text-white font-bold block font-mono">{daySched.light}</span>
+                      <span className="text-[10px] text-[var(--fg-muted)] mt-1 block">Step outside, no sunglasses.</span>
                     </div>
-                    <div className="bg-[#111] p-3.5 rounded-xl border border-white/5">
-                      <span className="text-zinc-500 font-bold uppercase tracking-wider block mb-1">🕶️ Avoid Light / Dark</span>
-                      <span className="text-white font-bold block">{daySched.avoidLight}</span>
-                      <span className="text-[10px] text-zinc-500 mt-1 block">Dim screen, use blackouts.</span>
+                    <div className="raised-card p-3.5 rounded-xl border border-white/5">
+                      <span className="text-[var(--fg-muted)] font-bold uppercase tracking-wider block mb-1 font-mono">🕶️ Avoid Light / Dark</span>
+                      <span className="text-white font-bold block font-mono">{daySched.avoidLight}</span>
+                      <span className="text-[10px] text-[var(--fg-muted)] mt-1 block">Dim screen, use blackouts.</span>
                     </div>
-                    <div className="bg-[#111] p-3.5 rounded-xl border border-white/5">
-                      <span className="text-zinc-500 font-bold uppercase tracking-wider block mb-1">☕ Caffeine Curfew</span>
-                      <span className="text-[#CCFF00] font-black block">{daySched.caffeineCutoff}</span>
-                      <span className="text-[10px] text-zinc-500 mt-1 block">Zero caffeine after this point.</span>
+                    <div className="raised-card p-3.5 rounded-xl border border-white/5">
+                      <span className="text-[var(--fg-muted)] font-bold uppercase tracking-wider block mb-1 font-mono">☕ Caffeine Curfew</span>
+                      <span className="text-[var(--accent)] font-black block font-mono">{daySched.caffeineCutoff}</span>
+                      <span className="text-[10px] text-[var(--fg-muted)] mt-1 block">Zero caffeine after this point.</span>
                     </div>
                   </div>
                 </div>
@@ -257,12 +257,12 @@ export default function JetlagPlannerClient() {
         )}
       </div>
 
-      <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/5 to-transparent rounded-3xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-[#CCFF00]">Automate your travel shifting</h2>
-        <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
+      <div className="raised-card p-8 text-center border-[var(--accent)]/30">
+        <h2 className="text-2xl font-bold mb-4 text-[var(--accent)]">Automate your travel shifting</h2>
+        <p className="text-[var(--fg-muted)] mb-6 max-w-lg mx-auto">
           The ARC app features a Travel Mode. It auto-detects your timezone shift, references your local flight time, and schedules lock-screen notifications reminding you exactly when to seek light, block light, or stop caffeine.
         </p>
-        <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-full hover:bg-white transition-colors">
+        <a href="/#pricing" className="inline-block bg-[var(--accent)] text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
           Get ARC Pro
         </a>
       </div>

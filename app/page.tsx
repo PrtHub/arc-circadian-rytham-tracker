@@ -60,7 +60,7 @@ export default function ArcPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
-      <div className="bg-[#050505] text-[#F2F2F2] min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
+      <div className="min-h-screen">
         <Nav />
         <main>
           <Hero />

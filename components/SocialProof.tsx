@@ -1,27 +1,41 @@
 const stats = [
-  { value: "250+", label: "Downloads" },
-  { value: "32-Step", label: "Precision Onboarding" },
-  { value: "4", label: "Chronotypes Mapped" },
-  { value: "Local-First", label: "SQLite · Zero Cloud" },
-  { value: "100%", label: "On-Device Privacy" },
+  { icon: "📉", value: "3.5 → 1.0", label: "Afternoon Crashes / wk", note: "Measured over 28 days" },
+  { icon: "🧬", value: "22-Point", label: "Biological Diagnostic", note: "Deep chronotype analysis" },
+  { icon: "🔒", value: "100%", label: "Local On-Device SQLite", note: "Zero GPS or ad trackers" },
+  { icon: "⏱️", value: "0", label: "Wearables Required", note: "Runs via iPhone & Dynamic Island" },
+  { icon: "☀️", value: "4", label: "Chronotypes Mapped", note: "Lion, Bear, Wolf, Dolphin" },
 ];
 
 export function SocialProof() {
   return (
-    <div
-      className="border-y border-white/5 bg-[#0a0a0a] py-6 px-6"
-      aria-label="Social proof"
+    <section
+      className="py-10 px-6 relative"
+      aria-label="Social proof and biological benchmarks"
     >
-      <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-12 gap-y-4 text-center">
-        {stats.map(({ value, label }) => (
-          <div key={label} className="flex flex-col items-center gap-0.5">
-            <span className="text-2xl font-black text-[#CCFF00]">{value}</span>
-            <span className="text-xs text-zinc-500 tracking-wide uppercase">
-              {label}
-            </span>
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+        {stats.map(({ icon, value, label, note }) => (
+          <div
+            key={label}
+            className="raised-card p-4 rounded-2xl flex flex-col justify-between text-left hover:border-[var(--accent)]/40 transition-all group"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-lg">{icon}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] opacity-50 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div>
+              <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-[var(--accent)] font-sans tracking-tight block transition-colors">
+                {value}
+              </span>
+              <span className="text-xs font-bold text-zinc-300 block mt-1 font-mono uppercase tracking-tight leading-tight">
+                {label}
+              </span>
+              <span className="text-[10px] text-[var(--fg-muted)] block mt-0.5 font-mono">
+                {note}
+              </span>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -98,47 +98,47 @@ export default async function AudiencePage(props: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}
       />
-      <div className="bg-black text-white min-h-screen" style={{ fontFamily: "var(--font-geist-sans)" }}>
+      <div className="text-white min-h-screen">
         <Nav />
         <main className="py-20 px-6 max-w-4xl mx-auto">
-          <Link href="/#audience" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+          <Link href="/#audience" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
             ← Back to Home
           </Link>
           
           <header className="mb-12">
             <div className="text-6xl mb-4">{audience.icon}</div>
             <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4">
-              ARC for <span className="text-[#CCFF00]">{audience.name}</span>
+              ARC for <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl">{audience.name}</span>
             </h1>
-            <p className="text-xl text-zinc-300 leading-relaxed max-w-2xl">
+            <p className="text-xl text-(--fg-muted) leading-relaxed max-w-2xl">
               {audience.description}
             </p>
           </header>
 
           <section className="grid md:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">The Problem</h2>
+            <div className="raised-card p-8">
+              <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4 text-white">The Problem</h2>
               <ul className="space-y-4">
                 {audience.painPoints.map((point, i) => (
-                  <li key={i} className="flex gap-3 text-zinc-300">
-                    <span className="text-red-400 shrink-0">✕</span>
+                  <li key={i} className="flex gap-3 text-(--fg-muted)">
+                    <span className="text-(--aura-crash) shrink-0">✕</span>
                     {point}
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="bg-[#111] border border-white/5 p-8 rounded-3xl">
-              <h2 className="text-2xl font-bold mb-6 border-b border-[#CCFF00]/20 pb-4 text-[#CCFF00]">The Biological Solution</h2>
-              <p className="text-zinc-300 leading-relaxed mb-8">
+            <div className="raised-card p-8">
+              <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4 text-accent">The Biological Solution</h2>
+              <p className="text-(--fg-muted) leading-relaxed mb-8">
                 {audience.arcSolution}
               </p>
               
-              <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Key Features</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4 font-mono">Key Features</h3>
               <ul className="space-y-3">
                 {audience.features.map((feature, i) => (
-                  <li key={i} className="flex gap-3 text-zinc-300 text-sm">
-                    <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <li key={i} className="flex gap-3 text-(--fg) text-sm">
+                    <span className="text-accent shrink-0">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -148,18 +148,18 @@ export default async function AudiencePage(props: Props) {
 
           {/* Custom SEO Interactive CTA Banner */}
           {audienceCtaDetails[audience.slug] && (
-            <div className="mb-16 p-8 rounded-3xl bg-linear-to-b from-[#CCFF00]/10 to-transparent border border-[#CCFF00]/20 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="mb-16 p-8 rounded-3xl raised-card border-(--accent)/30 flex flex-col md:flex-row justify-between items-center gap-6">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tighter mb-2 text-white">
                   {audienceCtaDetails[audience.slug].title}
                 </h3>
-                <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
+                <p className="text-(--fg-muted) max-w-md text-sm leading-relaxed">
                   {audienceCtaDetails[audience.slug].desc}
                 </p>
               </div>
               <Link
                 href={audienceCtaDetails[audience.slug].href}
-                className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#CCFF00] px-6 py-3.5 text-sm font-black text-black hover:scale-105 transition-all"
+                className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
               >
                 {audienceCtaDetails[audience.slug].buttonText}
                 <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

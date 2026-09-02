@@ -119,24 +119,24 @@ export default function ChronotypeCompatibilityClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Chronotype <span className="text-[#CCFF00]">Compatibility</span> Quiz
+          Chronotype <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Compatibility</span> Quiz
         </h1>
-        <p className="text-zinc-400 text-lg">
+        <p className="text-(--fg-muted) text-lg">
           Map your sleep schedules and relationship alignment. Calculate sleep compatibility scores and find optimal alertness windows.
         </p>
       </header>
 
-      <div className="bg-[#111] border border-white/10 p-6 sm:p-10 rounded-3xl mb-12 shadow-2xl">
+      <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="grid sm:grid-cols-2 gap-8 mb-10">
           {/* Partner A Select */}
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-3">Partner A Chronotype</label>
+            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-3 font-mono">Partner A Chronotype</label>
             <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Partner A Chronotype Selection">
               {CHRONOTYPES.map((c) => (
                 <button
@@ -144,16 +144,16 @@ export default function ChronotypeCompatibilityClient() {
                   role="radio"
                   aria-checked={partnerA === c.slug}
                   onClick={() => setPartnerA(c.slug)}
-                  className={`p-4 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                  className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                     partnerA === c.slug
-                      ? "border-[#CCFF00] bg-[#CCFF00]/10 text-white"
-                      : "border-white/5 bg-black hover:border-white/10 text-zinc-400"
+                      ? "border-accent bg-(--accent)/15 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                      : "border-white/5 bg-white/5 hover:border-white/15 text-(--fg-muted)"
                   }`}
                 >
                   <span className="text-2xl mb-1">{c.icon === "Dolphin" ? "🐬" : c.icon}</span>
                   <div>
-                    <span className="font-bold text-sm block">{c.name}</span>
-                    <span className="text-[10px] opacity-60">{c.tag}</span>
+                    <span className="font-bold text-sm block text-white">{c.name}</span>
+                    <span className="text-[10px] opacity-60 font-mono">{c.tag}</span>
                   </div>
                 </button>
               ))}
@@ -162,7 +162,7 @@ export default function ChronotypeCompatibilityClient() {
 
           {/* Partner B Select */}
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-3">Partner B Chronotype</label>
+            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-3 font-mono">Partner B Chronotype</label>
             <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Partner B Chronotype Selection">
               {CHRONOTYPES.map((c) => (
                 <button
@@ -170,16 +170,16 @@ export default function ChronotypeCompatibilityClient() {
                   role="radio"
                   aria-checked={partnerB === c.slug}
                   onClick={() => setPartnerB(c.slug)}
-                  className={`p-4 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                  className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                     partnerB === c.slug
-                      ? "border-[#CCFF00] bg-[#CCFF00]/10 text-white"
-                      : "border-white/5 bg-black hover:border-white/10 text-zinc-400"
+                      ? "border-accent bg-(--accent)/15 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                      : "border-white/5 bg-white/5 hover:border-white/15 text-(--fg-muted)"
                   }`}
                 >
                   <span className="text-2xl mb-1">{c.icon === "Dolphin" ? "🐬" : c.icon}</span>
                   <div>
-                    <span className="font-bold text-sm block">{c.name}</span>
-                    <span className="text-[10px] opacity-60">{c.tag}</span>
+                    <span className="font-bold text-sm block text-white">{c.name}</span>
+                    <span className="text-[10px] opacity-60 font-mono">{c.tag}</span>
                   </div>
                 </button>
               ))}
@@ -188,17 +188,17 @@ export default function ChronotypeCompatibilityClient() {
         </div>
 
         {/* Results Panel */}
-        <div className="bg-black border border-[#CCFF00]/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden mb-8">
-          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#CCFF00] to-transparent opacity-50"></div>
+        <div className="sunken-card border border-(--accent)/30 p-6 sm:p-8 relative overflow-hidden mb-8">
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent to-transparent opacity-50"></div>
           
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b border-white/5 pb-6 mb-6">
             <div>
-              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-1">Compatibility Score</p>
-              <div className="text-5xl sm:text-6xl font-black text-[#CCFF00] tracking-tight drop-shadow-[0_0_15px_rgba(204,255,0,0.3)]">
+              <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-1 font-mono">Compatibility Score</p>
+              <div className="text-5xl sm:text-6xl font-black text-accent tracking-tight font-mono">
                 {data.score}%
               </div>
             </div>
-            <div className="text-zinc-400 text-sm max-w-md">
+            <div className="text-(--fg-muted) text-sm max-w-md">
               <span className="font-bold text-white block mb-1">
                 {partnerA.toUpperCase()} & {partnerB.toUpperCase()} Pairing
               </span>
@@ -207,17 +207,17 @@ export default function ChronotypeCompatibilityClient() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-green-400 mb-2">🟢 Strengths</h4>
-              <ul className="space-y-1.5 text-zinc-300 text-xs list-disc list-inside">
+            <div className="raised-card p-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-green-400 mb-2 font-mono">🟢 Strengths</h4>
+              <ul className="space-y-1.5 text-white text-xs list-disc list-inside">
                 {data.strengths.map((str, idx) => (
                   <li key={idx}>{str}</li>
                 ))}
               </ul>
             </div>
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-orange-400 mb-2">🟠 Challenges</h4>
-              <ul className="space-y-1.5 text-zinc-300 text-xs list-disc list-inside">
+            <div className="raised-card p-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-orange-400 mb-2 font-mono">🟠 Challenges</h4>
+              <ul className="space-y-1.5 text-white text-xs list-disc list-inside">
                 {data.challenges.map((ch, idx) => (
                   <li key={idx}>{ch}</li>
                 ))}
@@ -227,44 +227,44 @@ export default function ChronotypeCompatibilityClient() {
 
           {/* Co-Alertness Timeline */}
           <div className="border-t border-white/5 pt-6 mb-6">
-            <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider block mb-3">Co-Alertness Timeline (8 AM - 11 PM)</span>
-            <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-16 gap-1.5">
+            <span className="text-accent text-xs font-bold uppercase tracking-wider block mb-3 font-mono">Co-Alertness Timeline (8 AM - 11 PM)</span>
+            <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-16 gap-1.5 font-mono">
               {Array.from({ length: 16 }, (_, i) => i + 8).map((hour) => {
                 const isOverlapping = data.overlap.includes(hour);
                 const displayHour = hour > 12 ? `${hour - 12} PM` : hour === 12 ? "12 PM" : `${hour} AM`;
                 return (
                   <div
                     key={hour}
-                    className={`p-2 rounded-lg text-center transition-all ${
+                    className={`p-2 rounded-xl text-center transition-all ${
                       isOverlapping
-                        ? "bg-[#CCFF00]/15 border border-[#CCFF00]/40 text-white"
-                        : "bg-[#111] border border-white/5 text-zinc-600"
+                        ? "bg-(--accent)/20 border border-(--accent)/50 text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+                        : "bg-white/5 border border-white/5 text-(--fg-muted) opacity-50"
                     }`}
                   >
                     <span className="text-[10px] font-mono font-bold block">{displayHour.split(" ")[0]}</span>
-                    <span className="text-[8px] uppercase font-bold block opacity-60">{displayHour.split(" ")[1]}</span>
+                    <span className="text-[8px] uppercase font-bold block opacity-70">{displayHour.split(" ")[1]}</span>
                   </div>
                 );
               })}
             </div>
-            <p className="text-[10px] text-zinc-500 mt-2.5 leading-relaxed">
+            <p className="text-[10px] text-(--fg-muted) mt-2.5 leading-relaxed font-mono">
               💡 Highlighted blocks indicate times of day where both partners' natural circadian hormones overlap to support wakefulness and peak communication.
             </p>
           </div>
 
           <div className="border-t border-white/5 pt-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-2">🏠 Cohabitation Guidelines</h4>
-            <p className="text-xs text-zinc-400 leading-relaxed font-medium">{data.advice}</p>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-2 font-mono">🏠 Cohabitation Guidelines</h4>
+            <p className="text-xs text-(--fg-muted) leading-relaxed font-medium">{data.advice}</p>
           </div>
         </div>
       </div>
 
-      <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/5 to-transparent rounded-3xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-[#CCFF00]">Solve relationship circadian friction</h2>
-        <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
+      <div className="raised-card p-8 text-center border-(--accent)/30">
+        <h2 className="text-2xl font-bold mb-4 text-accent">Solve relationship circadian friction</h2>
+        <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto">
           The ARC app features Partner Syncing. Invite your partner, link your schedules, and get a unified visual timeline of your shared alert hours, quiet sleep boundaries, and optimal shared wake windows.
         </p>
-        <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-full hover:bg-white transition-colors">
+        <a href="/#pricing" className="inline-block bg-accent text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
           Get ARC Pro
         </a>
       </div>

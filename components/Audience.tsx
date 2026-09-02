@@ -5,11 +5,11 @@ export function Audience() {
   return (
     <section
       aria-labelledby="audience-heading"
-      className="py-20 px-6 bg-[#0a0a0a]"
+      className="py-20 px-6"
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
             Sound Familiar?
           </p>
           <h2
@@ -18,7 +18,7 @@ export function Audience() {
           >
             Built for people who are
             <br />
-            <span className="text-[#CCFF00]">done guessing.</span>
+            <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">done guessing.</span>
           </h2>
         </div>
 
@@ -29,14 +29,14 @@ export function Audience() {
           {audience.map((a: any) => (
             <li
               key={a.title}
-              className="rounded-2xl border border-white/5 bg-[#111] hover:border-[#CCFF00]/20 transition-colors flex flex-col group"
+              className="raised-card hover:border-[var(--accent)]/40 transition-all hover:-translate-y-1 flex flex-col group"
             >
               {a.slug ? (
                 <Link href={`/for/${a.slug}`} className="p-6 flex-1 flex flex-col">
                   <span className="text-3xl mb-4 block" aria-hidden="true">{a.icon}</span>
-                  <h3 className="font-bold text-white mb-2 group-hover:text-[#CCFF00] transition-colors">{a.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed mb-4 flex-1">{a.desc}</p>
-                  <div className="text-[#CCFF00] text-xs font-bold uppercase tracking-wider group-hover:underline mt-auto">
+                  <h3 className="font-bold text-white mb-2 group-hover:text-[var(--accent)] transition-colors">{a.title}</h3>
+                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4 flex-1">{a.desc}</p>
+                  <div className="text-[var(--accent)] text-xs font-bold uppercase tracking-wider group-hover:underline mt-auto font-mono">
                     View Guide →
                   </div>
                 </Link>
@@ -44,7 +44,7 @@ export function Audience() {
                 <div className="p-6 flex-1 flex flex-col">
                   <span className="text-3xl mb-4 block" aria-hidden="true">{a.icon}</span>
                   <h3 className="font-bold text-white mb-2">{a.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">{a.desc}</p>
+                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{a.desc}</p>
                 </div>
               )}
             </li>

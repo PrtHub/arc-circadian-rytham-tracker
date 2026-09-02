@@ -8,15 +8,11 @@ export function FinalCta() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(204,255,0,0.06) 0%, transparent 70%)",
-        }}
+        className="pointer-events-none absolute inset-0 bg-radial from-[var(--accent)]/10 to-transparent blur-3xl opacity-60"
       />
 
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10">
-        <p className="text-xs font-bold tracking-widest text-[#CCFF00] uppercase font-mono">
+        <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase font-mono">
           START TODAY
         </p>
 
@@ -25,16 +21,16 @@ export function FinalCta() {
           className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter"
         >
           Stop fighting
-          <br /><span className="text-[#CCFF00]">your clock.</span>
+          <br /><span className="font-display italic font-normal text-[var(--accent)] text-6xl sm:text-7xl lg:text-8xl">your clock.</span>
         </h2>
 
-        <p className="text-zinc-400 text-lg max-w-md">
+        <p className="text-[var(--fg-muted)] text-lg max-w-md">
           Find your chronotype and build a day that works with your biology.
         </p>
 
         <AppStoreButton size="lg" location="final_cta" />
 
-        <p className="text-zinc-600 text-xs">
+        <p className="text-[var(--fg-muted)] text-xs opacity-70">
           Free to download · Cancel anytime · No commitment
         </p>
       </div>

@@ -28,7 +28,7 @@ export function AppStoreButton({ size = "default", location = "unknown" }: AppSt
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Download ARC on the App Store"
-      className={`inline-flex items-center gap-3 rounded-2xl bg-[#CCFF00] text-black font-bold transition-all hover:bg-[#b8e600] hover:scale-105 active:scale-95 ${isLarge ? "px-8 py-4 text-base" : "px-5 py-3 text-sm"
+      className={`inline-flex items-center gap-3 rounded-2xl bg-[var(--accent)] text-black font-bold transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-sans ${isLarge ? "px-8 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
     >
       <svg

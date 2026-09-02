@@ -8,14 +8,14 @@ export function Screenshots() {
       className="py-20 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
-        <p className="text-xs font-semibold tracking-widest text-[#CCFF00] uppercase mb-3">
+        <p className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase mb-3 font-mono">
           Inside the App
         </p>
         <h2
           id="screenshots-heading"
-          className="text-4xl sm:text-5xl font-black tracking-tighter"
+          className="text-4xl sm:text-5xl font-black tracking-tighter text-white"
         >
-          Your day, <span className="text-[#CCFF00]">mapped.</span>
+          Your day, <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">mapped.</span>
         </h2>
       </div>
 

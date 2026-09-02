@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { CircadianThemeProvider } from "@/components/CircadianThemeProvider";
 import { FloatingSupport } from "@/components/FloatingSupport";
 import { MixpanelTracker } from "@/components/MixpanelTracker";
 
@@ -13,6 +14,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 const SITE_URL =
@@ -84,9 +92,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: [
+      { url: "/icon.png" },
+      { url: "/icon-dark.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon-tinted.png" },
+    ],
+    shortcut: "/icon-dark.png",
+    apple: [
+      { url: "/icon.png" },
+      { url: "/icon-dark.png", media: "(prefers-color-scheme: dark)" },
+    ],
   },
   verification: {
     google: "449Ube5J9JufizV9AJmYfoLHV7TbE7aqryFLe9f_aF0",
@@ -99,8 +114,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} suppressHydrationWarning>
+    <html lang="en" data-phase="dip" className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} dark`} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var d = new Date();
+                  var m = d.getHours() * 60 + d.getMinutes();
+                  var p = "night";
+                  if (m >= 330 && m < 450) p = "rise";
+                  else if (m >= 450 && m < 630) p = "morning";
+                  else if (m >= 630 && m < 810) p = "peak";
+                  else if (m >= 810 && m < 990) p = "dip";
+                  else if (m >= 990 && m < 1260) p = "evening";
+                  else if (m >= 1260 && m < 1380) p = "windDown";
+                  document.documentElement.setAttribute("data-phase", p);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-W4X6F2Z5HG"
@@ -118,6 +153,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <CircadianThemeProvider />
         <FloatingSupport />
         <MixpanelTracker />
       </body>

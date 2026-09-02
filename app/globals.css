@@ -121,9 +121,240 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background:
+      radial-gradient(
+        78% 78% at 50% 42%,
+        rgba(0, 0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.28) 100%
+      ),
+      linear-gradient(
+        180deg,
+        var(--g-top) 0%,
+        var(--g-mid) 55%,
+        var(--g-bot) 100%
+      );
+    background-attachment: fixed;
+    color: var(--fg, #f2f2f2);
+    font-family: var(--face-ui);
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
   }
+}
+
+/* ==========================================================================
+   ARC 2.0 — "Living Light" Design System Tokens
+   ========================================================================== */
+:root {
+  /* neutrals — dark to light, indexes like a normal scale */
+  --ink-900: #050505;
+  --ink-850: #0a0a0b;
+  --ink-800: #121212;
+  --ink-700: #18181b;
+  --ink-600: #27272a;
+  --ink-500: #3f3f46;
+  --ink-400: #52525b;
+  --ink-300: #71717a;
+  --ink-200: #a1a1aa;
+  --ink-100: #d4d4d8;
+  --ink-50: #f2f2f2;
+
+  /* brand — each maps to a protocol domain, not a mood */
+  --aura-green: #ccff00; /* primary brand, "on protocol" */
+  --aura-sun: #ffaa00; /* sunlight */
+  --aura-crash: #ff4500; /* caffeine and its decay */
+  --aura-sleep: #7b61ff; /* sleep and wind-down */
+  --aura-ice: #00d1ff; /* movement */
+
+  /* semantic — deliberately distinct from the brand palette */
+  --danger: #ff3b30;
+  --warning: #ffaa00;
+  --success: #ccff00;
+  --info: #7b61ff;
+
+  /* material */
+  --raised-fill: rgba(255, 255, 255, 0.055);
+  --raised-border: rgba(255, 255, 255, 0.1);
+  --raised-specular: rgba(255, 255, 255, 0.2);
+  --sunken-fill: rgba(0, 0, 0, 0.14);
+  --sunken-border: rgba(255, 255, 255, 0.055);
+  --chrome-fill: rgba(255, 255, 255, 0.06);
+  --chrome-border: rgba(255, 255, 255, 0.12);
+  --chrome-specular: rgba(255, 255, 255, 0.18);
+  --scrim: rgba(0, 0, 0, 0.6);
+
+  /* elevation */
+  --e1: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --e2: 0 8px 20px rgba(0, 0, 0, 0.3);
+  --e3: 0 12px 30px rgba(0, 0, 0, 0.38);
+
+  /* radii */
+  --r-xs: 8px;
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 34px;
+  --r-pill: 999px;
+
+  /* typography */
+  --face-display: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  --face-ui: var(--font-geist-sans), System, -apple-system, Roboto, sans-serif;
+  --tr-hero: -0.03em;
+  --tr-display: -0.022em;
+  --tr-title: -0.015em;
+  --tr-body: -0.005em;
+  --tr-label: 0.06em;
+  --tr-eyebrow: 0.25em;
+
+  /* default phase ground: dip */
+  --g-top: #221d30;
+  --g-mid: #432f43;
+  --g-bot: #6b4536;
+  --fg: #fbefe6;
+  --fg-muted: #dcc0ae;
+  --accent: #ffc48a;
+}
+
+/* ==========================================================================
+   The Seven Biological Phase Palettes
+   ========================================================================== */
+[data-phase="night"] {
+  --g-top: #070a18;
+  --g-mid: #0e1430;
+  --g-bot: #131936;
+  --fg: #c8cce6;
+  --fg-muted: #7e86ae;
+  --accent: #9fa6d8;
+}
+[data-phase="rise"] {
+  --g-top: #1a1c3a;
+  --g-mid: #4a3352;
+  --g-bot: #7c4722;
+  --fg: #fdf6ec;
+  --fg-muted: #e2cbb4;
+  --accent: #ffd9a0;
+}
+[data-phase="morning"] {
+  --g-top: #12203e;
+  --g-mid: #22405f;
+  --g-bot: #355e78;
+  --fg: #f4f9fc;
+  --fg-muted: #c4dae7;
+  --accent: #ffd9a0;
+}
+[data-phase="peak"] {
+  --g-top: #0d1b2e;
+  --g-mid: #173248;
+  --g-bot: #2e5c76;
+  --fg: #f6fafd;
+  --fg-muted: #c2d7e4;
+  --accent: #ffe0a8;
+}
+[data-phase="dip"] {
+  --g-top: #221d30;
+  --g-mid: #432f43;
+  --g-bot: #6b4536;
+  --fg: #fbefe6;
+  --fg-muted: #dcc0ae;
+  --accent: #ffc48a;
+}
+[data-phase="evening"] {
+  --g-top: #1c2140;
+  --g-mid: #3d3050;
+  --g-bot: #7a4820;
+  --fg: #fdf3e7;
+  --fg-muted: #e5cbb0;
+  --accent: #ffd9a0;
+}
+[data-phase="windDown"] {
+  --g-top: #0e1128;
+  --g-mid: #221a3a;
+  --g-bot: #3d263e;
+  --fg: #e8dfec;
+  --fg-muted: #a594ae;
+  --accent: #e3b08c;
+}
+
+/* ==========================================================================
+   The Four Chronotype Skies (Reveal / Segmentation)
+   ========================================================================== */
+[data-sky="lion"] {
+  --g-top: #191c3c;
+  --g-mid: #4a3350;
+  --g-bot: #7c4722;
+  --fg: #fdf6ec;
+  --fg-muted: #e2cbb4;
+  --accent: #ffc978;
+}
+[data-sky="bear"] {
+  --g-top: #101e30;
+  --g-mid: #1e3c48;
+  --g-bot: #3b6146;
+  --fg: #f3faf4;
+  --fg-muted: #c2dcc8;
+  --accent: #b9e88a;
+}
+[data-sky="wolf"] {
+  --g-top: #0b0e22;
+  --g-mid: #1e1940;
+  --g-bot: #3b2a57;
+  --fg: #ede8f6;
+  --fg-muted: #b0a2c4;
+  --accent: #b9a0f0;
+}
+[data-sky="dolphin"] {
+  --g-top: #081a26;
+  --g-mid: #123243;
+  --g-bot: #1d5063;
+  --fg: #effafe;
+  --fg-muted: #b6d5e2;
+  --accent: #7fd8f0;
+}
+
+/* ==========================================================================
+   Living Light Material & Specular Edge Utilities
+   ========================================================================== */
+.font-display {
+  font-family: var(--face-display);
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+}
+
+.raised-card {
+  position: relative;
+  background: var(--raised-fill);
+  border: 1px solid var(--raised-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--e2);
+}
+
+.raised-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  height: 1px;
+  background: var(--raised-specular);
+  pointer-events: none;
+}
+
+.sunken-card {
+  background: var(--sunken-fill);
+  border: 1px solid var(--sunken-border);
+  border-radius: var(--r-md);
+}
+
+.chrome-bar {
+  background: var(--chrome-fill);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--chrome-border);
+  box-shadow: var(--e3);
 }

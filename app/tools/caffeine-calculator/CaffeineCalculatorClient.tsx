@@ -34,9 +34,10 @@ export default function CaffeineCalculatorClient() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const calculateCutoff = () => {
-    if (caffeineAmount <= 25) return "Anytime (Very low dose)";
+    if (caffeineAmount <= 50) return "Anytime (Under 50mg sleep threshold)";
 
-    const hoursNeeded = 6 * (Math.log(25 / caffeineAmount) / Math.log(0.5));
+    // Time to decay from caffeineAmount down to 50mg with 6h half-life:
+    const hoursNeeded = 6 * (Math.log(50 / caffeineAmount) / Math.log(0.5));
 
     const [hours, minutes] = targetSleep.split(":").map(Number);
     let sleepDate = new Date();
@@ -55,37 +56,37 @@ export default function CaffeineCalculatorClient() {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="text-[#CCFF00] text-sm font-bold hover:underline mb-8 inline-block">
+      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
         ← Back to Tools
       </Link>
 
       <header className="mb-12">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Caffeine <span className="text-[#CCFF00]">Half-Life</span> Calculator
+          Caffeine <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Decay &amp; Cutoff</span> Calculator
         </h1>
-        <p className="text-zinc-400 text-lg">
-          Caffeine has a half-life of roughly 6 hours. Calculate exactly when you need to stop drinking coffee today to protect your deep sleep tonight.
+        <p className="text-(--fg-muted) text-lg">
+          Caffeine has an average half-life of 5 to 7 hours. Calculate your exact biological cutoff to ensure under 50mg of active caffeine remains in your system at bedtime.
         </p>
       </header>
 
-      <div className="bg-[#111] border border-white/10 p-6 sm:p-10 rounded-3xl mb-12 shadow-2xl">
+      <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="grid sm:grid-cols-2 gap-8 mb-8">
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-2">Target Bedtime</label>
+            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Target Bedtime</label>
             <input
               type="time"
               value={targetSleep}
               onChange={(e) => setTargetSleep(e.target.value)}
-              className="w-full bg-black border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-[#CCFF00] transition-colors"
+              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent transition-colors font-mono"
             />
           </div>
           <div>
-            <label className="block text-sm font-bold text-zinc-300 mb-2">Drink Strength (mg)</label>
+            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Drink Strength (mg)</label>
             <input
               type="number"
               value={caffeineAmount || ""}
               onChange={(e) => setCaffeineAmount(Math.max(0, Number(e.target.value)))}
-              className="w-full bg-black border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-[#CCFF00] transition-colors"
+              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent transition-colors font-mono"
               placeholder="e.g. 100"
               min="0"
             />
@@ -102,17 +103,17 @@ export default function CaffeineCalculatorClient() {
               placeholder="Search drinks (e.g. Celsius, Starbucks)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1 bg-black border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#CCFF00] transition-colors"
+              className="flex-1 sunken-card px-4 py-3 text-sm text-white focus:outline-none focus:border-accent transition-colors"
             />
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1.5 font-mono">
               {["All", "Energy", "Coffee", "Tea", "Soda"].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                     selectedCategory === cat
-                      ? "bg-[#CCFF00] text-black"
-                      : "bg-black border border-white/10 text-zinc-400 hover:text-white"
+                      ? "bg-accent text-black"
+                      : "bg-white/5 border border-white/10 text-(--fg-muted) hover:text-white"
                   }`}
                 >
                   {cat}
@@ -126,56 +127,56 @@ export default function CaffeineCalculatorClient() {
               <button
                 key={drink.name}
                 onClick={() => setCaffeineAmount(drink.amount)}
-                className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                   caffeineAmount === drink.amount
-                    ? "border-[#CCFF00] bg-[#CCFF00]/10"
-                    : "border-white/5 bg-black hover:border-white/20"
+                    ? "border-accent bg-(--accent)/15 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                    : "border-white/5 bg-white/5 hover:border-white/20"
                 }`}
               >
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">{drink.category}</span>
+                <span className="text-[10px] text-(--fg-muted) font-bold uppercase tracking-wider font-mono">{drink.category}</span>
                 <span className="text-sm font-bold text-white my-1 leading-snug">{drink.name}</span>
-                <span className="text-xs font-bold text-[#CCFF00]">{drink.amount} mg</span>
+                <span className="text-xs font-bold text-accent font-mono">{drink.amount} mg</span>
               </button>
             ))}
             {filteredDb.length === 0 && (
-              <div className="col-span-full py-8 text-center text-zinc-500 text-sm">
+              <div className="col-span-full py-8 text-center text-(--fg-muted) text-sm">
                 No drinks found matching your search.
               </div>
             )}
           </div>
         </div>
 
-        <div className="bg-black border border-[#CCFF00]/30 rounded-2xl p-8 text-center relative overflow-hidden mt-8">
-          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#CCFF00] to-transparent opacity-50"></div>
-          <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Your Biological Cutoff Time</p>
-          <div className="text-5xl sm:text-6xl font-black text-[#CCFF00] mb-4 drop-shadow-[0_0_15px_rgba(204,255,0,0.3)]">
+        <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden mt-8">
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent to-transparent opacity-50"></div>
+          <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Last Safe Coffee Cutoff</p>
+          <div className="text-5xl sm:text-6xl font-black text-accent mb-4 font-mono">
             {calculateCutoff()}
           </div>
-          <p className="text-zinc-500 text-sm max-w-sm mx-auto">
-            You must finish your drink by this time to ensure you have less than 25mg of active caffeine in your brain at bedtime.
+          <p className="text-(--fg-muted) text-sm max-w-sm mx-auto">
+            Calculated to ensure you have under 50mg of active circulating caffeine by bedtime, preserving deep slow-wave sleep.
           </p>
         </div>
       </div>
 
-      <div className="border border-white/5 bg-linear-to-b from-[#CCFF00]/5 to-transparent rounded-3xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-[#CCFF00]">Tired of doing the math?</h2>
-        <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
-          The ARC app features a live, real-time SVG decay curve. Just tap what you drank, and watch the exact milligram count drop throughout the day.
+      <div className="raised-card p-8 text-center border-(--accent)/30">
+        <h2 className="text-2xl font-bold mb-4 text-accent">Stop guessing your cutoff.</h2>
+        <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto">
+          The ARC app recalculates your cutoff time dynamically with every sip, displaying your live decay curve and lock screen notifications.
         </p>
-        <a href="/#pricing" className="inline-block bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-full hover:bg-white transition-colors">
-          Get ARC Pro
+        <a href="/#pricing" className="inline-block bg-accent text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
+          Get ARC App
         </a>
       </div>
-      <div className="mt-12 bg-[#111] border border-white/10 rounded-2xl p-6">
+      <div className="mt-12 raised-card p-6">
         <h3 className="text-lg font-bold mb-2 text-white">Embed this calculator on your site</h3>
-        <p className="text-zinc-400 text-sm mb-4">Are you a blogger or health coach? Copy the code below to add this tool to your website and help your readers protect their sleep.</p>
+        <p className="text-(--fg-muted) text-sm mb-4">Are you a blogger or health coach? Copy the code below to add this tool to your website and help your readers protect their sleep.</p>
         <div className="relative">
-          <pre className="bg-black text-zinc-500 p-4 rounded-xl text-xs overflow-x-auto border border-white/5">
+          <pre className="bg-black/60 text-(--fg-muted) p-4 rounded-xl text-xs overflow-x-auto border border-white/5 font-mono">
             {`<iframe src="https://arcapp.sbs/tools/caffeine-calculator" width="100%" height="600px" frameborder="0"></iframe>`}
           </pre>
           <button 
             onClick={() => navigator.clipboard.writeText('<iframe src="https://arcapp.sbs/tools/caffeine-calculator" width="100%" height="600px" frameborder="0"></iframe>')}
-            className="absolute top-2 right-2 text-xs bg-[#CCFF00] text-black font-bold py-1.5 px-3 rounded-md hover:bg-white transition-colors"
+            className="absolute top-2 right-2 text-xs bg-accent text-black font-bold py-1.5 px-3 rounded-lg hover:bg-white transition-colors font-mono"
           >
             Copy
           </button>

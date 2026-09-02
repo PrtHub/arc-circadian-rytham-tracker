@@ -90,18 +90,18 @@ export const features = [
 export const steps = [
   {
     step: "01",
-    title: "Take the Diagnosis",
-    desc: "Answer 32 science-backed questions about your sleep, energy patterns, caffeine habits, and lifestyle. ARC builds your full biological profile — the longest onboarding in the category.",
+    title: "Discover your type",
+    desc: "A 22-step onboarding across 6 acts reveals your chronotype, real peak windows, and biological sleep pressure curve.",
   },
   {
     step: "02",
-    title: "Discover Your Chronotype",
-    desc: "Find out if you're a Lion, Bear, Wolf, or Dolphin — and what it means for your daily schedule and peak performance windows.",
+    title: "Follow your protocol",
+    desc: "One sentence, one action at a time. ARC tells you the single most effective thing to do right now, with live Dynamic Island timers and dynamic caffeine cutoffs.",
   },
   {
     step: "03",
-    title: "Follow Your Daily Trajectory",
-    desc: "Get a live 24-hour protocol with Peak Focus Windows, caffeine decay tracking, sunlight timer toward your 20-min morning target, and smart wind-down notifications.",
+    title: "Feel the measured shift",
+    desc: "Watch your measured afternoon crashes drop from 3.5 to 1 a week — proven from your own check-ins, backed by 14-day adherence strips and monthly reports.",
   },
 ];
 

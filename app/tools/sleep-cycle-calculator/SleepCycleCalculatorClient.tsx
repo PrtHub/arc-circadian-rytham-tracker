@@ -6,13 +6,30 @@ import Link from "next/link";
 export default function SleepCycleCalculatorClient() {
   const [activeTab, setActiveTab] = useState<"wake" | "sleep">("wake");
   const [targetTime, setTargetTime] = useState("07:00");
-  const [calculatedTimes, setCalculatedTimes] = useState<{ time: string; hours: number; cycles: number; isRecommended: boolean }[] | null>(null);
+  const [calculatedTimes, setCalculatedTimes] = useState<
+    { time: string; hours: number; cycles: number; isRecommended: boolean; description: string }[] | null
+  >(null);
 
   // Helper to format Date objects as HH:MM
   const formatTime = (date: Date): string => {
     const hours = date.getHours().toString().padStart(2, "0");
     const minutes = date.getMinutes().toString().padStart(2, "0");
     return `${hours}:${minutes}`;
+  };
+
+  const getCycleDescription = (cycles: number): string => {
+    switch (cycles) {
+      case 6:
+        return "9.0 hrs · Ideal for full restorative deep sleep and memory consolidation.";
+      case 5:
+        return "7.5 hrs · Recommended baseline duration for most healthy adults.";
+      case 4:
+        return "6.0 hrs · Sufficient for shorter nights with minimal grogginess.";
+      case 3:
+        return "4.5 hrs · Emergency power-rest duration to prevent deep sleep interruption.";
+      default:
+        return `${(cycles * 90) / 60} hours of structured sleep.`;
+    }
   };
 
   // Option 1: Calculate bedtimes when waking up at targetTime
@@ -34,12 +51,13 @@ export default function SleepCycleCalculatorClient() {
     for (let cycles = 6; cycles >= 3; cycles--) {
       const minutesNeeded = cycles * 90 + sleepLatency;
       const bedtime = new Date(targetDate.getTime() - minutesNeeded * 60 * 1000);
-      
+
       results.push({
         time: formatTime(bedtime),
         hours: (cycles * 90) / 60,
         cycles,
         isRecommended: cycles === 5 || cycles === 6,
+        description: getCycleDescription(cycles),
       });
     }
 
@@ -62,6 +80,7 @@ export default function SleepCycleCalculatorClient() {
         hours: (cycles * 90) / 60,
         cycles,
         isRecommended: cycles === 5 || cycles === 6,
+        description: getCycleDescription(cycles),
       });
     }
 
@@ -71,14 +90,14 @@ export default function SleepCycleCalculatorClient() {
   return (
     <div className="max-w-4xl mx-auto px-6">
       <header className="text-center mb-12">
-        <span className="px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-black uppercase tracking-widest font-mono border border-[var(--accent)]/20">
+        <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest font-mono border border-(--accent)/20">
           Circadian Sleep Science
         </span>
         <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mt-4 mb-3">
-          Sleep Cycle <span className="font-display italic font-normal text-[var(--accent)] text-5xl sm:text-6xl">Calculator</span>
+          Sleep Cycle <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Calculator</span>
         </h1>
-        <p className="text-[var(--fg-muted)] max-w-xl mx-auto text-base">
-          Sleep in sync with your brain's natural stages. Wake up at the completion of a 90-minute cycle to banish morning grogginess.
+        <p className="text-(--fg-muted) max-w-xl mx-auto text-base">
+          Sleep in sync with your brain&apos;s natural stages. Wake up at the completion of a 90-minute cycle to banish morning grogginess.
         </p>
       </header>
 
@@ -91,8 +110,8 @@ export default function SleepCycleCalculatorClient() {
           }}
           className={`flex-1 py-4 text-center text-xs font-bold uppercase tracking-wider border-b-2 transition-colors focus:outline-none ${
             activeTab === "wake"
-              ? "border-[var(--accent)] text-white"
-              : "border-transparent text-[var(--fg-muted)] hover:text-white"
+              ? "border-accent text-white"
+              : "border-transparent text-(--fg-muted) hover:text-white"
           }`}
           role="tab"
           aria-selected={activeTab === "wake"}
@@ -106,8 +125,8 @@ export default function SleepCycleCalculatorClient() {
           }}
           className={`flex-1 py-4 text-center text-xs font-bold uppercase tracking-wider border-b-2 transition-colors focus:outline-none ${
             activeTab === "sleep"
-              ? "border-[var(--accent)] text-white"
-              : "border-transparent text-[var(--fg-muted)] hover:text-white"
+              ? "border-accent text-white"
+              : "border-transparent text-(--fg-muted) hover:text-white"
           }`}
           role="tab"
           aria-selected={activeTab === "sleep"}
@@ -120,7 +139,7 @@ export default function SleepCycleCalculatorClient() {
       <div className="raised-card p-8 mb-12">
         {activeTab === "wake" ? (
           <div>
-            <label htmlFor="wake-time" className="block text-[var(--accent)] text-xs font-bold uppercase tracking-wider mb-3 font-mono">
+            <label htmlFor="wake-time" className="block text-accent text-xs font-bold uppercase tracking-wider mb-3 font-mono">
               What time do you need to wake up?
             </label>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch mb-6">
@@ -129,27 +148,27 @@ export default function SleepCycleCalculatorClient() {
                 type="time"
                 value={targetTime}
                 onChange={(e) => setTargetTime(e.target.value)}
-                className="sunken-card px-6 py-4 text-white text-2xl font-bold flex-1 focus:outline-none focus:border-[var(--accent)]/50 font-mono"
+                className="sunken-card px-6 py-4 text-white text-2xl font-bold flex-1 focus:outline-none focus:border-accent/50 font-mono"
               />
               <button
                 onClick={calculateBedtimes}
-                className="bg-[var(--accent)] text-black font-black text-xs uppercase tracking-wider px-8 py-4 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
+                className="bg-accent text-black font-black text-xs uppercase tracking-wider px-8 py-4 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
               >
                 Calculate Bedtimes
               </button>
             </div>
-            <p className="text-xs text-[var(--fg-muted)]">
+            <p className="text-xs text-(--fg-muted)">
               *Calculations include a standard 15-minute buffer representing the average latency to fall asleep.
             </p>
           </div>
         ) : (
           <div className="text-center py-6">
-            <p className="text-[var(--fg-muted)] mb-6 text-lg">
+            <p className="text-(--fg-muted) mb-6 text-lg">
               Going to bed right now? Click below to calculate when you should set your alarm to wake up between sleep cycles.
             </p>
             <button
               onClick={calculateWakeTimes}
-              className="bg-[var(--accent)] text-black font-black text-xs uppercase tracking-wider px-10 py-5 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all inline-flex items-center gap-2 shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
+              className="bg-accent text-black font-black text-xs uppercase tracking-wider px-10 py-5 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all inline-flex items-center gap-2 shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
             >
               <span>Calculate Alarm Times</span>
               <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
@@ -162,17 +181,17 @@ export default function SleepCycleCalculatorClient() {
         {/* Results */}
         {calculatedTimes && (
           <div className="mt-8 pt-8 border-t border-white/5">
-            <h3 className="text-[var(--accent)] text-xs font-bold uppercase tracking-wider mb-6 font-mono">
+            <h3 className="text-accent text-xs font-bold uppercase tracking-wider mb-6 font-mono">
               {activeTab === "wake" ? "Optimal bedtime windows:" : "Optimal wakeup alarm times:"}
             </h3>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {calculatedTimes.map((result, i) => (
                 <div
                   key={i}
                   className={`p-6 rounded-2xl border transition-colors flex flex-col justify-between ${
                     result.isRecommended
-                      ? "bg-[var(--accent)]/10 border-[var(--accent)]/30 hover:border-[var(--accent)]/50"
+                      ? "bg-(--accent)/10 border-(--accent)/30 hover:border-(--accent)/50"
                       : "sunken-card border-white/5 hover:border-white/10"
                   }`}
                 >
@@ -181,21 +200,21 @@ export default function SleepCycleCalculatorClient() {
                       {result.time}
                     </span>
                     {result.isRecommended && (
-                      <span className="bg-[var(--accent)]/20 text-[var(--accent)] border border-[var(--accent)]/40 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-full font-mono">
+                      <span className="bg-(--accent)/20 text-accent border border-(--accent)/40 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-full font-mono">
                         Recommended
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-[var(--fg-muted)]">
+                  <div className="text-xs text-(--fg-muted)">
                     <span className="font-bold text-white block mb-0.5">{result.cycles} Sleep Cycles ({result.hours} hours)</span>
-                    {result.description}
+                    <span>{result.description}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-[var(--fg-muted)] leading-relaxed">
-              💡 **Circadian Insight**: Waking up at the end of a cycle matches your brain's lightest sleep stage, making it feel like you woke up naturally without an alarm. Waking up mid-cycle triggers severe **sleep inertia** (grogginess).
+            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-(--fg-muted) leading-relaxed">
+              💡 <strong>Circadian Insight</strong>: Waking up at the end of a cycle matches your brain&apos;s lightest sleep stage, making it feel like you woke up naturally without an alarm. Waking up mid-cycle triggers severe <strong>sleep inertia</strong> (grogginess).
             </div>
           </div>
         )}
@@ -207,7 +226,7 @@ export default function SleepCycleCalculatorClient() {
           <div>
             <div className="text-3xl mb-4">💤</div>
             <h3 className="text-lg font-bold mb-2 text-white">90-Minute Sleep Cycles</h3>
-            <p className="text-[var(--fg-muted)] text-sm leading-relaxed">
+            <p className="text-(--fg-muted) text-sm leading-relaxed">
               Human sleep is composed of repeating cycles averaging 90 minutes. Each cycle proceeds from Light Sleep to Deep Sleep, and concludes with REM (Dreaming) sleep.
             </p>
           </div>
@@ -217,7 +236,7 @@ export default function SleepCycleCalculatorClient() {
           <div>
             <div className="text-3xl mb-4">🧠</div>
             <h3 className="text-lg font-bold mb-2 text-white">The Danger of Sleep Inertia</h3>
-            <p className="text-[var(--fg-muted)] text-sm leading-relaxed">
+            <p className="text-(--fg-muted) text-sm leading-relaxed">
               If your alarm goes off during a Deep Sleep stage, your brain is forced from slow-wave states instantly, causing confusion, fatigue, and heavy limbs for hours.
             </p>
           </div>
@@ -227,20 +246,20 @@ export default function SleepCycleCalculatorClient() {
           <div>
             <div className="text-3xl mb-4">☀️</div>
             <h3 className="text-lg font-bold mb-2 text-white">Re-anchoring Your Cycle</h3>
-            <p className="text-[var(--fg-muted)] text-sm leading-relaxed">
-              To lock in your sleep cycle length, get bright sunlight in your eyes within 30 minutes of waking up. This programs your biological timer for next night's cycle.
+            <p className="text-(--fg-muted) text-sm leading-relaxed">
+              To lock in your sleep cycle length, get bright sunlight in your eyes within 30 minutes of waking up. This programs your biological timer for next night&apos;s cycle.
             </p>
           </div>
         </div>
       </section>
 
       {/* Dynamic CTA */}
-      <div className="p-8 rounded-3xl raised-card border-[var(--accent)]/30 flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+      <div className="p-8 rounded-3xl raised-card border-(--accent)/30 flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
         <div>
           <h3 className="text-2xl font-extrabold tracking-tighter mb-2 text-white">
             Get Daily Circadian Protocols
           </h3>
-          <p className="text-[var(--fg-muted)] max-w-md text-sm leading-relaxed">
+          <p className="text-(--fg-muted) max-w-md text-sm leading-relaxed">
             Stop guessing your biology. ARC automatically calculates your cycle lengths, schedules sunlight reminders, and adapts to poor sleep in real time.
           </p>
         </div>
@@ -248,7 +267,7 @@ export default function SleepCycleCalculatorClient() {
           href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-8 py-4 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
+          className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-8 py-4 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
         >
           Download ARC App
           <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">

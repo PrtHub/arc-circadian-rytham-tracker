@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -32,9 +32,8 @@ export default function TermsPage() {
       <div className="absolute top-[-15%] right-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] left-[-10%] w-125 h-125 rounded-full bg-(--aura-crash)/5 blur-[120px] pointer-events-none -z-10" />
 
-      <Nav />
-
-      <main className="max-w-4xl mx-auto px-6 py-20 relative">
+      <ContentNav backHref="/" backLabel="Home" />
+      <main className="max-w-4xl mx-auto px-6 py-14 relative">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs font-mono text-(--fg-muted) mb-8">
           <Link href="/" className="hover:text-white transition-colors">
@@ -48,8 +47,8 @@ export default function TermsPage() {
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-4 inline-block font-mono border border-(--accent)/20">
             Legal & Licensing
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-4 leading-none">
-            Terms of <span className="font-display italic font-normal text-accent text-5xl sm:text-7xl">Service</span>.
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-3 leading-tight">
+            Terms of <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Service</span>.
           </h1>
           <p className="text-(--fg-muted) text-sm font-mono">
             Last Updated: September 2026 · Version 2.0.0 (Living Light)

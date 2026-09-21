@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import SleepDebtClient from "./SleepDebtClient";
 
@@ -29,7 +29,7 @@ export default function SleepDebtPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Nav />
+      <ContentNav backHref="/tools" backLabel="All Tools" />
       <SleepDebtClient />
       
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">

@@ -33,14 +33,14 @@ export function Problem() {
 
           <h2
             id="problem-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-white"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-white"
           >
             Tired in a way
             <br />
-            <span className="font-display italic font-normal text-(--aura-crash) text-5xl sm:text-6xl lg:text-7xl">sleep doesn&apos;t fix?</span>
+            <span className="font-display italic font-normal text-(--aura-crash) text-3xl sm:text-4xl lg:text-[44px]">sleep doesn&apos;t fix?</span>
           </h2>
 
-          <p className="text-lg text-(--fg-muted) leading-relaxed max-w-lg">
+          <p className="text-sm sm:text-base text-(--fg-muted) leading-relaxed max-w-lg">
             You&apos;ve been told you&apos;re undisciplined because you can&apos;t function at 8:00 AM, or you&apos;re wired at midnight. It&apos;s not a character flaw — <strong className="text-white">it&apos;s your chronotype</strong>. Your body runs on a biological clock, and most of us are fighting ours all day.
           </p>
 

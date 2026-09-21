@@ -13,9 +13,9 @@ export function Screenshots() {
         </p>
         <h2
           id="screenshots-heading"
-          className="text-4xl sm:text-5xl font-black tracking-tighter text-white"
+          className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white"
         >
-          Your day, <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">mapped.</span>
+          Your day, <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">mapped.</span>
         </h2>
       </div>
 

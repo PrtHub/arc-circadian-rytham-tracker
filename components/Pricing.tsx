@@ -28,11 +28,11 @@ export function Pricing() {
           </p>
           <h2
             id="pricing-heading"
-            className="text-4xl sm:text-5xl font-black tracking-tighter mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-3"
           >
             Start syncing
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">today.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">today.</span>
           </h2>
           <p className="text-(--fg-muted) text-sm">
             Subscription auto-renews, cancel anytime. Managed through the App Store.

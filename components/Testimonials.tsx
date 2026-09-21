@@ -29,14 +29,14 @@ export function Testimonials() {
       className="py-24 px-6 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto relative z-10">
-        <header className="mb-16 text-center">
+        <header className="mb-12 text-center">
           <span className="text-xs font-bold tracking-widest text-accent uppercase font-mono border border-(--accent)/30 bg-(--accent)/5 px-3 py-1 rounded-full">
             USER PROOF
           </span>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tighter leading-none text-white mt-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-white mt-4">
             Trusted by sleep seekers
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">&amp; peak performers.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">&amp; peak performers.</span>
           </h2>
         </header>
 

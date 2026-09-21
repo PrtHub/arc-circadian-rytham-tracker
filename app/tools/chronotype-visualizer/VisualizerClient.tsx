@@ -44,16 +44,13 @@ export default function VisualizerClient() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-        ← Back to Tools
-      </Link>
+    <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Day in the Life <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Visualizer</span>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
+          Day in the Life <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Visualizer</span>
         </h1>
-        <p className="text-(--fg-muted) text-lg">
+        <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Slide through the day to see how your master hormones fluctuate based on your genetic chronotype.
         </p>
       </header>
@@ -76,7 +73,7 @@ export default function VisualizerClient() {
         </div>
 
         <div className="mb-12 text-center">
-          <div className="text-6xl font-black text-white mb-2 font-mono">{getHourLabel(hour)}</div>
+          <div className="text-4xl sm:text-5xl font-black text-white mb-2 font-mono">{getHourLabel(hour)}</div>
           <p className="text-accent font-bold text-sm uppercase tracking-wider font-mono">{getStatusText()}</p>
         </div>
 

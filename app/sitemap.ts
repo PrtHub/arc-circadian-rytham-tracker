@@ -4,10 +4,18 @@ import { chronotypeDetails } from "@/lib/chronotype-data";
 import { audienceDetails } from "@/lib/audience-data";
 import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
+import { guidesData } from "@/lib/guides-data";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const guides = guidesData.map((guide) => ({
+    url: `${SITE_URL}/guides/${guide.slug}`,
+    lastModified: new Date(guide.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
   const blogs = blogPosts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
@@ -120,6 +128,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${SITE_URL}/guides`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -158,6 +172,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...chronotypes,
     ...audiences,
     ...tools,
+    ...guides,
     ...blogs,
     ...sciences,
     ...books,

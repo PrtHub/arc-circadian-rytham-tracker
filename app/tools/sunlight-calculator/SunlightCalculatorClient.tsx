@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function SunlightCalculatorClient() {
   const [weather, setWeather] = useState("sunny");
@@ -20,16 +19,13 @@ export default function SunlightCalculatorClient() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-        ← Back to Tools
-      </Link>
+    <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Sunlight <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Window</span> Calculator
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
+          Sunlight <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Window</span> Calculator
         </h1>
-        <p className="text-(--fg-muted) text-lg">
+        <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Huberman says morning sunlight is non-negotiable. But how long do you actually need to stand outside? Calculate your minimum effective dose based on today&apos;s weather.
         </p>
       </header>

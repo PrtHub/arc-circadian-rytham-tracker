@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -118,9 +118,8 @@ export default function SupportPage() {
       <div className="absolute top-[-15%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--aura-ice)/5 blur-[120px] pointer-events-none -z-10" />
 
-      <Nav />
-
-      <main className="max-w-6xl mx-auto px-6 py-20 relative">
+      <ContentNav backHref="/" backLabel="Home" />
+      <main className="max-w-6xl mx-auto px-6 py-14 relative">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs font-mono text-(--fg-muted) mb-8">
           <Link href="/" className="hover:text-white transition-colors">
@@ -131,14 +130,14 @@ export default function SupportPage() {
         </nav>
 
         {/* Hero Header */}
-        <header className="mb-16 max-w-3xl">
-          <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-4 inline-block font-mono border border-(--accent)/20">
+        <header className="mb-12 max-w-3xl">
+          <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
             ARC Help &amp; Support
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-6 leading-none">
-            How can we <span className="font-display italic font-normal text-accent text-5xl sm:text-7xl">help?</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
+            How can we <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">help?</span>
           </h1>
-          <p className="text-(--fg-muted) text-lg sm:text-xl leading-relaxed">
+          <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
             Troubleshoot common questions, learn how the Living Light engine works, or contact our core engineering team directly.
           </p>
         </header>

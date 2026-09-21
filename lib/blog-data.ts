@@ -1486,8 +1486,10 @@ ARC's onboarding includes a precision diagnosis that identifies your chronotype.
   },
   {
     slug: "science-of-coffee-timing-delay-90-minutes",
-    title: "The Science of Coffee Timing: Why Your First Cup Should Be Delayed 90 Minutes",
-    excerpt: "Drinking coffee the moment you wake up is a recipe for an afternoon crash. Learn the science of adenosine clearance and when to time your first cup.",
+    title:
+      "The Science of Coffee Timing: Why Your First Cup Should Be Delayed 90 Minutes",
+    excerpt:
+      "Drinking coffee the moment you wake up is a recipe for an afternoon crash. Learn the science of adenosine clearance and when to time your first cup.",
     date: "2026-06-25",
     category: "Education",
     readTime: "7 min",
@@ -1528,7 +1530,8 @@ ARC takes the guesswork out of caffeine timing. Based on your wake-up time and c
   {
     slug: "social-jetlag-weekend-sleep-in-cost",
     title: "Social Jetlag: The Hidden Cost of Sleeping In on Weekends",
-    excerpt: "Shifting your sleep schedule on the weekend by just 2 hours is the biological equivalent of flying across two time zones. Here is how it ruins your Monday.",
+    excerpt:
+      "Shifting your sleep schedule on the weekend by just 2 hours is the biological equivalent of flying across two time zones. Here is how it ruins your Monday.",
     date: "2026-06-20",
     category: "Education",
     readTime: "8 min",
@@ -1573,8 +1576,10 @@ Use ARC's **[Social Jetlag Calculator](/tools/social-jetlag-calculator)** to see
   },
   {
     slug: "why-we-removed-the-sleep-score",
-    title: "Why We Removed the Sleep Score: The Case Against Vanity Health Metrics",
-    excerpt: "Sleep scores, rings, and streaks create orthosomnia without changing behavior. Here is why ARC 2.0 replaced arbitrary scores with measured crash reduction.",
+    title:
+      "Why We Removed the Sleep Score: The Case Against Vanity Health Metrics",
+    excerpt:
+      "Sleep scores, rings, and streaks create orthosomnia without changing behavior. Here is why ARC 2.0 replaced arbitrary scores with measured crash reduction.",
     date: "2026-07-06",
     category: "Product Philosophy",
     readTime: "8 min",
@@ -1617,7 +1622,8 @@ You don't need a wearable ring or a grade out of 100 to feel great. You just nee
   {
     slug: "the-avoid-light-window-jetlag",
     title: "The Avoid-Light Window: The Missing Half of Jetlag Science",
-    excerpt: "Most travelers know when to seek sunlight. But getting light at the wrong biological hour actually lengthens jet lag. Here is how the avoid-light window works.",
+    excerpt:
+      "Most travelers know when to seek sunlight. But getting light at the wrong biological hour actually lengthens jet lag. Here is how the avoid-light window works.",
     date: "2026-07-05",
     category: "Chronobiology",
     readTime: "7 min",
@@ -1651,8 +1657,10 @@ ARC detects international travel automatically without requiring location or GPS
   },
   {
     slug: "why-do-i-crash-at-2pm-afternoon-energy-drop-fix",
-    title: "Why Do I Crash at 2 PM Every Day? The Biological Cause and 5-Step Cure",
-    excerpt: "You are not lazy, and it is not just lunch. The 2 PM afternoon energy crash is driven by adenosine accumulation and core body temperature drops. Here is the biological fix.",
+    title:
+      "Why Do I Crash at 2 PM Every Day? The Biological Cause and 5-Step Cure",
+    excerpt:
+      "You are not lazy, and it is not just lunch. The 2 PM afternoon energy crash is driven by adenosine accumulation and core body temperature drops. Here is the biological fix.",
     date: "2026-07-10",
     category: "Energy & Focus",
     readTime: "8 min",
@@ -1735,8 +1743,10 @@ Over 14 days of tracking, ARC users report their afternoon crash frequency dropp
   },
   {
     slug: "waking-up-tired-after-8-hours-sleep-inertia-fix",
-    title: "Why Am I Still Tired After 8 Hours of Sleep? The Science of Sleep Inertia",
-    excerpt: "Sleeping 8 hours and waking up feeling exhausted? You are likely waking mid-cycle, suffering from sleep fragmentation, or missing morning light. Here is how to fix it.",
+    title:
+      "Why Am I Still Tired After 8 Hours of Sleep? The Science of Sleep Inertia",
+    excerpt:
+      "Sleeping 8 hours and waking up feeling exhausted? You are likely waking mid-cycle, suffering from sleep fragmentation, or missing morning light. Here is how to fix it.",
     date: "2026-07-12",
     category: "Sleep Optimization",
     readTime: "9 min",
@@ -1804,7 +1814,8 @@ Stop measuring sleep by the hour. Start measuring sleep by biological cycles and
   {
     slug: "why-coffee-makes-you-tired-caffeine-tolerance-adenosine",
     title: "Why Does Coffee Make Me Tired? The Caffeine Paradox & How to Reset",
-    excerpt: "Drinking coffee only to feel sluggish, jittery, or exhausted an hour later? Learn how adenosine receptor upregulation creates caffeine fatigue and how to reverse it.",
+    excerpt:
+      "Drinking coffee only to feel sluggish, jittery, or exhausted an hour later? Learn how adenosine receptor upregulation creates caffeine fatigue and how to reverse it.",
     date: "2026-07-15",
     category: "Biohacking",
     readTime: "8 min",
@@ -1875,8 +1886,10 @@ Use our [Caffeine Tolerance Reset Protocol](/science/caffeine-tolerance-reset-pr
   },
   {
     slug: "waking-up-at-3am-cortisol-spike-temperature-fix",
-    title: "Why Do I Wake Up at 3 AM Every Night? Cortisol, Blood Sugar & The Temperature Gate",
-    excerpt: "Waking up suddenly at 3:00 or 4:00 AM with a racing mind? It is not stress alone. Discover why your body temperature minimum and nocturnal cortisol are waking you.",
+    title:
+      "Why Do I Wake Up at 3 AM Every Night? Cortisol, Blood Sugar & The Temperature Gate",
+    excerpt:
+      "Waking up suddenly at 3:00 or 4:00 AM with a racing mind? It is not stress alone. Discover why your body temperature minimum and nocturnal cortisol are waking you.",
     date: "2026-07-18",
     category: "Sleep Science",
     readTime: "9 min",
@@ -1958,7 +1971,8 @@ To permanently eliminate 3:00 AM wake-ups:
   {
     slug: "adhd-circadian-rhythm-delayed-melatonin-sleep-fix",
     title: "ADHD and Sleep: Why Your Brain Hates 11 PM and How to Fix It",
-    excerpt: "75% of people with ADHD suffer from delayed sleep phase syndrome. It is not lack of discipline—it is biological melatonin delay. Here is how to work with your ADHD circadian rhythm.",
+    excerpt:
+      "75% of people with ADHD suffer from delayed sleep phase syndrome. It is not lack of discipline—it is biological melatonin delay. Here is how to work with your ADHD circadian rhythm.",
     date: "2026-07-22",
     category: "ADHD & Focus",
     readTime: "10 min",
@@ -2028,8 +2042,10 @@ Check out our full [ADHD Circadian Guide](/for/adhd) and take the [Chronotype Qu
   },
   {
     slug: "sunday-night-insomnia-cure-social-jetlag-reset",
-    title: "Sunday Night Insomnia: Why You Can't Sleep on Sunday (and How to Fix It)",
-    excerpt: "Tossing and turning every Sunday night? You are not alone. Social jet lag from sleeping in over the weekend shifts your circadian rhythm across 2 time zones. Here is the reset.",
+    title:
+      "Sunday Night Insomnia: Why You Can't Sleep on Sunday (and How to Fix It)",
+    excerpt:
+      "Tossing and turning every Sunday night? You are not alone. Social jet lag from sleeping in over the weekend shifts your circadian rhythm across 2 time zones. Here is the reset.",
     date: "2026-07-25",
     category: "Lifestyle",
     readTime: "7 min",
@@ -2089,4 +2105,3 @@ If it is already Sunday afternoon and you slept in late this morning, here is ho
     `,
   },
 ];
-

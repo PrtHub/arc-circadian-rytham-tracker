@@ -23,16 +23,16 @@ export function Hero() {
             ARC 2.0 · LIVING LIGHT
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter text-white">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.06] tracking-tight text-white">
             You&apos;re not lazy.
             <br />
             You&apos;re on the{" "}
-            <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl lg:text-8xl">
+            <span className="font-display italic font-normal text-accent text-4xl sm:text-5xl lg:text-[62px]">
               wrong clock.
             </span>
           </h1>
 
-          <p className="text-lg text-(--fg-muted) leading-relaxed max-w-lg">
+          <p className="text-sm sm:text-base text-(--fg-muted) leading-relaxed max-w-lg">
             ARC explains why you feel tired right now, gives you the one thing worth doing about it,
             and proves the answer over weeks by halving your afternoon crashes.
           </p>

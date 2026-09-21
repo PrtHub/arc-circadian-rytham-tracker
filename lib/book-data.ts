@@ -16,14 +16,17 @@ export const booksData: BookDetail[] = [
   {
     slug: "the-power-of-when",
     title: "The Power of When",
-    subtitle: "Discover your genetic chronotype to optimize the timing of your daily activities.",
+    subtitle:
+      "Discover your genetic chronotype to optimize the timing of your daily activities.",
     author: "Dr. Michael Breus",
     authorTitle: "Clinical Psychologist & Sleep Specialist",
     publishedDate: "2016",
     rating: "4.7/5",
     keyMetric: "4 Chronotypes",
-    excerpt: "Dr. Michael Breus outlines why your biology's biological clock governs everything. Discover the science behind Lions, Bears, Wolves, and Dolphins.",
-    arcConnection: "Direct foundation of ARC's onboarding quiz and chronotype-specific focus scheduling.",
+    excerpt:
+      "Dr. Michael Breus outlines why your biology's biological clock governs everything. Discover the science behind Lions, Bears, Wolves, and Dolphins.",
+    arcConnection:
+      "Direct foundation of ARC's onboarding quiz and chronotype-specific focus scheduling.",
     content: `
 # The Power of When: Timing is Everything
 
@@ -69,14 +72,17 @@ ARC translates Dr. Breus's scientific schedule into a live, interactive 24-hour 
   {
     slug: "why-we-sleep",
     title: "Why We Sleep",
-    subtitle: "Unlocking the power of sleep and dreams for physiological and mental longevity.",
+    subtitle:
+      "Unlocking the power of sleep and dreams for physiological and mental longevity.",
     author: "Dr. Matthew Walker",
     authorTitle: "Professor of Neuroscience & Psychology at UC Berkeley",
     publishedDate: "2017",
     rating: "4.8/5",
     keyMetric: "90-Min Cycles",
-    excerpt: "A neuroscientist explains why sleep is the single most effective thing we can do to reset our brain and body health.",
-    arcConnection: "Powers ARC's Sleep Cycle Calculator and sleep-safe caffeine decay calculations.",
+    excerpt:
+      "A neuroscientist explains why sleep is the single most effective thing we can do to reset our brain and body health.",
+    arcConnection:
+      "Powers ARC's Sleep Cycle Calculator and sleep-safe caffeine decay calculations.",
     content: `
 # Why We Sleep: Unlocking the Science of Dreams
 
@@ -109,14 +115,17 @@ ARC translates Dr. Walker's research into two interactive features:
   {
     slug: "change-your-schedule-change-your-life",
     title: "Change Your Schedule, Change Your Life",
-    subtitle: "Harness the power of clock genes to lose weight, increase energy, and sleep deeply.",
+    subtitle:
+      "Harness the power of clock genes to lose weight, increase energy, and sleep deeply.",
     author: "Dr. Suhas Kshirsagar",
     authorTitle: "Ayurvedic Physician & Chronobiology Consultant",
     publishedDate: "2018",
     rating: "4.6/5",
     keyMetric: "Fasting Windows",
-    excerpt: "Learn how synchronizing your eating, sleeping, and working windows with natural light-dark shifts clears chronic health issues.",
-    arcConnection: "Guides ARC's recommendations for morning feeding alignment and digestive sunsets.",
+    excerpt:
+      "Learn how synchronizing your eating, sleeping, and working windows with natural light-dark shifts clears chronic health issues.",
+    arcConnection:
+      "Guides ARC's recommendations for morning feeding alignment and digestive sunsets.",
     content: `
 # Change Your Schedule, Change Your Life: Clock Genes
 
@@ -145,14 +154,17 @@ ARC uses Dr. Kshirsagar's research to suggest feeding times. The app outlines:
   {
     slug: "the-circadian-code",
     title: "The Circadian Code",
-    subtitle: "Lose Weight, Supercharge Your Energy, and Transform Your Health from Morning to Midnight",
+    subtitle:
+      "Lose Weight, Supercharge Your Energy, and Transform Your Health from Morning to Midnight",
     author: "Dr. Satchin Panda",
     authorTitle: "Pioneer Circadian Biologist & Salk Institute Professor",
     publishedDate: "2018",
     rating: "4.8/5",
     keyMetric: "10-Hr Feeding",
-    excerpt: "Salk Institute professor Dr. Satchin Panda details the impact of Time-Restricted Eating, light schedules, and sleep timing on metabolic health and longevity.",
-    arcConnection: "Directly drives ARC's digestive sunset reminders and morning light counting features.",
+    excerpt:
+      "Salk Institute professor Dr. Satchin Panda details the impact of Time-Restricted Eating, light schedules, and sleep timing on metabolic health and longevity.",
+    arcConnection:
+      "Directly drives ARC's digestive sunset reminders and morning light counting features.",
     content: `
 # The Circadian Code: Supercharge Your Energy
 
@@ -185,8 +197,10 @@ ARC integrates Dr. Panda's findings directly into daily routines. By coordinatin
     publishedDate: "2019",
     rating: "4.7/5",
     keyMetric: "Cellular Longevity",
-    excerpt: "Harvard geneticist Dr. David Sinclair presents a revolutionary theory of aging and outlines how circadian health preserves DNA repair.",
-    arcConnection: "Informs ARC's emphasis on sleep as the primary biological longevity and DNA repair window.",
+    excerpt:
+      "Harvard geneticist Dr. David Sinclair presents a revolutionary theory of aging and outlines how circadian health preserves DNA repair.",
+    arcConnection:
+      "Informs ARC's emphasis on sleep as the primary biological longevity and DNA repair window.",
     content: `
 # Lifespan: The Circadian Link to Longevity
 
@@ -219,8 +233,10 @@ ARC acts as a biological shield against epigenetic wear. By aligning your daily 
     publishedDate: "2020",
     rating: "4.8/5",
     keyMetric: "Nasal Breathing",
-    excerpt: "James Nestor explores the evolutionary shift from nasal to mouth breathing and how correcting your respiratory habits resolves sleep apnea, snoring, and circadian fatigue.",
-    arcConnection: "Guides ARC's breathing protocol recommendations during stress checks and morning lung oxygenation timers.",
+    excerpt:
+      "James Nestor explores the evolutionary shift from nasal to mouth breathing and how correcting your respiratory habits resolves sleep apnea, snoring, and circadian fatigue.",
+    arcConnection:
+      "Guides ARC's breathing protocol recommendations during stress checks and morning lung oxygenation timers.",
     content: `
 # Breath: The New Science of a Lost Art
 
@@ -249,14 +265,17 @@ ARC incorporates Nestor's research into daily check-ins and recovery guides. The
   {
     slug: "sleep-smarter",
     title: "Sleep Smarter",
-    subtitle: "21 Essential Strategies to Sleep Your Way to a Better Body, Better Health, and Bigger Success",
+    subtitle:
+      "21 Essential Strategies to Sleep Your Way to a Better Body, Better Health, and Bigger Success",
     author: "Shawn Stevenson",
     authorTitle: "Nutritionist & Sleep Researcher",
     publishedDate: "2016",
     rating: "4.7/5",
     keyMetric: "Light & Sanctuary",
-    excerpt: "Shawn Stevenson provides 21 practical lifestyle adjustments covering bedroom environment, gut health, and light signals to double your deep sleep.",
-    arcConnection: "Informs ARC's bedroom setup checks, evening temperature cooling prompts, and dietary timing recommendations.",
+    excerpt:
+      "Shawn Stevenson provides 21 practical lifestyle adjustments covering bedroom environment, gut health, and light signals to double your deep sleep.",
+    arcConnection:
+      "Informs ARC's bedroom setup checks, evening temperature cooling prompts, and dietary timing recommendations.",
     content: `
 # Sleep Smarter: 21 Strategies to Optimize Sleep
 
@@ -283,14 +302,17 @@ ARC translates Stevenson's sleep hygiene checklist into interactive daily prompt
   {
     slug: "fast-like-a-girl",
     title: "Fast Like a Girl",
-    subtitle: "A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones",
+    subtitle:
+      "A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones",
     author: "Dr. Mindy Pelz",
     authorTitle: "Holistic Health Expert & Author",
     publishedDate: "2022",
     rating: "4.8/5",
     keyMetric: "Hormonal Fasting",
-    excerpt: "Dr. Mindy Pelz outlines how women must customize fasting windows, nutrition, and circadian timing around their monthly menstrual cycle.",
-    arcConnection: "Powers ARC's female-specific dietary timing alerts and fasting cycle notifications.",
+    excerpt:
+      "Dr. Mindy Pelz outlines how women must customize fasting windows, nutrition, and circadian timing around their monthly menstrual cycle.",
+    arcConnection:
+      "Powers ARC's female-specific dietary timing alerts and fasting cycle notifications.",
     content: `
 # Fast Like a Girl: Circadian & Cycle Alignment
 
@@ -312,14 +334,17 @@ ARC integrates Dr. Pelz's menstrual-circadian alignment research by offering cus
   {
     slug: "peak-performance",
     title: "Peak Performance",
-    subtitle: "Elevate Your Game, Avoid Burnout, and Thrive with the New Science of Success",
+    subtitle:
+      "Elevate Your Game, Avoid Burnout, and Thrive with the New Science of Success",
     author: "Brad Stulberg & Steve Magness",
     authorTitle: "Coaching & Performance Experts",
     publishedDate: "2017",
     rating: "4.6/5",
     keyMetric: "Stress + Rest",
-    excerpt: "A guide on how to alternate high-stress cognitive output with deep biological recovery to achieve long-term cognitive peak.",
-    arcConnection: "Directly informs ARC's scheduling of Focus blocks vs biological recovery breaks.",
+    excerpt:
+      "A guide on how to alternate high-stress cognitive output with deep biological recovery to achieve long-term cognitive peak.",
+    arcConnection:
+      "Directly informs ARC's scheduling of Focus blocks vs biological recovery breaks.",
     content: `
 # Peak Performance: Stress + Rest = Growth
 

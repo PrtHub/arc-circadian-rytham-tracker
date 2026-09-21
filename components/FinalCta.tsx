@@ -18,13 +18,13 @@ export function FinalCta() {
 
         <h2
           id="cta-heading"
-          className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter"
+          className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight"
         >
           Stop fighting
-          <br /><span className="font-display italic font-normal text-accent text-6xl sm:text-7xl lg:text-8xl">your clock.</span>
+          <br /><span className="font-display italic font-normal text-accent text-4xl sm:text-5xl lg:text-6xl">your clock.</span>
         </h2>
 
-        <p className="text-(--fg-muted) text-lg max-w-md">
+        <p className="text-(--fg-muted) text-sm sm:text-base max-w-md leading-relaxed">
           Find your chronotype and build a day that works with your biology.
         </p>
 

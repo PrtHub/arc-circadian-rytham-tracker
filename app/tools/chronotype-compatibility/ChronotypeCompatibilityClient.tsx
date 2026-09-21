@@ -118,16 +118,13 @@ export default function ChronotypeCompatibilityClient() {
   const data = getCompatibility(partnerA, partnerB);
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-        ← Back to Tools
-      </Link>
+    <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Chronotype <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Compatibility</span> Quiz
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
+          Chronotype <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Compatibility</span> Quiz
         </h1>
-        <p className="text-(--fg-muted) text-lg">
+        <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Map your sleep schedules and relationship alignment. Calculate sleep compatibility scores and find optimal alertness windows.
         </p>
       </header>
@@ -194,7 +191,7 @@ export default function ChronotypeCompatibilityClient() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b border-white/5 pb-6 mb-6">
             <div>
               <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-1 font-mono">Compatibility Score</p>
-              <div className="text-5xl sm:text-6xl font-black text-accent tracking-tight font-mono">
+              <div className="text-4xl sm:text-5xl font-black text-accent tracking-tight font-mono">
                 {data.score}%
               </div>
             </div>

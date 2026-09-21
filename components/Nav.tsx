@@ -3,11 +3,90 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AppStoreButton } from "@/components/AppStoreButton";
+
+interface NavItem {
+  name: string;
+  href: string;
+  badge?: string;
+}
+
+function getDynamicNavItems(pathname: string): NavItem[] {
+  if (pathname === "/") {
+    return [
+      { name: "Features", href: "/#features" },
+      { name: "How It Works", href: "/#how-it-works" },
+      { name: "Tools", href: "/tools", badge: "10+" },
+      { name: "Guides", href: "/guides", badge: "New" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  if (pathname.startsWith("/tools")) {
+    return [
+      { name: "Guides", href: "/guides", badge: "New" },
+      { name: "Science", href: "/science" },
+      { name: "Features", href: "/#features" },
+      { name: "How It Works", href: "/#how-it-works" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  if (pathname.startsWith("/guides")) {
+    return [
+      { name: "Tools", href: "/tools", badge: "10+" },
+      { name: "Science", href: "/science" },
+      { name: "Blog", href: "/blog" },
+      { name: "How It Works", href: "/#how-it-works" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  if (pathname.startsWith("/science")) {
+    return [
+      { name: "Guides", href: "/guides", badge: "New" },
+      { name: "Tools", href: "/tools", badge: "10+" },
+      { name: "Books", href: "/books" },
+      { name: "Features", href: "/#features" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  if (pathname.startsWith("/blog")) {
+    return [
+      { name: "Guides", href: "/guides", badge: "New" },
+      { name: "Tools", href: "/tools", badge: "10+" },
+      { name: "Science", href: "/science" },
+      { name: "Features", href: "/#features" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  if (pathname.startsWith("/books")) {
+    return [
+      { name: "Science", href: "/science" },
+      { name: "Guides", href: "/guides", badge: "New" },
+      { name: "Tools", href: "/tools", badge: "10+" },
+      { name: "Features", href: "/#features" },
+      { name: "Pricing", href: "/#pricing" },
+    ];
+  }
+
+  // Generic fallback for personas, chronotypes, legal, support
+  return [
+    { name: "Home", href: "/" },
+    { name: "Tools", href: "/tools", badge: "10+" },
+    { name: "Guides", href: "/guides", badge: "New" },
+    { name: "Science", href: "/science" },
+    { name: "Pricing", href: "/#pricing" },
+  ];
+}
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname() || "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +95,14 @@ export function Nav() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navItems = getDynamicNavItems(pathname);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return false;
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
     <header
@@ -50,53 +137,32 @@ export function Nav() {
           </span>
         </Link>
 
-        {/* Center: Desktop Navigation Links */}
+        {/* Center: Dynamic Desktop Navigation Links (strictly 4-5 items max) */}
         <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm text-(--fg-muted) font-medium">
-          <a
-            href="/#features"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            Features
-          </a>
-          <a
-            href="/#how-it-works"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            How It Works
-          </a>
-          <a
-            href="/#pricing"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            Pricing
-          </a>
-          <Link
-            href="/tools"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono flex items-center gap-1.5"
-          >
-            Tools
-            <span className="px-1.5 py-0.5 rounded-full bg-accent text-black text-[9px] font-black font-mono leading-none">
-              10+
-            </span>
-          </Link>
-          <Link
-            href="/science"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            Science
-          </Link>
-          <Link
-            href="/books"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            Books
-          </Link>
-          <Link
-            href="/blog"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all text-xs font-semibold tracking-wide uppercase font-mono"
-          >
-            Blog
-          </Link>
+          {navItems.map((item) => {
+            const active = isActive(item.href);
+            const isAnchor = item.href.startsWith("/#");
+            const LinkComp = isAnchor ? "a" : Link;
+
+            return (
+              <LinkComp
+                key={item.name}
+                href={item.href}
+                className={`px-3.5 py-1.5 rounded-full transition-all text-xs font-semibold tracking-wide uppercase font-mono flex items-center gap-1.5 ${
+                  active
+                    ? "text-white bg-white/10 border border-white/15 shadow-xs"
+                    : "hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {item.name}
+                {item.badge && (
+                  <span className="px-1.5 py-0.5 rounded-full bg-accent text-black text-[9px] font-black font-mono leading-none">
+                    {item.badge}
+                  </span>
+                )}
+              </LinkComp>
+            );
+          })}
         </div>
 
         {/* Right: CTA & Mobile Toggle */}
@@ -128,68 +194,70 @@ export function Nav() {
       {/* Mobile Drawer Menu */}
       {isOpen && (
         <div className="lg:hidden bg-[#070a18]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all animate-in slide-in-from-top-4 duration-200">
-          <div className="flex flex-col gap-3 font-mono text-sm">
-            <a
-              href="/#features"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>Features</span>
-              <span className="text-xs text-(--fg-muted)">01</span>
-            </a>
-            <a
-              href="/#how-it-works"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>How It Works</span>
-              <span className="text-xs text-(--fg-muted)">02</span>
-            </a>
-            <a
-              href="/#pricing"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>Pricing</span>
-              <span className="text-xs text-(--fg-muted)">03</span>
-            </a>
-            <Link
-              href="/tools"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2">
-                <span>Free Calculators &amp; Tools</span>
-                <span className="px-2 py-0.5 rounded-full bg-accent text-black text-[10px] font-black">
-                  10+
-                </span>
-              </div>
-              <span className="text-xs text-(--fg-muted)">→</span>
-            </Link>
-            <Link
-              href="/science"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>Science Protocols</span>
-              <span className="text-xs text-(--fg-muted)">→</span>
-            </Link>
-            <Link
-              href="/books"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>Literature &amp; Book Reviews</span>
-              <span className="text-xs text-(--fg-muted)">→</span>
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-xl hover:bg-white/5 text-(--fg) hover:text-white transition-colors flex items-center justify-between"
-            >
-              <span>ARC Journal &amp; Articles</span>
-              <span className="text-xs text-(--fg-muted)">→</span>
-            </Link>
+          <div className="flex flex-col gap-2 font-mono text-sm">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-(--fg-muted) px-3 py-1 font-mono">
+              Primary Navigation
+            </p>
+            {navItems.map((item, idx) => {
+              const isAnchor = item.href.startsWith("/#");
+              const LinkComp = isAnchor ? "a" : Link;
+              const active = isActive(item.href);
+
+              return (
+                <LinkComp
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`p-3 rounded-xl transition-colors flex items-center justify-between ${
+                    active
+                      ? "bg-white/10 text-white font-bold"
+                      : "hover:bg-white/5 text-(--fg) hover:text-white"
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span>{item.name}</span>
+                    {item.badge && (
+                      <span className="px-1.5 py-0.5 rounded-full bg-accent text-black text-[9px] font-black">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-xs text-(--fg-muted)">0{idx + 1}</span>
+                </LinkComp>
+              );
+            })}
+
+            {/* Quick Hub Cross-Links */}
+            <div className="pt-3 mt-1 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
+              <Link
+                href="/tools"
+                onClick={() => setIsOpen(false)}
+                className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-(--fg-muted) hover:text-white transition-colors"
+              >
+                Calculators &amp; Tools →
+              </Link>
+              <Link
+                href="/guides"
+                onClick={() => setIsOpen(false)}
+                className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-(--fg-muted) hover:text-white transition-colors"
+              >
+                Master Guides →
+              </Link>
+              <Link
+                href="/science"
+                onClick={() => setIsOpen(false)}
+                className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-(--fg-muted) hover:text-white transition-colors"
+              >
+                Science &amp; Protocols →
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsOpen(false)}
+                className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-(--fg-muted) hover:text-white transition-colors"
+              >
+                ARC Journal →
+              </Link>
+            </div>
 
             <div className="pt-4 mt-2 border-t border-white/10 sm:hidden">
               <AppStoreButton size="lg" location="mobile_navbar" />

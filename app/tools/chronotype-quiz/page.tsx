@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import ChronotypeQuizClient from "./ChronotypeQuizClient";
 
@@ -34,7 +34,7 @@ export default function ChronotypeQuizPage() {
       <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
-      <Nav />
+      <ContentNav backHref="/tools" backLabel="All Tools" />
       <ChronotypeQuizClient />
       
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">

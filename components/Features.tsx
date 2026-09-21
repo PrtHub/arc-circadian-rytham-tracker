@@ -44,39 +44,39 @@ export function Features() {
       />
 
       <div className="max-w-6xl mx-auto">
-        <header className="mb-24 text-center">
+        <header className="mb-16 text-center">
           <span className="text-xs font-bold tracking-widest text-accent uppercase font-mono border border-(--accent)/30 bg-(--accent)/5 px-3 py-1 rounded-full">
             THE PILLARS
           </span>
           <h2
             id="features-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-white mt-6"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-white mt-4"
           >
             Tactical features.
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl lg:text-7xl">Biological precision.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Biological precision.</span>
           </h2>
         </header>
 
-        <div className="space-y-24 lg:space-y-36">
+        <div className="space-y-20 lg:space-y-28">
           {pillars.map((p, index) => {
             const isOdd = index % 2 === 1;
             return (
               <div
                 key={p.title}
-                className={`flex flex-col lg:flex-row gap-12 lg:gap-24 items-center justify-between ${
+                className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center justify-between ${
                   isOdd ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Text column */}
-                <div className="flex-1 max-w-xl flex flex-col gap-4">
+                <div className="flex-1 max-w-xl flex flex-col gap-3">
                   <span className="text-xs font-bold tracking-widest text-[var(--accent)] uppercase font-mono">
                     {p.eyebrow}
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                     {p.title}
                   </h3>
-                  <p className="text-[var(--fg-muted)] leading-relaxed text-base sm:text-lg">
+                  <p className="text-[var(--fg-muted)] leading-relaxed text-sm sm:text-base">
                     {p.desc}
                   </p>
                 </div>

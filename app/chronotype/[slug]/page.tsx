@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { chronotypeDetails } from "@/lib/chronotype-data";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
 import Link from "next/link";
@@ -124,18 +124,16 @@ export default async function ChronotypePage(props: Props) {
         <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
         <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
-        <Nav />
-        <main className="max-w-4xl mx-auto py-16 px-6 relative" data-sky={chronotype.slug}>
-          <Link href="/#chronotypes" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-            ← Back to All Chronotypes
-          </Link>
+        {/* Focused Content Header */}
+        <ContentNav backHref="/#chronotypes" backLabel="Chronotypes" />
+        <main className="max-w-4xl mx-auto py-14 px-6 relative" data-sky={chronotype.slug}>
           
           <header className="mb-12">
-            <div className="text-6xl mb-4">{chronotype.icon}</div>
-            <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4">
-              The <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl">{chronotype.name}</span> Chronotype
+            <div className="text-4xl mb-3">{chronotype.icon}</div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-3 leading-tight">
+              The <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">{chronotype.name}</span> Chronotype
             </h1>
-            <p className="text-xl text-(--fg-muted) font-medium mb-6">
+            <p className="text-base sm:text-lg text-(--fg-muted) font-medium mb-4">
               {chronotype.tagline} ({chronotype.populationPercentage} of population)
             </p>
             <p className="text-lg text-(--fg) leading-relaxed">

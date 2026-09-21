@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { scienceArticles } from "@/lib/science-data";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
+import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 export const metadata: Metadata = {
   title: "Circadian Protocols & Chronobiology Research | ARC 2.0 Science",
@@ -40,7 +41,7 @@ export default function SciencePage() {
     })),
   };
 
-  // Find featured article (e.g. caffeine tolerance reset protocol)
+  // Find featured article
   const featured = scienceArticles.find(a => a.slug === "caffeine-tolerance-reset-protocol") || scienceArticles[0];
   const remaining = scienceArticles.filter(a => a.slug !== featured.slug);
 
@@ -55,36 +56,36 @@ export default function SciencePage() {
       <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
-      <Nav />
+      {/* Focused Hub Header (Left: Brand Logo, Right: Back to Home) */}
+      <ContentNav backHref="/" backLabel="Home" />
 
-      <main className="max-w-6xl mx-auto px-6 py-20 relative">
-        <header className="mb-20 max-w-3xl">
-          <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-4 inline-block font-mono border border-(--accent)/20">
+      <main className="max-w-7xl mx-auto px-6 py-14 relative">
+        <header className="mb-12 max-w-3xl">
+          <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
             Scientific Reference Library
           </span>
-          <h1 className="text-5xl sm:text-7xl font-black tracking-tighter mb-6 leading-none">
-            Science & <span className="font-display italic font-normal text-accent text-6xl sm:text-8xl">Protocols</span>.
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
+            Science &amp; <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Protocols</span>.
           </h1>
-          <p className="text-(--fg-muted) text-lg sm:text-xl leading-relaxed">
+          <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
             Direct, evidence-based reference materials detailing circadian physiology, adenosine clearance protocols, and chronobiology glossary terms.
           </p>
         </header>
 
         {/* Featured Section */}
         {featured && (
-          <section className="mb-16">
-            <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-6 block font-mono">
+          <section className="mb-14">
+            <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-4 block font-mono">
               Featured Protocol
             </h2>
             <Link
               href={`/science/${featured.slug}`}
-              className="group block relative p-8 sm:p-12 rounded-[36px] raised-card hover:border-(--accent)/50 transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.08)]"
+              className="group block relative p-6 sm:p-10 rounded-3xl raised-card hover:border-(--accent)/50 transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.08)]"
             >
-              {/* Card internal blur blob */}
               <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-(--accent)/10 blur-3xl pointer-events-none" />
 
-              <div className="max-w-2xl relative z-10">
-                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase font-mono">
+              <div className="max-w-3xl relative z-10">
+                <div className="flex flex-wrap items-center gap-3 mb-4 text-xs font-bold tracking-widest uppercase font-mono">
                   <span className="px-3 py-1 rounded-full bg-accent text-black font-black">
                     {featured.categoryLabel}
                   </span>
@@ -92,11 +93,11 @@ export default function SciencePage() {
                   <span className="text-(--fg-muted)">{featured.readTime} read</span>
                 </div>
 
-                <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white group-hover:text-accent transition-colors leading-tight">
+                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-tight">
                   {featured.title}
                 </h3>
 
-                <p className="text-(--fg-muted) leading-relaxed mb-8 text-base sm:text-lg">
+                <p className="text-(--fg-muted) leading-relaxed mb-6 text-sm sm:text-base">
                   {featured.excerpt}
                 </p>
 
@@ -119,12 +120,26 @@ export default function SciencePage() {
           </section>
         )}
 
-        {/* Resources Grid */}
-        <section>
-          <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-6 block font-mono">
-            Science Resources & Reference
+        {/* Calculative Mid-Hub Callout Banner */}
+        <CalculativeAppCallout
+          variant="banner"
+          badge="Chronobiology In Code"
+          title="Turn peer-reviewed science into your daily operating system"
+          description="ARC models your adenosine accumulation, core body temperature nadir (Tmin), and solar lux requirements with 100% private, on-device SQLite precision."
+          featureBullets={[
+            "Real-time caffeine half-life decay engine",
+            "Automatic sunrise & sunset color temperature matching",
+            "Zero cloud tracking • Works completely offline",
+          ]}
+          location="science_hub_mid_banner"
+        />
+
+        {/* Resources Grid (Expanded 3-Column Layout) */}
+        <section className="mt-14">
+          <h2 className="text-xs font-black uppercase tracking-widest text-(--fg-muted) mb-8 pb-4 border-b border-white/5 block font-mono">
+            All Science Resources &amp; Protocols ({remaining.length + 1})
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {remaining.map((article) => {
               let catBadge = "text-accent border-(--accent)/20 bg-(--accent)/10";
               let catIcon = "📋";
@@ -145,10 +160,10 @@ export default function SciencePage() {
                   key={article.slug}
                   className="group raised-card overflow-hidden transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 hover:border-(--accent)/40"
                 >
-                  <Link href={`/science/${article.slug}`} className="p-8 flex flex-col h-full justify-between">
+                  <Link href={`/science/${article.slug}`} className="p-7 flex flex-col h-full justify-between">
                     <div>
-                      <div className="flex items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase font-mono">
-                        <span className={`px-3 py-1 rounded-full border flex items-center gap-1.5 ${catBadge}`}>
+                      <div className="flex items-center gap-2.5 mb-5 text-[11px] font-bold tracking-widest uppercase font-mono">
+                        <span className={`px-2.5 py-0.5 rounded-full border flex items-center gap-1 ${catBadge}`}>
                           <span>{catIcon}</span>
                           <span>{article.categoryLabel}</span>
                         </span>
@@ -156,28 +171,33 @@ export default function SciencePage() {
                         <span className="text-(--fg-muted)">{article.readTime}</span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors">
+                      <h3 className="text-xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-snug">
                         {article.title}
                       </h3>
 
-                      <p className="text-(--fg-muted) leading-relaxed mb-8 text-sm">
+                      <p className="text-(--fg-muted) leading-relaxed mb-6 text-xs sm:text-sm line-clamp-3">
                         {article.excerpt}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm font-semibold text-accent group-hover:underline font-mono">
-                      Access Science
-                      <svg
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                    <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                      <span className="text-[11px] text-(--fg-muted) font-mono">
+                        {article.date}
+                      </span>
+                      <span className="flex items-center gap-1 text-xs font-semibold text-accent group-hover:underline font-mono">
+                        Access Protocol
+                        <svg
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
                     </div>
                   </Link>
                 </article>

@@ -15,11 +15,11 @@ export function Chronotypes() {
             </p>
             <h2
               id="chronotypes-heading"
-              className="text-4xl sm:text-5xl font-black tracking-tighter"
+              className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight"
             >
               There are four clocks.
               <br />
-              <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Which is yours?</span>
+              <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Which is yours?</span>
             </h2>
           </div>
           <p className="text-(--fg-muted) text-sm max-w-xs leading-relaxed">

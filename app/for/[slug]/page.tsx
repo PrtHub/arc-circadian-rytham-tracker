@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { audienceDetails } from "@/lib/audience-data";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
 import Link from "next/link";
@@ -112,18 +112,16 @@ export default async function AudiencePage(props: Props) {
         <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
         <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
-        <Nav />
-        <main className="py-20 px-6 max-w-4xl mx-auto relative">
-          <Link href="/#audience" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-            ← Back to Home
-          </Link>
+        {/* Focused Content Header */}
+        <ContentNav backHref="/" backLabel="Home" />
+        <main className="py-14 px-6 max-w-4xl mx-auto relative">
           
           <header className="mb-12">
-            <div className="text-6xl mb-4">{audience.icon}</div>
-            <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4">
-              ARC for <span className="font-display italic font-normal text-accent text-6xl sm:text-7xl">{audience.name}</span>
+            <div className="text-4xl mb-3">{audience.icon}</div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-3 leading-tight">
+              ARC for <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">{audience.name}</span>
             </h1>
-            <p className="text-xl text-(--fg-muted) leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-(--fg-muted) leading-relaxed max-w-2xl">
               {audience.description}
             </p>
           </header>

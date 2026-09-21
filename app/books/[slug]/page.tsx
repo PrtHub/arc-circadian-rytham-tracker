@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { booksData } from "@/lib/book-data";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
+import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -22,10 +23,10 @@ export async function generateMetadata({
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
   return {
-    title: `${book.title} | ARC Recommended Books`,
+    title: `${book.title} Review & Circadian Takeaways | ARC Books`,
     description: book.excerpt,
     openGraph: {
-      title: book.title,
+      title: `${book.title} Review | ARC Books`,
       description: book.excerpt,
       type: "article",
       url: `${SITE_URL}/books/${book.slug}`,
@@ -109,23 +110,33 @@ export default async function BookDetailPage({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Review",
-    "itemReviewed": {
+    itemReviewed: {
       "@type": "Book",
-      "name": book.title,
-      "author": {
+      name: book.title,
+      author: {
         "@type": "Person",
-        "name": book.author,
+        name: book.author,
       },
     },
-    "reviewBody": book.excerpt,
-    "author": {
+    reviewBody: book.excerpt,
+    author: {
       "@type": "Organization",
       name: "ARC Scientific Team",
       url: SITE_URL,
     },
-    "image": `${SITE_URL}/opengraph-image`,
-    "url": `${SITE_URL}/books/${book.slug}`,
+    image: `${SITE_URL}/opengraph-image`,
+    url: `${SITE_URL}/books/${book.slug}`,
   };
+
+  const lines = book.content.trim().split("\n");
+  const headings: { id: string; title: string }[] = [];
+  lines.forEach((line) => {
+    if (line.startsWith("## ")) {
+      const title = line.replace("## ", "").trim();
+      const id = title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-");
+      headings.push({ id, title });
+    }
+  });
 
   return (
     <div className="text-white min-h-screen relative overflow-hidden">
@@ -138,58 +149,46 @@ export default async function BookDetailPage({
       <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />
 
-      <Nav />
+      {/* Focused Content Header (Left: Brand Logo, Right: Back to All Books) */}
+      <ContentNav backHref="/books" backLabel="All Books" />
 
-      <main className="max-w-3xl mx-auto px-6 py-20 relative">
-        <header className="mb-16">
-          <Link
-            href="/books"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:-translate-x-1 transition-transform mb-8 font-mono"
-          >
-            <svg
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-4 h-4 rotate-180"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Back to Books Directory
-          </Link>
-          
+      <main className="max-w-6xl mx-auto px-6 py-14 relative">
+        {/* Header Block */}
+        <header className="mb-14 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest text-accent uppercase font-mono">
-            <span className="px-3 py-1 rounded-full border border-(--accent)/20 bg-(--accent)/10">By {book.author}</span>
+            <span className="px-3 py-1 rounded-full border border-(--accent)/20 bg-(--accent)/10">
+              By {book.author}
+            </span>
             <span className="w-1 h-1 rounded-full bg-zinc-800" />
-            <span className="text-white">Rating: {book.rating}</span>
+            <span className="text-white font-bold">Rating: {book.rating}</span>
             <span className="w-1 h-1 rounded-full bg-zinc-800" />
-            <span className="text-(--fg-muted)">Released: {book.publishedDate}</span>
+            <span className="text-(--fg-muted)">Published {book.publishedDate}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-4 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 leading-snug">
             {book.title}
           </h1>
-          <p className="text-(--fg-muted) text-lg italic mb-6 leading-relaxed">
+
+          <p className="text-(--fg-muted) text-sm sm:text-base italic mb-4 leading-relaxed">
             &ldquo;{book.subtitle}&rdquo;
           </p>
 
-          <div className="mt-8 p-6 raised-card border-(--accent)/20">
+          {/* ARC Practical Application Hook */}
+          <div className="mt-6 p-5 rounded-2xl raised-card border border-accent/20 bg-accent/[0.03]">
             <span className="text-xs font-black uppercase tracking-widest text-accent block mb-2 font-mono">
-              ARC Integration Hook:
+              ARC Chronobiology Hook:
             </span>
-            <p className="text-(--fg) text-sm leading-relaxed">
+            <p className="text-(--fg) text-xs sm:text-sm leading-relaxed">
               {book.arcConnection}
             </p>
           </div>
         </header>
 
-        <section className="max-w-none">
-          <div className="space-y-6 text-(--fg) text-lg leading-relaxed">
-            {book.content
-              .trim()
-              .split("\n")
+        {/* Two-Column Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Main Book Review Content */}
+          <article className="lg:col-span-8 space-y-6 text-(--fg) text-sm sm:text-base leading-relaxed">
+            {lines
               .filter((line) => line.trim() !== "")
               .map((line, i) => {
                 if (line.startsWith("# ")) return null;
@@ -203,48 +202,14 @@ export default async function BookDetailPage({
                   const type = alertMatch[1].toUpperCase();
                   const content = alertMatch[2];
 
-                  let styles = {
-                    border: "border-(--accent)/30",
-                    bg: "bg-(--accent)/5",
-                    text: "text-accent",
-                    label: "Tip",
-                    icon: "💡"
-                  };
-
-                  if (type === "NOTE") {
-                    styles = {
-                      border: "border-white/10",
-                      bg: "bg-white/5",
-                      text: "text-zinc-300",
-                      label: "Note",
-                      icon: "ℹ️"
-                    };
-                  } else if (type === "WARNING" || type === "CAUTION") {
-                    styles = {
-                      border: "border-(--aura-crash)/30",
-                      bg: "bg-(--aura-crash)/10",
-                      text: "text-(--aura-crash)",
-                      label: "Warning",
-                      icon: "⚠️"
-                    };
-                  } else if (type === "IMPORTANT") {
-                    styles = {
-                      border: "border-(--aura-sleep)/30",
-                      bg: "bg-(--aura-sleep)/10",
-                      text: "text-(--aura-sleep)",
-                      label: "Important",
-                      icon: "✨"
-                    };
-                  }
-
                   return (
-                    <div key={i} className={`my-8 p-6 rounded-2xl border ${styles.border} ${styles.bg} flex gap-4 items-start`}>
-                      <span className="text-2xl shrink-0">{styles.icon}</span>
-                      <div>
-                        <span className={`text-xs font-black uppercase tracking-widest ${styles.text} block mb-1 font-mono`}>
-                          {styles.label}
-                        </span>
-                        <div className="text-white text-base leading-relaxed">
+                    <div key={i} className="my-6 p-5 rounded-2xl border border-accent/30 bg-accent/5 flex items-start gap-3.5">
+                      <span className="text-xl shrink-0 select-none">💡</span>
+                      <div className="text-sm sm:text-base leading-relaxed">
+                        <strong className="font-mono text-xs uppercase tracking-wider block mb-1 font-bold text-accent">
+                          {type}
+                        </strong>
+                        <div className="text-(--fg)">
                           {parseMarkdownText(content)}
                         </div>
                       </div>
@@ -254,49 +219,67 @@ export default async function BookDetailPage({
 
                 if (line.startsWith("> ")) {
                   return (
-                    <blockquote key={i} className="my-6 pl-5 border-l-2 border-accent italic text-zinc-300 bg-white/5 py-3 pr-4 rounded-r-xl">
-                      {parseMarkdownText(line.replace(/^>\s*/, ""))}
+                    <blockquote key={i} className="border-l-2 border-accent pl-4 my-6 italic text-zinc-300 bg-white/[0.02] py-2 rounded-r-lg">
+                      {parseMarkdownText(line.slice(2))}
                     </blockquote>
                   );
                 }
 
                 if (line.startsWith("## ")) {
+                  const headingText = line.replace("## ", "").trim();
+                  const headingId = headingText
+                    .toLowerCase()
+                    .replace(/[^\w\s-]/g, "")
+                    .replace(/\s+/g, "-");
+
                   return (
-                    <h2 key={i} className="text-2xl sm:text-3xl font-black text-white mt-14 mb-4 tracking-tight border-b border-white/10 pb-3">
-                      {parseMarkdownText(line.replace(/^##\s+/, ""))}
+                    <h2
+                      id={headingId}
+                      key={i}
+                      className="text-xl sm:text-2xl font-bold text-white mt-10 mb-3 tracking-tight scroll-mt-28 flex items-center gap-2 group"
+                    >
+                      <span>{headingText}</span>
+                      <a
+                        href={`#${headingId}`}
+                        aria-label={`Link to ${headingText}`}
+                        className="opacity-0 group-hover:opacity-100 text-accent transition-opacity text-base font-normal"
+                      >
+                        #
+                      </a>
                     </h2>
                   );
                 }
 
                 if (line.startsWith("### ")) {
                   return (
-                    <h3 key={i} className="text-xl sm:text-2xl font-bold text-white mt-10 mb-4 tracking-tight">
-                      {parseMarkdownText(line.replace(/^###\s+/, ""))}
+                    <h3 key={i} className="text-base sm:text-lg font-bold text-white mt-6 mb-2 tracking-tight">
+                      {line.replace("### ", "")}
                     </h3>
                   );
                 }
 
                 if (line.startsWith("#### ")) {
                   return (
-                    <h4 key={i} className="text-lg font-bold text-accent mt-8 mb-3 tracking-tight font-mono">
-                      {parseMarkdownText(line.replace(/^####\s+/, ""))}
+                    <h4 key={i} className="text-lg font-bold text-accent mt-6 mb-2 tracking-tight uppercase font-mono text-xs">
+                      {line.replace("#### ", "")}
                     </h4>
                   );
                 }
 
                 if (line.startsWith("* ") || line.startsWith("- ")) {
                   return (
-                    <div key={i} className="flex gap-3 items-start my-2">
-                      <span className="text-accent mt-2 font-bold">•</span>
-                      <span>{parseMarkdownText(line.replace(/^[*+-] /, ""))}</span>
-                    </div>
+                    <li key={i} className="list-disc ml-6 my-2 text-(--fg)">
+                      {parseMarkdownText(line.replace(/^(\*|-)\s+/, ""))}
+                    </li>
                   );
                 }
 
-                if (/^\d+\./.test(line)) {
+                if (/^\d+\. /.test(line)) {
                   return (
-                    <div key={i} className="flex gap-3 items-start my-2">
-                      <span className="text-accent font-bold min-w-5 font-mono">{line.match(/^\d+\./)?.[0]}</span>
+                    <div key={i} className="flex items-start gap-3 my-2 text-(--fg)">
+                      <span className="font-mono text-accent font-bold text-sm shrink-0 mt-0.5">
+                        {line.match(/^\d+\./)?.[0]}
+                      </span>
                       <span>{parseMarkdownText(line.replace(/^\d+\. /, ""))}</span>
                     </div>
                   );
@@ -304,52 +287,111 @@ export default async function BookDetailPage({
 
                 return <p key={i} className="mb-6">{parseMarkdownText(line)}</p>;
               })}
-          </div>
-        </section>
 
-        <div className="mt-20 pt-10 border-t border-white/5 flex items-center justify-between gap-6 font-mono text-xs text-(--fg-muted)">
-          <div>
-            <span className="font-black uppercase tracking-widest block mb-2 opacity-70">
-              Reviewed By
-            </span>
-            <span className="text-white font-bold">ARC Scientific Team</span>
-          </div>
-          <div>
-            <span className="font-black uppercase tracking-widest block mb-2 opacity-70">
-              Author Biography
-            </span>
-            <span className="text-white font-bold">{book.authorTitle}</span>
-          </div>
-        </div>
+            {/* Calculative Protocol Bottom Banner */}
+            <CalculativeAppCallout
+              variant="banner"
+              badge="Apply This Book's Principles"
+              title={`Put ${book.title}'s insights on autopilot`}
+              description="ARC translates the core chronobiology discoveries in this book into automated daily notifications, solar window timers, and caffeine half-life calculations."
+              featureBullets={[
+                "Chronotype schedule blueprints based on Dr. Michael Breus's work",
+                "Two-Process sleep pressure model based on Dr. Matthew Walker's research",
+                "100% private, on-device SQLite architecture",
+              ]}
+              location={`book_${book.slug}_bottom_banner`}
+            />
 
-        {/* CTA */}
-        <div className="mt-20 p-8 rounded-3xl raised-card border-(--accent)/30">
-          <h3 className="text-2xl font-extrabold tracking-tighter mb-4 text-white">
-            Structure your timing around science.
-          </h3>
-          <p className="text-(--fg-muted) mb-8 max-w-md leading-relaxed">
-            Put chronotypes and sleep stage cycles on autopilot. Unlock customized daily protocols with ARC.
-          </p>
-          <a
-            href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl bg-accent px-8 py-4 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
-          >
-            Download ARC App
-            <svg
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </a>
+            {/* Reviewer Metadata */}
+            <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-(--fg-muted)">
+              <div>
+                <span className="font-black uppercase tracking-widest block mb-1 opacity-70">
+                  Reviewed By
+                </span>
+                <span className="text-white font-bold">ARC Scientific Team</span>
+              </div>
+              <div>
+                <span className="font-black uppercase tracking-widest block mb-1 opacity-70">
+                  Author Details
+                </span>
+                <span className="text-white font-bold">{book.authorTitle}</span>
+              </div>
+              <div>
+                <Link
+                  href="/books"
+                  className="text-accent hover:underline font-bold"
+                >
+                  ← Browse All Recommended Books
+                </Link>
+              </div>
+            </div>
+          </article>
+
+          {/* Sticky Sidebar */}
+          <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
+            {/* Table of Contents */}
+            {headings.length > 0 && (
+              <div className="p-6 rounded-3xl raised-card border border-white/10">
+                <h3 className="text-xs font-black uppercase tracking-widest text-accent mb-4 font-mono">
+                  Review Chapters
+                </h3>
+                <nav className="space-y-2 text-xs">
+                  {headings.map((heading, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${heading.id}`}
+                      className="block text-(--fg-muted) hover:text-white hover:translate-x-1 transition-all py-1 border-l-2 border-transparent hover:border-accent pl-3 leading-relaxed"
+                    >
+                      {heading.title}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            )}
+
+            {/* Calculative Sidebar Card */}
+            <CalculativeAppCallout
+              badge="Science to Action"
+              title="ARC: The Science in Your Pocket"
+              description="Turn the theoretical models in this book into live Lock Screen countdowns and daily protocols."
+              featureBullets={[
+                "Biphasic and monophasic tracking",
+                "Adenosine decay curve",
+                "Real-time solar lux tracking",
+              ]}
+              location={`book_${book.slug}_sidebar`}
+            />
+
+            {/* Free Companion Tools */}
+            <div className="p-6 rounded-3xl raised-card border border-white/10">
+              <span className="text-[10px] font-black uppercase tracking-widest text-accent block font-mono mb-2">
+                Companion Calculators
+              </span>
+              <h4 className="text-base font-bold text-white mb-3">
+                Actionable Tools
+              </h4>
+              <div className="space-y-2 text-xs font-mono">
+                <Link
+                  href="/tools/chronotype-quiz"
+                  className="block p-2.5 rounded-xl bg-white/5 hover:bg-white/10 hover:text-accent transition-colors"
+                >
+                  🦁 Take Chronotype Diagnostic →
+                </Link>
+                <Link
+                  href="/tools/sleep-cycle-calculator"
+                  className="block p-2.5 rounded-xl bg-white/5 hover:bg-white/10 hover:text-accent transition-colors"
+                >
+                  💤 90-Min Sleep Cycle Calculator →
+                </Link>
+                <Link
+                  href="/tools/sleep-cocktail"
+                  className="block p-2.5 rounded-xl bg-white/5 hover:bg-white/10 hover:text-accent transition-colors"
+                >
+                  🧪 Science-Backed Sleep Stack →
+                </Link>
+              </div>
+            </div>
+          </aside>
         </div>
       </main>
 

@@ -14,11 +14,11 @@ export function Audience() {
           </p>
           <h2
             id="audience-heading"
-            className="text-4xl sm:text-5xl font-black tracking-tighter"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight"
           >
             Built for people who are
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">done guessing.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">done guessing.</span>
           </h2>
         </div>
 

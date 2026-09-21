@@ -55,16 +55,13 @@ export default function CaffeineCalculatorClient() {
   });
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-        ← Back to Tools
-      </Link>
+    <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          Caffeine <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Decay &amp; Cutoff</span> Calculator
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
+          Caffeine <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Decay &amp; Cutoff</span> Calculator
         </h1>
-        <p className="text-(--fg-muted) text-lg">
+        <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Caffeine has an average half-life of 5 to 7 hours. Calculate your exact biological cutoff to ensure under 50mg of active caffeine remains in your system at bedtime.
         </p>
       </header>
@@ -149,7 +146,7 @@ export default function CaffeineCalculatorClient() {
         <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden mt-8">
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent to-transparent opacity-50"></div>
           <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Last Safe Coffee Cutoff</p>
-          <div className="text-5xl sm:text-6xl font-black text-accent mb-4 font-mono">
+          <div className="text-4xl sm:text-5xl font-black text-accent mb-3 font-mono">
             {calculateCutoff()}
           </div>
           <p className="text-(--fg-muted) text-sm max-w-sm mx-auto">

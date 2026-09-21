@@ -10,11 +10,11 @@ export function Highlights() {
           </p>
           <h2
             id="why-heading"
-            className="text-4xl sm:text-5xl font-black tracking-tighter"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight"
           >
             Built different.
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">By design.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">By design.</span>
           </h2>
         </div>
 
@@ -25,8 +25,8 @@ export function Highlights() {
               className="raised-card p-8 hover:border-(--accent)/40 transition-colors"
             >
               <div className="w-8 h-px bg-accent mb-6" aria-hidden="true" />
-              <h3 className="font-bold text-white text-xl mb-3">{h.title}</h3>
-              <p className="text-(--fg-muted) leading-relaxed">{h.desc}</p>
+              <h3 className="font-bold text-white text-lg mb-2">{h.title}</h3>
+              <p className="text-(--fg-muted) text-sm leading-relaxed">{h.desc}</p>
             </li>
           ))}
         </ul>

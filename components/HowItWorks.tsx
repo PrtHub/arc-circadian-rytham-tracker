@@ -15,11 +15,11 @@ export function HowItWorks() {
           </p>
           <h2
             id="hiw-heading"
-            className="text-4xl sm:text-5xl font-black tracking-tighter mb-12"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-8"
           >
             From confused to in-sync
             <br />
-            <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">in one evening.</span>
+            <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">in one evening.</span>
           </h2>
 
           <ol className="relative space-y-10" aria-label="How ARC works">

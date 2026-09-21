@@ -45,6 +45,7 @@ export function Footer() {
           <div>
             <h3 className="text-accent font-bold mb-4 tracking-wider text-xs font-mono uppercase">Resources</h3>
             <ul className="space-y-3 text-sm text-(--fg-muted)">
+              <li><Link href="/guides" className="hover:text-white transition-colors">Circadian Guides</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Journal Blog</Link></li>
               <li><Link href="/science" className="hover:text-white transition-colors">Science &amp; Protocols</Link></li>
               <li><Link href="/books" className="hover:text-white transition-colors">Recommended Books</Link></li>

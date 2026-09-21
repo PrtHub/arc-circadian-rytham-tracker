@@ -52,11 +52,11 @@ export function Science() {
             </p>
             <h2
               id="science-heading"
-              className="text-4xl sm:text-5xl font-black tracking-tighter"
+              className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight"
             >
               Built on chronobiology,
               <br />
-              <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">not hustle culture.</span>
+              <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">not hustle culture.</span>
             </h2>
           </div>
           <p className="text-(--fg-muted) text-sm max-w-sm leading-relaxed">

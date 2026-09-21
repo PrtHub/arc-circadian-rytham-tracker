@@ -55,16 +55,13 @@ export default function ChronotypeQuizClient() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 min-h-[70vh]">
-      <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-(--fg-muted) hover:text-white mb-8 transition-colors font-mono">
-        ← Back to Tools
-      </Link>
+    <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mb-4">
-          3-Question <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Chronotype</span> Quiz
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
+          3-Question <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Chronotype</span> Quiz
         </h1>
-        <p className="text-(--fg-muted) text-lg">
+        <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Stop guessing your biology. Take this rapid assessment to find out if you are a Lion, Bear, Wolf, or Dolphin.
         </p>
       </header>
@@ -93,8 +90,8 @@ export default function ChronotypeQuizClient() {
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-center">
             <p className="text-(--fg-muted) font-bold tracking-widest uppercase mb-4 text-xs font-mono">Your Estimated Chronotype</p>
-            <div className="text-7xl mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{getResult().icon}</div>
-            <h2 className="text-5xl font-black mb-6 text-white">The {getResult().name}</h2>
+            <div className="text-5xl sm:text-6xl mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{getResult().icon}</div>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 text-white">The {getResult().name}</h2>
             <Link
               href={getResult().link}
               className="text-black bg-accent rounded-full px-8 py-3.5 font-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all mb-8 text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"

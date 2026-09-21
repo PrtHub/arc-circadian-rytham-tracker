@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Nav } from "@/components/Nav";
+import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import SleepCycleCalculatorClient from "./SleepCycleCalculatorClient";
 
@@ -30,8 +30,8 @@ export default function SleepCycleCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Nav />
-      <main className="py-12">
+      <ContentNav backHref="/tools" backLabel="All Tools" />
+      <main className="py-14">
         <SleepCycleCalculatorClient />
       </main>
       <Footer />

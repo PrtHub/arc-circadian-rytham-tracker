@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function SleepCycleCalculatorClient() {
   const [activeTab, setActiveTab] = useState<"wake" | "sleep">("wake");
@@ -93,10 +92,10 @@ export default function SleepCycleCalculatorClient() {
         <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest font-mono border border-(--accent)/20">
           Circadian Sleep Science
         </span>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tighter mt-4 mb-3">
-          Sleep Cycle <span className="font-display italic font-normal text-accent text-5xl sm:text-6xl">Calculator</span>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mt-4 mb-3 leading-tight">
+          Sleep Cycle <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Calculator</span>
         </h1>
-        <p className="text-(--fg-muted) max-w-xl mx-auto text-base">
+        <p className="text-(--fg-muted) max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
           Sleep in sync with your brain&apos;s natural stages. Wake up at the completion of a 90-minute cycle to banish morning grogginess.
         </p>
       </header>

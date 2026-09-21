@@ -136,6 +136,7 @@
     background-attachment: fixed;
     color: var(--fg, #f2f2f2);
     font-family: var(--face-ui);
+    transition: --g-top 0.7s ease, --g-mid 0.7s ease, --g-bot 0.7s ease, color 0.7s ease;
   }
   html {
     @apply font-sans;
@@ -147,6 +148,22 @@
 /* ==========================================================================
    ARC 2.0 — "Living Light" Design System Tokens
    ========================================================================== */
+@property --g-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #221d30;
+}
+@property --g-mid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #432f43;
+}
+@property --g-bot {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6b4536;
+}
+
 :root {
   /* neutrals — dark to light, indexes like a normal scale */
   --ink-900: #050505;

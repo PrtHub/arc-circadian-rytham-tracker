@@ -95,12 +95,21 @@ export function CircadianThemeProvider() {
   const [isOpen, setIsOpen] = useState(false);
   const [formattedTime, setFormattedTime] = useState("");
 
+  const applyPhase = (phase: CircadianPhase) => {
+    setCurrentPhase(phase);
+    document.documentElement.setAttribute("data-phase", phase);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("circadian-phase-change", { detail: { phase } })
+      );
+    }
+  };
+
   useEffect(() => {
     // Initial sync
     const now = new Date();
     const phase = getPhaseFromDate(now);
-    setCurrentPhase(phase);
-    document.documentElement.setAttribute("data-phase", phase);
+    applyPhase(phase);
     setFormattedTime(
       now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
     );
@@ -116,8 +125,7 @@ export function CircadianThemeProvider() {
       );
       if (isAuto) {
         const nextPhase = getPhaseFromDate(updatedNow);
-        setCurrentPhase(nextPhase);
-        document.documentElement.setAttribute("data-phase", nextPhase);
+        applyPhase(nextPhase);
       }
     }, 30000);
 
@@ -126,16 +134,14 @@ export function CircadianThemeProvider() {
 
   const handleSelectPhase = (phase: CircadianPhase) => {
     setIsAuto(false);
-    setCurrentPhase(phase);
-    document.documentElement.setAttribute("data-phase", phase);
+    applyPhase(phase);
   };
 
   const handleResetAuto = () => {
     setIsAuto(true);
     const now = new Date();
     const phase = getPhaseFromDate(now);
-    setCurrentPhase(phase);
-    document.documentElement.setAttribute("data-phase", phase);
+    applyPhase(phase);
   };
 
   const activeConfig = PHASE_CONFIG[currentPhase];

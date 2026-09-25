@@ -1,9 +1,12 @@
 "use client";
 
 import { plans, APP_STORE_URL } from "@/components/arc-data";
+import { useIsAndroid } from "@/lib/use-is-android";
 import mixpanel from "mixpanel-browser";
 
 export function Pricing() {
+  const isAndroid = useIsAndroid();
+
   const handlePlanClick = (planName: string) => {
     try {
       mixpanel.track("App Store Button Clicked", {
@@ -35,7 +38,7 @@ export function Pricing() {
             <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">today.</span>
           </h2>
           <p className="text-(--fg-muted) text-sm">
-            Subscription auto-renews, cancel anytime. Managed through the App Store.
+            Annual starts with a 7-day free trial. Auto-renews, cancel anytime in the App Store.
           </p>
         </div>
 
@@ -67,6 +70,11 @@ export function Pricing() {
               </div>
 
               <div>
+                {plan.trial && (
+                  <p className="text-xs font-mono font-bold uppercase tracking-wider text-accent mb-2">
+                    {plan.trial}, then
+                  </p>
+                )}
                 <span className={`text-4xl font-black ${plan.highlight ? "text-accent font-mono" : "text-white"}`}>
                   {plan.price}
                 </span>
@@ -80,20 +88,26 @@ export function Pricing() {
                 )}
               </div>
 
-              <a
-                href={APP_STORE_URL}
-                onClick={() => handlePlanClick(plan.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Get ARC ${plan.name} plan`}
-                className={`w-full text-center rounded-2xl py-4 text-sm font-black transition-all font-mono ${
-                  plan.highlight
-                    ? "bg-accent text-black hover:brightness-110 hover:scale-[1.02] shadow-lg active:scale-95"
-                    : "sunken-card text-white hover:border-(--accent)/50 hover:text-accent"
-                }`}
-              >
-                Get Instant Access
-              </a>
+              {isAndroid ? (
+                <span className="w-full text-center rounded-2xl py-4 text-sm font-black font-mono sunken-card text-(--fg-muted)">
+                  iPhone only for now
+                </span>
+              ) : (
+                <a
+                  href={APP_STORE_URL}
+                  onClick={() => handlePlanClick(plan.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Get ARC ${plan.name} plan`}
+                  className={`w-full text-center rounded-2xl py-4 text-sm font-black transition-all font-mono ${
+                    plan.highlight
+                      ? "bg-accent text-black hover:brightness-110 hover:scale-[1.02] shadow-lg active:scale-95"
+                      : "sunken-card text-white hover:border-(--accent)/50 hover:text-accent"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
+              )}
             </li>
           ))}
         </ul>

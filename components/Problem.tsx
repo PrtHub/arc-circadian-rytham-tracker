@@ -1,17 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 export function Problem() {
-  const [pulse, setPulse] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPulse((p) => !p);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="problem"
@@ -20,7 +7,7 @@ export function Problem() {
     >
       {/* Background glow */}
       <div
-        className="pointer-events-none absolute -left-1/4 top-1/4 w-125 h-125 rounded-full bg-(--aura-crash)/5 blur-[120px]"
+        className="hidden md:block pointer-events-none absolute -left-1/4 top-1/4 w-125 h-125 rounded-full bg-(--aura-crash)/5 blur-[120px]"
         aria-hidden="true"
       />
 

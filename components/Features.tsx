@@ -35,11 +35,11 @@ export function Features() {
     >
       {/* Decorative glows */}
       <div
-        className="pointer-events-none absolute right-[-20%] top-[10%] w-150 h-150 rounded-full bg-(--accent)/5 blur-[150px]"
+        className="hidden md:block pointer-events-none absolute right-[-20%] top-[10%] w-150 h-150 rounded-full bg-(--accent)/5 blur-[150px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-[-20%] bottom-[10%] w-150 h-150 rounded-full bg-(--aura-sleep)/5 blur-[150px]"
+        className="hidden md:block pointer-events-none absolute left-[-20%] bottom-[10%] w-150 h-150 rounded-full bg-(--aura-sleep)/5 blur-[150px]"
         aria-hidden="true"
       />
 

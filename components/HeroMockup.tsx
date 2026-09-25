@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import {
   type CircadianPhase,
+  PHASE_CONFIG,
   getPhaseFromDate,
 } from "@/components/CircadianThemeProvider";
 
 interface PhaseScreenData {
   phaseLabel: string;
-  time: string;
+  // 24h clock shown when this phase is previewed rather than live.
+  sampleTime: string;
+  // 24h target that replaces "{countdown}" in metricSub / metricBadge.
+  countdownTo?: string;
   quote: string;
   actionIcon: string;
   actionTitle: string;
@@ -25,7 +29,8 @@ interface PhaseScreenData {
 const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
   morning: {
     phaseLabel: "MORNING PHASE",
-    time: "08:15",
+    sampleTime: "08:15",
+    countdownTo: "19:40",
     quote:
       "“You're in your light window. Twenty minutes outside now sets up your whole day.”",
     actionIcon: "☀️",
@@ -36,12 +41,13 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     metricBadge: "Recovery",
     metricValue: "7:40",
     metricUnit: "pm",
-    metricSub: "in 7h 35m",
+    metricSub: "in {countdown}",
     timelineProgress: "35%",
   },
   peak: {
     phaseLabel: "PEAK FOCUS",
-    time: "11:30",
+    sampleTime: "11:30",
+    countdownTo: "14:00",
     quote:
       "“Your biological cognitive peak is active. Tackle your highest leverage deep work now.”",
     actionIcon: "⚡",
@@ -52,12 +58,12 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     metricBadge: "Ahead · 45m",
     metricValue: "2:00",
     metricUnit: "pm",
-    metricSub: "Cutoff in 2h 30m",
+    metricSub: "Cutoff in {countdown}",
     timelineProgress: "55%",
   },
   dip: {
     phaseLabel: "AFTERNOON DIP",
-    time: "02:45",
+    sampleTime: "14:45",
     quote:
       "“Adenosine pressure peak. A 15-minute brisk walk or NSDR resets mental clarity.”",
     actionIcon: "⏳",
@@ -66,14 +72,15 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     whyLink: "Why this works",
     metricLabel: "LAST SAFE COFFEE",
     metricBadge: "Cutoff Passed",
-    metricValue: "1:47",
+    metricValue: "1:30",
     metricUnit: "pm",
     metricSub: "Target <50mg at bedtime",
     timelineProgress: "72%",
   },
   evening: {
     phaseLabel: "EVENING PHASE",
-    time: "06:30",
+    sampleTime: "18:30",
+    countdownTo: "21:30",
     quote:
       "“Core temperature and physical strength peak. Dim harsh overhead lighting to protect melatonin.”",
     actionIcon: "🌆",
@@ -84,12 +91,13 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     metricBadge: "On Track",
     metricValue: "9:30",
     metricUnit: "pm",
-    metricSub: "in 3 hours",
+    metricSub: "in {countdown}",
     timelineProgress: "82%",
   },
   windDown: {
     phaseLabel: "WIND DOWN",
-    time: "10:00",
+    sampleTime: "22:00",
+    countdownTo: "23:00",
     quote:
       "“Dim light melatonin onset is underway. Keep screens filtered and lower room temperature.”",
     actionIcon: "🌙",
@@ -97,7 +105,7 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     actionDesc: "Cool room to 67°F & power down",
     whyLink: "DLMO mechanism",
     metricLabel: "BEDTIME TARGET",
-    metricBadge: "In 45 min",
+    metricBadge: "In {countdown}",
     metricValue: "11:00",
     metricUnit: "pm",
     metricSub: "Target 5 cycles (7.5h)",
@@ -105,7 +113,8 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
   },
   night: {
     phaseLabel: "NIGHT PHASE",
-    time: "12:05",
+    sampleTime: "00:05",
+    countdownTo: "06:30",
     quote:
       "“Core temperature minimum and cellular repair. Restorative slow-wave sleep is prioritizing recovery.”",
     actionIcon: "🌌",
@@ -116,12 +125,12 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
     metricBadge: "Restoring",
     metricValue: "6:30",
     metricUnit: "am",
-    metricSub: "in 6h 25m",
+    metricSub: "in {countdown}",
     timelineProgress: "98%",
   },
   rise: {
     phaseLabel: "RISE PHASE",
-    time: "06:15",
+    sampleTime: "06:15",
     quote:
       "“Cortisol awakening response is initiating. Step into natural daylight to anchor your rhythm.”",
     actionIcon: "🌅",
@@ -137,63 +146,67 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
   },
 };
 
+// The phase lives on <html data-phase>, set before paint and updated by CircadianThemeProvider.
+function subscribePhase(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-phase"],
+  });
+  return () => observer.disconnect();
+}
+
+function getPhaseSnapshot(): CircadianPhase {
+  const phase = document.documentElement.getAttribute("data-phase");
+  return phase && phase in PHASE_SCREEN_CONTENT ? (phase as CircadianPhase) : "dip";
+}
+
+// Minute-resolution clock, so the snapshot stays stable between ticks. Null on the server.
+function subscribeMinute(onChange: () => void) {
+  const id = setInterval(onChange, 15000);
+  return () => clearInterval(id);
+}
+
+const getMinuteSnapshot = () => Math.floor(Date.now() / 60000);
+const getServerMinute = () => null;
+
+function toMinutes(hhmm: string) {
+  const [h, m] = hhmm.split(":").map(Number);
+  return h * 60 + m;
+}
+
+function formatClock(minutes: number, withPeriod: boolean) {
+  const h24 = Math.floor(minutes / 60) % 24;
+  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
+  const clock = `${h12}:${String(minutes % 60).padStart(2, "0")}`;
+  return withPeriod ? `${clock} ${h24 < 12 ? "AM" : "PM"}` : clock;
+}
+
+function formatCountdown(fromMinutes: number, toHHMM: string) {
+  const diff = (((toMinutes(toHHMM) - fromMinutes) % 1440) + 1440) % 1440;
+  const h = Math.floor(diff / 60);
+  const m = diff % 60;
+  if (h === 0) return `${m}m`;
+  return m === 0 ? `${h}h` : `${h}h ${m}m`;
+}
+
 export function HeroMockup() {
-  const [phase, setPhase] = useState<CircadianPhase>("dip");
-  const [currentTime, setCurrentTime] = useState("12:05");
-
-  useEffect(() => {
-    // Initial sync from DOM or local time
-    const domPhase = document.documentElement.getAttribute("data-phase") as CircadianPhase;
-    if (domPhase && PHASE_SCREEN_CONTENT[domPhase]) {
-      setPhase(domPhase);
-    } else {
-      setPhase(getPhaseFromDate());
-    }
-
-    const updateClock = () => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
-      );
-    };
-    updateClock();
-
-    // Listen to custom circadian phase changes from CircadianThemeProvider
-    const handlePhaseChange = (e: Event) => {
-      const customEvent = e as CustomEvent<{ phase: CircadianPhase }>;
-      if (customEvent.detail?.phase && PHASE_SCREEN_CONTENT[customEvent.detail.phase]) {
-        setPhase(customEvent.detail.phase);
-      }
-    };
-    window.addEventListener("circadian-phase-change", handlePhaseChange);
-
-    // Fallback MutationObserver on html data-phase attribute
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.type === "attributes" && mutation.attributeName === "data-phase") {
-          const newPhase = document.documentElement.getAttribute("data-phase") as CircadianPhase;
-          if (newPhase && PHASE_SCREEN_CONTENT[newPhase]) {
-            setPhase(newPhase);
-          }
-        }
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-phase"],
-    });
-
-    const clockTimer = setInterval(updateClock, 30000);
-
-    return () => {
-      window.removeEventListener("circadian-phase-change", handlePhaseChange);
-      observer.disconnect();
-      clearInterval(clockTimer);
-    };
-  }, []);
+  const phase = useSyncExternalStore(subscribePhase, getPhaseSnapshot, () => "dip" as CircadianPhase);
+  const minute = useSyncExternalStore(subscribeMinute, getMinuteSnapshot, getServerMinute);
 
   const content = PHASE_SCREEN_CONTENT[phase] || PHASE_SCREEN_CONTENT.dip;
+
+  // Live when the previewed phase is the visitor's real one; otherwise show that phase's sample time.
+  const now = minute === null ? null : new Date(minute * 60000);
+  const isLive = now !== null && getPhaseFromDate(now) === phase;
+  const screenMinutes = isLive ? now.getHours() * 60 + now.getMinutes() : toMinutes(content.sampleTime);
+
+  const fillCountdown = (text: string) =>
+    content.countdownTo
+      ? text.replace("{countdown}", formatCountdown(screenMinutes, content.countdownTo))
+      : text;
+  const metricBadge = fillCountdown(content.metricBadge);
+  const metricSub = fillCountdown(content.metricSub);
 
   return (
     <div className="relative w-full max-w-[285px] sm:max-w-[295px]">
@@ -222,7 +235,7 @@ export function HeroMockup() {
           >
             {/* 1. Status Bar */}
             <div className="flex items-center justify-between px-1 text-[11px] font-semibold text-white/90">
-              <span className="tracking-tight font-mono">{currentTime}</span>
+              <span className="tracking-tight font-mono">{formatClock(screenMinutes, false)}</span>
               <div className="flex items-center gap-1.5 text-xs opacity-90">
                 {/* Signal Bars */}
                 <div className="flex items-end gap-0.5 h-2.5">
@@ -305,7 +318,7 @@ export function HeroMockup() {
                   {content.metricLabel}
                 </span>
                 <span className="text-[8px] font-mono font-bold text-[var(--accent)] bg-[var(--accent)]/15 border border-[var(--accent)]/30 px-1.5 py-0.5 rounded-full transition-colors duration-500">
-                  {content.metricBadge}
+                  {metricBadge}
                 </span>
               </div>
 
@@ -318,7 +331,7 @@ export function HeroMockup() {
                 </span>
               </div>
               <span className="text-[9px] text-[var(--fg-muted)] -mt-0.5 transition-colors duration-500">
-                {content.metricSub}
+                {metricSub}
               </span>
 
               {/* Timeline Graph */}
@@ -377,6 +390,24 @@ export function HeroMockup() {
           </div>
         </div>
       </div>
+
+      {/* Tells visitors the page is already running on their clock */}
+      {now !== null && (
+        <p className="mt-5 text-center text-xs text-(--fg-muted) leading-relaxed">
+          {isLive ? (
+            <>
+              It&apos;s <strong className="text-white">{formatClock(screenMinutes, true)}</strong> where
+              you are: your <span className="text-accent">{PHASE_CONFIG[phase].label}</span>. This page is
+              tinted to it, and the phone shows what ARC would tell you right now.
+            </>
+          ) : (
+            <>
+              Previewing <span className="text-accent">{PHASE_CONFIG[phase].label}</span>. The phone shows
+              what ARC would tell you then.
+            </>
+          )}
+        </p>
+      )}
     </div>
   );
 }

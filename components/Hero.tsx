@@ -41,10 +41,10 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
             <AppStoreButton size="lg" location="hero" />
             <a
-              href="#how-it-works"
+              href="#cutoff"
               className="inline-flex items-center justify-center gap-1.5 text-(--fg-muted) hover:text-white text-sm font-bold font-mono transition-all py-3.5 px-5 rounded-full border border-white/10 hover:bg-white/5"
             >
-              See how it works ↓
+              Find your coffee cutoff ↓
             </a>
           </div>
 

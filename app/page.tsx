@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { CutoffReveal } from "@/components/CutoffReveal";
+import { SectionViewTracker } from "@/components/SectionViewTracker";
 import { SocialProof } from "@/components/SocialProof";
 import { Problem } from "@/components/Problem";
 import { Chronotypes } from "@/components/Chronotypes";
@@ -87,6 +89,7 @@ export default function ArcPage() {
         <Nav />
         <main>
           <Hero />
+          <CutoffReveal />
           <SocialProof />
           <Problem />
           <Chronotypes />
@@ -101,6 +104,7 @@ export default function ArcPage() {
         </main>
         <Footer />
       </div>
+      <SectionViewTracker />
     </>
   );
 }

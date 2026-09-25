@@ -60,6 +60,11 @@ export const metadata: Metadata = {
   ],
 
   applicationName: "ARC 2.0 Living Light",
+
+  // Safari on iOS shows a native "Get" banner for the app.
+  itunes: {
+    appId: "6758214892",
+  },
   authors: [{ name: "Pritam", url: "mailto:pritamfinds@gmail.com" }],
   creator: "Pritam",
   publisher: "ARC",

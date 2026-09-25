@@ -168,15 +168,21 @@ export const plans = [
     period: "/ week",
     highlight: false,
     badge: null as string | null,
+    trial: null as string | null,
     note: "Cancel anytime in App Store",
+    cta: "Get Weekly",
   },
   {
     name: "Annual",
     price: "$39.99",
     period: "/ year",
     highlight: true,
-    badge: "Best Value" as string | null,
-    note: "~$0.77 / week • Includes full ARC 2.0 features",
+    // $39.99 vs 52 × $4.99 = $259.48
+    badge: "Save 84%" as string | null,
+    // The trial is configured on annual only in App Store Connect.
+    trial: "7-day free trial" as string | null,
+    note: "~$0.77 / week after the trial • Billed annually",
+    cta: "Start 7-Day Free Trial",
   },
 ];
 

@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { APP_STORE_URL } from "@/components/arc-data";
+import { useIsAndroid } from "@/lib/use-is-android";
 import mixpanel from "mixpanel-browser";
 
 interface AppStoreButtonProps {
@@ -10,7 +12,33 @@ interface AppStoreButtonProps {
 
 export function AppStoreButton({ size = "default", location = "unknown" }: AppStoreButtonProps) {
   const isLarge = size === "lg";
-  
+  const isAndroid = useIsAndroid();
+
+  if (isAndroid) {
+    return (
+      <div
+        className={`inline-flex flex-col items-start gap-1 rounded-2xl border border-white/15 bg-white/5 font-sans ${isLarge ? "px-6 py-3.5" : "px-4 py-2.5"}`}
+      >
+        <span className={`font-bold text-white ${isLarge ? "text-base" : "text-sm"}`}>
+          ARC is iPhone-only for now
+        </span>
+        <Link
+          href="/tools"
+          onClick={() => {
+            try {
+              mixpanel.track("Android Fallback Clicked", { location });
+            } catch (e) {
+              console.error(e);
+            }
+          }}
+          className="text-xs font-mono font-bold text-accent hover:underline"
+        >
+          Try the free sleep &amp; caffeine tools →
+        </Link>
+      </div>
+    );
+  }
+
   const handleClick = () => {
     try {
       mixpanel.track("App Store Button Clicked", {

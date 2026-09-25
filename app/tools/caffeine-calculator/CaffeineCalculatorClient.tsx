@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CAFFEINE_SENSITIVITIES, SLEEP_SAFE_MG, halfLifeFor, hoursToClear } from "@/lib/caffeine";
 
 const CAFFEINE_DB = [
   { name: "Celsius Energy Drink", amount: 200, category: "Energy" },
@@ -27,13 +28,6 @@ const CAFFEINE_DB = [
   { name: "Dr Pepper (12oz)", amount: 41, category: "Soda" },
 ];
 
-// Same three metaboliser half-lives the ARC app asks about during onboarding.
-const SENSITIVITIES = [
-  { id: "fast", label: "Fast", halfLife: 4 },
-  { id: "normal", label: "Average", halfLife: 5.5 },
-  { id: "slow", label: "Slow", halfLife: 7 },
-];
-
 export default function CaffeineCalculatorClient() {
   const [targetSleep, setTargetSleep] = useState("23:00");
   const [caffeineAmount, setCaffeineAmount] = useState(100);
@@ -41,13 +35,12 @@ export default function CaffeineCalculatorClient() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const halfLife = SENSITIVITIES.find((s) => s.id === sensitivity)?.halfLife ?? 5.5;
+  const halfLife = halfLifeFor(sensitivity);
 
   const calculateCutoff = () => {
-    if (caffeineAmount <= 50) return "Anytime (Under 50mg sleep threshold)";
+    if (caffeineAmount <= SLEEP_SAFE_MG) return "Anytime (Under 50mg sleep threshold)";
 
-    // Time to decay from caffeineAmount down to 50mg at the chosen half-life:
-    const hoursNeeded = halfLife * (Math.log(50 / caffeineAmount) / Math.log(0.5));
+    const hoursNeeded = hoursToClear(caffeineAmount, halfLife);
     if (hoursNeeded >= 24) return "Not today (too much to clear by bedtime)";
 
     const [hours, minutes] = targetSleep.split(":").map(Number);
@@ -104,7 +97,7 @@ export default function CaffeineCalculatorClient() {
         <div>
           <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Caffeine Sensitivity</label>
           <div className="grid grid-cols-3 gap-2 font-mono">
-            {SENSITIVITIES.map((s) => (
+            {CAFFEINE_SENSITIVITIES.map((s) => (
               <button
                 key={s.id}
                 onClick={() => setSensitivity(s.id)}

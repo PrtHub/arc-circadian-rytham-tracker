@@ -18,7 +18,7 @@ export default function CaffeineCalculatorPage() {
     "@type": "WebApplication",
     "name": "ARC Caffeine Half-Life Calculator",
     "url": "https://arcapp.sbs/tools/caffeine-calculator",
-    "description": "A free tool to calculate when to stop drinking coffee to protect deep sleep, based on the 6-hour half-life of caffeine.",
+    "description": "A free tool to calculate when to stop drinking coffee to protect deep sleep, based on your personal caffeine half-life (4 to 7 hours).",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "All"
   };
@@ -47,7 +47,7 @@ export default function CaffeineCalculatorPage() {
 
           <h3 className="text-2xl font-bold mb-4 text-white mt-10">How does this affect my Circadian Rhythm?</h3>
           <p className="leading-relaxed mb-6">
-            Caffeine doesn't give you energy; it borrows it from tomorrow. It binds to adenosine receptors (the chemical that makes you feel tired). When the caffeine finally wears off, all that built-up adenosine floods your receptors, causing a crash. Mismanaging this cycle disrupts your core temperature minimum and delays your natural melatonin release, throwing your entire circadian rhythm out of sync.
+            Caffeine doesn&apos;t give you energy; it borrows it from tomorrow. It binds to adenosine receptors (the chemical that makes you feel tired). When the caffeine finally wears off, all that built-up adenosine floods your receptors, causing a crash. Mismanaging this cycle disrupts your core temperature minimum and delays your natural melatonin release, throwing your entire circadian rhythm out of sync.
           </p>
         </div>
       </section>

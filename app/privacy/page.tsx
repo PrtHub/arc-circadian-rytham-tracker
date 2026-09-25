@@ -78,6 +78,10 @@ export default function PrivacyPage() {
               <span className="text-accent font-bold font-mono">✓</span>
               <span><strong className="text-white">Zero Data Brokers:</strong> We never sell, rent, monetize, or share your personal information with advertising networks.</span>
             </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-accent font-bold font-mono">i</span>
+              <span><strong className="text-white">This Website Is Different:</strong> arcapp.sbs (not the app) uses Google Analytics and Mixpanel to understand how visitors use the site, including session recordings. See section 6.</span>
+            </li>
           </ul>
         </div>
 
@@ -153,7 +157,30 @@ export default function PrivacyPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white font-sans tracking-tight">
-              6. Your Data Rights & Complete Erasure
+              6. This Website (arcapp.sbs) & Web Analytics
+            </h2>
+            <p>
+              Everything above describes the ARC iOS app. This marketing website, including its free calculators, works differently and uses two third-party analytics services:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-sm">
+              <li><strong className="text-zinc-200">Google Analytics 4:</strong> Records pages visited, referring site, device and browser type, and approximate location derived from your IP address.</li>
+              <li><strong className="text-zinc-200">Mixpanel:</strong> Automatically records page views, clicks (such as App Store button taps), and session recordings of how you scroll and interact with pages, so we can see where the site is confusing or broken.</li>
+            </ul>
+            <p>
+              These services set cookies or similar browser storage and process data on their own servers under their own privacy policies. Nothing from the ARC app, including your logs, check-ins, or chronotype, is ever sent to this website. Calculator results are computed in your browser.
+            </p>
+            <p>
+              You can opt out by blocking cookies or analytics scripts in your browser, using a content blocker, or installing Google&apos;s{" "}
+              <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                Analytics opt-out add-on
+              </a>
+              . The site works fully without them.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-white font-sans tracking-tight">
+              7. Your Data Rights & Complete Erasure
             </h2>
             <p>
               Because your check-ins and logs reside on your physical device, you maintain full control over your data:
@@ -167,7 +194,7 @@ export default function PrivacyPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white font-sans tracking-tight">
-              7. Contact & Data Inquiries
+              8. Contact & Data Inquiries
             </h2>
             <p>
               If you have any questions or suggestions regarding our privacy practices, please contact our team directly:

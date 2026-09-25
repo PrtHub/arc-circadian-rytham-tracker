@@ -14,7 +14,12 @@ import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
-import { jsonLdApp, jsonLdFaq, jsonLdOrganization, jsonLdWebPage } from "@/components/arc-data";
+import {
+  jsonLdApp,
+  jsonLdFaq,
+  jsonLdOrganization,
+  jsonLdWebPage,
+} from "@/components/arc-data";
 
 export const metadata: Metadata = {
   title: "ARC 2.0 — Circadian Rhythm Tracker, Chronotype Quiz & Sleep Science",

@@ -48,7 +48,7 @@ export const audienceDetails: Record<string, AudienceDetail> = {
     arcSolution:
       "ARC uses peer-reviewed chronobiology to tell you exactly when your brain is sharpest, allowing you to schedule highly demanding cognitive work at the precise right biological moment.",
     features: [
-      "32-step precision chronotype diagnosis",
+      "22-step precision chronotype diagnosis",
       "Caffeine half-life & cutoff prediction",
       "Daily recovery mode after poor sleep",
       "100% on-device privacy",

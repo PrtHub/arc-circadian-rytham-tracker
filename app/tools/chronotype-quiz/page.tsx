@@ -18,7 +18,7 @@ export default function ChronotypeQuizPage() {
     "@type": "WebApplication",
     "name": "ARC Chronotype Quiz",
     "url": "https://arcapp.sbs/tools/chronotype-quiz",
-    "description": "A rapid 3-question assessment to estimate your genetic chronotype (Lion, Bear, Wolf, or Dolphin) and optimize your circadian rhythm.",
+    "description": "An 8-question assessment to estimate your genetic chronotype (Lion, Bear, Wolf, or Dolphin) and optimize your circadian rhythm.",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "All"
   };

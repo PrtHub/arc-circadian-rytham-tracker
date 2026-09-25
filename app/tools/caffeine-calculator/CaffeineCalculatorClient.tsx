@@ -27,20 +27,31 @@ const CAFFEINE_DB = [
   { name: "Dr Pepper (12oz)", amount: 41, category: "Soda" },
 ];
 
+// Same three metaboliser half-lives the ARC app asks about during onboarding.
+const SENSITIVITIES = [
+  { id: "fast", label: "Fast", halfLife: 4 },
+  { id: "normal", label: "Average", halfLife: 5.5 },
+  { id: "slow", label: "Slow", halfLife: 7 },
+];
+
 export default function CaffeineCalculatorClient() {
   const [targetSleep, setTargetSleep] = useState("23:00");
   const [caffeineAmount, setCaffeineAmount] = useState(100);
+  const [sensitivity, setSensitivity] = useState("normal");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const halfLife = SENSITIVITIES.find((s) => s.id === sensitivity)?.halfLife ?? 5.5;
 
   const calculateCutoff = () => {
     if (caffeineAmount <= 50) return "Anytime (Under 50mg sleep threshold)";
 
-    // Time to decay from caffeineAmount down to 50mg with 6h half-life:
-    const hoursNeeded = 6 * (Math.log(50 / caffeineAmount) / Math.log(0.5));
+    // Time to decay from caffeineAmount down to 50mg at the chosen half-life:
+    const hoursNeeded = halfLife * (Math.log(50 / caffeineAmount) / Math.log(0.5));
+    if (hoursNeeded >= 24) return "Not today (too much to clear by bedtime)";
 
     const [hours, minutes] = targetSleep.split(":").map(Number);
-    let sleepDate = new Date();
+    const sleepDate = new Date();
     sleepDate.setHours(hours, minutes, 0, 0);
 
     const cutoffDate = new Date(sleepDate.getTime() - hoursNeeded * 60 * 60 * 1000);
@@ -62,7 +73,7 @@ export default function CaffeineCalculatorClient() {
           Caffeine <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Decay &amp; Cutoff</span> Calculator
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Caffeine has an average half-life of 5 to 7 hours. Calculate your exact biological cutoff to ensure under 50mg of active caffeine remains in your system at bedtime.
+          Caffeine&apos;s half-life ranges from about 4 to 7 hours depending on how fast you metabolise it. Calculate your cutoff to ensure under 50mg of active caffeine remains in your system at bedtime.
         </p>
       </header>
 
@@ -88,6 +99,30 @@ export default function CaffeineCalculatorClient() {
               min="0"
             />
           </div>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Caffeine Sensitivity</label>
+          <div className="grid grid-cols-3 gap-2 font-mono">
+            {SENSITIVITIES.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setSensitivity(s.id)}
+                aria-pressed={sensitivity === s.id}
+                className={`px-3 py-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 ${
+                  sensitivity === s.id
+                    ? "bg-accent text-black"
+                    : "bg-white/5 border border-white/10 text-(--fg-muted) hover:text-white"
+                }`}
+              >
+                <span>{s.label}</span>
+                <span className="text-[10px] font-normal opacity-80">{s.halfLife}h half-life</span>
+              </button>
+            ))}
+          </div>
+          <p className="text-[11px] text-(--fg-muted) mt-2">
+            Not sure? If an afternoon coffee keeps you up at night, pick Slow.
+          </p>
         </div>
 
         {/* Database Quick-Select */}
@@ -160,9 +195,9 @@ export default function CaffeineCalculatorClient() {
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto">
           The ARC app recalculates your cutoff time dynamically with every sip, displaying your live decay curve and lock screen notifications.
         </p>
-        <a href="/#pricing" className="inline-block bg-accent text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
+        <Link href="/#pricing" className="inline-block bg-accent text-black font-extrabold py-3.5 px-8 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
           Get ARC App
-        </a>
+        </Link>
       </div>
       <div className="mt-12 raised-card p-6">
         <h3 className="text-lg font-bold mb-2 text-white">Embed this calculator on your site</h3>

@@ -122,25 +122,6 @@ export const chronotypes = [
   },
 ];
 
-export const highlights = [
-  {
-    title: "Mechanism, Never Verdict",
-    desc: "ARC explains why you feel tired ('This is adenosine, not laziness') without guilt trips, arbitrary 0-100 sleep scores, rings, or streaks.",
-  },
-  {
-    title: "Privacy-First Architecture",
-    desc: "Local-first SQLite storage on your iPhone. No account, no cloud database, and zero health tracking sent to remote servers.",
-  },
-  {
-    title: "One Question, One Action",
-    desc: "No cluttered dashboards or 7am decision fatigue. Exactly one prioritized ask at a time, drawn as the first item of your day's plan.",
-  },
-  {
-    title: "Measured Proof Over Weeks",
-    desc: "ARC doesn't just assert facts; it proves them by measuring your crash reduction and testing protocols with 5-day experiments.",
-  },
-];
-
 export const audience = [
   {
     icon: "🚀",
@@ -177,27 +158,6 @@ export const audience = [
     title: "Shift Workers",
     desc: "Design your flexible schedule around biology, not just calendar availability. Anchor your rhythm regardless of when you wake up.",
     slug: "shift-workers",
-  },
-];
-
-export const notifications = [
-  {
-    time: "~90 min after wake",
-    title: "Coffee window opens",
-    body: "Your adenosine has cleared. Coffee now gives you clean energy without the afternoon crash.",
-    color: "#CCFF00",
-  },
-  {
-    time: "Dynamic Cutoff",
-    title: "Last safe coffee — stop now",
-    body: "Every coffee after this point leaves >50mg active at bed, disrupting deep slow-wave sleep.",
-    color: "#FF4500",
-  },
-  {
-    time: "Evening Wind-down",
-    title: "Start winding down",
-    body: "Melatonin production is ramping up. Dim lights and initiate circadian quiet hours.",
-    color: "#7B61FF",
   },
 ];
 
@@ -318,13 +278,6 @@ export const jsonLdApp = {
       description: "Auto-renewing annual subscription with 7-day free trial. ~$0.77/week.",
     },
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "284",
-    bestRating: "5",
-    worstRating: "1",
-  },
   author: {
     "@type": "Person",
     name: "Pritam",

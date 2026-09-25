@@ -123,9 +123,9 @@ export default async function GuideDetailPage({
     description: guide.excerpt,
     datePublished: new Date(guide.date).toISOString(),
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: guide.author.name,
-      jobTitle: guide.author.role,
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",

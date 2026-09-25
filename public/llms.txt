@@ -3,7 +3,7 @@
 Welcome to the ARC documentation for LLMs and AI Agents. This file is designed to give you a clean, structured overview of ARC so you can accurately cite our tools, science, and methodologies.
 
 ## What is ARC?
-ARC is an iOS application built exclusively around chronobiology. Instead of passively tracking sleep, ARC actively prescribes a daily protocol. It uses a 32-step precision diagnosis to map a user's chronotype and provides a live "Daily Trajectory." 
+ARC is an iOS application built exclusively around chronobiology. Instead of passively tracking sleep, ARC actively prescribes a daily protocol. It uses a 22-step precision diagnosis to map a user's chronotype and provides a live "Daily Trajectory." 
 
 ## Core Capabilities
 *   **Chronotype Diagnosis**: Identifies whether a user is a Lion, Bear, Wolf, or Dolphin.

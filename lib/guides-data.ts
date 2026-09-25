@@ -31,8 +31,8 @@ export const guidesData: Guide[] = [
     date: "2026-07-10",
     readTime: "11 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sunlight Calculator", url: "/tools/sunlight-calculator", description: "Calculate your morning lux requirement." },
@@ -141,8 +141,8 @@ By Day 14, your endogenous Cortisol Awakening Response will naturally wake you 5
     date: "2026-07-08",
     readTime: "12 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Caffeine Calculator", url: "/tools/caffeine-calculator", description: "Map caffeine half-life across your night shift." },
@@ -247,8 +247,8 @@ When transitioning from your last night shift into your weekend or off-duty days
     date: "2026-07-05",
     readTime: "9 min",
     author: {
-      name: "Marcus Vance, MS",
-      role: "Pharmacology & Performance Researcher",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Caffeine Decay Calculator", url: "/tools/caffeine-calculator", description: "Track active milligrams and predicted bedtime clearance." },
@@ -347,8 +347,8 @@ Here is the 7-day sensitivity reset:
     date: "2026-07-02",
     readTime: "8 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sunlight Calculator", url: "/tools/sunlight-calculator", description: "Calculate outdoor lux requirements for clear vs cloudy skies." },
@@ -447,8 +447,8 @@ Viewing sunlight again late in the afternoon (between 4:30 PM and 6:30 PM, when 
     date: "2026-06-29",
     readTime: "10 min",
     author: {
-      name: "Marcus Vance, MS",
-      role: "Chronobiology & Performance Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Chronotype Quiz", url: "/tools/chronotype-quiz", description: "Take the 22-step diagnostic test to identify your archetype." },
@@ -562,8 +562,8 @@ Dolphins have a genetically fragmented sleep architecture (named after real dolp
     date: "2026-06-25",
     readTime: "9 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Social Jetlag Calculator", url: "/tools/social-jetlag-calculator", description: "Calculate your exact circadian phase shift score in hours." },
@@ -652,8 +652,8 @@ If you accidentally slipped and slept in late on Sunday morning, execute this em
     date: "2026-06-20",
     readTime: "11 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cocktail Stack", url: "/tools/sleep-cocktail", description: "Magnesium L-Threonate & Apigenin protocol for ADHD." },
@@ -741,8 +741,8 @@ If you take stimulant medications (Methylphenidate, Dextroamphetamine, Lisdexamf
     date: "2026-06-15",
     readTime: "10 min",
     author: {
-      name: "Marcus Vance, MS",
-      role: "Performance & Travel Chronobiology Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Jetlag Planner", url: "/tools/jetlag-planner", description: "Calculate your phase shift timeline based on origin and destination." },
@@ -820,8 +820,8 @@ For circadian phase shifting, use **micro-doses (0.3mg to 0.5mg)** of fast-relea
     date: "2026-06-10",
     readTime: "8 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cycle Calculator", url: "/tools/sleep-cycle-calculator", description: "Calculate optimal wind-down timing." },
@@ -896,8 +896,8 @@ Software filters shift screen color from cool blue to a warmer amber tint. While
     date: "2026-06-05",
     readTime: "9 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cycle Calculator", url: "/tools/sleep-cycle-calculator", description: "Align temperature minimums to sleep cycles." },
@@ -973,8 +973,8 @@ If you wake up reliably between 3:00 AM and 4:00 AM throwing off your bed covers
     date: "2026-07-15",
     readTime: "10 min",
     author: {
-      name: "Dr. Marcus Thorne, PharmD",
-      role: "Neuropharmacology & Circadian Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Caffeine Half-Life Calculator", url: "/tools/caffeine-calculator", description: "Calculate your metabolic clearance curve." },
@@ -1069,8 +1069,8 @@ When the afternoon crash strikes, follow this non-pharmacological triage checkli
     date: "2026-07-20",
     readTime: "10 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sunlight Calculator", url: "/tools/sunlight-calculator", description: "Calculate melanopic lux for CAR trigger." },
@@ -1158,8 +1158,8 @@ Follow this morning sequence for 7 consecutive days to recalibrate your HPA axis
     date: "2026-07-28",
     readTime: "9 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cycle Calculator", url: "/tools/sleep-cycle-calculator", description: "Time alarm to wake at the end of a 90-min cycle." },
@@ -1252,8 +1252,8 @@ Keep this exact 5-step sequence taped next to your bed:
     date: "2026-08-04",
     readTime: "11 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Social Jetlag Calculator", url: "/tools/social-jetlag-calculator", description: "Track weekend metabolic schedule drift." },
@@ -1336,8 +1336,8 @@ To protect your sleep architecture and metabolic alignment, enforce the **3-Hour
     date: "2026-08-11",
     readTime: "9 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Debt Calculator", url: "/tools/sleep-debt-calculator", description: "Measure hours of deficit to recover via NSDR." },
@@ -1417,8 +1417,8 @@ The most effective window to deploy NSDR is during your biological **Afternoon C
     date: "2026-08-18",
     readTime: "10 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Chronotype Compatibility Quiz", url: "/tools/chronotype-compatibility", description: "Map alert/sleep overlap graphs with your partner." },
@@ -1503,8 +1503,8 @@ From a clinical sleep perspective, this is biologically impossible for 40% of th
     date: "2026-08-25",
     readTime: "10 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cycle Calculator", url: "/tools/sleep-cycle-calculator", description: "Ensure workouts don't impede 90-minute sleep cycles." },
@@ -1594,8 +1594,8 @@ Align your workouts with your chronotype biology:
     date: "2026-09-02",
     readTime: "11 min",
     author: {
-      name: "Dr. Alistair Vance, PhD",
-      role: "Circadian Neurobiologist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sunlight Calculator", url: "/tools/sunlight-calculator", description: "Determine indoor light therapy durations." },
@@ -1684,8 +1684,8 @@ Implement this daily sequence from October through March:
     date: "2026-09-09",
     readTime: "11 min",
     author: {
-      name: "Dr. Marcus Thorne, PharmD",
-      role: "Neuropharmacology & Circadian Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Sleep Cocktail Builder", url: "/tools/sleep-cocktail", description: "Formulate compounds that enhance slow-wave delta power." },
@@ -1772,8 +1772,8 @@ To biologically maximize your percentage of slow-wave sleep:
     date: "2026-09-16",
     readTime: "12 min",
     author: {
-      name: "Dr. Elena Rostova, MD",
-      role: "Occupational Sleep Medicine Specialist",
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
     },
     relatedTools: [
       { name: "Jetlag Shift Planner", url: "/tools/jetlag-planner", description: "Calculate shift direction advances and delays." },

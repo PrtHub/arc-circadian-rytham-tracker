@@ -34,6 +34,51 @@ export default function ChronotypeQuizClient() {
         { text: "I'm just starting to hit my stride.", score: 3 },
         { text: "Tired, but my brain won't shut off.", score: 4 },
       ]
+    },
+    {
+      q: "If you had nothing scheduled the next morning, when would you go to bed?",
+      options: [
+        { text: "Before 10:00 PM", score: 1 },
+        { text: "Between 10:00 and 11:30 PM", score: 2 },
+        { text: "After midnight", score: 3 },
+        { text: "It varies; I often lie awake anyway.", score: 4 },
+      ]
+    },
+    {
+      q: "How do you feel in the first 30 minutes after waking?",
+      options: [
+        { text: "Alert and ready to go.", score: 1 },
+        { text: "Groggy, but fine once I get moving.", score: 2 },
+        { text: "Foggy for an hour or more.", score: 3 },
+        { text: "Tired, even after a full night in bed.", score: 4 },
+      ]
+    },
+    {
+      q: "How would you describe your sleep?",
+      options: [
+        { text: "Deep. I fall asleep fast and stay asleep.", score: 1 },
+        { text: "Solid on most nights.", score: 2 },
+        { text: "Fine, once I finally fall asleep late.", score: 3 },
+        { text: "Light. Small noises or thoughts wake me.", score: 4 },
+      ]
+    },
+    {
+      q: "When does exercise feel best for you?",
+      options: [
+        { text: "Early morning.", score: 1 },
+        { text: "Midday or early evening.", score: 2 },
+        { text: "Late evening.", score: 3 },
+        { text: "No consistent time; it depends on how I slept.", score: 4 },
+      ]
+    },
+    {
+      q: "How do you handle a late night out?",
+      options: [
+        { text: "I fade early and struggle to stay up.", score: 1 },
+        { text: "I can stay up, but I pay for it the next day.", score: 2 },
+        { text: "Late nights are when I feel most alive.", score: 3 },
+        { text: "I'm wired afterwards and can't wind down.", score: 4 },
+      ]
     }
   ];
 
@@ -46,11 +91,19 @@ export default function ChronotypeQuizClient() {
   const getResult = () => {
     const counts = [0, 0, 0, 0, 0];
     answers.forEach(a => counts[a]++);
-    const maxIndex = counts.indexOf(Math.max(...counts));
+    const max = Math.max(...counts);
+    const tied = [1, 2, 3, 4].filter((s) => counts[s] === max);
 
-    if (maxIndex === 1) return { name: "Lion", icon: "🦁", link: "/chronotype/lion" };
-    if (maxIndex === 2) return { name: "Bear", icon: "🐻", link: "/chronotype/bear" };
-    if (maxIndex === 3) return { name: "Wolf", icon: "🐺", link: "/chronotype/wolf" };
+    // Break ties with natural wake time (question 1), then Bear, the most common type.
+    let winner = tied[0];
+    if (tied.length > 1) {
+      if (tied.includes(answers[0])) winner = answers[0];
+      else if (tied.includes(2)) winner = 2;
+    }
+
+    if (winner === 1) return { name: "Lion", icon: "🦁", link: "/chronotype/lion" };
+    if (winner === 2) return { name: "Bear", icon: "🐻", link: "/chronotype/bear" };
+    if (winner === 3) return { name: "Wolf", icon: "🐺", link: "/chronotype/wolf" };
     return { name: "Dolphin", icon: "🐬", link: "/chronotype/dolphin" };
   };
 
@@ -59,7 +112,7 @@ export default function ChronotypeQuizClient() {
 
       <header className="mb-12">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
-          3-Question <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Chronotype</span> Quiz
+          8-Question <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Chronotype</span> Quiz
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
           Stop guessing your biology. Take this rapid assessment to find out if you are a Lion, Bear, Wolf, or Dolphin.
@@ -107,13 +160,13 @@ export default function ChronotypeQuizClient() {
 
       {step === questions.length && (
         <div className="raised-card border-(--accent)/30 p-10 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Want true clinical precision?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Want a plan built on your own numbers?</h2>
           <p className="text-(--fg-muted) mb-8 max-w-lg mx-auto leading-relaxed text-base">
-            This 3-question quiz is just a baseline estimate. The ARC app features a clinical-grade <strong>32-Step Precision Diagnosis</strong> that maps your exact peak focus windows, caffeine cutoffs, and biological schedule.
+            This 8-question quiz is a baseline estimate. The ARC app&apos;s <strong>22-step diagnostic onboarding</strong> maps your peak focus windows, caffeine cutoff, and daily schedule, then keeps checking them against your own check-ins.
           </p>
-          <a href="/#pricing" className="inline-block bg-accent text-black font-black py-4 px-10 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
+          <Link href="/#pricing" className="inline-block bg-accent text-black font-black py-4 px-10 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
             Unlock the Full Diagnosis
-          </a>
+          </Link>
         </div>
       )}
     </main>

@@ -64,6 +64,8 @@ export function Footer() {
               <li><Link href="/tools/jetlag-planner" className="hover:text-white transition-colors">Jetlag Planner</Link></li>
               <li><Link href="/tools/chronotype-compatibility" className="hover:text-white transition-colors">Partner Compatibility</Link></li>
               <li><Link href="/tools/sleep-cycle-calculator" className="hover:text-white transition-colors">Sleep Cycle Calculator</Link></li>
+              <li><Link href="/tools/nap-calculator" className="hover:text-white transition-colors">Nap Calculator</Link></li>
+              <li><Link href="/tools/daylight-saving-time-planner" className="hover:text-white transition-colors">Daylight Saving Planner</Link></li>
               <li><Link href="/tools/social-jetlag-calculator" className="hover:text-white transition-colors">Social Jetlag Calculator</Link></li>
               <li><Link href="/tools/chronotype-quiz" className="hover:text-white transition-colors">Chronotype Quiz</Link></li>
             </ul>

@@ -93,6 +93,12 @@ const nextConfig: NextConfig = {
         destination: "/tools/sleep-cycle-calculator",
         permanent: true,
       },
+      // Nap Calculator
+      { source: "/tools/nap", destination: "/tools/nap-calculator", permanent: true },
+      { source: "/tools/best-time-to-nap", destination: "/tools/nap-calculator", permanent: true },
+      // Daylight Saving Planner
+      { source: "/tools/daylight-saving-time", destination: "/tools/daylight-saving-time-planner", permanent: true },
+      { source: "/tools/dst-planner", destination: "/tools/daylight-saving-time-planner", permanent: true },
       // Blog Redirects
       {
         source: "/blogs",

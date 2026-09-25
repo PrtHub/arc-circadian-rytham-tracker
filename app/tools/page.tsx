@@ -6,7 +6,7 @@ import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 const INDEX_TITLE = "Free Circadian Rhythm & Sleep Calculators";
 const INDEX_DESCRIPTION =
-  "Ten free circadian tools: caffeine cutoff calculator, chronotype quiz, jet lag planner, and sleep debt, social jetlag, sunlight and sleep cycle calculators.";
+  "Twelve free circadian tools: caffeine cutoff, nap, sleep cycle, sleep debt and sunrise calculators, a chronotype quiz, and jet lag and daylight saving planners.";
 
 export const metadata: Metadata = {
   title: INDEX_TITLE,
@@ -40,10 +40,24 @@ export const metadata: Metadata = {
 const tools = [
   {
     title: "Caffeine Half-Life Calculator",
-    description: "Find your last safe coffee for tonight's bedtime, based on your caffeine sensitivity (4, 5.5 or 7 h half-life) and the size of your drink.",
+    description: "Find your last safe coffee for tonight's bedtime, counting what you've already drunk today and your caffeine sensitivity (4, 5.5 or 7 h half-life).",
     icon: "☕",
     href: "/tools/caffeine-calculator",
     status: "Live",
+  },
+  {
+    title: "Nap Calculator",
+    description: "Find the best time to nap from your wake time and bedtime: your likely afternoon dip, when to lie down, when to set the alarm, and whether a caffeine nap fits.",
+    icon: "😴",
+    href: "/tools/nap-calculator",
+    status: "New",
+  },
+  {
+    title: "Daylight Saving Time Planner",
+    description: "A night-by-night plan to shift your sleep before the clocks change, with light and caffeine timing, for the US, UK, Europe, Australia and New Zealand.",
+    icon: "🕰️",
+    href: "/tools/daylight-saving-time-planner",
+    status: "New",
   },
   {
     title: "Huberman Sleep Cocktail Builder",
@@ -89,7 +103,7 @@ const tools = [
   },
   {
     title: "Morning Sunlight Calculator",
-    description: "How long to get outside this morning for today's weather. ARC's light timer is 20 minutes; stay out longer under heavy cloud.",
+    description: "Today's sunrise in your city, when to step outside after waking, and for how long. ARC's light timer is 20 minutes; stay out longer under heavy cloud.",
     icon: "☀️",
     href: "/tools/sunlight-calculator",
     status: "Live",

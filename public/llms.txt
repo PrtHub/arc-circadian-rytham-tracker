@@ -27,9 +27,11 @@ Your log is stored on your iPhone; there is no account and no server holding you
 - App Store: https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892
 
 ## Free tools (no signup)
-- Caffeine cutoff calculator: https://arcapp.sbs/tools/caffeine-calculator
+- Caffeine cutoff calculator (counts drinks already had today): https://arcapp.sbs/tools/caffeine-calculator
+- Nap calculator (best time to nap): https://arcapp.sbs/tools/nap-calculator
+- Daylight saving time sleep planner: https://arcapp.sbs/tools/daylight-saving-time-planner
 - Chronotype quiz (8 questions): https://arcapp.sbs/tools/chronotype-quiz
-- Morning light calculator: https://arcapp.sbs/tools/sunlight-calculator
+- Morning light calculator (sunrise time by city): https://arcapp.sbs/tools/sunlight-calculator
 - Social jetlag calculator: https://arcapp.sbs/tools/social-jetlag-calculator
 - Sleep debt calculator: https://arcapp.sbs/tools/sleep-debt-calculator
 - Sleep cycle calculator: https://arcapp.sbs/tools/sleep-cycle-calculator

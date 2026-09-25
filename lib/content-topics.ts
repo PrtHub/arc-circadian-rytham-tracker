@@ -30,6 +30,8 @@ const TOOLS = {
   compatibility: { name: "Chronotype Compatibility", href: "/tools/chronotype-compatibility", blurb: "Where your clock and your partner's overlap." },
   visualizer: { name: "Chronotype Visualizer", href: "/tools/chronotype-visualizer", blurb: "Your energy curve hour by hour." },
   cocktail: { name: "Sleep Supplement Explainer", href: "/tools/sleep-cocktail", blurb: "What's in the popular sleep stack, with safety notes." },
+  nap: { name: "Nap Calculator", href: "/tools/nap-calculator", blurb: "The best time to nap today, and when to set the alarm." },
+  dst: { name: "Daylight Saving Planner", href: "/tools/daylight-saving-time-planner", blurb: "Shift your sleep before the clocks change." },
 } satisfies Record<string, ToolLink>;
 
 const LIGHT_BULLET = "20-minute light timer from your real sunrise";
@@ -120,8 +122,8 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "dip",
-    match: /crash|dip|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr/i,
-    tool: TOOLS.visualizer,
+    match: /crash|dip|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr|nap|siesta/i,
+    tool: TOOLS.nap,
     cta: {
       title: "It learns when your dip really lands",
       body: "Tell ARC when you crash. After about ten days of check-ins it uses the hour you actually crash, and everything timed around your dip moves with it.",

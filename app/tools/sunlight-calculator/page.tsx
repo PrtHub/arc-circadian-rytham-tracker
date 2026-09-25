@@ -13,14 +13,18 @@ import SunlightCalculatorClient from "./SunlightCalculatorClient";
 
 export const metadata = toolMetadata({
   slug: "sunlight-calculator",
-  title: "Morning Sunlight Calculator: How Long to Get Outside",
+  title: "Morning Sunlight Calculator: When & How Long to Go Out",
   description:
-    "How much morning daylight do you need? About 20 minutes outside, longer under heavy cloud. Pick today's weather to see your time and the rules that matter.",
+    "See today's sunrise in your city, when to step outside after waking, and how long to stay out: about 20 minutes, longer under cloud. No location needed.",
   keywords:
-    "morning sunlight calculator, how long morning sunlight, morning light exposure, circadian rhythm light, set internal clock",
+    "morning sunlight calculator, sunrise time today, how long morning sunlight, morning light exposure, when to get morning sunlight",
 });
 
 const FAQS: ToolFaq[] = [
+  {
+    q: "What time is sunrise where I live?",
+    a: "Pick your nearest city and a date in the calculator above. It works out sunrise with the standard solar formula, in your city's local time including daylight saving, without asking for your location.",
+  },
   {
     q: "How long should I get morning sunlight?",
     a: "About 20 minutes outside in the morning, ideally within an hour of waking. Stay out longer under heavy cloud. That's the dose ARC's morning light timer uses.",

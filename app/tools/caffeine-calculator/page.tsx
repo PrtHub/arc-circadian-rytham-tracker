@@ -15,7 +15,7 @@ export const metadata = toolMetadata({
   slug: "caffeine-calculator",
   title: "Caffeine Half-Life Calculator: Your Coffee Cutoff Time",
   description:
-    "Find your last safe coffee. Enter your bedtime, drink and caffeine sensitivity (4, 5.5 or 7 h half-life) to see when to stop so under 50 mg is left at bed.",
+    "Find your last safe coffee, counting what you've had today. Add your drinks, bedtime and caffeine sensitivity to see when to stop for under 50 mg by bed.",
   keywords:
     "caffeine half life calculator, when to stop drinking coffee, caffeine cutoff time, caffeine decay calculator, last coffee before bed",
 });
@@ -32,6 +32,10 @@ const FAQS: ToolFaq[] = [
   {
     q: "How much caffeine is still in my system at bedtime?",
     a: "Take a 200 mg energy drink at 3 PM and a bedtime of 11 PM. Eight hours later you'd still have about 50 mg circulating if you clear caffeine fast, about 73 mg if you're average and about 91 mg if you're slow.",
+  },
+  {
+    q: "Does my morning coffee affect my cutoff?",
+    a: "Yes. Caffeine from earlier drinks is still in your system, so it uses up part of the room you have before bedtime. Two coffees at 8:20 and 10:45 can pull the last safe time for a third cup from about 3 PM to about 11 AM. Add every drink you've had today to see your real cutoff.",
   },
   {
     q: "Why does the calculator aim for under 50 mg at bedtime?",

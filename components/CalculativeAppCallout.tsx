@@ -1,5 +1,4 @@
 import { AppStoreButton } from "@/components/AppStoreButton";
-import { APP_STORE_URL } from "@/components/arc-data";
 
 interface CalculativeAppCalloutProps {
   badge?: string;
@@ -15,9 +14,9 @@ export function CalculativeAppCallout({
   title,
   description,
   featureBullets = [
-    "Automatic solar lux window tracking",
-    "Dynamic caffeine half-life clearance curve",
-    "Local-first SQLite (100% private on device)",
+    "Last safe coffee, recalculated with every cup",
+    "20-minute light timer from your real sunrise",
+    "No account. Your log stays on your iPhone",
   ],
   location,
   variant = "card",
@@ -53,14 +52,9 @@ export function CalculativeAppCallout({
 
           <div className="shrink-0 flex flex-col items-start sm:items-center gap-3">
             <AppStoreButton size="lg" location={location} />
-            <a
-              href={APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] text-(--fg-muted) hover:text-white underline font-mono transition-colors"
-            >
-              View on Apple App Store ↗
-            </a>
+            <span className="text-[11px] text-(--fg-muted) font-mono">
+              7-day free trial on annual · iOS 16.4+
+            </span>
           </div>
         </div>
       </aside>
@@ -96,17 +90,9 @@ export function CalculativeAppCallout({
 
         <AppStoreButton location={location} />
 
-        <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-(--fg-muted) font-mono">
-          <span>iOS 17+ • Widgets</span>
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            App Store Link ↗
-          </a>
-        </div>
+        <p className="mt-3 pt-3 border-t border-white/5 text-[10px] text-(--fg-muted) font-mono">
+          iPhone · iOS 16.4+ · 7-day free trial on annual
+        </p>
       </div>
     </aside>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { AppStoreButton } from "@/components/AppStoreButton";
 
 export default function ChronotypeQuizClient() {
   const [step, setStep] = useState(0);
@@ -88,6 +89,12 @@ export default function ChronotypeQuizClient() {
     setStep(step + 1);
   };
 
+  const handleBack = () => {
+    if (step === 0) return;
+    setAnswers(answers.slice(0, -1));
+    setStep(step - 1);
+  };
+
   const getResult = () => {
     const counts = [0, 0, 0, 0, 0];
     answers.forEach(a => counts[a]++);
@@ -115,7 +122,7 @@ export default function ChronotypeQuizClient() {
           8-Question <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Chronotype</span> Quiz
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Stop guessing your biology. Take this rapid assessment to find out if you are a Lion, Bear, Wolf, or Dolphin.
+          Eight quick questions to estimate whether you are a Lion, Bear, Wolf, or Dolphin.
         </p>
       </header>
 
@@ -132,6 +139,7 @@ export default function ChronotypeQuizClient() {
               {questions[step].options.map((opt, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={() => handleAnswer(opt.score)}
                   className="w-full text-left p-5 sunken-card border border-white/5 hover:border-accent hover:bg-(--accent)/10 transition-all text-base sm:text-lg text-white font-medium"
                 >
@@ -139,6 +147,15 @@ export default function ChronotypeQuizClient() {
                 </button>
               ))}
             </div>
+            {step > 0 && (
+              <button
+                type="button"
+                onClick={handleBack}
+                className="mt-6 self-start text-(--fg-muted) hover:text-white transition-colors font-mono text-xs"
+              >
+                ← Back
+              </button>
+            )}
           </div>
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-center">
@@ -151,7 +168,7 @@ export default function ChronotypeQuizClient() {
             >
               Read the Full {getResult().name} Guide →
             </Link>
-            <button onClick={() => { setStep(0); setAnswers([]); }} className="text-(--fg-muted) hover:text-white transition-colors font-mono text-xs">
+            <button type="button" onClick={() => { setStep(0); setAnswers([]); }} className="text-(--fg-muted) hover:text-white transition-colors font-mono text-xs">
               Retake Quiz
             </button>
           </div>
@@ -162,11 +179,9 @@ export default function ChronotypeQuizClient() {
         <div className="raised-card border-(--accent)/30 p-10 text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Want a plan built on your own numbers?</h2>
           <p className="text-(--fg-muted) mb-8 max-w-lg mx-auto leading-relaxed text-base">
-            This 8-question quiz is a baseline estimate. The ARC app&apos;s <strong>22-step diagnostic onboarding</strong> maps your peak focus windows, caffeine cutoff, and daily schedule, then keeps checking them against your own check-ins.
+            This quiz is a starting guess. In ARC your chronotype sets the phase boundaries of your day plan, and after about 10 days of one-tap check-ins ARC measures when your afternoon dip really lands and corrects it.
           </p>
-          <Link href="/#pricing" className="inline-block bg-accent text-black font-black py-4 px-10 rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono">
-            Unlock the Full Diagnosis
-          </Link>
+          <AppStoreButton size="lg" location="tool_chronotype_quiz" />
         </div>
       )}
     </main>

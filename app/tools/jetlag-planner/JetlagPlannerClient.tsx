@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { AppStoreButton } from "@/components/AppStoreButton";
+import { halfLifeFor, hoursToClear } from "@/lib/caffeine";
+import { formatClock, toMinutes } from "@/lib/time";
+import { EducationalNote } from "../_components/tool-extras";
 
+// Standard-time offsets (no daylight saving).
 const TIMEZONES = [
   { name: "UTC -10 (Hawaii)", offset: -10 },
   { name: "UTC -8 (US Pacific Time - Los Angeles)", offset: -8 },
@@ -24,6 +28,14 @@ const TIMEZONES = [
   { name: "UTC +12 (Auckland, Fiji)", offset: 12 },
 ];
 
+// The body clock moves about an hour a day, the same pace ARC's travel loop uses.
+const SHIFT_PER_DAY_HOURS = 1;
+// One ~100 mg cup at average sensitivity (5.5 h half-life) takes 5.5 h to fall below 50 mg.
+const LAST_COFFEE_HOURS = hoursToClear(100, halfLifeFor("normal"));
+const SLEEP_HOURS = 8;
+
+const formatHours = (h: number) => `${Number.isInteger(h) ? h : h.toFixed(1)} h`;
+
 export default function JetlagPlannerClient() {
   const [originIndex, setOriginIndex] = useState(1); // LA (PT) by default
   const [destIndex, setDestIndex] = useState(15); // Tokyo (JST) by default
@@ -32,108 +44,54 @@ export default function JetlagPlannerClient() {
   const origin = TIMEZONES[originIndex];
   const dest = TIMEZONES[destIndex];
 
-  // Calculate net timezone shift
-  let diff = dest.offset - origin.offset;
-  let displayOriginalDiff = diff;
-  let routeAdjusted = false;
-
-  // Optimize path (if shift is > 12 or < -12, go in the opposite direction)
-  if (diff > 12) {
-    diff -= 24;
-    routeAdjusted = true;
-  } else if (diff < -12) {
-    diff += 24;
-    routeAdjusted = true;
-  }
+  // Net time zone shift, taking the shorter way round the clock.
+  const originalDiff = dest.offset - origin.offset;
+  let diff = originalDiff;
+  // Exactly 12 h goes west (a delay), which the body handles more easily.
+  if (diff >= 12) diff -= 24;
+  else if (diff < -12) diff += 24;
+  const routeAdjusted = diff !== originalDiff;
 
   const shiftHours = Math.abs(diff);
   const direction = diff > 0 ? "advance" : diff < 0 ? "delay" : "none";
+  const daysToAdjust = Math.ceil(shiftHours / SHIFT_PER_DAY_HOURS);
+  const lagByDay4 = Math.max(0, shiftHours - 3 * SHIFT_PER_DAY_HOURS);
 
   const getDaySchedule = (day: number) => {
-    // Standard baseline sleep is 11:00 PM to 7:00 AM (destination time)
-    const [bedH, bedM] = targetBedtime.split(":").map(Number);
-    const wakeH = (bedH + 8) % 24;
-
-    if (direction === "none") {
-      return {
-        sleep: `${targetBedtime} - ${wakeH.toString().padStart(2, '0')}:00`,
-        light: "7:00 AM - 9:00 AM",
-        avoidLight: "9:00 PM - Bedtime",
-        caffeineCutoff: "2:00 PM",
-        summary: "No adjustments needed. Stick to your natural schedule."
-      };
-    }
+    // Times are destination local time. Day 1 follows the body clock; each day it moves ~1 h toward local time.
+    const bedMin = toMinutes(targetBedtime);
+    const lag = Math.max(0, shiftHours - (day - 1) * SHIFT_PER_DAY_HOURS);
+    const sign = direction === "advance" ? 1 : -1;
+    const dayBed = bedMin + sign * lag * 60;
+    const dayWake = dayBed + SLEEP_HOURS * 60;
+    const lastCoffee = formatClock(dayBed - LAST_COFFEE_HOURS * 60);
+    const sleep = `${formatClock(dayBed)} - ${formatClock(dayWake)}`;
 
     if (direction === "advance") {
-      // Eastward shift: natural body clock is "late" relative to destination.
-      // Day by day we shift wake & sleep times earlier.
-      // Calculate how many hours we are still lagged:
-      const lagRemaining = Math.max(0, shiftHours - (day - 1) * 1.5);
-      
-      const dayWake = (wakeH + lagRemaining) % 24;
-      const dayBed = (bedH + lagRemaining) % 24;
-
-      const wakeStr = `${Math.floor(dayWake).toString().padStart(2, '0')}:00`;
-      const bedStr = `${Math.floor(dayBed).toString().padStart(2, '0')}:00`;
-
-      // Light exposure is best in the morning of our current biological clock
-      const lightStart = (dayWake) % 24;
-      const lightEnd = (dayWake + 3) % 24;
-
-      // Avoid light in the evening (before biological bedtime)
-      const avoidStart = (dayBed - 3 + 24) % 24;
-
-      // Caffeine cutoff relative to shifted bedtime
-      const caffeineTime = (dayBed - 9 + 24) % 24;
-
-      const formatHour = (h: number) => {
-        const hour = Math.floor(h);
-        if (hour === 0) return "12:00 AM";
-        if (hour === 12) return "12:00 PM";
-        return hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`;
-      };
-
+      // Eastward: light in the body's morning (after its temperature low) pulls the clock earlier.
       return {
-        sleep: `${formatHour(dayBed)} - ${formatHour(dayWake)}`,
-        light: `${formatHour(lightStart)} - ${formatHour(lightEnd)}`,
-        avoidLight: `${formatHour(avoidStart)} - Bedtime`,
-        caffeineCutoff: formatHour(caffeineTime),
-        summary: `Day ${day}: Advance bedtime by ${Math.max(0, Math.round((shiftHours - lagRemaining) * 10) / 10)}h. Get bright light early in your destination morning to anchor the shift.`
-      };
-    } else {
-      // Westward shift: natural body clock is "early" relative to destination.
-      // Day by day we shift wake & sleep times later.
-      const lagRemaining = Math.max(0, shiftHours - (day - 1) * 2);
-
-      const dayWake = (wakeH - lagRemaining + 24) % 24;
-      const dayBed = (bedH - lagRemaining + 24) % 24;
-
-      // Light exposure is best in the afternoon/evening to delay melatonin
-      const lightStart = (dayBed - 6 + 24) % 24;
-      const lightEnd = (dayBed - 1 + 24) % 24;
-
-      // Avoid light in the biological morning (too early)
-      const avoidStart = (dayWake - 3 + 24) % 24;
-      const avoidEnd = (dayWake) % 24;
-
-      // Caffeine cutoff relative to shifted bedtime
-      const caffeineTime = (dayBed - 9 + 24) % 24;
-
-      const formatHour = (h: number) => {
-        const hour = Math.floor(h);
-        if (hour === 0) return "12:00 AM";
-        if (hour === 12) return "12:00 PM";
-        return hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`;
-      };
-
-      return {
-        sleep: `${formatHour(dayBed)} - ${formatHour(dayWake)}`,
-        light: `${formatHour(lightStart)} - ${formatHour(lightEnd)}`,
-        avoidLight: `${formatHour(avoidStart)} - ${formatHour(avoidEnd)}`,
-        caffeineCutoff: formatHour(caffeineTime),
-        summary: `Day ${day}: Delay bedtime by ${Math.max(0, Math.round((shiftHours - lagRemaining) * 10) / 10)}h. Seek bright late-afternoon exposure to hold off melatonin peak.`
+        sleep,
+        light: `${formatClock(dayWake)} - ${formatClock(dayWake + 180)}`,
+        avoidLight: `${formatClock(dayBed - 180)} - ${formatClock(dayBed)}`,
+        lastCoffee,
+        summary:
+          lag > 0
+            ? `Day ${day}: your body clock is about ${formatHours(lag)} behind local time. Seek bright light in the window below (your body's morning) and keep early-morning light dim.`
+            : `Day ${day}: you should be close to local time. Get outdoor light soon after waking and keep your bedtime steady.`,
       };
     }
+
+    // Westward: evening light pushes the clock later; light just after the body's temperature low works against it.
+    return {
+      sleep,
+      light: `${formatClock(dayBed - 360)} - ${formatClock(dayBed - 60)}`,
+      avoidLight: `${formatClock(dayWake - 120)} - ${formatClock(dayWake + 120)}`,
+      lastCoffee,
+      summary:
+        lag > 0
+          ? `Day ${day}: your body clock is about ${formatHours(lag)} ahead of local time. Seek bright late-afternoon and evening light, and keep the very early morning dim.`
+          : `Day ${day}: you should be close to local time. Get outdoor light soon after waking and keep your bedtime steady.`,
+    };
   };
 
   return (
@@ -141,18 +99,19 @@ export default function JetlagPlannerClient() {
 
       <header className="mb-12">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
-          Circadian <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Jetlag</span> Planner
+          Jet Lag <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Planner</span>
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Plan timezone adjustments scientifically. Avoid jetlag by utilizing light, darkness, and caffeine curfew offsets.
+          Plan a time zone change day by day: when to seek light, when to avoid it, when to sleep, and when to have your last coffee.
         </p>
       </header>
 
       <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
-        <div className="grid sm:grid-cols-3 gap-6 mb-8">
+        <div className="grid sm:grid-cols-3 gap-6 mb-3">
           <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Departing From</label>
+            <label htmlFor="jetlag-origin" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Departing From</label>
             <select
+              id="jetlag-origin"
               value={originIndex}
               onChange={(e) => setOriginIndex(Number(e.target.value))}
               className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors appearance-none font-mono text-xs"
@@ -163,8 +122,9 @@ export default function JetlagPlannerClient() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Arriving At</label>
+            <label htmlFor="jetlag-destination" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Arriving At</label>
             <select
+              id="jetlag-destination"
               value={destIndex}
               onChange={(e) => setDestIndex(Number(e.target.value))}
               className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors appearance-none font-mono text-xs"
@@ -175,8 +135,9 @@ export default function JetlagPlannerClient() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Normal Bedtime</label>
+            <label htmlFor="jetlag-bedtime" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Normal Bedtime</label>
             <input
+              id="jetlag-bedtime"
               type="time"
               value={targetBedtime}
               onChange={(e) => setTargetBedtime(e.target.value)}
@@ -184,46 +145,59 @@ export default function JetlagPlannerClient() {
             />
           </div>
         </div>
+        <p className="text-[11px] text-(--fg-muted) mb-8">
+          Offsets are standard time. Where daylight saving applies, the real difference can be an hour more or less.
+        </p>
 
         {direction !== "none" ? (
           <div className="sunken-card border border-(--accent)/30 p-6 sm:p-8 relative overflow-hidden mb-8">
             <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-(--accent) to-transparent opacity-50"></div>
-            
+
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-1 font-mono">Total Shift Offset</p>
                 <div className="text-3xl sm:text-4xl font-black text-white font-mono">
                   {shiftHours} Hour{shiftHours !== 1 ? "s" : ""} {direction === "advance" ? "Eastward (Advance)" : "Westward (Delay)"}
                 </div>
+                <p className="text-xs text-(--fg-muted) mt-1">
+                  Full adjustment: about {daysToAdjust} day{daysToAdjust !== 1 ? "s" : ""} at roughly an hour a day.
+                </p>
                 {routeAdjusted && (
                   <p className="text-xs text-(--fg-muted) mt-1">
-                    💡 Optimized routing: Shortest biological direction selected (shifted by {shiftHours}h instead of {Math.abs(displayOriginalDiff)}h).
+                    {Math.abs(originalDiff) === shiftHours
+                      ? "💡 Exactly 12 hours apart: the planner shifts your clock later, which the body handles more easily."
+                      : `💡 Shortest direction selected (shifting ${shiftHours}h instead of ${Math.abs(originalDiff)}h).`}
                   </p>
                 )}
               </div>
               <div className="bg-(--accent)/10 border border-(--accent)/30 px-4 py-2.5 rounded-xl self-start font-mono">
                 <span className="text-xs font-bold text-accent uppercase tracking-wider block">Primary Strategy</span>
                 <span className="text-sm font-black text-white mt-0.5 block">
-                  {direction === "advance" ? "☀️ Morning Light Seek" : "🌇 Evening Light Seek"}
+                  {direction === "advance" ? "☀️ Light in your body's morning" : "🌇 Evening light"}
                 </span>
               </div>
             </div>
           </div>
         ) : (
           <div className="sunken-card border border-white/10 p-6 text-center text-(--fg-muted) text-sm mb-8 font-mono">
-            Select different origin and destination locations to calculate your jetlag recovery timeline.
+            Select different origin and destination locations to calculate your jet lag recovery timeline.
           </div>
         )}
 
-        {direction !== "none" && (
+        {direction !== "none" && !targetBedtime && (
+          <p className="text-sm text-(--fg-muted) text-center font-mono">Set your normal bedtime to see the daily schedule.</p>
+        )}
+
+        {direction !== "none" && targetBedtime && (
           <div className="space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-(--fg-muted) mb-4 font-mono">3-Day Protocol Schedule</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-(--fg-muted) mb-1 font-mono">First 3 Days</h3>
+            <p className="text-[11px] text-(--fg-muted) mb-4">All times are destination local time.</p>
             {[1, 2, 3].map((dayNum) => {
               const daySched = getDaySchedule(dayNum);
               return (
                 <div key={dayNum} className="sunken-card p-5 border border-white/5 rounded-2xl">
-                  <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-3">
-                    <span className="font-bold text-white text-base">Day {dayNum} Protocol</span>
+                  <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-3 gap-3">
+                    <span className="font-bold text-white text-base">Day {dayNum}</span>
                     <span className="text-xs font-mono text-accent bg-(--accent)/10 px-2.5 py-1 rounded-md border border-(--accent)/20">
                       Sleep Window: {daySched.sleep}
                     </span>
@@ -233,7 +207,7 @@ export default function JetlagPlannerClient() {
                     <div className="raised-card p-3.5 rounded-xl border border-white/5">
                       <span className="text-(--fg-muted) font-bold uppercase tracking-wider block mb-1 font-mono">☀️ Seek Light</span>
                       <span className="text-white font-bold block font-mono">{daySched.light}</span>
-                      <span className="text-[10px] text-(--fg-muted) mt-1 block">Step outside, no sunglasses.</span>
+                      <span className="text-[10px] text-(--fg-muted) mt-1 block">Step outside, no sunglasses. Never look at the sun.</span>
                     </div>
                     <div className="raised-card p-3.5 rounded-xl border border-white/5">
                       <span className="text-(--fg-muted) font-bold uppercase tracking-wider block mb-1 font-mono">🕶️ Avoid Light / Dark</span>
@@ -241,34 +215,31 @@ export default function JetlagPlannerClient() {
                       <span className="text-[10px] text-(--fg-muted) mt-1 block">Dim screen, use blackouts.</span>
                     </div>
                     <div className="raised-card p-3.5 rounded-xl border border-white/5">
-                      <span className="text-(--fg-muted) font-bold uppercase tracking-wider block mb-1 font-mono">☕ Caffeine Curfew</span>
-                      <span className="text-accent font-black block font-mono">{daySched.caffeineCutoff}</span>
-                      <span className="text-[10px] text-(--fg-muted) mt-1 block">Zero caffeine after this point.</span>
+                      <span className="text-(--fg-muted) font-bold uppercase tracking-wider block mb-1 font-mono">☕ Last Coffee</span>
+                      <span className="text-accent font-black block font-mono">{daySched.lastCoffee}</span>
+                      <span className="text-[10px] text-(--fg-muted) mt-1 block">One ~100 mg cup, average sensitivity. A bigger cup moves it earlier.</span>
                     </div>
                   </div>
                 </div>
               );
             })}
+            <p className="text-xs text-(--fg-muted) leading-relaxed">
+              {lagByDay4 > 0
+                ? `By day 4 you'll still be about ${formatHours(lagByDay4)} off local time. Keep shifting about an hour a day.`
+                : "By day 4 you should be close to local time."}
+            </p>
           </div>
         )}
+
+        <EducationalNote />
       </div>
 
       <div className="raised-card p-8 text-center border-(--accent)/30">
-        <h2 className="text-2xl font-bold mb-4 text-white">Automate your travel shifting</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Let ARC notice the time zone change</h2>
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto text-sm leading-relaxed">
-          The ARC app features a Travel Mode. It auto-detects your timezone shift, references your local flight time, and schedules lock-screen notifications reminding you exactly when to seek light, block light, or stop caffeine.
+          When you land, ARC notices your iPhone&apos;s time zone changed (no location permission, nothing to type) and gives you a seek-light and an avoid-light window each day while your body clock catches up, about an hour a day.
         </p>
-        <a
-          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-accent text-black font-extrabold py-3.5 px-8 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono text-sm"
-        >
-          Download ARC App
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
-        </a>
+        <AppStoreButton size="lg" location="tool_jetlag_planner" />
       </div>
     </main>
   );

@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           <ul className="space-y-2.5 text-sm text-(--fg-muted) leading-relaxed">
             <li className="flex items-start gap-2.5">
               <span className="text-accent font-bold font-mono">✓</span>
-              <span><strong className="text-white">100% Local-First:</strong> Your biological logs, check-ins, and drink history stay inside an on-device SQLite database.</span>
+              <span><strong className="text-white">Local-First:</strong> Your biological logs, check-ins, and drink history stay inside an on-device SQLite database.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-accent font-bold font-mono">✓</span>

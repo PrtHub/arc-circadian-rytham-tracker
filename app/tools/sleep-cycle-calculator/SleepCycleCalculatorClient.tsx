@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { AppStoreButton } from "@/components/AppStoreButton";
+import { formatClock } from "@/lib/time";
 
 export default function SleepCycleCalculatorClient() {
   const [activeTab, setActiveTab] = useState<"wake" | "sleep">("wake");
@@ -9,23 +11,19 @@ export default function SleepCycleCalculatorClient() {
     { time: string; hours: number; cycles: number; isRecommended: boolean; description: string }[] | null
   >(null);
 
-  // Helper to format Date objects as HH:MM
-  const formatTime = (date: Date): string => {
-    const hours = date.getHours().toString().padStart(2, "0");
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-    return `${hours}:${minutes}`;
-  };
+  // 12-hour clock ("11:15 PM"), matching the other tools
+  const formatTime = (date: Date): string => formatClock(date.getHours() * 60 + date.getMinutes());
 
   const getCycleDescription = (cycles: number): string => {
     switch (cycles) {
       case 6:
-        return "9.0 hrs · Ideal for full restorative deep sleep and memory consolidation.";
+        return "9 h · The top of the 7-9 h range most adults need.";
       case 5:
-        return "7.5 hrs · Recommended baseline duration for most healthy adults.";
+        return "7.5 h · Inside the 7-9 h range most adults need.";
       case 4:
-        return "6.0 hrs · Sufficient for shorter nights with minimal grogginess.";
+        return "6 h · OK for an occasional short night; most adults need 7-9 h.";
       case 3:
-        return "4.5 hrs · Emergency power-rest duration to prevent deep sleep interruption.";
+        return "4.5 h · A very short night; plan an earlier bedtime tomorrow.";
       default:
         return `${(cycles * 90) / 60} hours of structured sleep.`;
     }
@@ -33,6 +31,8 @@ export default function SleepCycleCalculatorClient() {
 
   // Option 1: Calculate bedtimes when waking up at targetTime
   const calculateBedtimes = () => {
+    // A cleared time input gives "", so do nothing rather than show NaN.
+    if (!targetTime) return;
     const [h, m] = targetTime.split(":").map(Number);
     const results = [];
 
@@ -96,7 +96,7 @@ export default function SleepCycleCalculatorClient() {
           Sleep Cycle <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Calculator</span>
         </h1>
         <p className="text-(--fg-muted) max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-          Sleep in sync with your brain&apos;s natural stages. Wake up at the completion of a 90-minute cycle to banish morning grogginess.
+          Sleep cycles average about 90 minutes. Time your alarm for the end of a cycle, when sleep is lighter, and you&apos;re less likely to wake up groggy.
         </p>
       </header>
 
@@ -151,6 +151,7 @@ export default function SleepCycleCalculatorClient() {
               />
               <button
                 onClick={calculateBedtimes}
+                disabled={!targetTime}
                 className="bg-accent text-black font-black text-xs uppercase tracking-wider px-8 py-4 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
               >
                 Calculate Bedtimes
@@ -213,7 +214,7 @@ export default function SleepCycleCalculatorClient() {
             </div>
 
             <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-(--fg-muted) leading-relaxed">
-              💡 <strong>Circadian Insight</strong>: Waking up at the end of a cycle matches your brain&apos;s lightest sleep stage, making it feel like you woke up naturally without an alarm. Waking up mid-cycle triggers severe <strong>sleep inertia</strong> (grogginess).
+              💡 <strong>Circadian Insight</strong>: Waking near the end of a cycle, when sleep is lighter, usually feels easier. Waking from deep sleep can leave you groggy for 15-60 minutes (<strong>sleep inertia</strong>). Cycles vary from about 70 to 120 minutes, so treat these times as estimates.
             </div>
           </div>
         )}
@@ -226,7 +227,7 @@ export default function SleepCycleCalculatorClient() {
             <div className="text-3xl mb-4">💤</div>
             <h3 className="text-lg font-bold mb-2 text-white">90-Minute Sleep Cycles</h3>
             <p className="text-(--fg-muted) text-sm leading-relaxed">
-              Human sleep is composed of repeating cycles averaging 90 minutes. Each cycle proceeds from Light Sleep to Deep Sleep, and concludes with REM (Dreaming) sleep.
+              Sleep runs in repeating cycles that average about 90 minutes (roughly 70-120). Each cycle moves from light sleep to deep sleep and ends with REM (dreaming) sleep.
             </p>
           </div>
         </div>
@@ -234,9 +235,9 @@ export default function SleepCycleCalculatorClient() {
         <div className="p-8 rounded-3xl raised-card flex flex-col justify-between">
           <div>
             <div className="text-3xl mb-4">🧠</div>
-            <h3 className="text-lg font-bold mb-2 text-white">The Danger of Sleep Inertia</h3>
+            <h3 className="text-lg font-bold mb-2 text-white">Why Waking Mid-Cycle Feels Bad</h3>
             <p className="text-(--fg-muted) text-sm leading-relaxed">
-              If your alarm goes off during a Deep Sleep stage, your brain is forced from slow-wave states instantly, causing confusion, fatigue, and heavy limbs for hours.
+              If your alarm goes off during deep sleep, you can feel groggy and slow for 15-60 minutes. It passes, and light and movement help it pass faster.
             </p>
           </div>
         </div>
@@ -244,9 +245,9 @@ export default function SleepCycleCalculatorClient() {
         <div className="p-8 rounded-3xl raised-card flex flex-col justify-between">
           <div>
             <div className="text-3xl mb-4">☀️</div>
-            <h3 className="text-lg font-bold mb-2 text-white">Re-anchoring Your Cycle</h3>
+            <h3 className="text-lg font-bold mb-2 text-white">Morning Light Sets Tonight</h3>
             <p className="text-(--fg-muted) text-sm leading-relaxed">
-              To lock in your sleep cycle length, get bright sunlight in your eyes within 30 minutes of waking up. This programs your biological timer for next night&apos;s cycle.
+              Get about 20 minutes of outdoor light soon after waking (never look directly at the sun). It sets tonight&apos;s sleep timing.
             </p>
           </div>
         </div>
@@ -256,23 +257,15 @@ export default function SleepCycleCalculatorClient() {
       <div className="p-8 rounded-3xl raised-card border-(--accent)/30 flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
         <div>
           <h3 className="text-2xl font-extrabold tracking-tighter mb-2 text-white">
-            Get Daily Circadian Protocols
+            Plan the day around your sleep
           </h3>
           <p className="text-(--fg-muted) max-w-md text-sm leading-relaxed">
-            Stop guessing your biology. ARC automatically calculates your cycle lengths, schedules sunlight reminders, and adapts to poor sleep in real time.
+            ARC doesn&apos;t track sleep stages and needs no wearable. It works on the clock around your sleep: a caffeine cutoff from every drink you log, a 20-minute morning-light timer on your Lock Screen, and a wind-down reminder before the bedtime you set.
           </p>
         </div>
-        <a
-          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-8 py-4 text-sm font-black text-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
-        >
-          Download ARC App
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
-        </a>
+        <div className="shrink-0">
+          <AppStoreButton size="lg" location="tool_sleep_cycle_calculator" />
+        </div>
       </div>
     </div>
   );

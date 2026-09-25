@@ -26,7 +26,7 @@ export function Audience() {
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
           aria-label="Target audience"
         >
-          {audience.map((a: any) => (
+          {audience.map((a) => (
             <li
               key={a.title}
               className="raised-card hover:border-(--accent)/40 transition-all hover:-translate-y-1 flex flex-col group"

@@ -136,7 +136,7 @@ const PHASE_SCREEN_CONTENT: Record<CircadianPhase, PhaseScreenData> = {
       "“Cortisol awakening response is initiating. Step into natural daylight to anchor your rhythm.”",
     actionIcon: "🌅",
     actionTitle: "Catch Early Photons",
-    actionDesc: "Direct solar viewing before screen time",
+    actionDesc: "Outdoor daylight before screens (never look at the sun)",
     whyLink: "Why this works",
     metricLabel: "COFFEE DELAY",
     metricBadge: "90m Buffer",

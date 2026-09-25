@@ -31,7 +31,8 @@ export const metadata: Metadata = {
 
   title: {
     default: "ARC 2.0 Living Light — Circadian Rhythm Tracker & Chronotype App",
-    template: "%s | ARC 2.0 Circadian Rhythm Tracker",
+    // Short suffix: Google shows ~60 characters, so the page title should get them.
+    template: "%s | ARC",
   },
 
   description:

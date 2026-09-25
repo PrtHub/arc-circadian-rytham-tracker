@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { readTime } from "@/lib/article";
 import Link from "next/link";
 import { scienceArticles } from "@/lib/science-data";
 import { ContentNav } from "@/components/ContentNav";
@@ -6,9 +7,9 @@ import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 export const metadata: Metadata = {
-  title: "Circadian Protocols & Chronobiology Research | ARC 2.0 Science",
+  title: "Chronobiology Explained: Sleep Pressure, Zeitgebers & More",
   description:
-    "Explore peer-reviewed circadian protocols, adenosine clearance mechanics, zeitgeber anchors, and chronobiology glossary terms from the ARC scientific team.",
+    "Plain-English explainers on the mechanisms behind your energy: sleep pressure, zeitgebers, caffeine tolerance and the brain's overnight clean-up.",
   keywords: [
     "circadian protocols",
     "chronobiology research",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "/science",
   },
   openGraph: {
-    title: "Circadian Protocols & Chronobiology Research | ARC 2.0 Science",
+    title: "Chronobiology Explained: Sleep Pressure, Zeitgebers & More",
     description: "Evidence-based protocols and research detailing circadian physiology, adenosine clearance, and light exposure.",
     url: "https://arcapp.sbs/science",
   },
@@ -90,7 +91,7 @@ export default function SciencePage() {
                     {featured.categoryLabel}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                  <span className="text-(--fg-muted)">{featured.readTime} read</span>
+                  <span className="text-(--fg-muted)">{readTime(featured.content)} read</span>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-tight">
@@ -123,13 +124,13 @@ export default function SciencePage() {
         {/* Calculative Mid-Hub Callout Banner */}
         <CalculativeAppCallout
           variant="banner"
-          badge="Chronobiology In Code"
-          title="Turn peer-reviewed science into your daily operating system"
-          description="ARC models your adenosine accumulation, core body temperature nadir (Tmin), and solar lux requirements with 100% private, on-device SQLite precision."
+          badge="ARC for iPhone"
+          title="Stop guessing. ARC works out your day."
+          description="One sentence explaining why you feel like this right now, one thing worth doing about it, and the rest of your day as a plan. Built from what you log, not a generic routine."
           featureBullets={[
-            "Real-time caffeine half-life decay engine",
-            "Automatic sunrise & sunset color temperature matching",
-            "Zero cloud tracking • Works completely offline",
+            "Last safe coffee, recalculated with every cup",
+            "20-minute light timer from your real sunrise",
+            "No account. Your log stays on your iPhone",
           ]}
           location="science_hub_mid_banner"
         />
@@ -168,7 +169,7 @@ export default function SciencePage() {
                           <span>{article.categoryLabel}</span>
                         </span>
                         <span className="text-zinc-600">•</span>
-                        <span className="text-(--fg-muted)">{article.readTime}</span>
+                        <span className="text-(--fg-muted)">{readTime(article.content)}</span>
                       </div>
 
                       <h3 className="text-xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-snug">

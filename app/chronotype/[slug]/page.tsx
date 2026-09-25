@@ -1,34 +1,44 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { chronotypeDetails } from "@/lib/chronotype-data";
 import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
+import { AppStoreButton } from "@/components/AppStoreButton";
 import Link from "next/link";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+  return Object.keys(chronotypeDetails).map((slug) => ({
+    slug,
+  }));
+}
+
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const chronotype = chronotypeDetails[params.slug];
-  
+
   if (!chronotype) {
     return { title: "Not Found" };
   }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const title = `${chronotype.name} Chronotype: Daily Schedule, Traits & Sleep`;
+  const description = `The ${chronotype.name} chronotype explained: typical wake and sleep times, peak focus hours, morning light and caffeine timing, and answers to common questions.`;
 
   return {
-    title: `${chronotype.name} Chronotype Schedule & Sleep Optimization | ARC 2.0`,
-    description: `Learn the ideal daily schedule, peak focus windows, and caffeine cutoff for the ${chronotype.name} chronotype. Stop fighting your biology.`,
-    keywords: `${chronotype.name} chronotype, ${chronotype.name} sleep schedule, chronotype test, chronobiology, peak focus window, circadian rhythm`,
+    title,
+    description,
+    keywords: `${chronotype.name} chronotype, ${chronotype.name} sleep schedule, ${chronotype.name} chronotype schedule, chronotype test, chronobiology, circadian rhythm`,
     alternates: {
       canonical: `${SITE_URL}/chronotype/${params.slug}`,
     },
     openGraph: {
-      title: `${chronotype.name} Chronotype Guide | ARC 2.0 Living Light`,
+      title,
       description: chronotype.description,
       url: `${SITE_URL}/chronotype/${params.slug}`,
       siteName: "ARC Circadian Rhythm Tracker",
@@ -36,55 +46,36 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${chronotype.name} Chronotype Schedule & Optimization`,
+      title,
       description: chronotype.description,
       creator: "@iPritamX",
     },
   };
 }
 
-const chronotypeFaqs: Record<string, Array<{ q: string; a: string }>> = {
-  lion: [
-    {
-      q: "Can a Lion chronotype shift their schedule later?",
-      a: "Lions are genetically wired for early mornings due to PER3 gene variations. While you can force a later schedule temporarily, your biological temperature minimum will still wake you early, leading to sleep deprivation if bedtime is pushed back."
-    },
-    {
-      q: "What is the best career schedule for a Lion?",
-      a: "Lions thrive in traditional corporate environments and morning-heavy leadership roles. They perform best when they can schedule high-cognition tasks before noon and wrap up administrative work by 2:00 PM."
-    }
-  ],
-  bear: [
-    {
-      q: "Can a Bear shift to a Wolf schedule?",
-      a: "Bears follow the sun. Shifting to an evening Wolf schedule long-term is highly disruptive for Bears, leading to severe mid-afternoon energy crashes and accumulated sleep debt."
-    },
-    {
-      q: "How many hours of sleep does a Bear need?",
-      a: "Bears have a high sleep drive and typically require a full 8 hours of sleep to stay alert. Restricting sleep to 6 hours will trigger severe cognitive declines by day three."
-    }
-  ],
-  wolf: [
-    {
-      q: "Am I lazy if I struggle to wake up at 7:00 AM?",
-      a: "No. Wolves have a delayed circadian clock. When forced to wake up at 7 AM, a Wolf is biologically waking up in the middle of their deep sleep temperature minimum, leading to sleep inertia."
-    },
-    {
-      q: "How can a Wolf survive a standard 9-to-5 schedule?",
-      a: "Use bright light therapy immediately upon waking to advance your clock, delay caffeine by 2 hours, and schedule your most critical analytical tasks for 3 PM - 5 PM when your energy naturally peaks."
-    }
-  ],
-  dolphin: [
-    {
-      q: "Why do Dolphins experience severe insomnia?",
-      a: "Dolphins are characterized by nocturnal hyper-arousal. Their blood pressure and cortisol do not decline in the evening as they do for other chronotypes, keeping their brain alert."
-    },
-    {
-      q: "Should Dolphins take melatonin supplements?",
-      a: "Dolphins should avoid high-dose synthetic melatonin as it can cause daytime grogginess. Calm biological agents like L-Theanine, Magnesium Threonate, and dimming lights 2 hours before bed are much more effective."
-    }
-  ]
-};
+const LINK_PATTERN = /(\[[^\]]+\]\([^)]+\))/g;
+
+/** Renders [text](/path) links inside plain data strings. */
+function renderInline(text: string): ReactNode[] {
+  return text.split(LINK_PATTERN).map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    return (
+      <Link
+        key={i}
+        href={match[2]}
+        className="text-accent font-semibold underline decoration-(--accent)/30 hover:decoration-accent transition-colors"
+      >
+        {match[1]}
+      </Link>
+    );
+  });
+}
+
+const stripLinks = (text: string) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
+const CAFFEINE_FOOTNOTE =
+  "There's no universal cutoff. For one average cup and an average metaboliser, caffeine takes roughly five hours to fall below 50 mg; a bigger cup, a slower metabolism, or an earlier coffee still in your system pushes that earlier. ARC works it out from your bedtime, how fast you clear caffeine, and everything you've logged today.";
 
 export default async function ChronotypePage(props: Props) {
   const params = await props.params;
@@ -94,11 +85,14 @@ export default async function ChronotypePage(props: Props) {
     notFound();
   }
 
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+
   const jsonLdArticle = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${chronotype.name} Chronotype Guide`,
+    headline: `${chronotype.name} Chronotype: Daily Schedule, Traits & Sleep`,
     description: chronotype.description,
+    url: `${SITE_URL}/chronotype/${chronotype.slug}`,
     author: {
       "@type": "Organization",
       name: "ARC",
@@ -113,11 +107,25 @@ export default async function ChronotypePage(props: Props) {
     },
   };
 
+  const jsonLdFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: chronotype.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: stripLinks(faq.a) },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
       <div className="bg-black text-white min-h-screen relative overflow-hidden" style={{ fontFamily: "var(--font-geist-sans)" }}>
         {/* Decorative Radial Glowing Blobs */}
@@ -127,22 +135,27 @@ export default async function ChronotypePage(props: Props) {
         {/* Focused Content Header */}
         <ContentNav backHref="/#chronotypes" backLabel="Chronotypes" />
         <main className="max-w-4xl mx-auto py-14 px-6 relative" data-sky={chronotype.slug}>
-          
+
           <header className="mb-12">
             <div className="text-4xl mb-3">{chronotype.icon}</div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-3 leading-tight">
               The <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">{chronotype.name}</span> Chronotype
             </h1>
             <p className="text-base sm:text-lg text-(--fg-muted) font-medium mb-4">
-              {chronotype.tagline} ({chronotype.populationPercentage} of population)
+              {chronotype.tagline} (Breus estimates ~{chronotype.populationPercentage} of people)
             </p>
-            <p className="text-lg text-(--fg) leading-relaxed">
+            <p className="text-lg text-(--fg) leading-relaxed mb-4">
               {chronotype.description}
+            </p>
+            <p className="text-sm text-(--fg-muted) leading-relaxed">
+              {renderInline(
+                "Lion, Bear, Wolf and Dolphin come from sleep psychologist Dr. Michael Breus's book The Power of When ([our summary](/books/the-power-of-when)). They're popular shorthand for morning–evening preference, not a clinical diagnosis."
+              )}
             </p>
           </header>
 
           <section className="mb-12 raised-card p-8">
-            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">Ideal Biological Schedule</h2>
+            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">A Typical {chronotype.name} Schedule</h2>
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-accent font-bold text-xs uppercase tracking-wider mb-2 font-mono">Morning</h3>
@@ -152,7 +165,7 @@ export default async function ChronotypePage(props: Props) {
                     <span className="font-bold text-lg text-white">{chronotype.idealSchedule.wake}</span>
                   </li>
                   <li>
-                    <span className="block text-(--fg-muted) text-sm">Peak Focus Window</span>
+                    <span className="block text-(--fg-muted) text-sm">Peak Focus Hours</span>
                     <span className="font-bold text-lg text-white">{chronotype.idealSchedule.focus}</span>
                   </li>
                 </ul>
@@ -161,7 +174,7 @@ export default async function ChronotypePage(props: Props) {
                 <h3 className="text-accent font-bold text-xs uppercase tracking-wider mb-2 font-mono">Evening</h3>
                 <ul className="space-y-4">
                   <li>
-                    <span className="block text-(--fg-muted) text-sm">Caffeine Cutoff</span>
+                    <span className="block text-(--fg-muted) text-sm">Typical Last Coffee*</span>
                     <span className="font-bold text-lg text-white">{chronotype.idealSchedule.caffeineCutoff}</span>
                   </li>
                   <li>
@@ -175,6 +188,26 @@ export default async function ChronotypePage(props: Props) {
                 </ul>
               </div>
             </div>
+            <div className="mt-8 pt-6 border-t border-white/10 space-y-3 text-sm text-(--fg-muted) leading-relaxed">
+              <p>
+                <span className="text-white font-semibold">*Caffeine for a {chronotype.name}: </span>
+                {chronotype.caffeineNote}
+              </p>
+              <p>{CAFFEINE_FOOTNOTE}</p>
+              <p>
+                <span className="text-white font-semibold">Morning light: </span>
+                {chronotype.lightNote}
+              </p>
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-4 text-white">How to Tell You&apos;re a {chronotype.name}</h2>
+            <ul className="space-y-2 text-(--fg-muted)">
+              {chronotype.signs.map((sign, i) => (
+                <li key={i}>• {sign}</li>
+              ))}
+            </ul>
           </section>
 
           {/* Interactive Quiz CTA Card */}
@@ -184,7 +217,7 @@ export default async function ChronotypePage(props: Props) {
                 Are you sure you are a {chronotype.name}?
               </h3>
               <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
-                Chronotypes aren't fixed guesses. Take our free 2-minute diagnostic based on clinical sleep markers to verify your true sleep animal.
+                Take our free 2-minute, 8-question quiz to estimate your chronotype.
               </p>
             </div>
             <Link
@@ -198,7 +231,31 @@ export default async function ChronotypePage(props: Props) {
             </Link>
           </div>
 
-          <section className="grid sm:grid-cols-2 gap-8 mb-16">
+          <section className="mb-12 raised-card p-8">
+            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4 text-white">A Sample {chronotype.name} Day</h2>
+            <ul className="space-y-3">
+              {chronotype.sampleDay.map((item, i) => (
+                <li key={i} className="grid grid-cols-[9rem_1fr] gap-4 text-sm">
+                  <span className="font-mono font-bold text-accent">{item.time}</span>
+                  <span className="text-(--fg)">{item.activity}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-(--fg-muted)">
+              Times are illustrative. Your own day depends on your wake time and commitments.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-4 text-white">{chronotype.deepDive.heading}</h2>
+            <div className="space-y-4 text-(--fg) leading-relaxed">
+              {chronotype.deepDive.paragraphs.map((paragraph, i) => (
+                <p key={i}>{renderInline(paragraph)}</p>
+              ))}
+            </div>
+          </section>
+
+          <section className="grid sm:grid-cols-2 gap-8 mb-4">
             <div className="raised-card p-6">
               <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
                 <span className="text-accent">✓</span> Strengths
@@ -220,16 +277,18 @@ export default async function ChronotypePage(props: Props) {
               </ul>
             </div>
           </section>
+          <p className="mb-16 text-xs text-(--fg-muted)">Strengths and challenges as Breus describes them; individuals vary.</p>
 
-          <div className="prose prose-invert max-w-none mb-16">
-            <h2>Optimize Your {chronotype.name} Schedule with ARC</h2>
+          <div className="prose prose-invert max-w-none mb-8">
+            <h2>What ARC Changes for a {chronotype.name}</h2>
             <p>
-              Knowing your chronotype is only the first step. The real performance unlock comes from executing against it every single day. 
-              The ARC app is built specifically to guide {chronotype.name}s through their optimal biological schedule.
+              Knowing your chronotype helps most when your day actually follows it. ARC uses your chronotype to set the phases of your day, then gives you one sentence explaining why you feel the way you do right now, and one next step at the top of a short day plan.
             </p>
-            <p>
-              Instead of fighting your natural rhythm, ARC provides a live 24-hour daily trajectory. It tracks your caffeine half-life to ensure you hit your {chronotype.idealSchedule.caffeineCutoff} cutoff, times your morning sunlight exposure, and sends smart notifications precisely when your biology needs them.
-            </p>
+            <p>{chronotype.arcForType}</p>
+            <p>{renderInline(chronotype.related)}</p>
+          </div>
+          <div className="mb-16">
+            <AppStoreButton location={`chronotype_${chronotype.slug}_bridge`} />
           </div>
 
           {/* FAQ Section */}
@@ -238,7 +297,7 @@ export default async function ChronotypePage(props: Props) {
               Frequently Asked Questions about {chronotype.name}s
             </h2>
             <div className="space-y-4">
-              {chronotypeFaqs[chronotype.slug]?.map((faq, idx) => (
+              {chronotype.faqs.map((faq, idx) => (
                 <details
                   key={idx}
                   className="group raised-card p-6 [&_summary::-webkit-details-marker]:hidden open:border-(--accent)/40 transition-all"
@@ -250,7 +309,7 @@ export default async function ChronotypePage(props: Props) {
                     </span>
                   </summary>
                   <p className="mt-4 text-(--fg-muted) leading-relaxed text-sm">
-                    {faq.a}
+                    {renderInline(faq.a)}
                   </p>
                 </details>
               ))}

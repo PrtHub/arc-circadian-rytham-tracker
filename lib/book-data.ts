@@ -5,7 +5,6 @@ export interface BookDetail {
   author: string;
   authorTitle: string;
   publishedDate: string;
-  rating: string;
   keyMetric: string;
   excerpt: string;
   arcConnection: string;
@@ -17,138 +16,128 @@ export const booksData: BookDetail[] = [
     slug: "the-power-of-when",
     title: "The Power of When",
     subtitle:
-      "Discover your genetic chronotype to optimize the timing of your daily activities.",
+      "Discover Your Chronotype—and the Best Time to Eat Lunch, Ask for a Raise, Have Sex, Write a Novel, Take Your Meds, and More",
     author: "Dr. Michael Breus",
     authorTitle: "Clinical Psychologist & Sleep Specialist",
     publishedDate: "2016",
-    rating: "4.7/5",
     keyMetric: "4 Chronotypes",
     excerpt:
-      "Dr. Michael Breus outlines why your biology's biological clock governs everything. Discover the science behind Lions, Bears, Wolves, and Dolphins.",
+      "Dr. Michael Breus's popular book sorts people into Lions, Bears, Wolves and Dolphins and times the day around each one. Here's what holds up.",
     arcConnection:
-      "Direct foundation of ARC's onboarding quiz and chronotype-specific focus scheduling.",
+      "ARC uses the same four chronotype names (Lion, Bear, Wolf, Dolphin) to set the phases of your day. Your caffeine cutoff isn't a chronotype rule: ARC computes it from your bedtime, sensitivity and every drink you log.",
     content: `
 # The Power of When: Timing is Everything
 
-In *The Power of When*, Dr. Michael Breus (known as the "Sleep Doctor") argues that when it comes to peak health and productivity, **when** you do something is just as important as **what** or **how** you do it. Dr. Breus explains that we are genetically programmed to operate on one of four distinct circadian cycles, which he calls **chronotypes**.
+In *The Power of When*, Dr. Michael Breus (known as "The Sleep Doctor") argues that **when** you do something matters as much as **what** or **how** you do it. He sorts people into four **chronotypes**, each named after an animal, and builds a daily schedule around each one.
 
-### The Biological Mechanism of Chronotypes
-Our chronotype is determined by genetics—specifically, variations in clock genes like the **PER3 gene**. These genetic differences dictate our baseline sleep drive, our natural waking times, and the curves of our daily hormone production (primarily cortisol, melatonin, and thyroid-stimulating hormone). 
+## What's Behind a Chronotype
+Breus's four animals are a popular framework built on morning–evening preference research, not a clinical classification. The science underneath is solid: people differ in how early or late their body clock runs, partly for genetic reasons (PER3 is one of several genes linked to it), and chronotype shifts with age. Researchers such as Till Roenneberg measure it on a continuous scale, for example with the Munich ChronoType Questionnaire, rather than in four boxes. Breus's contribution is making the idea easy to act on.
 
-### The Four Chronotypes
-1.  **Lions (15% of population)**: Early risers. Optimistic, analytical, and highly productive in the morning. They naturally wake up around 5:00 AM - 6:00 AM. Their mental peak is between 8:00 AM and 12:00 PM. They crash in the late afternoon and prefer an early bedtime (9:00 PM - 10:00 PM).
-2.  **Bears (50% of population)**: Follow the solar cycle. Energetic, friendly, and steady. They naturally wake up around 7:00 AM. Peak productivity is mid-morning (10:00 AM - 2:00 PM). They require a solid 8 hours of sleep and naturally wind down around 11:00 PM.
-3.  **Wolves (15-20% of population)**: Night owls. Creative, impulsive, and sharpest in the late afternoon and evening. They struggle to wake up before 9:00 AM. Their peak creative and cognitive windows occur between 5:00 PM and 11:00 PM. They prefer late bedtimes (12:00 AM - 2:00 AM).
-4.  **Dolphins (10% of population)**: Light sleepers. Highly intelligent, anxious, and prone to insomnia. Their energy fluctuates irregularly, and they often wake up feeling unrefreshed. They have a split alertness curve, peaking late in the evening.
+## The Four Chronotypes
+1. [Lions](/chronotype/lion), about 15–20% of people by Breus's estimate: Early risers who wake around 5:00 to 6:00 AM, think best between about 8:00 AM and noon, fade in the late afternoon and prefer a 9:00 to 10:00 PM bedtime.
+2. [Bears](/chronotype/bear), about 50% and the most common type: They follow the sun, wake around 7:00 AM, peak from mid-morning to early afternoon, feel a clear afternoon slump and wind down around 11:00 PM.
+3. [Wolves](/chronotype/wolf), about 15–20%: Night owls. They struggle to wake before 9:00 AM, are sharpest from late afternoon into the evening, and prefer bedtimes between midnight and 2:00 AM.
+4. [Dolphins](/chronotype/dolphin), about 10%: Light sleepers. Breus describes them as anxious and detail-focused, often waking unrefreshed, with uneven energy that settles later in the day.
 
-### The Bio-Time Blueprint: Daily Routine Optimizations
-Dr. Breus outlines the biologically correct windows for key activities based on your sleep animal:
+Not sure which one you are? The free [chronotype quiz](/tools/chronotype-quiz) gives you an estimate in about two minutes.
 
-#### ☕ Caffeine Consumption
-*   **Lions**: 8:00 AM - 10:00 AM (Allow natural cortisol to decline first).
-*   **Bears**: 9:30 AM - 11:30 AM.
-*   **Wolves**: 11:00 AM - 1:00 PM (Never drink coffee immediately upon waking).
-*   **Dolphins**: 9:30 AM - 11:00 AM (Limit total intake to avoid late-night anxiety loops).
+## Breus's Daily Timing Suggestions
+Breus sets out windows for key activities for each animal. Treat them as his rules of thumb rather than lab-tested prescriptions.
 
-#### 🧠 Deep Cognitive Work
-*   **Lions**: 8:00 AM - 12:00 PM (Schedule your most critical strategic planning here).
-*   **Bears**: 10:00 AM - 2:00 PM.
-*   **Wolves**: 4:30 PM - 8:00 PM.
-*   **Dolphins**: 3:00 PM - 7:00 PM.
+### ☕ Caffeine
+Breus's general advice is to wait a while after waking before the first coffee and to keep caffeine to the earlier part of your day, with Wolves starting and stopping later than Lions, and Dolphins keeping their intake low.
 
-#### 💪 Physical Training
-*   **Lions**: 6:30 AM (Morning runs fit their rapid core temperature rise).
-*   **Bears**: 7:30 AM or 6:00 PM.
-*   **Wolves**: 6:00 PM - 8:00 PM (Training late helps clear built-up adrenaline).
-*   **Dolphins**: 6:30 PM (Use moderate exercise to facilitate evening temperature cooling).
+There's no universal cutoff, though. For one average cup and an average metaboliser, caffeine takes roughly five hours to fall below 50 mg; a bigger cup, a slower metabolism, or an earlier coffee still in your system pushes that earlier.
 
-> [!IMPORTANT]
-> Chronotype mismatches are the leading cause of "social jetlag"—forcing a Wolf to attend an 8 AM team meeting is like asking a Lion to stay productive until 1 AM.
+### 🧠 Deep Cognitive Work
+* **Lions**: roughly 8:00 AM to noon.
+* **Bears**: roughly 10:00 AM to 2:00 PM.
+* **Wolves**: late afternoon into the evening (about 4:30 to 8:00 PM).
+* **Dolphins**: mid-to-late afternoon (about 3:00 to 7:00 PM).
 
-### How ARC Applies This
-ARC translates Dr. Breus's scientific schedule into a live, interactive 24-hour visual timeline on your phone. Based on your chronotype, ARC sets your **Peak Focus Windows**, prompts you for **Caffeine Cutoffs**, and adjusts your bedtime alerts automatically so you stop fighting your biology.
+### 💪 Exercise
+* **Lions**: early morning.
+* **Bears**: morning or early evening.
+* **Wolves**: early evening.
+* **Dolphins**: moderate exercise in the early evening.
+
+> [!IMPORTANT] Social jetlag is the gap between your chronotype and your schedule. Forcing a Wolf into an 8 AM meeting is a bit like asking a Lion to stay sharp until 1 AM. More in [what social jetlag is](/blog/what-is-social-jetlag).
+
+## How This Connects to ARC
+ARC uses the same four chronotypes to set the phases of your day, so a Wolf's plan starts and ends later than a Lion's. Your caffeine cutoff isn't a chronotype rule, though: ARC computes it from your bedtime, your caffeine sensitivity and every drink you log, and it moves each time you log one. A wind-down notification arrives before bed. Our [chronotype schedule guide](/guides/chronotype-lifestyle-design-guide) goes further. ARC isn't affiliated with or endorsed by Dr. Breus; this summary is our own reading of the book.
     `,
   },
   {
     slug: "why-we-sleep",
     title: "Why We Sleep",
-    subtitle:
-      "Unlocking the power of sleep and dreams for physiological and mental longevity.",
+    subtitle: "Unlocking the Power of Sleep and Dreams",
     author: "Dr. Matthew Walker",
     authorTitle: "Professor of Neuroscience & Psychology at UC Berkeley",
     publishedDate: "2017",
-    rating: "4.8/5",
     keyMetric: "90-Min Cycles",
     excerpt:
-      "A neuroscientist explains why sleep is the single most effective thing we can do to reset our brain and body health.",
+      "Matthew Walker's bestseller on what deep and REM sleep do, and how caffeine and alcohol get in the way. The key takeaways, with a few corrections.",
     arcConnection:
-      "Powers ARC's Sleep Cycle Calculator and sleep-safe caffeine decay calculations.",
+      "Walker's chapter on caffeine is the part ARC puts into practice: it tracks every coffee you log and shows the latest time another cup still drops under 50 mg by bedtime.",
     content: `
 # Why We Sleep: Unlocking the Science of Dreams
 
-In *Why We Sleep*, neuroscientist Dr. Matthew Walker explores the physiological and neurological necessity of sleep. Sleep is not a state of passive inactivity; it is a highly active, complex biological process necessary for metabolic health, immune cell production, memory consolidation, and emotional regulation.
+In *Why We Sleep*, neuroscientist Dr. Matthew Walker explains why sleep matters for almost everything: metabolic health, immune function, memory and emotional regulation. Sleep isn't passive downtime; it's a busy biological process.
 
-### Sleep Architecture: The 90-Minute Cycles
-Human sleep is structured in repeating cycles of approximately 90 minutes. Each cycle is a balance between two main modes:
-1.  **NREM (Non-Rapid Eye Movement) Sleep**: Divided into four stages. Stages 3 and 4 are known as **Slow-Wave Sleep (SWS)** or Deep Sleep. NREM sleep is responsible for physiological repair, muscle recovery, clearing neural waste, and archiving facts from the hippocampus (short-term) to the cortex (long-term).
-2.  **REM (Rapid Eye Movement) Sleep**: The dreaming phase. REM sleep is responsible for emotional processing, integration of complex ideas, motor-skill consolidation, and creative problem-solving.
+## Sleep Architecture: The 90-Minute Cycles
+Sleep runs in repeating cycles of roughly 90 minutes (in practice anywhere from about 70 to 120). Each cycle moves between two main modes:
+1. **NREM (Non-Rapid Eye Movement) Sleep**: Walker describes four stages, with stages 3 and 4 known as **slow-wave** or deep sleep (today's scoring merges these into one stage, N3). Deep NREM sleep supports physical repair and helps move memories from the hippocampus (short-term) to the cortex (long-term).
+2. **REM (Rapid Eye Movement) Sleep**: The main dreaming stage. Walker links REM to emotional processing, creativity and connecting ideas.
 
-During the first half of the night, your sleep cycles are dominated by Deep NREM sleep. In the second half, NREM decreases and REM sleep increases. 
+Deep NREM dominates the first half of the night; REM takes up more of the second half. That's why cutting a night short at either end costs you different things.
 
-> [!WARNING]
-> Waking up in the middle of a deep NREM stage triggers **sleep inertia** (severe grogginess). Waking up at the completion of a full 90-minute cycle allows you to transition smoothly to alertness.
+> [!WARNING] Waking from deep NREM sleep tends to make grogginess (sleep inertia) worse. A popular idea, not Walker's, is to time your alarm to the end of a cycle, but cycles vary from about 70 to 120 minutes, so the math is rough at best.
 
-### The Glymphatic System: Brain Washing
-During slow-wave Deep Sleep, the brain's glial cells shrink by up to 60%, allowing cerebrospinal fluid (CSF) to rush through the interstitial space. This acts as a biological dishwasher, washing out metabolic waste, including **beta-amyloid plaques** (associated with Alzheimer's disease) and **tau proteins**. Without deep sleep, this waste accumulates, leading to cognitive decline.
+## The Glymphatic System: Brain Washing
+Walker describes the brain's cleaning system opening up during deep sleep (in mice, the space between brain cells grew by about 60%, letting fluid flush through faster). That fluid carries away waste, including **beta-amyloid** and **tau**, proteins associated with Alzheimer's disease. The mouse findings are striking, but how much they apply to humans is still being worked out; our explainer on the [glymphatic system](/science/glymphatic-clearance-system) covers the debate.
 
-### The Caffeine and Alcohol Interference
-Dr. Walker highlights how common substances destroy sleep quality:
-*   **Caffeine**: An adenosine antagonist with a half-life of 5-7 hours. Blocking adenosine receptors masks sleep pressure. Consuming caffeine too close to bedtime blocks slow-wave deep sleep, reducing sleep restoration by up to 30%.
-*   **Alcohol**: A central nervous system sedative. Alcohol does not induce sleep; it sedates the brain, leading to fragmented sleep and suppressing REM sleep entirely, destroying emotional recovery and memory.
+## Caffeine and Alcohol
+Walker spends a lot of time on two everyday substances:
+* **Caffeine**: Blocks adenosine receptors, masking sleep pressure rather than removing it. Walker gives a half-life of 5 to 7 hours; in practice it's roughly 4 to 7 hours depending on the person (around 5 on average). He notes that caffeine late in the day can reduce deep sleep even in people who fall asleep without trouble.
+* **Alcohol**: A sedative, not a sleep aid. Walker explains that it fragments sleep and suppresses REM sleep.
 
-### How ARC Applies This
-ARC translates Dr. Walker's research into two interactive features:
-*   **The Sleep Cycle Calculator**: Allows you to calculate optimal bedtimes or alarm times in 90-minute increments, preventing mid-cycle wakeups.
-*   **Active Caffeine Decay Tracker**: Visualizes your liver's metabolic clearance curve in real-time, helping you stop caffeine consumption at the exact biological minute required to preserve deep NREM sleep.
+## How This Connects to ARC
+If you want a rough bedtime or alarm time in 90-minute steps, try our free [sleep cycle calculator](/tools/sleep-cycle-calculator); it's a web tool, not part of the app. In the app, ARC's live caffeine curve shows what's still circulating from every drink you log, and your last safe coffee is recalculated each time, aiming for under 50 mg at bedtime. ARC isn't affiliated with or endorsed by Dr. Walker; this summary is our own.
     `,
   },
   {
     slug: "change-your-schedule-change-your-life",
     title: "Change Your Schedule, Change Your Life",
     subtitle:
-      "Harness the power of clock genes to lose weight, increase energy, and sleep deeply.",
+      "How to Harness the Power of Clock Genes to Lose Weight, Optimize Your Workout, and Finally Get a Good Night's Sleep",
     author: "Dr. Suhas Kshirsagar",
-    authorTitle: "Ayurvedic Physician & Chronobiology Consultant",
+    authorTitle: "Ayurvedic Physician & Author",
     publishedDate: "2018",
-    rating: "4.6/5",
     keyMetric: "Fasting Windows",
     excerpt:
-      "Learn how synchronizing your eating, sleeping, and working windows with natural light-dark shifts clears chronic health issues.",
+      "Dr. Suhas Kshirsagar blends Ayurveda with chronobiology and argues that aligning meals, sleep and work with daylight improves energy and digestion.",
     arcConnection:
-      "Guides ARC's recommendations for morning feeding alignment and digestive sunsets.",
+      "ARC doesn't plan meals. What it shares with this book is the morning anchor: about 20 minutes of outdoor light, timed from your real sunrise.",
     content: `
 # Change Your Schedule, Change Your Life: Clock Genes
 
-Dr. Suhas Kshirsagar blends ancient Ayurvedic daily routines (Dinacharya) with modern chronobiology. He explains that every cell in the human body contains "clock genes" that operate on localized timetables. When your daily activities are misaligned with these clock genes (e.g. eating late at night, sleeping in, working under fluorescent lights), you experience **circadian desynchrony**.
+Dr. Suhas Kshirsagar blends the Ayurvedic daily routine (Dinacharya) with modern chronobiology. His argument: almost every cell runs on "clock genes", and when your habits fight those clocks (eating late at night, sleeping in, spending your days under dim indoor light) you end up in **circadian desynchrony**: tired, poorly rested and out of sorts.
 
-### The Three Shifts of the Day
-Dr. Kshirsagar structures the day into three distinct 4-hour cycles:
-1.  **Water & Earth (6:00 AM - 10:00 AM)**: Core temperature is rising. Melatonin is dropping. This is the optimal time for hydration, morning light, and physical movement.
-2.  **Fire & Focus (10:00 AM - 2:00 PM)**: Digestive fire (Agni) and intellectual concentration are at their peak. Your largest meal should be consumed during this window.
-3.  **Air & Movement (2:00 PM - 6:00 PM)**: Coordination and physical agility are high. Great for lighter work, administrative tasks, and exercise.
+## The Three Periods of the Day
+Kshirsagar maps the day onto the three Ayurvedic doshas, each ruling a four-hour block that repeats in the evening:
+1. **Kapha, earth and water (6:00 AM - 10:00 AM)**: A steady, heavier period. He recommends getting up, getting outside and moving early in this window.
+2. **Pitta, fire and water (10:00 AM - 2:00 PM)**: Digestion (Agni) and concentration are strongest, so he makes lunch the largest meal of the day.
+3. **Vata, air and space (2:00 PM - 6:00 PM)**: A lighter, more changeable period he suggests for creative work, lighter tasks and exercise.
 
-### The Science of Circadian Nutrition
-Eating late at night is highly disruptive to metabolic health. 
-*   **Insulin Sensitivity**: Insulin sensitivity drops in the evening as melatonin rises. Eating a heavy meal at 8:00 PM leads to higher blood sugar spikes compared to eating the same meal at 12:00 PM.
-*   **Digestive Sunset**: Your body needs to redirect its resources from digestion to cellular repair (autophagy) during sleep. Stop eating at least **3 hours before bedtime** to facilitate a drop in core body temperature.
+## Meal Timing
+Kshirsagar's advice lines up with a growing body of circadian research:
+* **Insulin sensitivity** tends to be lower in the evening, so the same meal generally raises blood sugar more at 8:00 PM than at noon.
+* **An early dinner**: He recommends finishing eating well before bed, around three hours, so digestion is winding down as you go to sleep.
 
-> [!NOTE]
-> Going to sleep with a full stomach causes your heart rate to remain elevated and suppresses human growth hormone (HGH) release during the night.
+> [!NOTE] A large meal close to bedtime keeps your digestive system busy just as your body is trying to cool down for sleep, and many people find it harder to fall asleep. If you have diabetes or take glucose-lowering medication, talk to your doctor before changing when you eat.
 
-### How ARC Applies This
-ARC uses Dr. Kshirsagar's research to suggest feeding times. The app outlines:
-*   Optimal breakfast slots linked to your morning sunlight timer.
-*   A **Digestive Sunset** countdown timer reminding you to stop eating 3 hours before bed to ensure a cool core temperature and deep sleep.
+## How This Connects to ARC
+ARC doesn't plan meals. What it shares with this book is the morning anchor: ARC times about 20 minutes of outdoor light from your real sunrise and runs the timer on your Lock Screen. For the meal-timing side, our [circadian fasting guide](/guides/circadian-intermittent-fasting-metabolic-clocks-guide) covers the research, and the free [sunlight calculator](/tools/sunlight-calculator) shows today's sunrise and light window. ARC isn't affiliated with or endorsed by Dr. Kshirsagar; this summary is our own.
     `,
   },
   {
@@ -157,35 +146,36 @@ ARC uses Dr. Kshirsagar's research to suggest feeding times. The app outlines:
     subtitle:
       "Lose Weight, Supercharge Your Energy, and Transform Your Health from Morning to Midnight",
     author: "Dr. Satchin Panda",
-    authorTitle: "Pioneer Circadian Biologist & Salk Institute Professor",
+    authorTitle: "Circadian Biologist & Salk Institute Professor",
     publishedDate: "2018",
-    rating: "4.8/5",
     keyMetric: "10-Hr Feeding",
     excerpt:
-      "Salk Institute professor Dr. Satchin Panda details the impact of Time-Restricted Eating, light schedules, and sleep timing on metabolic health and longevity.",
+      "Salk Institute professor Dr. Satchin Panda explains how time-restricted eating, light and sleep timing affect metabolic health, and what the research shows.",
     arcConnection:
-      "Directly drives ARC's digestive sunset reminders and morning light counting features.",
+      "ARC doesn't track meals. It handles the light half of Panda's advice: a 20-minute morning light timer from your real sunrise, and seek-light and avoid-light windows when you travel.",
     content: `
 # The Circadian Code: Supercharge Your Energy
 
-Dr. Satchin Panda is a professor at the Salk Institute and one of the world's leading researchers in circadian biology. In *The Circadian Code*, Dr. Panda presents research showing that managing your biological clock is the single most powerful lever for reversing metabolic syndromes, losing weight, and optimizing immune system response.
+Dr. Satchin Panda is a professor at the Salk Institute and a leading researcher in circadian biology. In *The Circadian Code*, he argues that working with your body clock, through when you eat, when you see light and when you sleep, can improve metabolic health, weight and immune function.
 
-### SCN vs Peripheral Clocks
-While the Suprachiasmatic Nucleus (SCN) in the brain is the "master clock" synchronized by light, Dr. Panda discovered that **every major organ—the liver, gut, kidneys, and heart—contains its own peripheral clock**.
-*   **The Master SCN Clock** is set by light exposure.
-*   **Peripheral Clocks** in the liver and kidneys are set primarily by **when we eat**.
-When light exposure and eating times are misaligned (e.g. eating late at night while sitting under bright lights), your peripheral organs fall out of sync with your brain, triggering metabolic strain, inflammation, and insulin resistance.
+## SCN vs. Peripheral Clocks
+The suprachiasmatic nucleus (SCN) in the brain is the "master clock". But organs such as the liver, gut, kidneys and heart also run their own **peripheral clocks**. These were described by several labs in the late 1990s (for example, Balsalobre et al., 1998), and Dr. Panda's lab helped show how much of the liver's work runs on a daily clock.
+* **The master SCN clock** is set mainly by light.
+* **Peripheral clocks** in the liver and gut are strongly influenced by **when we eat**.
 
-### Time-Restricted Feeding (TRF)
-Dr. Panda's research pioneered **Time-Restricted Feeding**. He advocates for keeping all calorie consumption within a strict **8-to-10 hour window** (maximum 12 hours). 
-*   **Autophagy**: Keeping a consistent fasting window of 14-16 hours every day gives the liver and kidneys time to halt digestive strain and perform cellular self-cleaning.
-*   **Metabolic Reset**: TRF increases insulin sensitivity, decreases systemic inflammation, and naturally deepens sleep quality by preventing nocturnal core temperature spikes.
+When light and meals send conflicting signals (for example, eating late at night under bright lights), Panda argues that your organs drift out of step with your brain, adding metabolic strain.
 
-> [!IMPORTANT]
-> A critical rule: your circadian clock begins ticking the moment you consume anything other than water (including black coffee or tea, which trigger liver enzymes).
+## Time-Restricted Eating
+Panda's lab is best known for its time-restricted eating research, starting in mice: animals that ate a high-fat diet within an 8-hour window were protected from much of the weight gain and metabolic damage seen in mice that ate the same diet around the clock (Hatori et al., 2012, Cell Metabolism). In the book he recommends keeping all eating within an **8 to 10-hour window**, and no more than 12.
+* **Overnight fast**: A consistent daily fast of 12 hours or more, he argues, gives the liver and gut time for repair.
+* **Human results**: Some small human trials have shown improvements in markers such as insulin sensitivity; larger trials have had mixed results, particularly for weight loss.
 
-### How ARC Applies This
-ARC integrates Dr. Panda's findings directly into daily routines. By coordinating your sleep timeline, ARC schedules a custom **Feeding Window** tracker, sending alerts when your digestive fire is entering its peak phase (usually around noon) and reminding you to start a "digestive sunset" to begin your 14-hour fast, protecting your liver and sleep.
+> [!IMPORTANT] Panda's rule of thumb: the eating window starts with the first thing you consume other than water, including black coffee or tea.
+
+Talk to your doctor before fasting or changing your meal timing, especially if you're pregnant, breastfeeding, diabetic, underweight or have a history of eating disorders.
+
+## How This Connects to ARC
+ARC doesn't track meals. It handles the other half of Panda's advice, light: a 20-minute morning light timer that starts from your real sunrise, and seek-light and avoid-light windows when you cross time zones. For the eating side, see our [circadian fasting guide](/guides/circadian-intermittent-fasting-metabolic-clocks-guide); for travel, the free [jet lag planner](/tools/jetlag-planner). ARC isn't affiliated with or endorsed by Dr. Panda; this summary is our own.
     `,
   },
   {
@@ -195,33 +185,34 @@ ARC integrates Dr. Panda's findings directly into daily routines. By coordinatin
     author: "Dr. David Sinclair",
     authorTitle: "Harvard Genetics Professor & Longevity Researcher",
     publishedDate: "2019",
-    rating: "4.7/5",
     keyMetric: "Cellular Longevity",
     excerpt:
-      "Harvard geneticist Dr. David Sinclair presents a revolutionary theory of aging and outlines how circadian health preserves DNA repair.",
+      "Harvard geneticist David Sinclair's Information Theory of Aging, sirtuins and NAD+, and his habits for healthy ageing, plus where your body clock fits in.",
     arcConnection:
-      "Informs ARC's emphasis on sleep as the primary biological longevity and DNA repair window.",
+      "ARC won't slow ageing. It overlaps with this book only where rhythm matters: a steady wake time, morning light, and sleep protected from late caffeine.",
     content: `
 # Lifespan: The Circadian Link to Longevity
 
-Dr. David Sinclair, professor of genetics at Harvard Medical School, argues that aging is not an inevitable natural law, but a disease that can be treated. At the core of Dr. Sinclair's research is the **Information Theory of Aging**—the idea that our cells lose their epigenetic identity over time due to DNA damage.
+Dr. David Sinclair, professor of genetics at Harvard Medical School, argues that ageing is not an inevitable natural law but a process that can be slowed and, he believes, eventually treated like a disease. At the core of his book is the **Information Theory of Aging**: the idea that cells gradually lose their epigenetic "information" (which genes should be switched on or off), partly because of the work of repairing DNA damage.
 
-### Sirtuins and the Circadian Connection
-Sirtuins are a family of seven enzymes that regulate cellular health, defense, and longevity. However, sirtuins require a molecule called **NAD+** to function, and both sirtuins and NAD+ levels are heavily regulated by the **circadian clock**.
-*   **Sirtuins** act as cellular first-responders. When you have DNA damage (from UV light, stress, or toxins), sirtuins leave their post of regulating clock genes to go repair the DNA.
-*   **Circadian Drift**: If sirtuins are constantly distracted by repair tasks, or if your sleep-wake rhythm is highly erratic, your cells lose their genetic synchronization, accelerating the physiological aging process.
+## Sirtuins and NAD+
+Sirtuins are a family of seven enzymes involved in cellular maintenance and defence, and they need a molecule called **NAD+** to work. In Sinclair's model:
+* **Sirtuins as first responders**: When DNA is damaged (by UV light, radiation or toxins), sirtuins leave their posts controlling genes to help with repairs. Repeated over a lifetime, he argues, this leaves gene regulation more and more disordered.
+* **NAD+ declines with age**, which Sinclair sees as one reason sirtuins become less effective.
 
-> [!NOTE]
-> Dr. Sinclair explains that keeping a consistent sleep schedule and getting morning sunlight is a primary stressor mitigation strategy that protects cellular age indicators.
+## Where the Body Clock Fits
+*Lifespan* is mostly about genes and metabolism, not circadian rhythm. The overlap is real but indirect: NAD+ levels rise and fall across the day, and in mice the sirtuin SIRT1 interacts with core clock genes. Whether keeping a steady daily rhythm slows human ageing hasn't been shown.
 
-### Hormesis Protocols
-Dr. Sinclair recommends activating protective "survival genes" through **hormesis**—subtle, healthy physiological stressors:
-1.  **Intermittent Fasting**: Limits organ strain and triggers autophagy.
-2.  **Cold/Heat Shock**: Triggers sirtuin activation and brown adipose tissue activity.
-3.  **Strict Circadian Timing**: Ensures that cellular repair enzymes peak at the correct times of the day (e.g. during deep NREM sleep).
+## Sinclair's Hormesis Habits
+Sinclair recommends mild, healthy stressors (**hormesis**) that he believes switch on the body's defences:
+1. **Eating less often**: Intermittent fasting or skipping meals.
+2. **Exercise**: Especially the kind that leaves you out of breath.
+3. **Cold exposure**: Time in the cold, which he links to activating brown fat.
 
-### How ARC Applies This
-ARC acts as a biological shield against epigenetic wear. By aligning your daily sleep, focus, and light schedules with your genetic chronotype, ARC minimizes chronic environmental stress and ensures your body's restorative repair systems have designated, uninterrupted windows of operation every single night.
+> [!NOTE] Check with your doctor before fasting or cold exposure, especially if you're pregnant, have diabetes, a heart condition or a history of eating disorders.
+
+## How This Connects to ARC
+ARC won't slow ageing. It helps with the parts of this book about rhythm: a steady wake time (Trends tells you when yours starts drifting later), about 20 minutes of morning light timed from your real sunrise, and a caffeine cutoff that protects your sleep. For the basics of how your body clock works, start with [what a circadian rhythm is](/blog/what-is-circadian-rhythm-beginner-guide). ARC isn't affiliated with or endorsed by Dr. Sinclair; this summary is our own.
     `,
   },
   {
@@ -231,35 +222,37 @@ ARC acts as a biological shield against epigenetic wear. By aligning your daily 
     author: "James Nestor",
     authorTitle: "Science Journalist & Author",
     publishedDate: "2020",
-    rating: "4.8/5",
     keyMetric: "Nasal Breathing",
     excerpt:
-      "James Nestor explores the evolutionary shift from nasal to mouth breathing and how correcting your respiratory habits resolves sleep apnea, snoring, and circadian fatigue.",
+      "James Nestor explores how breathing through your nose instead of your mouth affects sleep, snoring and stress, and what the research actually supports.",
     arcConnection:
-      "Guides ARC's breathing protocol recommendations during stress checks and morning lung oxygenation timers.",
+      "ARC doesn't coach breathing. If you want to pair Nestor's slow breathing with something ARC does, try it during your 20-minute morning light walk.",
     content: `
 # Breath: The New Science of a Lost Art
 
-In *Breath*, science journalist James Nestor investigates a basic but neglected aspect of human health: how we breathe. Nestor travels the world to explore the evolutionary, physiological, and neurological differences between mouth breathing and nasal breathing, showing that how we inhale and exhale dictates our sleep quality, metabolic speed, and stress levels.
+In *Breath*, science journalist James Nestor investigates something most of us never think about: how we breathe. He travels widely to explore the differences between mouth breathing and nasal breathing, and argues that how we inhale and exhale affects sleep, stress and overall health.
 
-### Mouth Breathing vs. Nasal Breathing
-Nestor explains that humans have become chronic mouth breathers due to changes in jaw structure caused by modern soft diets. This shift has severe biological consequences:
-*   **Mouth Breathing**: Bypasses the body's natural air filtration and humidification systems. It triggers the sympathetic nervous system ("fight or flight"), raising heart rate, increasing blood pressure, and contributing to sleep apnea, snoring, and daytime fatigue.
-*   **Nasal Breathing**: Releases **nitric oxide**, a molecule that plays a vital role in increasing oxygen circulation, dilating blood vessels, and activating the parasympathetic nervous system ("rest and digest"). 
+## Mouth Breathing vs. Nasal Breathing
+Nestor argues that modern soft diets have changed human jaw structure, narrowing airways and making mouth breathing more common. In his account:
+* **Mouth breathing**: Bypasses the nose's filtering and humidifying, and Nestor links it to snoring, sleep apnea and daytime tiredness.
+* **Nasal breathing**: The nose and sinuses produce **nitric oxide**, which helps blood vessels widen, and slow nasal breathing tends to shift the nervous system toward "rest and digest".
 
-### Sleep Apnea and Circadian Sleep Structure
-Mouth breathing during sleep causes the soft tissues in the back of the mouth to collapse, obstructing the airway. This results in **sleep apnea** and snoring, which fragment sleep architecture by forcing the brain to wake up briefly to gasp for air, preventing you from reaching slow-wave deep sleep.
+## Sleep Apnea and Snoring
+Breathing through the mouth during sleep can make the airway more likely to collapse. In obstructive sleep apnea, the airway repeatedly narrows or closes during sleep and the brain briefly wakes to restart breathing, fragmenting sleep so you get less deep sleep.
 
-> [!TIP]
-> Nestor details "mouth taping"—using a small strip of surgical tape to keep lips closed during sleep—as a simple, effective method to force nasal breathing, eliminate snoring, and deepen sleep.
+Sleep apnea is a medical condition. If you snore loudly, stop breathing or gasp in your sleep, or feel exhausted despite enough time in bed, see a doctor. It's treatable, and breathing exercises aren't a substitute for a diagnosis.
 
-### Respiratory Protocols
-Nestor outlines key exercises to restore optimal breathing:
-1.  **Slower Breathing**: Breathe in for 5.5 seconds, and out for 5.5 seconds (about 5.5 breaths per minute). This matches the natural resonance rhythm of human blood circulation.
-2.  **Hypoventilation**: Practice breathing less to build carbon dioxide tolerance, which enhances oxygen delivery to cells via the Bohr effect.
+> [!CAUTION] Nestor describes mouth taping (a small strip of tape to keep the lips closed during sleep) as a way to encourage nasal breathing. Evidence is limited. Don't tape if you can't breathe easily through your nose, and talk to a doctor first if you snore loudly or might have sleep apnea: taping can hide the symptom without treating it.
 
-### How ARC Applies This
-ARC incorporates Nestor's research into daily check-ins and recovery guides. The app prompts you to practice **Nasal Oxygenation** during morning light windows and offers structured 5.5-second breathing guides during high-stress alert periods to help you reset your nervous system.
+## Breathing Practices
+Nestor outlines a few practices:
+1. **Slower breathing**: In for about 5.5 seconds and out for about 5.5 seconds, roughly 5.5 breaths a minute. Nestor describes this as a natural "resonant" rhythm.
+2. **Breathing less**: Nestor argues that practising lighter breathing builds tolerance to carbon dioxide, which he says improves oxygen delivery to cells (the Bohr effect). Evidence for health benefits is mostly early-stage.
+
+Skip breath-holding exercises while driving or in water, and check with a doctor first if you're pregnant or have a heart or lung condition.
+
+## How This Connects to ARC
+ARC doesn't coach breathing. If you want to pair Nestor's slow breathing with something ARC does, try it during your 20-minute morning light walk; ARC's timer starts from your real sunrise and runs on your Lock Screen. For evening habits, see [the evening wind-down ritual](/blog/the-3rd-half-evening-wind-down-ritual). ARC is a wellness app, not a medical device. If sleep problems persist, talk to a doctor. ARC isn't affiliated with or endorsed by James Nestor; this summary is our own.
     `,
   },
   {
@@ -268,35 +261,33 @@ ARC incorporates Nestor's research into daily check-ins and recovery guides. The
     subtitle:
       "21 Essential Strategies to Sleep Your Way to a Better Body, Better Health, and Bigger Success",
     author: "Shawn Stevenson",
-    authorTitle: "Nutritionist & Sleep Researcher",
+    authorTitle: "Nutritionist, Author & Podcast Host",
     publishedDate: "2016",
-    rating: "4.7/5",
     keyMetric: "Light & Sanctuary",
     excerpt:
-      "Shawn Stevenson provides 21 practical lifestyle adjustments covering bedroom environment, gut health, and light signals to double your deep sleep.",
+      "Shawn Stevenson's 21 practical changes to your bedroom, evening light and daily habits for better sleep, with notes on which ones the evidence backs.",
     arcConnection:
-      "Informs ARC's bedroom setup checks, evening temperature cooling prompts, and dietary timing recommendations.",
+      "ARC doesn't check your bedroom or advise on supplements. It handles the timing side: a wind-down reminder before bed and a caffeine cutoff computed from every drink you log.",
     content: `
 # Sleep Smarter: 21 Strategies to Optimize Sleep
 
-In *Sleep Smarter*, nutritionist and wellness coach Shawn Stevenson presents a guide to improving sleep quality. Stevenson argues that sleep is the single most powerful driver of physical repair, fat loss, and mental clarity, and provides 21 practical strategies to optimize your sleep environment and daily habits.
+In *Sleep Smarter*, nutritionist and podcast host Shawn Stevenson offers 21 practical strategies for better sleep. He argues that sleep drives physical repair, fat loss and mental clarity, and that small changes to your environment and daily habits add up.
 
-### Designing the Sleep Sanctuary
-Stevenson stresses that the bedroom should be treated as a biological sanctuary optimized for melatonin production and core temperature drops:
-*   **Blackout Environments**: Even trace amounts of light (like a standby LED) hitting your skin can disrupt melatonin synthesis. Use blackout curtains and eliminate ambient light sources.
-*   **Temperature Control**: Your body must drop its core temperature to initiate deep sleep. Set your room temperature to exactly **60-68°F (15-20°C)**.
-*   **Electromagnetic Fields (EMFs)**: Move phones and Wi-Fi routers away from the bed to reduce neurological arousal during sleep.
+## Designing the Sleep Sanctuary
+Stevenson treats the bedroom as a space built for darkness, coolness and calm:
+* **Darkness**: Blackout curtains and removing light sources. Stevenson argues that even small amounts of light, like a standby LED, can disrupt melatonin. Light reaching your eyes matters most; the claim that light on your skin disrupts sleep has weak evidence.
+* **Temperature**: Your core temperature needs to fall for you to fall asleep easily, so he suggests a cool room, around **60–68°F (15–20°C)**.
+* **Electronics**: Stevenson suggests moving phones and Wi-Fi routers away from the bed. The evidence that electromagnetic fields affect sleep is weak, but keeping your phone out of reach does help with late-night scrolling.
 
-### Gut Health and Sleep Neurotransmitters
-Your gut microbiome is heavily involved in regulating sleep. 
-*   **Serotonin Production**: Over 90% of your body's serotonin—the chemical precursor to melatonin—is manufactured in the gut. An inflamed, poorly nourished gut reduces serotonin production, directly impacting sleep latency.
-*   **Magnesium Loading**: Stevenson recommends loading up on magnesium, a mineral that relaxes the central nervous system and helps muscles release tension.
+## Gut Health and Sleep
+Stevenson links gut health to sleep:
+* **Serotonin**: Over 90% of the body's serotonin, a precursor to melatonin, is made in the gut. Gut serotonin doesn't reach the brain, though, so any link to sleep is indirect.
+* **Magnesium**: Stevenson recommends magnesium, a mineral involved in muscle and nerve function. Talk to a doctor or pharmacist before starting a supplement, especially if you're pregnant, breastfeeding, have kidney problems or take medication. Our post on [magnesium and other sleep supplements](/blog/chronobiotic-supplements-magnesium-apigenin) covers the evidence.
 
-> [!WARNING]
-> Consuming alcohol before bed sedates the brain but destroys sleep architecture, blocking REM sleep and causing micro-awakenings throughout the night.
+> [!WARNING] Alcohol before bed sedates the brain but disrupts sleep, suppressing REM sleep and causing more awakenings later in the night.
 
-### How ARC Applies This
-ARC translates Stevenson's sleep hygiene checklist into interactive daily prompts. The app tracks your sleep setup parameters, reminds you to set your room thermostat before bed, and guides you on magnesium and fluid timing so you don't disrupt your sleep gates.
+## How This Connects to ARC
+ARC doesn't check your bedroom or advise on supplements. It handles the timing side: a wind-down reminder before bed and a caffeine cutoff computed from every drink you log. For the evening-light part of Stevenson's advice, see our [evening light and melatonin guide](/guides/evening-blue-light-melatonin-defense-guide). ARC isn't affiliated with or endorsed by Shawn Stevenson; this summary is our own.
     `,
   },
   {
@@ -305,30 +296,31 @@ ARC translates Stevenson's sleep hygiene checklist into interactive daily prompt
     subtitle:
       "A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones",
     author: "Dr. Mindy Pelz",
-    authorTitle: "Holistic Health Expert & Author",
+    authorTitle: "Chiropractor (DC), Author & Podcast Host",
     publishedDate: "2022",
-    rating: "4.8/5",
     keyMetric: "Hormonal Fasting",
     excerpt:
-      "Dr. Mindy Pelz outlines how women must customize fasting windows, nutrition, and circadian timing around their monthly menstrual cycle.",
+      "Dr. Mindy Pelz argues women should time fasting around their menstrual cycle. Here's her phase plan, what the evidence says, and when to check with a doctor.",
     arcConnection:
-      "Powers ARC's female-specific dietary timing alerts and fasting cycle notifications.",
+      "ARC doesn't track menstrual cycles, meals or fasting. We include this book because Pelz ties fasting to sleep and stress; ARC's part is the timing of light, caffeine and wind-down.",
     content: `
 # Fast Like a Girl: Circadian & Cycle Alignment
 
-In *Fast Like a Girl*, Dr. Mindy Pelz provides a guide to fasting specifically tailored for women. Dr. Pelz explains that while standard time-restricted feeding is highly beneficial, women must adapt their eating windows and fast lengths to align with the fluctuations of their monthly hormonal cycles (estrogen, progesterone, and luteinizing hormone).
+In *Fast Like a Girl*, Dr. Mindy Pelz, a chiropractor and wellness author, offers a fasting guide written specifically for women. She argues that while time-restricted eating can help, women should adjust how long they fast and what they eat to the hormonal changes of the menstrual cycle (estrogen, progesterone and others).
 
-### The Three Hormonal Phases
-Dr. Pelz breaks the menstrual cycle into three distinct phases, each requiring different fasting and nutritional strategies:
-1.  **The Power Phase (Days 1-10)**: Estrogen is building. Estrogen thrives on low insulin and low cortisol. This is the optimal window for longer fasting windows (13 to 72 hours) and ketogenic, low-carb eating.
-2.  **The Manifestation Phase (Days 11-15)**: Ovulation occurs. Estrogen peaks and testosterone rises. High stress or long fasts can disrupt ovulation. Keep fasting windows short (under 13-15 hours) and focus on hormone-supporting foods.
-3.  **The Nurture Phase (Days 20 to the start of menstruation)**: Progesterone is building. Progesterone requires higher glucose levels and is highly sensitive to stress. Fasting during this phase raises cortisol, which suppresses progesterone, leading to anxiety, cravings, and disrupted sleep. **Fasting should be avoided during this phase.**
+## Pelz's Cycle Phases
+Pelz divides a typical cycle into four phases, each with its own fasting and food advice:
+1. **Power phase (days 1–10)**: Estrogen is building. Pelz argues estrogen does best with low insulin and low cortisol, and recommends longer fasts and lower-carb eating here.
+2. **Manifestation phase (days 11–15)**: Around ovulation, estrogen peaks and testosterone rises. She recommends shorter fasts (under about 13 to 15 hours) and hormone-supporting foods.
+3. **Second power phase (days 16–19)**: A return to longer fasts and lower-carb eating.
+4. **Nurture phase (day 20 until your period)**: Progesterone rises. Pelz argues progesterone needs more glucose and is sensitive to stress, and advises against fasting in this phase.
 
-> [!IMPORTANT]
-> Forcing a strict 16:8 fasting protocol during the Nurture Phase can disrupt progesterone production, leading to sleep onset insomnia and mood imbalances.
+Pelz suggests fasts of 13 to 72 hours in the power phases. Talk to your doctor before fasting for more than a day, and don't if you're pregnant, breastfeeding, diabetic, underweight or have a history of eating disorders. Cycles also vary in length, so her day counts are only a guide.
 
-### How ARC Applies This
-ARC integrates Dr. Pelz's menstrual-circadian alignment research by offering custom cycle tracking options. For female users, ARC adapts daily time-restricted feeding targets automatically, softening fasting gates and suggesting carbohydrate and cortisol-reduction routines during the Nurture Phase to protect sleep quality.
+> [!IMPORTANT] Pelz argues that a strict 16:8 fasting routine in the Nurture phase can disrupt progesterone and lead to poor sleep and mood changes. Clinical evidence on cycle-synced fasting is limited, so treat this as her framework rather than settled science.
+
+## How This Connects to ARC
+ARC doesn't track menstrual cycles or fasting. What it can do is keep the rest of your day's timing steady: about 20 minutes of morning light from your real sunrise, a caffeine cutoff computed from each drink you log, and a wind-down reminder before bed. For the research on meal timing more broadly, see our [circadian fasting guide](/guides/circadian-intermittent-fasting-metabolic-clocks-guide). ARC is a wellness app, not a medical device. ARC isn't affiliated with or endorsed by Dr. Pelz; this summary is our own.
     `,
   },
   {
@@ -337,36 +329,34 @@ ARC integrates Dr. Pelz's menstrual-circadian alignment research by offering cus
     subtitle:
       "Elevate Your Game, Avoid Burnout, and Thrive with the New Science of Success",
     author: "Brad Stulberg & Steve Magness",
-    authorTitle: "Coaching & Performance Experts",
+    authorTitle: "Performance Coaches & Authors",
     publishedDate: "2017",
-    rating: "4.6/5",
     keyMetric: "Stress + Rest",
     excerpt:
-      "A guide on how to alternate high-stress cognitive output with deep biological recovery to achieve long-term cognitive peak.",
+      "Brad Stulberg and Steve Magness's formula, Stress + Rest = Growth: focused work blocks, real recovery and enough sleep to perform without burning out.",
     arcConnection:
-      "Directly informs ARC's scheduling of Focus blocks vs biological recovery breaks.",
+      "Echoes ARC's day plan, which mixes focus blocks with short movement and rest blocks and re-times them around your measured afternoon dip.",
     content: `
 # Peak Performance: Stress + Rest = Growth
 
-In *Peak Performance*, Brad Stulberg and Steve Magness outline the scientific patterns shared by top performers across athletics, arts, and business. The authors present a core formula for sustainable growth and success: **Stress + Rest = Growth**. 
+In *Peak Performance*, Brad Stulberg and Steve Magness look at the habits shared by top performers in sport, the arts and business. Their core formula for sustainable growth is **Stress + Rest = Growth**.
 
-They argue that peak performance is not about working continuously, but about matching intense, focused effort with deep, deliberate recovery.
+They argue that peak performance isn't about working continuously, but about pairing intense, focused effort with deliberate recovery.
 
-### The Ultradian Rhythm of Work
-Human focus operates on **ultradian cycles** of approximately 90 minutes. Trying to push past 90 minutes of high-intensity focus results in diminishing returns and cognitive fatigue:
-*   **The Sprints**: Structure work into deep focus blocks of 50 to 90 minutes. During this time, eliminate all distractions.
-*   **The Recovery**: Follow every sprint with a 10 to 15-minute recovery block. This rest allows the brain to clear metabolic waste and consolidate information.
+## Work in Blocks
+The authors recommend working in focused blocks and then stepping away:
+* **The sprints**: Deep focus blocks of about 50 to 90 minutes with distractions removed. The 90-minute figure echoes sleep researcher Nathaniel Kleitman's idea of a roughly 90-minute rest-activity cycle, though evidence for a fixed daytime cycle is thin; treat it as a guide, not a timer.
+* **The recovery**: A 10 to 15-minute break after each sprint, which they argue helps the brain consolidate what it just worked on.
 
-### Sleep as the Ultimate Recovery
-Stulberg and Magness highlight that sleep is the single most powerful recovery tool. During sleep, human growth hormone (HGH) peaks, rebuilding muscles, and the brain processes new skills and concepts. 
+## Sleep as the Ultimate Recovery
+Stulberg and Magness call sleep the most powerful recovery tool. Growth hormone is released mostly in deep sleep early in the night, supporting muscle repair, and sleep helps the brain lock in new skills.
 
-The authors argue that cutting sleep short to work longer hours is a biological deficit that lowers cognitive capacity and increases the risk of burnout.
+They argue that cutting sleep to work longer hours lowers the quality of the work you do and raises the risk of burnout.
 
-> [!NOTE]
-> Active recovery—such as taking a walk in nature or meditating—is far more effective at restoring focus than passive distraction (like scrolling social media).
+> [!NOTE] The authors argue that active recovery, such as a walk outside or a few minutes of meditation, restores focus better than passive distraction like scrolling social media.
 
-### How ARC Applies This
-ARC structures your daily timeline around these performance cycles. The app schedules **Peak Focus Blocks** aligned with your chronotype and prompts you to start **Active Recovery Gates** (suggesting walks, breathing exercises, or hydration breaks) between work sprints, helping you maintain energy without burning out.
+## How This Connects to ARC
+ARC's day plan mixes focus blocks with short movement and rest blocks, and after about ten days of check-ins it measures when your afternoon dip really lands and adjusts the plan to match. It doesn't coach breathing or hydration. For planning your day around your best hours, see [peak focus windows](/blog/peak-focus-windows-plan-day-around-biology). ARC isn't affiliated with or endorsed by the authors; this summary is our own.
     `,
   },
 ];

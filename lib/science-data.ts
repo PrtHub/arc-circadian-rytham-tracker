@@ -12,180 +12,88 @@ export interface ScienceArticle {
 export const scienceArticles: ScienceArticle[] = [
   {
     slug: "caffeine-tolerance-reset-protocol",
-    title: "The Caffeine Tolerance Reset Protocol",
-    excerpt: "Reset your adenosine receptors and restore daily energy in 7 days without severe withdrawal.",
+    title: "Caffeine Tolerance Reset: A 7-Day Step-Down Plan",
+    excerpt:
+      "A 7-day plan to lower caffeine tolerance: halve your dose, switch to tea, then take two days off. Tapering usually means milder withdrawal than quitting cold.",
     category: "protocol",
     categoryLabel: "Protocol",
     date: "2026-06-27",
     readTime: "6 min",
     content: `
-# The Caffeine Tolerance Reset Protocol
+# Caffeine Tolerance Reset: A 7-Day Step-Down Plan
 
-Over time, daily caffeine intake leads to **tolerance**. Your brain compensates for blocked adenosine receptors by creating *more* receptors, requiring higher doses of coffee to achieve the same alertness.
+Over time, daily caffeine leads to **tolerance**: the same cup does less. Caffeine works by blocking adenosine receptors, and with regular use the brain appears to compensate, partly by adding more of those receptors (shown mainly in animal studies). So you need more coffee to feel the same, and you feel worse without it.
 
-This 7-day protocol is designed to reset your receptor sensitivity back to baseline.
+This 7-day plan steps you down gradually, so you can find out what your energy is like on less caffeine without the worst of the withdrawal.
 
-### Day 1 to 2: The Step Down
-Do not cold-turkey. Halve your daily caffeine dose. If you normally drink 200mg (about 2 cups), limit yourself to 100mg before 10:00 AM.
-> [!NOTE]
-> You may feel minor lethargy. Anchor this day with 15 minutes of direct morning sunlight to boost natural cortisol.
+## Why Not Quit Cold Turkey?
+Withdrawal is real and fairly predictable. In a review of the research, symptoms such as headache, tiredness and low mood typically began 12 to 24 hours after the last dose, peaked within one to two days, and lasted anywhere from two to nine days (Juliano and Griffiths, 2004, Psychopharmacology). Tapering spreads that out and usually makes it milder.
 
-### Day 3 to 5: The Inversion
-Switch your delivery mechanism to green tea or yerba mate. This introduces **L-Theanine**, which relaxes the central nervous system and mitigates caffeine withdrawal headaches. Keep intake under 50mg.
+## Day 1 to 2: The Step Down
+Halve your usual daily caffeine. If you normally drink about 200 mg (roughly two cups of brewed coffee), stop at 100 mg, and have it in the morning.
+> [!NOTE] You may feel a little flat. Anchor these days with about 20 minutes of outdoor morning light (the same target ARC's light timer uses). It's the strongest wake-up signal your body clock gets without caffeine.
 
-### Day 6 to 7: Complete Clearance
-Zero caffeine. Drink herbal teas or decaf (which contains trace amounts). Focus on hydration and keeping a strict bedtime to clear remaining metabolic waste.
-> [!IMPORTANT]
-> Keep your wake times consistent during the reset. Sleep drift will worsen withdrawal fatigue.
+Log each drink in ARC during the step-down: the live decay curve shows what's still circulating, and your last safe coffee moves as you cut back. Without the app, the free [caffeine calculator](/tools/caffeine-calculator) shows the same curve for a single day.
 
-### Post-Protocol Maintenance
-When you reintroduce caffeine on Day 8, limit consumption to **150mg per day** and always delay your first cup by **90 minutes** after waking.
-    `,
-  },
-  {
-    slug: "adenosine-sleep-pressure",
-    title: "Adenosine and the Biology of Sleep Pressure",
-    excerpt: "How a simple cellular byproduct builds sleep pressure and controls your biological tiredness.",
-    category: "mechanism",
-    categoryLabel: "Biological Mechanism",
-    date: "2026-06-26",
-    readTime: "7 min",
-    content: `
-# Adenosine: The Sleep Pressure Molecule
+## Day 3 to 5: Switch to Tea
+Swap coffee for green tea, which has less caffeine per cup and also contains L-theanine, an amino acid some people find takes the edge off caffeine. Keep your total under about 50 mg a day.
 
-Every second your brain cells are active, they consume energy in the form of Adenosine Triphosphate (ATP). As ATP is broken down, it leaves behind a chemical byproduct: **adenosine**.
+## Day 6 to 7: Caffeine-Free
+Zero caffeine. Herbal tea is fine; decaf still contains a small amount. Keep your wake time and bedtime steady.
+> [!IMPORTANT] Keep your wake times consistent during the reset. A drifting schedule adds its own grogginess on top of withdrawal, and you won't be able to tell which is which.
 
-Adenosine accumulates in the extracellular space of your brain during waking hours, acting as a biological meter of how long you have been awake.
+If headaches are severe, or you take medication or have a health condition affected by caffeine, check with a doctor or pharmacist before cutting down.
 
-### The Mechanism of Sleep Pressure
-As adenosine levels rise, they bind to specific A1 and A2A receptors in the brain:
-1.  **A1 Receptors**: Inhibit wake-promoting neurons, slowing down cognitive firing.
-2.  **A2A Receptors**: Excite sleep-promoting neurons in the ventrolateral preoptic nucleus (VLPO).
+## After the Reset
+When you bring caffeine back on Day 8, start with one cup and notice how much further it goes. How much you settle on is up to you, but a lower daily dose keeps tolerance from creeping back as quickly.
 
-This biological accumulation is what scientists refer to as **sleep pressure**.
+Some people also delay their first cup until 60 to 90 minutes after waking. It's a popular recommendation; the evidence is mixed, and the best test is your own afternoons. If you log energy check-ins in ARC, Trends shows your afternoon crashes per week, so you can compare a week of later coffee with the week before instead of relying on memory.
 
-### Caffeine Interception
-Caffeine acts as a competitive antagonist for these receptors. It is structurally similar to adenosine and blocks the ports, preventing sleep pressure from registering. 
-> [!WARNING]
-> Blocking receptors does not stop adenosine from accumulating. Once caffeine is metabolized, the accumulated backlog floods the receptors, resulting in a sudden crash.
+For why coffee can leave you more tired in the first place, see [why coffee makes you tired](/blog/why-coffee-makes-you-tired-caffeine-tolerance-adenosine). For timing your last cup, read the [caffeine half-life guide](/guides/caffeine-half-life-optimization-guide).
     `,
   },
   {
     slug: "what-is-zeitgeber",
-    title: "What is a Zeitgeber? The External Clocks That Rule Our Biology",
-    excerpt: "Learn the definition, examples, and biology behind environmental cues that synchronize your master clock.",
+    title: "What Is a Zeitgeber? Definition, Examples & Biology",
+    excerpt:
+      "A zeitgeber is an outside cue, like light, meals or activity, that keeps your body clock in step with the 24-hour day. Definition, examples and how it works.",
     category: "glossary",
     categoryLabel: "Circadian Glossary",
     date: "2026-06-25",
     readTime: "5 min",
     content: `
-# Zeitgeber (Noun)
+# What Is a Zeitgeber?
 
-A **Zeitgeber** (German for "time giver" or "synchronizer") is any external environmental cue that synchronizes an organism's biological clock to the Earth's 24-hour light/dark cycle.
+A **zeitgeber** (German for "time giver") is any external cue that keeps an organism's internal clock in step with the Earth's 24-hour cycle of light and dark. Light is by far the strongest one for humans; meals, activity, social routine and temperature play smaller roles.
 
-Without Zeitgebers, the human circadian clock "free-runs" at approximately 24.2 hours, causing sleep times to drift later every day.
+## Why Your Clock Needs Zeitgebers
+Your master clock, the suprachiasmatic nucleus (SCN) in the hypothalamus, keeps time on its own, but not perfectly. Kept away from daylight and clocks, the human circadian rhythm "free-runs" with an average period of about 24.2 hours (Czeisler et al., 1999, Science). Without daily cues, sleep and wake times would slowly drift later. Zeitgebers nudge the clock back into line every day, a process called **entrainment**.
 
-### Core Examples of Zeitgebers
-1.  **Light (The Master Zeitgeber)**: Photons hit the retina, sending signals through the retinohypothalamic tract to the suprachiasmatic nucleus (SCN).
-2.  **Temperature**: A drop in ambient temperature signals nighttime; a rise signals morning.
-3.  **Food/Feeding Times**: Eating resets peripheral clocks in the liver and digestive tract.
-4.  **Exercise/Movement**: Muscle activity coordinates peripheral tissue rhythmicity.
+## The Main Zeitgebers
+1. **Light (the master zeitgeber)**: Light reaching the retina, especially the melanopsin-containing cells that respond most to blue-cyan light, signals the SCN directly through the retinohypothalamic tract. Morning light moves the clock earlier; bright light late in the evening moves it later.
+2. **Meals**: When you eat is a strong cue for the clocks in your liver and gut (see peripheral clocks below).
+3. **Exercise and movement**: Activity helps time the clocks in muscle and can shift the master clock a little.
+4. **Social cues**: Work start times, alarms and shared meals shape when you see light and when you eat, which is why they matter so much.
+5. **Temperature**: A drop in ambient temperature at night and a rise in the morning act as a cue, though a weak one in humans compared with light.
 
-> [!TIP]
-> To cure jetlag or social shift fatigue, adjust your Zeitgebers simultaneously: get morning light, eat at local times, and exercise during daylight hours.
-    `,
-  },
-  {
-    slug: "ultimate-circadian-reset-guide",
-    title: "The Ultimate Guide to Circadian Resetting",
-    excerpt: "Step-by-step instructions to rebuild your biological clock from scratch after travel, illness, or sleep drift.",
-    category: "guide",
-    categoryLabel: "Ultimate Guide",
-    date: "2026-06-24",
-    readTime: "9 min",
-    content: `
-# The Ultimate Circadian Reset Guide
+## Why Light Dominates
+The SCN has a direct line from the eyes, and no other zeitgeber has that. Outdoor daylight is also far brighter than indoor lighting, so a short time outside sends a much clearer signal than a whole morning under ceiling lights. That's why most circadian advice starts with morning light; the [morning sunlight guide](/guides/morning-sunlight-lux-protocol-guide) covers how much you need.
 
-Whether you are recovering from international travel, night shift rotations, or a weekend of late-night social schedules, your master clock can become misaligned. Here is how to perform a total circadian reset in 48 hours.
+## Peripheral Clocks: A Clock in Every Organ
+The SCN isn't the only clock. Almost every tissue, from the liver and gut to muscle and fat, runs its own molecular clock built from the same core genes (CLOCK, BMAL1, PER and CRY). The SCN keeps these peripheral clocks in step through hormones, body temperature and nerve signals, but they also take cues of their own, most strongly from meals. In animal studies, restricting feeding to the wrong time of day shifted the liver clock away from the brain's, while the SCN kept its original timing (Damiola et al., 2000, Genes & Development).
 
-### Step 1: The Waking Light Anchor
-Wake up at your target time (even if sleep-deprived) and view **10,000+ lux of light** for 20 minutes. If the sun isn't up, use a 10,000 lux circadian lamp.
-> [!IMPORTANT]
-> Do not look through glass or sunglasses. The physical refraction reduces photon intensity by up to 90%.
+The practical point: a large meal late at night sends a "daytime" signal to your liver while your master clock is signalling night. The [circadian fasting guide](/guides/circadian-intermittent-fasting-metabolic-clocks-guide) goes deeper on meal timing.
 
-### Step 2: The Fasting Shift
-Do not eat breakfast until you have completed your light exposure. Aligning food with light triggers liver and SCN clock coordination.
+> [!TIP] To shorten jet lag or recover from a late weekend, line your zeitgebers up: get morning light at your new local time, eat at local mealtimes, and keep exercise in daylight hours.
 
-### Step 3: Temperature Inversion
-In the evening, take a hot bath or shower 90 minutes before bed. The subsequent vasodilation causes your core temperature to plummet, signaling the brain to initiate deep sleep cycles.
-> [!NOTE]
-> Keep your bedroom cooling to exactly 65-68°F (18-20°C) to facilitate this temperature dip.
-    `,
-  },
-  {
-    slug: "cortisol-awakening-response",
-    title: "Understanding the Cortisol Awakening Response (CAR)",
-    excerpt: "Understand the morning cortisol surge that triggers natural alertness, anchors your daily rhythm, and prepares you for deep work.",
-    category: "mechanism",
-    categoryLabel: "Biological Mechanism",
-    date: "2026-07-06",
-    readTime: "8 min",
-    content: `
-# Understanding the Cortisol Awakening Response (CAR)
-
-The **Cortisol Awakening Response (CAR)** is a natural, sharp spike in cortisol levels that occurs in the first 30 to 45 minutes after waking up. It serves as your body's biological alarm system, triggering immediate alertness, elevating blood pressure, and increasing core body temperature to transition you out of sleep.
-
-### The SCN-Adrenal Axis
-CAR is regulated by the **suprachiasmatic nucleus (SCN)**—the master clock in your brain. Waking up triggers a neural pathway from the SCN to the adrenal glands, prompting them to dump cortisol into the bloodstream. 
-
-Under healthy conditions, this spike is high and sharp. A flat, sluggish CAR is the primary biomarker for morning fatigue, burnout, and chronic stress.
-
-### The Role of Waking Light
-Nothing anchors your CAR like immediate light exposure.
-1.  **Photoreceptors**: Light hitting your retina sends immediate electrical triggers to the SCN.
-2.  **Hormone Coordination**: This retinal trigger shuts down melatonin synthesis in the pineal gland and amplifies the cortisol curve.
-3.  **Timing Anchor**: The peak of your CAR sets a countdown timer in your brain; approximately 14-16 hours later, your brain will begin releasing melatonin to trigger sleep gates.
-
-> [!WARNING]
-> Waking up to an alarm clock in a dark room and immediately looking at your phone suppresses a healthy CAR, leading to grogginess (sleep inertia) that lasts for hours.
-
-### Optimization Protocol
-*   **Sunlight**: Step outside within 15 minutes of waking. If it is sunny, 5-10 minutes is enough. If it is overcast, aim for 15-20 minutes.
-*   **Physical Movement**: Engaging in moderate walking or stretching during this window amplifies the cortisol rise.
-    `,
-  },
-  {
-    slug: "melatonin-digital-sunset",
-    title: "Melatonin and the Digital Sunset Protocol",
-    excerpt: "A scientific blueprint to initiate your evening melatonin wave and protect your sleep architecture from blue light pollution.",
-    category: "protocol",
-    categoryLabel: "Protocol",
-    date: "2026-07-05",
-    readTime: "7 min",
-    content: `
-# Melatonin and the Digital Sunset Protocol
-
-**Melatonin** is the hormone of darkness, synthesized in the pineal gland. It does not put you to sleep directly; rather, it signals to your organs and brain cells that the day has ended and it is time to transition into cellular cleanup and sleep mode.
-
-### The Light/Dark Receptors
-A subpopulation of cells in the retina called **intrinsically photosensitive Retinal Ganglion Cells (ipRGCs)** are highly sensitive to blue light wavelengths (460-480nm).
-*   **Daytime Light**: Blue light hits ipRGCs, which contain a pigment called **melanopsin**. This triggers SCN pathways to block melatonin synthesis, keeping you alert.
-*   **Nighttime Blue Light**: Looking at bright screens or overhead fluorescent lights at night tricks the ipRGCs into signaling that it is still daytime, suppressing melatonin release.
-
-> [!IMPORTANT]
-> A single exposure to a bright screen close to bedtime can delay melatonin release by up to 2 hours, disrupting deep sleep cycles.
-
-### The Digital Sunset Protocol
-To safeguard your evening melatonin wave, initiate a **Digital Sunset** 2 hours before bed:
-1.  **First Sunset (120 min to bed)**: Turn off all overhead fluorescent lights. Switch to low-level floor lamps, amber warm lights, or red light bulbs.
-2.  **Screen Sunset (60 min to bed)**: Turn off television, tablet, and computer screens. If you must use a device, set it to maximum warm shift (Night Shift) and reduce brightness to minimum.
-3.  **Dark Sunset (30 min to bed)**: Eliminate all screens. Focus on reading, journaling, or stretching in dim, warm light.
+When you cross time zones, ARC shows when to seek and when to avoid light each day, working from your phone's time zone with no location permission. Plan a trip ahead with the free [jet lag planner](/tools/jetlag-planner), or read why the [avoid-light window](/blog/the-avoid-light-window-jetlag) matters as much as the light you get.
     `,
   },
   {
     slug: "glymphatic-clearance-system",
     title: "The Glymphatic Clearance System: Brain Washing During Sleep",
-    excerpt: "Discover the brain's overnight self-cleaning cycle that flushes cognitive waste and preserves long-term brain health.",
+    excerpt:
+      "How the brain's glymphatic system flushes waste from between cells, why deep sleep seems to matter, and which parts of the research are still debated.",
     category: "mechanism",
     categoryLabel: "Biological Mechanism",
     date: "2026-07-04",
@@ -193,261 +101,83 @@ To safeguard your evening melatonin wave, initiate a **Digital Sunset** 2 hours 
     content: `
 # The Glymphatic System: Brain Washing
 
-While you are awake, your brain cells are constantly consuming energy and producing metabolic byproducts. In any other organ, the lymphatic system drains this waste. However, the brain is walled off by the blood-brain barrier. To solve this, the brain uses its own specialized cleaning mechanism: **the glymphatic clearance system**.
+While you're awake, your brain cells use energy and produce waste. In the rest of the body, the lymphatic system drains waste from tissue, but the brain has no conventional lymphatic vessels inside it. In 2012, researchers in Maiken Nedergaard's lab described a different route and named it the **glymphatic system**: cerebrospinal fluid (CSF) flows into the brain along the spaces around blood vessels, mixes with the fluid between cells, and carries waste out.
 
-### The Cleaning Cycle
-The glymphatic system is almost exclusively active during **slow-wave Deep Sleep** (Stages 3 and 4 of NREM sleep). 
-1.  **Glial Cell Shrinkage**: During deep sleep, astrocytes (supporting brain cells) shrink by up to 60%.
-2.  **Convective Flow**: This shrinkage opens up interstitial space, allowing cerebrospinal fluid (CSF) to mix with interstitial fluid (ISF) and flow rapidly through the brain tissue.
-3.  **Toxin Clearance**: The flowing CSF clears out metabolic toxins, including **beta-amyloid** (associated with Alzheimer's disease) and **tau proteins**.
+## The Cleaning Cycle
+The glymphatic system appears to be most active during deep (N3) sleep, at least in animal studies. How strongly this applies to humans is still debated.
+1. **More space between cells**: In mice, the space between brain cells grew by about 60% during sleep, letting fluid flow through faster (Xie et al., 2013, Science).
+2. **Fluid flow**: With more room, CSF mixes with the fluid between cells and moves through brain tissue more easily.
+3. **Waste clearance**: In the same mouse study, beta-amyloid, a protein associated with Alzheimer's disease, was cleared about twice as fast during sleep as during waking. Tau is thought to be cleared by the same route.
 
-### The Circadian Gate
-Glymphatic clearance is highly synchronized with your circadian rhythm. Melatonin and a drop in core body temperature are both prerequisites to enter the deep sleep stages where astrocytes shrink. 
+## The Research Isn't Settled
+Most of the evidence comes from mice. A 2024 mouse study using a different method found brain clearance was actually lower during sleep and anaesthesia (Miao et al., 2024, Nature Neuroscience), and researchers are still arguing about the methods. What's reasonably clear is that sleep and brain fluid flow are linked. How much sleep "washes" the human brain, and what that means over a lifetime, is still open.
 
-> [!TIP]
-> Chronic sleep deprivation or sleeping at irregular times restricts the glymphatic system from finishing its cycle, leading to the accumulation of plaque and cognitive fatigue.
-    `,
-  },
-  {
-    slug: "social-jetlag-circadian-misalignment",
-    title: "Social Jetlag and Circadian Misalignment",
-    excerpt: "Understand the biological strain, metabolic load, and sleep debt caused by shifting sleep schedules between workdays and weekends.",
-    category: "mechanism",
-    categoryLabel: "Biological Mechanism",
-    date: "2026-07-03",
-    readTime: "10 min",
-    content: `
-# Social Jetlag and Circadian Misalignment
+## The Circadian Link
+Glymphatic flow also seems to follow a daily rhythm: in mice it's highest during their normal rest phase (Hablitz et al., 2020, Nature Communications). Melatonin and the evening drop in core body temperature both help you reach deep sleep at night, which is one more reason regular sleep timing matters. The [deep sleep guide](/guides/deep-sleep-slow-wave-optimization-guide) covers what helps, and the [core body temperature guide](/guides/core-body-temperature-tmin-deep-sleep-guide) explains the temperature side.
 
-**Social Jetlag** is the discrepancy between an individual's biological clock and their social clock (usually dictated by work, study, or social schedules). It is most commonly experienced as a shift in sleep timing between workdays and free days (weekends). 
+> [!NOTE] In a small brain-imaging study, one night without sleep raised beta-amyloid slightly in healthy adults (Shokri-Kojori et al., 2018, PNAS). Whether short-term changes like this add up over years isn't settled.
 
-For example, sleeping from 11:00 PM to 7:00 AM during the week, but shifting to 2:00 AM to 10:00 AM on weekends, creates a 3-hour biological phase shift—the equivalent of flying from New York to Los Angeles and back every single week.
+Regular timing is the part you control. ARC doesn't measure deep sleep, but its Trends show when your wake time is drifting later, and a wind-down reminder arrives before your bedtime. If you've had a run of short nights, the free [sleep debt calculator](/tools/sleep-debt-calculator) shows how much you're carrying.
 
-### The Physiology of Phase Drifts
-Your circadian clock does not reset instantly. Shifting sleep times by just two hours on Friday night delays your SCN's light sensitivity curve. 
-*   **Melatonin Delay**: Melatonin begins releasing later on Sunday night, making it difficult to fall asleep at your weekday target.
-*   **Waking Exhaustion**: Waking up at 7:00 AM on Monday cuts off your final, REM-heavy sleep cycle, leading to "Monday morning fog."
-
-### Metabolic and Health Impacts
-Circadian misalignment forces biological systems to operate out of phase:
-1.  **Insulin Resistance**: Digestion, insulin sensitivity, and liver enzymes expect food during daylight. Shifting feeding times late into the evening reduces glucose tolerance.
-2.  **Systemic Stress**: Chronic misalignment raises baseline cortisol, contributing to elevated resting heart rate and systemic inflammation.
-3.  **Gut Microbiome Dysbiosis**: The bacteria in your digestive tract follow circadian activity waves. Shifting eating schedules disrupts this cycle, reducing digestive efficiency.
-
-> [!WARNING]
-> Chronic social jetlag is statistically linked to elevated risks of metabolic syndrome, weight gain, and depressive symptoms.
-
-### Mitigation and Syncing Protocol
-*   **Limit Sleep Drift**: Keep your weekend wake time within **60 minutes** of your weekday wake time.
-*   **Catch-up Nap**: If sleep-deprived, wake up at your regular time to anchor your cortisol spike, then take a 20-30 minute nap around 1:00 PM to pay down sleep debt without delaying your night sleep gate.
-    `,
-  },
-  {
-    slug: "core-body-temperature-sleep-gate",
-    title: "The Science of Core Body Temperature & Sleep Gate",
-    excerpt: "How your body's temperature curve dictates your peak alertness windows and opens your evening sleep gate.",
-    category: "mechanism",
-    categoryLabel: "Biological Mechanism",
-    date: "2026-07-02",
-    readTime: "9 min",
-    content: `
-# Core Body Temperature and the Sleep Gate
-
-Your body temperature is not constant. It follows a highly predictable, circadian rhythm that fluctuates by about 1.5°F (1°C) over 24 hours. This temperature curve is the single most powerful driver of physical alertness and sleep onset.
-
-### The Temperature Alertness Curve
-*   **The Rise**: Your core body temperature begins rising about 2 hours before you wake up. It continues to rise throughout the day, peaking in the late afternoon/early evening (around 5:00 PM - 7:00 PM). This peak corresponds to your window of maximum physical agility, reaction time, and cardiovascular efficiency.
-*   **The Fall**: After peaking, core temperature begins to decline, reaching its absolute lowest point (the nadir) around 2 hours before your natural wake time (typically 4:00 AM).
-
-### Thermal Gating of Sleep
-To initiate sleep, your core body temperature **must drop by approximately 2°F (1°C)**. 
-1.  **Distal Vasodilation**: The body dumps heat by dilating blood vessels in your extremities (hands and feet). This is why warm hands and feet are essential for falling asleep.
-2.  **Melatonin Interaction**: Melatonin release triggers vasodilation, initiating the core temperature drop.
-3.  **The Sleep Gate**: When core temperature is falling at its fastest rate, the brain opens the sleep gate, facilitating rapid sleep onset.
-
-> [!NOTE]
-> Trying to sleep when your core temperature is still near its peak (e.g. after a late workout or heavy meal) leads to tossing, turning, and light, fragmented sleep.
-
-### Room and Habit Optimization
-*   **The Warm Bath Paradox**: Taking a hot bath or shower 90 minutes before bed raises skin temperature, dilating blood vessels. When you step out, heat radiates away rapidly, causing your core temperature to plummet and triggering sleep gates.
-*   **Ambient Environment**: Keep your bedroom cool (60-68°F / 15-20°C). A cool room assists the body's natural heat dumping process.
-    `,
-  },
-  {
-    slug: "zeitgebers-peripheral-clocks",
-    title: "Zeitgebers and Peripheral Clocks: Gut, Liver, and Muscle Rhythms",
-    excerpt: "How food, exercise, and temperature act as local synchronizers for organs, independently of the brain's master clock.",
-    category: "mechanism",
-    categoryLabel: "Biological Mechanism",
-    date: "2026-07-01",
-    readTime: "9 min",
-    content: `
-# Zeitgebers and Peripheral Organ Clocks
-
-For decades, scientists believed the master clock in the brain's suprachiasmatic nucleus (SCN) was the sole timekeeper of human physiology. We now know that **almost every tissue and organ in the body contains autonomous molecular clocks** driven by localized clock gene loops (CLOCK, BMAL1, PER, CRY).
-
-These localized systems are called **peripheral clocks**, and they sync with the SCN via external signals called **Zeitgebers**.
-
-### SCN Master Clock vs. Peripheral Clocks
-While the SCN is synchronized primarily by light, peripheral organs respond to non-photic Zeitgebers:
-*   **The Liver and Gut Clocks**: Synchronized almost entirely by **food intake**. Eating a meal triggers liver enzymes and intestinal motility processes.
-*   **The Muscle and Cardiovascular Clocks**: Heavily influenced by **physical movement and exercise**, which reset metabolic genes in skeletal tissue.
-*   **The Kidney Clock**: Regulated by fluid intake and blood pressure rhythms.
-
-### The Danger of Circadian Desynchronization
-Circadian desynchronization occurs when you send conflicting timing signals to your master and peripheral clocks. 
-*   **Midnight Dining**: If you eat a heavy meal at midnight, you tell your liver and gut clocks that it is "midday" (feeding phase). However, because it is dark, your SCN master clock is signaling "night" (sleep/repair phase).
-*   **Organ Conflict**: This conflict shifts organ function out of phase, leading to metabolic strain, digestive issues, and disrupted insulin signaling.
-
-> [!TIP]
-> Align your food intake with daylight. Keeping your feeding window within daylight hours ensures SCN and liver clocks are synchronized, promoting optimal fat oxidation and immune health.
-    `,
-  },
-  {
-    slug: "sleep-safe-caffeine-decay",
-    title: "The Sleep-Safe Caffeine Decay Protocol",
-    excerpt: "A mathematical and biological guide to tracking caffeine clearance, half-life variations, and locking in your daily cutoff time.",
-    category: "protocol",
-    categoryLabel: "Protocol",
-    date: "2026-06-30",
-    readTime: "8 min",
-    content: `
-# The Sleep-Safe Caffeine Decay Protocol
-
-Caffeine is the world's most widely consumed psychoactive substance. While it is highly effective for masking fatigue, its long metabolic clearance curve poses a hidden threat to sleep architecture.
-
-To protect your slow-wave deep sleep, you must understand the mathematics of caffeine clearance.
-
-### The Half-Life and Quarter-Life Curve
-Caffeine is metabolized in the liver by the **CYP1A2 enzyme**. 
-*   **Half-Life (5 to 7 hours)**: If you consume a cup of coffee (100mg of caffeine) at 2:00 PM, approximately 50mg of active caffeine remains in your bloodstream at 8:00 PM.
-*   **Quarter-Life (10 to 12 hours)**: At midnight, 25mg of active caffeine is still circulating in your brain. 
-
-Even if you can fall asleep with 25mg of caffeine in your system, the active molecule blockades adenosine receptors, suppressing deep slow-wave delta sleep by up to 30%.
-
-> [!IMPORTANT]
-> The genetic variations in the CYP1A2 gene categorize individuals into fast and slow metabolizers. Slow metabolizers require up to 12 hours to clear caffeine to safe sleep thresholds.
-
-### Scheduling Your Caffeine Cutoff
-To lock in your personal caffeine wall, apply this 3-step calculation:
-1.  **Establish Sleep Target**: Identify your target sleep window (e.g. 11:00 PM).
-2.  **Backtrack 10 Hours**: To ensure circulating caffeine is below the disruptive threshold, set your strict **caffeine cutoff wall** 10 hours before sleep (e.g. 1:00 PM).
-3.  **Adenosine Delay**: Delay morning intake by 90 minutes after waking to allow adenosine to clear naturally, preventing a caffeine-induced afternoon crash.
+ARC is a wellness app, not a medical device. If sleep problems persist, or you're worried about your memory, talk to a doctor.
     `,
   },
   {
     slug: "adenosine-clearance-afternoon-dip-protocol",
-    title: "The Physiology of the Postprandial Dip: Adenosine vs. Circadian Waves",
-    excerpt: "Alexander Borbély's Two-Process Model explains why alertness collapses at 2:00 PM, and how to biologically clear extracellular adenosine.",
+    title: "The Two-Process Model of Sleep: Process S and Process C",
+    excerpt:
+      "Borbély's 1982 Two-Process Model explains sleepiness as sleep pressure (Process S) meeting your body clock (Process C). How it works and what it predicts.",
     category: "mechanism",
     categoryLabel: "Biological Mechanism",
     date: "2026-07-08",
     readTime: "8 min",
     content: `
-# The Physiology of the Postprandial Dip: Adenosine vs. Circadian Waves
+# The Two-Process Model of Sleep: Process S and Process C
 
-Why do humans experience an acute slump in cognitive alertness between 1:00 PM and 3:00 PM, regardless of whether they ate lunch?
-
-In 1982, Swiss sleep researcher Alexander Borbély published the foundational **Two-Process Model of Sleep Regulation**. This mathematical and biological model explains why you crash in the afternoon, and why willpower alone cannot overcome it.
+Why do you feel sleepy at some times of day and wide awake at others, even after the same night's sleep? The most influential answer is the **Two-Process Model of Sleep Regulation**, proposed by Swiss sleep researcher Alexander Borbély in 1982. It describes sleepiness as the interaction of two separate processes: sleep pressure that builds the longer you're awake, and a body clock that runs on a roughly 24-hour cycle.
 
 ---
 
-### Process S vs. Process C
+## Process S vs. Process C
 
-Borbély proved that human energy is governed by two independent, interacting biological forces:
+Borbély proposed that sleep and wakefulness are governed by two independent, interacting processes.
 
-#### 1. Process S: The Homeostatic Sleep Drive
-Process S represents the accumulation of chemical sleep pressure. From the instant of awakening, the metabolic activity of neurons hydrolyzes adenosine triphosphate (ATP) into adenosine diphosphate (ADP), adenosine monophosphate (AMP), and finally free **adenosine**.
-*   Free adenosine binds to inhibitory **A1 receptors** in the basal forebrain and cortex, hyperpolarizing neuronal membranes and dampening cognitive output.
-*   Process S climbs in an exponential curve throughout the waking day. By hour 7 or 8 of wakefulness (early afternoon), homeostatic sleep pressure has reached a potent mid-day peak.
+### 1. Process S: The Homeostatic Sleep Drive
+Process S is sleep pressure. It rises the whole time you're awake and falls while you sleep. One chemical signal behind it is **adenosine**, a by-product of the energy your neurons use.
+* As adenosine accumulates, it binds to receptors (mainly A1 and A2A) that damp down wake-promoting brain activity.
+* In the model, Process S rises along a curve that gradually flattens during the day, then drains away during sleep. By early afternoon, sleep pressure is well above its morning level, and it keeps rising until you sleep.
 
-#### 2. Process C: The Circadian Pacemaker
-Process C is the 24-hour sinusoidal wave generated autonomously by the ~20,000 neurons of your **suprachiasmatic nucleus (SCN)**.
-*   Process C does not track how long you have been awake; it tracks solar time.
-*   In the morning, Process C ramps up rapidly, stimulating the secretion of cortisol and elevating core body temperature to overcome the residual sleep inertia of Process S.
-*   However, around 1:00 PM to 2:30 PM, the circadian alerting signal experiences an endogenous **secondary dip** (the postprandial dip).
-
----
-
-### The Collision at 2:00 PM
-The afternoon crash is the precise moment when **Process S is high** and **Process C temporarily dips**:
-*   Adenosine has built up for 7+ hours.
-*   The circadian arousal signal briefly pulls back.
-*   The gap between homeostatic sleep pressure and circadian arousal widens dramatically, creating an overwhelming biological sensation of drowsiness.
-
-> [!IMPORTANT]
-> This is why caffeine taken at 2:00 PM is a double-edged sword: it blocks A1/A2A receptors temporarily, but does nothing to reduce Process S. Once caffeine metabolizes, the accumulated Process S triggers an even more violent crash.
+### 2. Process C: The Circadian Pacemaker
+Process C is the body clock, generated by the **suprachiasmatic nucleus (SCN)**, a small cluster of neurons in the hypothalamus, and kept in step with the day mainly by light.
+* Process C doesn't track how long you've been awake; it runs on its own roughly 24-hour cycle.
+* Its alerting signal rises through the day and peaks in the evening, which is what holds rising sleep pressure off until bedtime.
+* Many people also feel a smaller dip in alertness in the early afternoon. Why exactly it happens is still debated, and it shows up whether or not you've eaten lunch.
 
 ---
 
-### Biological Protocols to Minimize the Dip
+## What the Model Predicts
+Put the two curves together and several everyday experiences fall out of it:
+* **Bedtime**: You fall asleep most easily when sleep pressure is high and the circadian alerting signal is dropping, late in your biological evening.
+* **The evening second wind**: A few hours before your usual bedtime, the circadian signal is at its strongest. Many people feel oddly alert then; researchers call it the wake maintenance zone.
+* **The afternoon dip**: By early afternoon, sleep pressure has been building for hours while the circadian signal briefly levels off, so drowsiness gets through.
+* **Jet lag and night shifts**: When you try to sleep at the wrong biological time, the two processes are out of step. Pressure says sleep, the clock says wake, and sleep comes out short and light.
 
-1.  **Delay Morning Adenosine Blockade**: Wait 90 minutes after waking before drinking coffee. Allowing the Cortisol Awakening Response (CAR) to peak naturally clears morning adenosine from brain parenchyma before caffeine locks the receptors.
-2.  **The Midday Photon Spike**: Exposing your retina to 10,000+ lux of outdoor light between 1:30 PM and 2:00 PM stimulates the SCN to fire extra action potentials to the locus coeruleus, releasing norepinephrine and blunting the circadian dip.
-3.  **Low-Glycemic Tryptophan Management**: Avoid high-glycemic carbohydrates at lunch. Insulin spikes clear large neutral amino acids from the bloodstream except tryptophan, allowing tryptophan to cross the blood-brain barrier unobstructed, where it converts into serotonin and melatonin.
-    `,
-  },
-  {
-    slug: "lux-thresholds-retinal-iprgc-entrainment",
-    title: "Retinal Ganglion Cells & Lux Thresholds: The Exact Physics of Circadian Entrainment",
-    excerpt: "Why standard indoor lighting fails to set your biological clock: the 480nm melanopsin curve, window glass attenuation, and photon requirements.",
-    category: "protocol",
-    categoryLabel: "Protocol",
-    date: "2026-07-09",
-    readTime: "7 min",
-    content: `
-# Retinal Ganglion Cells & Lux Thresholds: The Exact Physics of Circadian Entrainment
+2 PM is the textbook time for that dip; yours may be different. ARC asks for one-tap energy check-ins, and after about ten days (roughly four afternoon check-ins) it measures when your dip really lands and moves your plan to match. For practical ways to soften it, see [why you crash at 2 PM](/blog/why-do-i-crash-at-2pm-afternoon-energy-drop-fix).
 
-Almost every health guide advises "getting morning sunlight." Yet few explain the precise photobiological physics required to actually trigger master clock synchronization.
-
-Sitting next to a sunny indoor window is **not** biologically equivalent to stepping outside. Here is the neurobiology of photon absorption and master clock entrainment.
+> [!IMPORTANT] Caffeine blocks adenosine receptors for a while, but it does nothing to reduce Process S. Adenosine keeps building underneath, so the tiredness comes back once the caffeine wears off.
 
 ---
 
-### The Discovery of ipRGCs and Melanopsin
+## What You Can Change
+The model points to a few levers:
+1. **Sleep is the only thing that drains Process S.** A short nap (20 minutes or less) takes a little off without making it hard to sleep that night; see [the science of naps](/blog/power-of-naps-science-of-siesta).
+2. **Light strengthens Process C.** Morning daylight keeps your clock on time, and bright light has an immediate alerting effect that can blunt the afternoon dip. A short walk outside after lunch does both.
+3. **Caffeine timing.** Caffeine masks Process S rather than lowering it, so the question is when it wears off. There's no universal cutoff: for one average cup and an average metaboliser, caffeine takes roughly five hours to fall below 50 mg, and a bigger cup, a slower metabolism or an earlier coffee still in your system pushes that earlier. The [caffeine half-life guide](/guides/caffeine-half-life-optimization-guide) goes through the math.
+4. **Lunch.** A large, high-carbohydrate lunch can make the dip feel deeper for some people, but the dip happens without lunch too.
 
-For over a century, science believed that vision was handled exclusively by rods and cones. In the early 2000s, researchers discovered a third class of photoreceptors in the human eye: **Intrinsically Photosensitive Retinal Ganglion Cells (ipRGCs)**.
+Delaying your first coffee until 60 to 90 minutes after waking is a popular recommendation; the evidence is mixed, and the best test is your own afternoons.
 
-*   Unlike rods and cones, ipRGCs do not form visual images.
-*   They express a unique photopigment called **melanopsin**.
-*   Melanopsin has a peak spectral sensitivity specifically at **480 nanometers (blue-cyan light)**.
-*   ipRGC axons project directly into the suprachiasmatic nucleus (SCN) via the **retinohypothalamic tract (RHT)**. When 480nm photons strike melanopsin, the SCN directly resets its molecular transcription-translation feedback loop (CLOCK and BMAL1 genes).
-
----
-
-### The Lux Mathematics: Indoor vs. Outdoor Light
-
-Light intensity follows the inverse-square law, and human eyes adapt logarithmically. Consequently, indoor lighting looks "bright" to human perception, but appears virtually pitch black to your melanopsin cells:
-
-*   **Average Living Room / Bedroom**: 100 to 250 lux.
-*   **Bright Corporate Office**: 300 to 500 lux.
-*   **Outdoor Daylight (Overcast / Rainy Day)**: 10,000 to 20,000 lux.
-*   **Outdoor Daylight (Full Direct Sunlight)**: 50,000 to 100,000+ lux.
-
-To reach the activation threshold of ipRGCs and signal the SCN to suppress melatonin and set the 14-hour biological timer, your retina requires a minimum of **1,000 to 5,000 melanopic lux** for sustained duration.
-
-> [!WARNING]
-> Indoor office lighting (500 lux) is simply too weak to trigger full morning circadian phase advances. Remaining indoors all morning creates "biological darkness," producing chronic circadian phase delay and delayed sleep onset at night.
-
----
-
-### The Window Glass Attenuation Penalty
-
-Why can't you just look outside through a closed window?
-
-Standard architectural window glass is engineered to block ultraviolet radiation and reflective infrared heat. In doing so, modern double-pane and low-E window glass:
-*   Attenuates overall photon intensity by **50% to 70%**.
-*   Filters out critical blue-cyan wavelengths around 480nm.
-*   Requires you to sit behind a window for up to **5 times longer** to achieve the same biological stimulation as standing outside.
-
----
-
-### The Prescriptive Morning Light Protocol
-
-*   **Clear Sunny Morning**: 10 to 15 minutes of direct outdoor exposure without sunglasses (eyeglasses and contact lenses are fine, as they do not filter biological blue photons).
-*   **Overcast / Cloudy Morning**: 20 to 30 minutes of outdoor exposure.
-*   **Heavy Rain / Dark Winter Dawn**: 30+ minutes outdoors, or sit 12 to 18 inches in front of a verified 10,000-lux seasonal daylight device for 20 minutes.
-*   **Timing**: Completed within the first **30 to 60 minutes** of waking to maximize the Cortisol Awakening Response.
+The model has been refined since 1982 (Borbély and colleagues published a reappraisal in 2016 in the Journal of Sleep Research), but its core idea still underpins much of sleep science. For how adenosine builds and clears in more detail, read the [adenosine and sleep pressure guide](/guides/adenosine-sleep-pressure-clearance-guide).
     `,
   },
 ];

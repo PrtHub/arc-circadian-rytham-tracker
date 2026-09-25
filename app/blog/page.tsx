@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { readTime } from "@/lib/article";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
 import { ContentNav } from "@/components/ContentNav";
@@ -6,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 export const metadata: Metadata = {
-    title: "Circadian Science & Sleep Journal | ARC 2.0 Blog",
+    title: "Circadian Science & Sleep Journal",
     description: "Deep-dive articles on chronobiology, caffeine metabolism, circadian light anchoring, and practical sleep architecture from the ARC scientific team.",
     keywords: [
         "chronobiology blog",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
         canonical: "/blog",
     },
     openGraph: {
-        title: "Circadian Science & Sleep Journal | ARC 2.0 Blog",
+        title: "Circadian Science & Sleep Journal",
         description: "Evidence-based articles on circadian timing, caffeine decay, and human energy optimization.",
         url: "https://arcapp.sbs/blog",
     },
@@ -112,7 +113,7 @@ export default function BlogPage() {
                                         {featured.category}
                                     </span>
                                     <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                                    <span className="text-(--fg-muted)">{featured.readTime} read</span>
+                                    <span className="text-(--fg-muted)">{readTime(featured.content)} read</span>
                                 </div>
 
                                 <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-tight">
@@ -145,14 +146,14 @@ export default function BlogPage() {
                 {/* Calculative App Callout Banner (Mid-Hub Placement) */}
                 <CalculativeAppCallout
                     variant="banner"
-                    badge="iOS Living Light Engine"
-                    title="Track your circadian trajectory in real time"
-                    description="ARC turns chronobiology research into automated daily notifications, dynamic caffeine half-life curves, and solar lux timers directly on iOS."
-                    featureBullets={[
-                        "Real-time caffeine decay curve on Lock Screen",
-                        "22-step biological chronotype onboarding",
-                        "100% private SQLite storage with zero tracking",
-                    ]}
+                    badge="ARC for iPhone"
+          title="Stop guessing. ARC works out your day."
+          description="One sentence explaining why you feel like this right now, one thing worth doing about it, and the rest of your day as a plan. Built from what you log, not a generic routine."
+          featureBullets={[
+            "Last safe coffee, recalculated with every cup",
+            "20-minute light timer from your real sunrise",
+            "No account. Your log stays on your iPhone",
+          ]}
                     location="blog_hub_mid_banner"
                 />
 
@@ -183,7 +184,7 @@ export default function BlogPage() {
                                                     <span>{post.category}</span>
                                                 </span>
                                                 <span className="text-zinc-600">•</span>
-                                                <span className="text-(--fg-muted)">{post.readTime}</span>
+                                                <span className="text-(--fg-muted)">{readTime(post.content)}</span>
                                             </div>
 
                                             <h3 className="text-xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-snug">

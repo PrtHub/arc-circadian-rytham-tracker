@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { blogPosts } from "@/lib/blog-data";
+import { readTime } from "@/lib/article";
 
 export const runtime = "edge";
 export const alt = "The ARC Journal — Circadian Rhythm Optimization";
@@ -99,7 +100,7 @@ export default async function OgImage({
             </span>
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#27272a" }} />
             <span style={{ fontSize: "14px", fontWeight: 700, color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              {post.readTime} Read
+              {readTime(post.content)} Read
             </span>
           </div>
 

@@ -1,23 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { AppStoreButton } from "@/components/AppStoreButton";
+import { EducationalNote } from "../_components/tool-extras";
+
+const NIGHT_LABELS = ["5 nights ago", "4 nights ago", "3 nights ago", "2 nights ago", "Last night"];
+
+const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+const roundTenth = (value: number) => Math.round(value * 10) / 10;
 
 export default function SleepDebtClient() {
   const [neededSleep, setNeededSleep] = useState(8);
-  const [actualSleep, setActualSleep] = useState([7, 6, 7, 5, 6]); // Last 5 days
+  const [actualSleep, setActualSleep] = useState([7, 6, 7, 5, 6]); // Oldest night first
 
-  const calculateDebt = () => {
-    const totalNeeded = neededSleep * actualSleep.length;
-    const totalActual = actualSleep.reduce((a, b) => a + b, 0);
-    return totalNeeded - totalActual;
-  };
-
-  const debt = calculateDebt();
+  // Need is clamped to a plausible 4-12 h so a cleared or odd entry can't produce nonsense.
+  const need = clamp(neededSleep || 0, 4, 12);
+  const totalActual = actualSleep.reduce((sum, h) => sum + clamp(h || 0, 0, 24), 0);
+  const debt = roundTenth(need * actualSleep.length - totalActual);
+  const perNight = roundTenth(debt / actualSleep.length);
 
   const getAdvice = () => {
-    if (debt <= 0) return "You have no sleep debt! Your rhythm is perfectly aligned.";
-    if (debt <= 5) return "You have a mild sleep debt. Try to add 30-60 minutes of sleep tonight, but do not sleep in excessively on the weekend.";
-    return "You have a severe sleep debt. This level of deprivation causes significant cognitive deficits. Prioritize consistent wake times and use the ARC Recovery Protocol.";
+    if (debt <= 0) return "No sleep debt over these five nights.";
+    if (debt <= 5) {
+      return `That's about ${perNight} h a night short. Try adding 30-60 minutes tonight by going to bed earlier, and keep your weekend wake time close to your weekday one.`;
+    }
+    return `That's about ${perNight} h a night short. Short nights add up, and attention and mood usually feel it first. Keep your wake time steady and go to bed a little earlier for a few nights rather than sleeping in.`;
   };
 
   return (
@@ -28,30 +35,36 @@ export default function SleepDebtClient() {
           Sleep <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Debt</span> Calculator
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Sleep debt is cumulative. If you need 8 hours but only get 6, you owe your body 2 hours. Calculate your total debt over the last 5 days.
+          Sleep debt adds up. If you need 8 hours but only get 6, you&apos;re 2 hours short. Calculate your total over the last five nights.
         </p>
       </header>
 
       <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="mb-8">
-          <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">How many hours do you need to feel fully rested?</label>
+          <label htmlFor="sleep-need" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">How many hours do you need to feel fully rested?</label>
           <input
+            id="sleep-need"
             type="number"
             value={neededSleep}
             onChange={(e) => setNeededSleep(Number(e.target.value))}
             className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors font-mono"
-            min="5"
+            min="4"
             max="12"
+            step="0.5"
           />
+          {need !== neededSleep && (
+            <p className="text-[11px] text-(--fg-muted) mt-2">Using {need} h (the calculator accepts 4 to 12 hours).</p>
+          )}
         </div>
 
-        <div className="space-y-4 mb-8">
-          <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">How many hours did you actually get over the last 5 days?</label>
+        <fieldset className="space-y-4 mb-8">
+          <legend className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">How many hours did you actually sleep over the last 5 nights?</legend>
           <div className="grid grid-cols-5 gap-3">
             {actualSleep.map((val, i) => (
-              <div key={i}>
-                <label className="text-xs text-(--fg-muted) block mb-1 text-center font-mono">Day {i + 1}</label>
+              <div key={NIGHT_LABELS[i]}>
+                <label htmlFor={`sleep-night-${i}`} className="text-[11px] text-(--fg-muted) block mb-1 text-center font-mono">{NIGHT_LABELS[i]}</label>
                 <input
+                  id={`sleep-night-${i}`}
                   type="number"
                   value={val}
                   onChange={(e) => {
@@ -62,39 +75,32 @@ export default function SleepDebtClient() {
                   className="w-full sunken-card p-3 text-white text-center focus:outline-none focus:border-accent/50 transition-colors font-mono"
                   min="0"
                   max="24"
+                  step="0.5"
                 />
               </div>
             ))}
           </div>
-        </div>
+        </fieldset>
 
-        <div className="sunken-card border border-white/10 p-8 text-center relative overflow-hidden">
+        <div className="sunken-card border border-white/10 p-8 text-center relative overflow-hidden" aria-live="polite">
           <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Your Total Sleep Debt</p>
-          <div className={`text-5xl sm:text-6xl font-black mb-2 font-mono ${debt > 0 ? 'text-(--aura-crash)' : 'text-accent'}`}>
-            {debt > 0 ? `+${debt}` : debt} hours
+          <div className={`text-5xl sm:text-6xl font-black mb-2 font-mono ${debt > 0 ? 'text-(--aura-sun)' : 'text-accent'}`}>
+            {debt > 0 ? `${debt} hours` : "0 hours"}
           </div>
           <p className="text-(--fg-muted) text-sm max-w-sm mx-auto leading-relaxed">
             {getAdvice()}
           </p>
         </div>
+
+        <EducationalNote />
       </div>
 
       <div className="raised-card p-8 text-center border-(--accent)/30">
-        <h2 className="text-2xl font-bold mb-4 text-white">Stop paying back debt with interest</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Let ARC track the debt for you</h2>
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto leading-relaxed text-sm">
-          Binge sleeping on weekends to pay back debt actually causes <em className="text-white">Social Jetlag</em>, making you more tired on Monday. The ARC app helps you recover safely by keeping your wake times consistent and optimizing your circadian timing instead.
+          Log last night&apos;s sleep in one tap and ARC tracks a real sleep debt against your own target. When it builds up, ARC switches to a recovery plan for up to three days, changing your daily sentence, your one ask and your caffeine cutoff.
         </p>
-        <a
-          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-accent text-black font-extrabold py-3.5 px-8 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono text-sm"
-        >
-          Download ARC App
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
-        </a>
+        <AppStoreButton size="lg" location="tool_sleep_debt_calculator" />
       </div>
     </main>
   );

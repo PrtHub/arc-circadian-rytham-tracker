@@ -25,14 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const chronotypes = Object.keys(chronotypeDetails).map((slug) => ({
     url: `${SITE_URL}/chronotype/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
 
   const audiences = Object.keys(audienceDetails).map((slug) => ({
     url: `${SITE_URL}/for/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
@@ -40,67 +38,56 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const tools = [
     {
       url: `${SITE_URL}/tools`,
-      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/tools/caffeine-calculator`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/sleep-cocktail`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/jetlag-planner`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/chronotype-compatibility`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/chronotype-quiz`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/social-jetlag-calculator`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/sleep-debt-calculator`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/sunlight-calculator`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/chronotype-visualizer`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/sleep-cycle-calculator`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
@@ -115,7 +102,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const books = booksData.map((book) => ({
     url: `${SITE_URL}/books/${book.slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -123,49 +109,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: SITE_URL,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${SITE_URL}/guides`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/science`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/books`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/support`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },

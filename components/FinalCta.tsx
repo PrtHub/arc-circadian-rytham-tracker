@@ -31,7 +31,7 @@ export function FinalCta() {
         <AppStoreButton size="lg" location="final_cta" />
 
         <p className="text-(--fg-muted) text-xs opacity-70">
-          Free to download · 7-day free trial on annual · 100% On-Device Privacy
+          Free to download · 7-day free trial on annual · No account
         </p>
       </div>
     </section>

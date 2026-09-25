@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { readTime } from "@/lib/article";
 import Link from "next/link";
 import { guidesData } from "@/lib/guides-data";
 import { ContentNav } from "@/components/ContentNav";
@@ -6,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 export const metadata: Metadata = {
-  title: "Circadian Rhythm Protocols & Sleep Guides | ARC 2.0 Guides",
+  title: "Circadian Rhythm Guides & Step-by-Step Protocols",
   description:
     "Comprehensive, step-by-step master guides on circadian rhythm resets, shift work protocols, caffeine pharmacokinetics, morning sunlight lux, and chronotype living.",
   keywords: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     canonical: "/guides",
   },
   openGraph: {
-    title: "Circadian Rhythm Protocols & Sleep Guides | ARC 2.0 Guides",
+    title: "Circadian Rhythm Guides & Step-by-Step Protocols",
     description:
       "Evidence-based master guides and protocols to recalibrate your biological clock, optimize caffeine half-life, and master sleep architecture.",
     url: "https://arcapp.sbs/guides",
@@ -107,7 +108,7 @@ export default function GuidesPage() {
                     {featured.category}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                  <span className="text-(--fg-muted)">{featured.readTime} read</span>
+                  <span className="text-(--fg-muted)">{readTime(featured.content)} read</span>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-tight">
@@ -140,13 +141,13 @@ export default function GuidesPage() {
         {/* Calculative Mid-Hub Callout Banner */}
         <CalculativeAppCallout
           variant="banner"
-          badge="Biological Automation"
-          title="Don't manage complex circadian protocols manually"
-          description="ARC synchronizes with your local GPS coordinates to time your exact solar windows, calculate caffeine decay, and automate your chronotype day plan on iOS."
+          badge="ARC for iPhone"
+          title="Stop guessing. ARC works out your day."
+          description="One sentence explaining why you feel like this right now, one thing worth doing about it, and the rest of your day as a plan. Built from what you log, not a generic routine."
           featureBullets={[
-            "Live dynamic caffeine cutoff calculator",
-            "10,000 lux morning light progress ring",
-            "Personalized daily energy blueprints for Lion, Bear, Wolf & Dolphin",
+            "Last safe coffee, recalculated with every cup",
+            "20-minute light timer from your real sunrise",
+            "No account. Your log stays on your iPhone",
           ]}
           location="guides_hub_mid_banner"
         />
@@ -172,7 +173,7 @@ export default function GuidesPage() {
                         {guide.difficulty}
                       </span>
                       <span className="text-zinc-600">•</span>
-                      <span className="text-(--fg-muted) text-[11px]">{guide.readTime}</span>
+                      <span className="text-(--fg-muted) text-[11px]">{readTime(guide.content)}</span>
                     </div>
 
                     <h3 className="text-xl font-bold tracking-tight mb-3 text-white group-hover:text-accent transition-colors leading-snug">

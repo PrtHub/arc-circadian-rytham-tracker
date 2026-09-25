@@ -51,7 +51,7 @@ export function Hero() {
           {/* Trust Signals */}
           <div className="flex items-center gap-2.5 text-xs font-bold text-(--fg-muted) pt-1 font-mono uppercase tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span>100% On-Device Privacy · No Account · No Wearables Required</span>
+            <span>No Account · Location Never Requested · No Wearable Needed</span>
           </div>
         </div>
 

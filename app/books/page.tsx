@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 export const metadata: Metadata = {
-  title: "Best Circadian Rhythm & Sleep Books | ARC 2.0 Reading List",
+  title: "Best Circadian Rhythm & Sleep Books",
   description:
     "Curated reviews and takeaways from essential chronobiology texts: Matthew Walker, Dr. Michael Breus, and Suhas Kshirsagar on circadian health and energy.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: "/books",
   },
   openGraph: {
-    title: "Best Circadian Rhythm & Sleep Books | ARC 2.0 Reading List",
+    title: "Best Circadian Rhythm & Sleep Books",
     description: "Curated reviews and scientific summaries of foundational texts in chronobiology, sleep science, and human performance.",
     url: "https://arcapp.sbs/books",
   },
@@ -63,20 +63,20 @@ export default function BooksPage() {
             Recommended <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Books</span>.
           </h1>
           <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-            Summaries and breakdowns of key scientific texts that inform ARC's biological protocols, chronotype algorithms, and sleep tracking features.
+            Summaries of the books behind the ideas ARC builds on: chronotypes, light, caffeine and sleep pressure. Our own reading, not affiliated with the authors.
           </p>
         </header>
 
         {/* Calculative Mid-Hub Callout Banner */}
         <CalculativeAppCallout
           variant="banner"
-          badge="Science In Your Pocket"
-          title="Turn chronobiology books into an automated daily routine"
-          description="ARC translates the findings of Matthew Walker, Satchin Panda, and Michael Breus into live Lock Screen widgets, caffeine half-life decay curves, and solar timers."
+          badge="ARC for iPhone"
+          title="Stop guessing. ARC works out your day."
+          description="One sentence explaining why you feel like this right now, one thing worth doing about it, and the rest of your day as a plan. Built from what you log, not a generic routine."
           featureBullets={[
-            "Living Light sky adapting to natural solar progression",
-            "Chronotype schedules based on Dr. Michael Breus's 4 archetypes",
-            "100% private, on-device SQLite database",
+            "Last safe coffee, recalculated with every cup",
+            "20-minute light timer from your real sunrise",
+            "No account. Your log stays on your iPhone",
           ]}
           location="books_hub_banner"
         />
@@ -113,8 +113,6 @@ export default function BooksPage() {
                         <span className={`px-2.5 py-0.5 rounded-full border ${badgeStyle}`}>
                           {book.keyMetric}
                         </span>
-                        <span className="text-zinc-600">•</span>
-                        <span className="text-(--fg-muted)">Rating: {book.rating}</span>
                       </div>
 
                       <h2 className="text-xl font-bold tracking-tight mb-2 text-white group-hover:text-accent transition-colors leading-snug">

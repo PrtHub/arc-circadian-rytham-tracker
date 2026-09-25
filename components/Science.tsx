@@ -3,22 +3,22 @@ const mechanisms = [
     symbol: "⚗️",
     molecule: "Adenosine",
     tag: "Sleep Pressure",
-    body: "Adenosine builds up in your brain from the moment you wake. It creates sleep pressure that makes you feel tired. Caffeine doesn't remove it — it just masks the signal. ARC calculates the exact window to wait before your first coffee, preventing your 2 PM crash.",
-    highlight: "The Adenosine Clear",
+    body: "Adenosine builds up in your brain from the moment you wake, and that sleep pressure is what the afternoon dip feels like. Caffeine doesn't remove it; it masks the signal until it wears off. ARC tracks how much caffeine is still on board and solves your last safe coffee from your bedtime.",
+    highlight: "Sleep pressure, not laziness",
   },
   {
     symbol: "☀️",
     molecule: "Cortisol",
     tag: "Morning Anchor",
-    body: "Morning sunlight triggers a cortisol spike that sets your entire daily rhythm — including when you'll feel alert and when melatonin will rise 12–16 hours later. ARC gives you a precise sunlight window within minutes of your wake time.",
-    highlight: "Cortisol Pulse Timing",
+    body: "Cortisol rises naturally after waking, and morning daylight is the strongest signal for setting the body clock that times it, along with when you'll feel alert and when melatonin rises that evening. ARC works out your real sunrise and runs a 20-minute light timer.",
+    highlight: "Morning light sets the clock",
   },
   {
     symbol: "🌙",
     molecule: "Melatonin",
     tag: "Sleep Onset",
-    body: "Melatonin release is triggered by your morning cortisol spike and suppressed by evening light. ARC's Digital Sunset protocol tells you exactly when to dim screens and lights to let your natural sleep signal rise — every night.",
-    highlight: "Digital Sunset Protocol",
+    body: "Melatonin rises in the evening on a schedule set by your body clock, and bright light late at night pushes it back. ARC's wind-down reminder tells you when to dim screens and lights, timed to your own bedtime.",
+    highlight: "Wind-down, on your schedule",
   },
 ];
 

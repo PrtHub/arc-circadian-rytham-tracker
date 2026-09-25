@@ -96,7 +96,7 @@ export default async function OgImage({
                   letterSpacing: "0.1em",
                 }}
               >
-                {chronotype.populationPercentage} of Population
+                Breus estimates ~{chronotype.populationPercentage} of people
               </div>
             </div>
           </div>

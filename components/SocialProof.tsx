@@ -1,7 +1,7 @@
 const stats = [
-  { icon: "📉", value: "3.5 → 1.0", label: "Afternoon Crashes / wk", note: "Measured over 28 days" },
-  { icon: "🧬", value: "22-Point", label: "Biological Diagnostic", note: "Deep chronotype analysis" },
-  { icon: "🔒", value: "100%", label: "Local On-Device SQLite", note: "Zero GPS or ad trackers" },
+  { icon: "🌅", value: "20 min", label: "Morning Light Timer", note: "From your real sunrise" },
+  { icon: "🧬", value: "22-Step", label: "Setup, Then One Ask", note: "Your chronotype and your day's shape" },
+  { icon: "🔒", value: "0", label: "Accounts Required", note: "Your log stays on your iPhone" },
   { icon: "⏱️", value: "0", label: "Wearables Required", note: "Runs via iPhone & Dynamic Island" },
   { icon: "☀️", value: "4", label: "Chronotypes Mapped", note: "Lion, Bear, Wolf, Dolphin" },
 ];

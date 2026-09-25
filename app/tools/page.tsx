@@ -4,10 +4,13 @@ import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
+const INDEX_TITLE = "Free Circadian Rhythm & Sleep Calculators";
+const INDEX_DESCRIPTION =
+  "Ten free circadian tools: caffeine cutoff calculator, chronotype quiz, jet lag planner, and sleep debt, social jetlag, sunlight and sleep cycle calculators.";
+
 export const metadata: Metadata = {
-  title: "Free Circadian Rhythm & Sleep Calculators | ARC 2.0",
-  description:
-    "Explore 10+ free, science-backed circadian rhythm calculators: dynamic caffeine cutoff, chronotype quiz, sleep debt, sunlight window, and jet lag recovery planner.",
+  title: INDEX_TITLE,
+  description: INDEX_DESCRIPTION,
   keywords: [
     "circadian rhythm calculators",
     "free sleep calculator",
@@ -21,80 +24,86 @@ export const metadata: Metadata = {
     canonical: "/tools",
   },
   openGraph: {
-    title: "Free Circadian Rhythm & Sleep Calculators | ARC 2.0",
-    description:
-      "Calculate your caffeine cutoff, discover your chronotype, analyze sleep cycles, and plan jet lag shifts with free science-backed tools.",
-    url: "https://arcapp.sbs/tools",
+    title: `${INDEX_TITLE} | ARC`,
+    description: INDEX_DESCRIPTION,
+    url: "/tools",
+    type: "website",
+    siteName: "ARC: Circadian Rhythm Tracker",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${INDEX_TITLE} | ARC`,
+    description: INDEX_DESCRIPTION,
   },
 };
 
 const tools = [
   {
     title: "Caffeine Half-Life Calculator",
-    description: "Find out exactly when you need to stop drinking coffee to protect your deep sleep. Calculates active milligrams based on standard metabolic decay.",
+    description: "Find your last safe coffee for tonight's bedtime, based on your caffeine sensitivity (4, 5.5 or 7 h half-life) and the size of your drink.",
     icon: "☕",
     href: "/tools/caffeine-calculator",
     status: "Live",
   },
   {
     title: "Huberman Sleep Cocktail Builder",
-    description: "Optimize dosage, safety, and timings of Stanford's recommended sleep compounds based on your specific nighttime struggles.",
+    description: "Magnesium, L-theanine, apigenin and inositol: the doses Andrew Huberman has described, with timing and safety notes.",
     icon: "💊",
     href: "/tools/sleep-cocktail",
     status: "Live",
   },
   {
-    title: "Circadian Jetlag Planner",
-    description: "Shift your circadian rhythm. Generate a personalized 3-day phase advance/delay schedule based on origin and destination offsets.",
+    title: "Jet Lag Planner",
+    description: "When to seek light, avoid light, sleep and have your last coffee after a flight, shifting your body clock about an hour a day.",
     icon: "🛫",
     href: "/tools/jetlag-planner",
     status: "Live",
   },
   {
     title: "Chronotype Compatibility Quiz",
-    description: "Map sleep schedule compatibility with your partner. Discover alert/sleep overlap graphs and cohabitation adjustments.",
+    description: "Compare two chronotypes: typical bedtime and wake gaps, shared awake hours, and practical ways to share a bedroom.",
     icon: "💞",
     href: "/tools/chronotype-compatibility",
     status: "Live",
   },
   {
     title: "Chronotype Quiz",
-    description: "Are you a Lion, Bear, Wolf, or Dolphin? Take this quick 2-minute assessment to discover your biological sleep preference.",
+    description: "Are you a Lion, Bear, Wolf, or Dolphin? Eight quick questions to estimate your natural sleep and energy timing.",
     icon: "🧬",
     href: "/tools/chronotype-quiz",
     status: "Live",
   },
   {
     title: "Social Jetlag Calculator",
-    description: "Calculate how many time zones you are biologically flying every weekend by sleeping in, and see the impact on your Monday morning.",
+    description: "Measure how far your weekend sleep shifts from your weekdays, using the mid-sleep method researchers use, and see why Mondays feel rough.",
     icon: "✈️",
     href: "/tools/social-jetlag-calculator",
     status: "Live",
   },
   {
     title: "Sleep Debt Calculator",
-    description: "Calculate your cumulative sleep debt over the last 5 days and get advice on how to recover safely without ruining your rhythm.",
+    description: "Add up your sleep debt over the last five nights and get practical tips to recover without shifting your rhythm.",
     icon: "📉",
     href: "/tools/sleep-debt-calculator",
     status: "Live",
   },
   {
-    title: "Sunlight Window Calculator",
-    description: "Calculate exactly how many minutes you need to stand outside based on today's weather to reset your master clock.",
+    title: "Morning Sunlight Calculator",
+    description: "How long to get outside this morning for today's weather. ARC's light timer is 20 minutes; stay out longer under heavy cloud.",
     icon: "☀️",
     href: "/tools/sunlight-calculator",
     status: "Live",
   },
   {
     title: "Chronotype Visualizer",
-    description: "Slide through the day to see how your master hormones (cortisol and melatonin) fluctuate based on your chronotype.",
+    description: "Slide through the day to see an illustrative cortisol and melatonin curve for your chronotype, hour by hour.",
     icon: "📊",
     href: "/tools/chronotype-visualizer",
     status: "Live",
   },
   {
     title: "Sleep Cycle Calculator",
-    description: "Calculate the exact times to go to bed or wake up based on 90-minute sleep cycles. Banish morning grogginess and sleep in sync with your brain.",
+    description: "Find the best times to go to bed or wake up based on roughly 90-minute sleep cycles, so your alarm is less likely to land mid-cycle.",
     icon: "⏰",
     href: "/tools/sleep-cycle-calculator",
     status: "Live",
@@ -114,26 +123,26 @@ export default function ToolsIndex() {
       <main className="max-w-7xl mx-auto px-6 py-14 min-h-[70vh] relative">
         <header className="mb-12 max-w-3xl">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
-            10+ Free Interactive Calculators
+            10 Free Interactive Tools
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
-            Circadian <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Tools</span>.
+            Free Circadian Rhythm &amp; <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Sleep Tools</span>
           </h1>
           <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-            Free science-backed calculators and assessments to help you understand and calculate your biology before you even download the app.
+            Free calculators and quizzes, grounded in sleep and circadian research, to help you understand your own timing before you download anything.
           </p>
         </header>
 
         {/* Calculative Mid-Hub Callout Banner */}
         <CalculativeAppCallout
           variant="banner"
-          badge="Automate Calculations"
-          title="Tired of calculating your biological cutoffs manually?"
-          description="ARC puts these 10+ calculators on autopilot with real-time iOS Lock Screen widgets, automated countdown rings, and dynamic caffeine decay curves."
+          badge="Let ARC do the math"
+          title="Tired of calculating your cutoffs by hand?"
+          description="ARC runs the caffeine and morning-light math for you all day: a live caffeine curve, a last-safe-coffee countdown on your widget, and a 20-minute light timer in the Dynamic Island."
           featureBullets={[
-            "Live Lock Screen widget showing current biological phase",
-            "Automatic notification 30 mins before your caffeine cutoff",
-            "Zero account creation • 100% private SQLite storage",
+            "Last safe coffee recalculated with every drink you log",
+            "A heads-up before your caffeine cutoff",
+            "No account • your log stays on your iPhone",
           ]}
           location="tools_hub_banner"
         />
@@ -142,8 +151,8 @@ export default function ToolsIndex() {
         <section className="mt-14">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {tools.map((tool) => (
-              <Link 
-                key={tool.href} 
+              <Link
+                key={tool.href}
                 href={tool.href}
                 className="group raised-card p-8 rounded-3xl hover:border-(--accent)/40 transition-all hover:-translate-y-1 flex flex-col justify-between"
               >
@@ -184,13 +193,13 @@ export default function ToolsIndex() {
             </h2>
             <div className="space-y-6 text-(--fg-muted) text-base sm:text-lg leading-relaxed">
               <p>
-                Most health apps track your past. They tell you how poorly you slept last night or how many steps you took yesterday. But by the time you see that data, it is too late to change it. <strong className="text-white">Circadian biology</strong> is about predicting and shaping your future. It is about knowing what to do *right now* to guarantee a better tomorrow.
+                Most health apps track your past. They tell you how poorly you slept last night or how many steps you took yesterday. But by the time you see that data, it is too late to change it. <strong className="text-white">Circadian biology</strong> is about predicting and shaping your future. It is about knowing what to do <em>right now</em> to shape tomorrow.
               </p>
               <p>
-                We built these free calculators and quizzes because understanding your biological rhythm should not require a wearable or a subscription. Knowing your genetic <strong className="text-white">chronotype</strong> (Lion, Bear, Wolf, or Dolphin) and understanding the <strong className="text-white">caffeine half-life decay</strong> in your bloodstream are foundational rights of human health.
+                We built these free calculators and quizzes because understanding your biological rhythm should not require a wearable or a subscription. Knowing your <strong className="text-white">chronotype</strong> (Lion, Bear, Wolf, or Dolphin) and how long <strong className="text-white">caffeine</strong> stays in your system is a good place to start.
               </p>
               <p>
-                Use these tools to establish a baseline understanding of your body&apos;s internal clock. When you are ready to automate these calculations and follow a live daily trajectory on your lock screen, download the <strong className="text-accent">ARC app on iOS</strong>.
+                Use these tools to establish a baseline understanding of your body&apos;s internal clock. When you want the caffeine and light math done for you, one sentence a day explaining why you feel the way you do, and a day plan built around your chronotype, download <strong className="text-accent">ARC for iPhone</strong>.
               </p>
             </div>
           </div>

@@ -86,7 +86,7 @@ export const audience = [
   {
     icon: "🧠",
     title: "ADHD Professionals",
-    desc: "Structured visual missions replace overwhelming to-do lists. Biology-aligned triggers your brain actually responds to.",
+    desc: "One sentence and one thing to do at a time, instead of an overwhelming list. A wellness app, not a treatment.",
     slug: "adhd",
   },
   {
@@ -161,7 +161,7 @@ export const faqs = [
   },
   {
     q: "Does it work for shift workers?",
-    a: "Yes. ARC features dedicated night-shift and flexible protocols that invert and calibrate guidance around your actual wake time.",
+    a: "Yes, for steady schedules. ARC plans around the wake and bed times you set and solves your caffeine cutoff from your real bedtime, even when it falls in the morning. Rotations that change every few days are harder to plan for.",
   },
   {
     q: "How do I cancel?",
@@ -176,7 +176,7 @@ export const jsonLdApp = {
   "@type": "SoftwareApplication",
   name: "ARC: Circadian Rhythm Tracker",
   alternateName: ["ARC Circadian Rhythm Tracker", "ARC 2.0 Living Light"],
-  operatingSystem: "iOS 16.0 or later",
+  operatingSystem: "iOS 16.4 or later",
   applicationCategory: "HealthApplication",
   applicationSubCategory: "Lifestyle",
   softwareVersion: "2.0.0",
@@ -197,7 +197,7 @@ export const jsonLdApp = {
     "Live Activity & Dynamic Island 20-Min Timer",
     "5-Day Single-Variable Experiment Loops",
     "7 Biological Event Loops (Recovery, Travel/Jet Lag, Drift, DST, Dip Correction)",
-    "Measured Proof (Afternoon crashes dropping from 3.5 to 1.0/wk)",
+    "Trends: afternoon crashes per week, measured from your own check-ins",
     "23 Vetted Scientific Articles in Learn Library",
     "Local-First SQLite On-Device Storage (No Account Required)",
   ],

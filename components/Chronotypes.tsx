@@ -4,6 +4,7 @@ import { chronotypes } from "@/components/arc-data";
 export function Chronotypes() {
   return (
     <section
+      id="chronotypes"
       aria-labelledby="chronotypes-heading"
       className="py-20 px-6"
     >

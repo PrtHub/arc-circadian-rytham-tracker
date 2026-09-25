@@ -1,34 +1,74 @@
 "use client";
 
 import { useState } from "react";
+import { AppStoreButton } from "@/components/AppStoreButton";
+import { formatClock, toMinutes } from "@/lib/time";
+
+const DAY = 24 * 60;
+
+// Signed difference folded into -12 h ... +12 h, so 8:00 -> 7:00 is -1 h, not +23 h.
+const wrapDifference = (mins: number) => {
+  const d = ((mins % DAY) + DAY) % DAY;
+  return d > DAY / 2 ? d - DAY : d;
+};
+
+// Midpoint of a sleep window that may cross midnight.
+const midSleep = (bed: number, wake: number) => {
+  const duration = (((wake - bed) % DAY) + DAY) % DAY;
+  return (bed + duration / 2) % DAY;
+};
+
+const formatShift = (mins: number) => {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return `${h}h${m > 0 ? ` ${m}m` : ""}`;
+};
+
+const TIME_INPUTS = [
+  { id: "sj-weekday-bed", label: "Weekday Bedtime" },
+  { id: "sj-weekday-wake", label: "Weekday Wake Time" },
+  { id: "sj-weekend-bed", label: "Weekend Bedtime" },
+  { id: "sj-weekend-wake", label: "Weekend Wake Time" },
+] as const;
 
 export default function SocialJetlagClient() {
-  const [weekdayWake, setWeekdayWake] = useState("06:30");
-  const [weekendWake, setWeekendWake] = useState("09:30");
+  const [times, setTimes] = useState<Record<(typeof TIME_INPUTS)[number]["id"], string>>({
+    "sj-weekday-bed": "23:00",
+    "sj-weekday-wake": "06:30",
+    "sj-weekend-bed": "00:30",
+    "sj-weekend-wake": "09:30",
+  });
 
-  const calculateJetlag = () => {
-    const [wdHours, wdMins] = weekdayWake.split(":").map(Number);
-    const [weHours, weMins] = weekendWake.split(":").map(Number);
+  const calculate = () => {
+    // A cleared time input gives "", so wait for all four times instead of showing NaN.
+    if (Object.values(times).some((t) => !t)) return null;
 
-    let wdTotal = wdHours * 60 + wdMins;
-    let weTotal = weHours * 60 + weMins;
+    const wdMid = midSleep(toMinutes(times["sj-weekday-bed"]), toMinutes(times["sj-weekday-wake"]));
+    const weMid = midSleep(toMinutes(times["sj-weekend-bed"]), toMinutes(times["sj-weekend-wake"]));
+    const signed = wrapDifference(weMid - wdMid);
+    const diffMins = Math.round(Math.abs(signed));
+    const wakeShift = wrapDifference(toMinutes(times["sj-weekend-wake"]) - toMinutes(times["sj-weekday-wake"]));
 
-    // Handle crossing midnight (unlikely for wake times, but just in case)
-    if (weTotal < wdTotal) weTotal += 24 * 60;
-
-    const diffMins = Math.abs(weTotal - wdTotal);
-    const hours = Math.floor(diffMins / 60);
-    const mins = diffMins % 60;
-
-    return { hours, mins, diffMins };
+    return { wdMid, weMid, signed, diffMins, wakeShift };
   };
 
-  const result = calculateJetlag();
+  const result = calculate();
 
-  const getSeverity = () => {
-    if (result.diffMins <= 60) return { text: "Optimal Alignment", color: "text-accent" };
-    if (result.diffMins <= 120) return { text: "Moderate Drift", color: "text-(--aura-sun)" };
-    return { text: "Severe Social Jetlag", color: "text-(--aura-crash)" };
+  const getLabel = (diffMins: number) => {
+    if (diffMins <= 60) return { text: "Small shift (under 1 h)", color: "text-accent" };
+    if (diffMins <= 120) return { text: "Moderate shift (1-2 h)", color: "text-(--aura-sun)" };
+    return { text: "Large shift (2 h+)", color: "text-(--aura-crash)" };
+  };
+
+  const getMessage = (signed: number, diffMins: number) => {
+    if (diffMins <= 60) {
+      return "Your weekend sleep sits within about an hour of your weekdays, which keeps your body clock steady.";
+    }
+    const zones = Math.round(diffMins / 60);
+    const zoneText = `${zones} time zone${zones !== 1 ? "s" : ""}`;
+    return signed > 0
+      ? `It's a bit like flying ${zoneText} west on Friday and back east on Sunday night, which is why Monday feels rough.`
+      : `Your weekends run earlier. It's a bit like flying ${zoneText} east on Friday and back west on Sunday night.`;
   };
 
   return (
@@ -39,64 +79,55 @@ export default function SocialJetlagClient() {
           Social <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Jetlag</span> Calculator
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Sleeping in on weekends shifts your biological clock exactly like flying across time zones. Calculate your social jetlag to see why Monday mornings hurt so much.
+          Sleeping in on weekends shifts your body clock a bit like crossing time zones. Enter your usual weekday and weekend sleep times to see how far it moves.
         </p>
       </header>
 
       <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="grid sm:grid-cols-2 gap-8 mb-8">
-          <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Weekday Wake Time</label>
-            <input
-              type="time"
-              value={weekdayWake}
-              onChange={(e) => setWeekdayWake(e.target.value)}
-              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors font-mono"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Weekend Wake Time</label>
-            <input
-              type="time"
-              value={weekendWake}
-              onChange={(e) => setWeekendWake(e.target.value)}
-              className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors font-mono"
-            />
-          </div>
+          {TIME_INPUTS.map((input) => (
+            <div key={input.id}>
+              <label htmlFor={input.id} className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">{input.label}</label>
+              <input
+                id={input.id}
+                type="time"
+                value={times[input.id]}
+                onChange={(e) => setTimes((prev) => ({ ...prev, [input.id]: e.target.value }))}
+                className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors font-mono"
+              />
+            </div>
+          ))}
         </div>
 
-        <div className="sunken-card border border-white/10 p-8 text-center relative overflow-hidden">
-          <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Your Weekly Time Zone Shift</p>
-          <div className="text-5xl sm:text-6xl font-black mb-2 text-white font-mono">
-            {result.hours}h {result.mins > 0 ? `${result.mins}m` : ''}
-          </div>
-          <p className={`text-lg font-bold mb-4 ${getSeverity().color} font-mono`}>
-            {getSeverity().text}
-          </p>
-          <p className="text-(--fg-muted) text-sm max-w-sm mx-auto">
-            {result.diffMins > 60 
-              ? `You are biologically flying ${result.hours} time zones west on Friday, and flying back on Sunday night.` 
-              : "Great job. Keeping your wake times consistent is the #1 rule of circadian health."}
-          </p>
+        <div className="sunken-card border border-white/10 p-8 text-center relative overflow-hidden" aria-live="polite">
+          <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Your Social Jetlag (Mid-Sleep Shift)</p>
+          {result ? (
+            <>
+              <div className="text-5xl sm:text-6xl font-black mb-2 text-white font-mono">
+                {formatShift(result.diffMins)}
+              </div>
+              <p className={`text-lg font-bold mb-4 ${getLabel(result.diffMins).color} font-mono`}>
+                {getLabel(result.diffMins).text}
+              </p>
+              <p className="text-(--fg-muted) text-sm max-w-sm mx-auto mb-3">
+                {getMessage(result.signed, result.diffMins)}
+              </p>
+              <p className="text-(--fg-muted) text-xs max-w-sm mx-auto font-mono">
+                Mid-sleep: {formatClock(result.wdMid)} weekdays, {formatClock(result.weMid)} weekends. Wake time moves {formatShift(Math.abs(result.wakeShift))} {result.wakeShift >= 0 ? "later" : "earlier"}.
+              </p>
+            </>
+          ) : (
+            <p className="text-(--fg-muted) text-sm font-mono">Enter all four times to see your result.</p>
+          )}
         </div>
       </div>
 
       <div className="raised-card p-8 text-center border-(--accent)/30">
-        <h2 className="text-2xl font-bold mb-4 text-white">Need help fixing your rhythm?</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Notice drift before Monday does</h2>
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto text-sm leading-relaxed">
-          The ARC app detects when you sleep in and automatically triggers a <strong className="text-white">Recovery Protocol</strong>—adjusting your light timers and caffeine cutoffs to gently pull your rhythm back into alignment without shocking your system.
+          ARC compares your median wake time over the last two weeks with the two weeks before, so one late Saturday isn&apos;t read as a trend. When your schedule is drifting later, it tells you, and its 20-minute morning light timer on your Lock Screen is the simplest way to pull it back.
         </p>
-        <a
-          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-accent text-black font-extrabold py-3.5 px-8 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono text-sm"
-        >
-          Download ARC App
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
-        </a>
+        <AppStoreButton size="lg" location="tool_social_jetlag_calculator" />
       </div>
     </main>
   );

@@ -1,90 +1,89 @@
 "use client";
 
 import { useState } from "react";
+import { AppStoreButton } from "@/components/AppStoreButton";
+import { EducationalNote } from "../_components/tool-extras";
+
+// Anchored on ARC's 20-minute morning light timer; dimmer skies need longer.
+const DURATIONS: Record<string, string> = {
+  sunny: "20",
+  cloudy: "20-30",
+  overcast: "30+",
+};
+
+const GOAL_NOTES: Record<string, string> = {
+  alertness: "Within an hour of waking is ideal.",
+  earlier: "Go out as soon as you can after waking, at about the same time every day. Consistency matters more than extra minutes.",
+};
 
 export default function SunlightCalculatorClient() {
   const [weather, setWeather] = useState("sunny");
   const [goal, setGoal] = useState("alertness");
-
-  const calculateTime = () => {
-    // Base times in minutes
-    let minutes = 10;
-    
-    if (weather === "cloudy") minutes = 20;
-    if (weather === "overcast") minutes = 30;
-    
-    if (goal === "sleep") minutes = Math.round(minutes * 1.5); // Need more light to reset if struggling
-    
-    return minutes;
-  };
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
       <header className="mb-12">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight">
-          Sunlight <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Window</span> Calculator
+          Morning <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">Sunlight</span> Calculator
         </h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed">
-          Huberman says morning sunlight is non-negotiable. But how long do you actually need to stand outside? Calculate your minimum effective dose based on today&apos;s weather.
+          Andrew Huberman often stresses getting morning sunlight. But how long do you actually need to be outside? Pick today&apos;s weather to see your time.
         </p>
       </header>
 
       <div className="raised-card p-6 sm:p-10 mb-12 shadow-2xl">
         <div className="grid sm:grid-cols-2 gap-8 mb-8">
           <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Today&apos;s Weather</label>
-            <select 
+            <label htmlFor="sun-weather" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Today&apos;s Weather</label>
+            <select
+              id="sun-weather"
               value={weather}
               onChange={(e) => setWeather(e.target.value)}
               className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors appearance-none font-mono"
             >
-              <option value="sunny">Bright &amp; Sunny (10,000+ lux)</option>
-              <option value="cloudy">Partly Cloudy (5,000 lux)</option>
-              <option value="overcast">Heavy Overcast (1,000 lux)</option>
+              <option value="sunny">Bright &amp; Sunny (~10,000+ lux)</option>
+              <option value="cloudy">Partly Cloudy (~5,000 lux)</option>
+              <option value="overcast">Heavy Overcast (~1,000 lux)</option>
             </select>
           </div>
           <div>
-            <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Your Primary Goal</label>
-            <select 
+            <label htmlFor="sun-goal" className="block text-xs font-bold text-accent uppercase tracking-wider mb-2 font-mono">Your Primary Goal</label>
+            <select
+              id="sun-goal"
               value={goal}
               onChange={(e) => setGoal(e.target.value)}
               className="w-full sunken-card p-4 text-white focus:outline-none focus:border-accent/50 transition-colors appearance-none font-mono"
             >
               <option value="alertness">Morning Alertness</option>
-              <option value="sleep">Resetting Bad Sleep</option>
+              <option value="earlier">Shifting My Sleep Earlier</option>
             </select>
           </div>
         </div>
 
-        <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden">
+        <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden" aria-live="polite">
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-(--accent) to-transparent opacity-50"></div>
-          <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Recommended Duration</p>
+          <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">Recommended Time Outside</p>
           <div className="text-5xl sm:text-6xl font-black text-accent mb-4 font-mono">
-            {calculateTime()} Minutes
+            {DURATIONS[weather]} Minutes
           </div>
+          <p className="text-white text-sm max-w-sm mx-auto leading-relaxed mb-3">
+            ARC&apos;s timer is 20 minutes; on dim days, stay out longer. {GOAL_NOTES[goal]}
+          </p>
           <p className="text-(--fg-muted) text-sm max-w-sm mx-auto leading-relaxed">
-            Get outside within your morning sunrise window. Window glass filters out the required blue-cyan photons by up to 70%, so you must step outside. If it is dark before sunrise, use an indoor 10,000 lux circadian lamp.
+            Indoors, even next to a window, light is usually many times dimmer than outside, so step outside. If it&apos;s still dark, turn on bright indoor lights and go out once the sun is up; a 10,000 lux light box is an option (check with a doctor first if you have an eye condition or bipolar disorder). Never look directly at the sun.
           </p>
         </div>
+
+        <EducationalNote />
       </div>
 
       <div className="raised-card p-8 text-center border-(--accent)/30">
-        <h2 className="text-2xl font-bold mb-4 text-white">Automate Your Morning Sunlight</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Automate Your Morning Light</h2>
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto text-sm leading-relaxed">
-          The ARC iOS app tracks your astronomical solar window and counts down your exact 20-minute light requirement on your lock screen with a Live Activity.
+          ARC&apos;s 20-minute light timer starts from your real sunrise, worked out from your time zone (no location permission), and runs as a Live Activity on your Lock Screen and in the Dynamic Island. When it&apos;s still dark, it offers an indoor fallback.
         </p>
-        <a
-          href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-accent text-black font-extrabold py-3.5 px-8 rounded-2xl hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono text-sm"
-        >
-          Download ARC App
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
-        </a>
+        <AppStoreButton size="lg" location="tool_sunlight_calculator" />
       </div>
     </main>
   );

@@ -11,6 +11,7 @@ import {
   hoursToClear,
   mgRemaining,
 } from "@/lib/caffeine";
+import { formatClock, toMinutes } from "@/lib/time";
 
 const DRINKS = [
   { id: "espresso", label: "Espresso shot", phrase: "an espresso shot", mg: 65 },
@@ -27,18 +28,6 @@ const SENSITIVITY_HINTS: Record<string, string> = {
 
 const AFTERNOON_CUP = 15 * 60; // 3:00 PM, in minutes after midnight
 const EARLIEST_SENSIBLE_CUP = 6 * 60;
-
-function toMinutes(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
-  return h * 60 + m;
-}
-
-function formatClock(totalMinutes: number) {
-  const m = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
-  const h24 = Math.floor(m / 60);
-  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
-  return `${h12}:${String(m % 60).padStart(2, "0")} ${h24 < 12 ? "AM" : "PM"}`;
-}
 
 function formatDuration(hours: number) {
   const total = Math.round(hours * 60);

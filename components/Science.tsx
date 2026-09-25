@@ -101,7 +101,7 @@ export function Science() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-center">
           {[
             { value: "4", label: "Chronotypes mapped" },
-            { value: "5-7h", label: "Caffeine metabolic half-life" },
+            { value: "4–7h", label: "Caffeine half-life range" },
             { value: "20 min", label: "Solar light target" },
           ].map((stat) => (
             <div key={stat.label} className="raised-card py-8 flex flex-col gap-1 items-center hover:border-(--accent)/30 transition-colors">
@@ -113,27 +113,6 @@ export function Science() {
               </span>
             </div>
           ))}
-        </div>
-
-        {/* Biological Briefing callout */}
-        <div className="raised-card border-(--accent)/30 p-6 mb-10 flex flex-col sm:flex-row items-start gap-4">
-          <div
-            className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-black font-black text-sm bg-accent"
-            aria-hidden="true"
-          >
-            ⚡
-          </div>
-          <div>
-            <p className="text-xs font-bold tracking-widest text-accent uppercase mb-2 font-mono">
-              Sample Biological Directive
-            </p>
-            <blockquote className="text-white font-semibold text-lg leading-snug mb-2 font-display italic">
-              &ldquo;You&apos;re 40 minutes into your afternoon dip. This is adenosine, not laziness.&rdquo;
-            </blockquote>
-            <p className="text-(--fg-muted) text-sm">
-              Mechanism, never verdict. ARC explains today in one sentence using your own numbers, with the physiological reason one tap away under &ldquo;Why this works&rdquo;.
-            </p>
-          </div>
         </div>
 
         {/* Researcher citations */}

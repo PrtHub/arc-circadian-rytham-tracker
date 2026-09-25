@@ -24,74 +24,22 @@ export const screenshots = [
   },
 ];
 
-export const features = [
-  {
-    icon: "🎯",
-    title: "22-Step Diagnostic Onboarding",
-    desc: "Builds your full biological profile across 6 acts — wake timing, energy map, caffeine habits, and chronotype — before the paywall.",
-  },
-  {
-    icon: "🌅",
-    title: "Living Light Phase Ground",
-    desc: "A three-stop gradient keyed to your biological phase, transitioning across 7 skies (night, rise, morning, peak, dip, evening, windDown).",
-  },
-  {
-    icon: "🧭",
-    title: "The One Ask & Day Plan",
-    desc: "One sentence and one prioritized action at a time. A dynamic plan that adapts to what you log rather than a rigid calendar.",
-  },
-  {
-    icon: "☕",
-    title: "Dynamic Caffeine Cutoff",
-    desc: "Calculates the exact minute your last coffee must clear to leave under 50mg active caffeine at bedtime, adapting with every drink logged.",
-  },
-  {
-    icon: "☀️",
-    title: "Solar Morning Light Anchor",
-    desc: "Astronomical sunrise calculated from your time zone with zero GPS tracking. 20-min Live Activity timer runs in your Dynamic Island.",
-  },
-  {
-    icon: "🧪",
-    title: "5-Day Experiment Loops",
-    desc: "Test one habit change at a time for five days against your recorded history, with honest verdicts including 'no difference'.",
-  },
-  {
-    icon: "🔄",
-    title: "7 Biological Event Loops",
-    desc: "Automated triage for sleep debt recovery, jet lag seek/avoid-light windows, schedule drift, seasonal shifts, and dip corrections.",
-  },
-  {
-    icon: "📊",
-    title: "Measured Proof & Receipts",
-    desc: "Track your afternoon crash rate drop from 3.5 to 1.0 a week from real check-ins, with 14-day adherence dot strips and monthly reports.",
-  },
-  {
-    icon: "📚",
-    title: "Vetted Learn Reference Library",
-    desc: "23 scientific guides on light, caffeine, sleep, and chronobiology, held to strict engine accuracy with zero unverified claims.",
-  },
-  {
-    icon: "🔒",
-    title: "Local-First Architecture",
-    desc: "100% on-device SQLite storage. No account, no login, and no server holding your biological history.",
-  },
-];
-
+// Getting started only. What the app does day to day lives in the Features timeline.
 export const steps = [
   {
     step: "01",
-    title: "Discover your profile",
-    desc: "A 22-step onboarding across 6 acts reveals your chronotype, focus peaks, and natural circadian sleep pressure.",
+    title: "Download ARC",
+    desc: "Free on the App Store. There's no account to create and nothing to wear.",
   },
   {
     step: "02",
-    title: "Follow your plan",
-    desc: "One sentence, one action at a time. Follow a live dynamic day plan with Dynamic Island timers and dynamic caffeine cutoffs.",
+    title: "Tell it about your day",
+    desc: "Your wake time, bedtime, when you usually crash, and how you take your coffee. You'll see your chronotype and a preview of your first day before you pay anything.",
   },
   {
     step: "03",
-    title: "Get the measured receipts",
-    desc: "Watch your afternoon crashes drop from 3.5 to 1.0 a week—proven from your own check-ins and verified by 5-day experiment loops.",
+    title: "Tap in when you crash",
+    desc: "One-tap check-ins are all it asks. They're how ARC learns when your dip really lands, and how it measures whether anything changed.",
   },
 ];
 

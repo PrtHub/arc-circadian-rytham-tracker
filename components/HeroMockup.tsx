@@ -6,6 +6,7 @@ import {
   PHASE_CONFIG,
   getPhaseFromDate,
 } from "@/components/CircadianThemeProvider";
+import { formatClock, toMinutes } from "@/lib/time";
 
 interface PhaseScreenData {
   phaseLabel: string;
@@ -169,18 +170,6 @@ function subscribeMinute(onChange: () => void) {
 
 const getMinuteSnapshot = () => Math.floor(Date.now() / 60000);
 const getServerMinute = () => null;
-
-function toMinutes(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
-  return h * 60 + m;
-}
-
-function formatClock(minutes: number, withPeriod: boolean) {
-  const h24 = Math.floor(minutes / 60) % 24;
-  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
-  const clock = `${h12}:${String(minutes % 60).padStart(2, "0")}`;
-  return withPeriod ? `${clock} ${h24 < 12 ? "AM" : "PM"}` : clock;
-}
 
 function formatCountdown(fromMinutes: number, toHHMM: string) {
   const diff = (((toMinutes(toHHMM) - fromMinutes) % 1440) + 1440) % 1440;

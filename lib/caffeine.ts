@@ -21,3 +21,24 @@ export function hoursToClear(mg: number, halfLife: number) {
 export function mgRemaining(mg: number, hoursElapsed: number, halfLife: number) {
   return mg * Math.pow(0.5, hoursElapsed / halfLife);
 }
+
+export interface LoggedDrink {
+  mg: number;
+  at: number; // minutes after midnight
+}
+
+export function mgAt(drinks: LoggedDrink[], atMinutes: number, halfLife: number) {
+  return drinks.reduce(
+    (sum, d) => (d.at <= atMinutes ? sum + mgRemaining(d.mg, (atMinutes - d.at) / 60, halfLife) : sum),
+    0
+  );
+}
+
+// Latest time a nextMg cup can start and still leave everything under SLEEP_SAFE_MG at bedtime.
+// Null when nothing fits any more (the app's "exhausted" state).
+export function latestSafeCup(drinks: LoggedDrink[], bedMinutes: number, halfLife: number, nextMg: number) {
+  const budget = SLEEP_SAFE_MG - mgAt(drinks, bedMinutes, halfLife);
+  if (budget <= 0) return null;
+  if (nextMg <= budget) return bedMinutes;
+  return bedMinutes - halfLife * Math.log2(nextMg / budget) * 60;
+}

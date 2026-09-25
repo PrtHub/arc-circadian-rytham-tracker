@@ -41,6 +41,16 @@ const DIP_BULLET = "Learns when your afternoon dip really lands";
 // Order matters: the first match wins, so specific topics come before broad ones.
 export const TOPICS: Topic[] = [
   {
+    id: "dst",
+    match: /daylight[- ]saving|clocks? (go|change)|spring forward|fall back/i,
+    tool: TOOLS.dst,
+    cta: {
+      title: "ARC handles the clock change for you",
+      body: "ARC works out clock changes from your time zone, warns you the evening before, and stays with you through the Sunday and Monday you actually feel.",
+      bullets: ["Warns the evening before the clocks change", "Sunrise from your time zone, location never requested", "Last safe coffee from your own bedtime"],
+    },
+  },
+  {
     id: "social-jetlag",
     match: /social[- ]jetlag|monday|weekend|sunday/i,
     tool: TOOLS.socialJetlag,
@@ -72,7 +82,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "shift",
-    match: /shift/i,
+    match: /shift[- ]?work|night[- ]shift/i,
     tool: TOOLS.caffeine,
     cta: {
       title: "A cutoff that follows your bedtime, not the clock",
@@ -102,7 +112,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "evening",
-    match: /blue[- ]light|evening|wind[- ]down|screen|digital|melatonin-digital/i,
+    match: /blue[- ]light|evening|wind[- ]down|screen|digital|melatonin-digital|bedtime|procrastinat|dlmo|melatonin-onset/i,
     tool: TOOLS.sleepCycle,
     cta: {
       title: "A wind-down reminder at the right time for you",
@@ -152,7 +162,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "chronotype",
-    match: /chronotype|lion|bear|wolf|dolphin|night-owl|early-bird|not-lazy|power-of-when/i,
+    match: /chronotype|lion|bear|wolf|dolphin|night-owl|early-bird|not-lazy|power-of-when|internal-time/i,
     tool: TOOLS.quiz,
     cta: {
       title: "Find your chronotype, then live by it",

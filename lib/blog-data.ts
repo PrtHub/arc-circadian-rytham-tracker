@@ -1658,4 +1658,179 @@ If it is already Sunday afternoon and you slept in late this morning, here is ho
 If Sunday nights stay hard for weeks, or sleep is difficult most nights, talk to a doctor. ARC is a wellness app, not a medical device.
     `,
   },
+  {
+    slug: "does-alcohol-help-you-sleep",
+    title: "Does Alcohol Help You Sleep? What a Nightcap Really Does",
+    excerpt:
+      "Alcohol can help you fall asleep faster, but it breaks up the second half of the night and cuts REM sleep. What a nightcap really does, and when to stop.",
+    date: "2026-09-25",
+    category: "Sleep Science",
+    readTime: "6 min",
+    content: `
+# Does Alcohol Help You Sleep?
+
+**Quick Answer:** Alcohol helps many people fall asleep faster, but it makes the rest of the night worse. As your body clears it, sleep gets lighter and more broken, REM sleep is pushed back, and snoring and bathroom trips become more likely. If you drink, finishing a few hours before bed gives your body time to clear most of it.
+
+## Why a Drink Feels Like It Helps
+Alcohol is a sedative. It boosts GABA, the brain's main calming signal, and dampens wake-promoting activity, so the first hour after a drink can feel relaxing and you may fall asleep sooner. A review of the research found that alcohol shortened the time it takes to fall asleep in healthy adults at every dose studied (Ebrahim et al., 2013, Alcoholism: Clinical and Experimental Research).
+
+That's the part people notice. The cost comes later, while they're asleep and not keeping track.
+
+## What Happens in the Second Half of the Night
+Your liver clears alcohol at a fairly steady rate, very roughly one standard drink an hour, though that varies a lot from person to person. So a few evening drinks are often still wearing off in the early hours. As the level falls, the sedation lifts and the brain rebounds: sleep becomes lighter, you wake more often, and it's harder to drift off again. It's a common reason for [waking up at 3 AM](/blog/waking-up-at-3am-cortisol-spike-temperature-fix).
+
+Two other effects add to it:
+* **REM sleep is held back early in the night.** REM is the stage most linked to emotional processing and memory. Alcohol delays and reduces it in the first half of the night, and the rest of the night rarely makes up for it.
+* **Breathing gets worse.** Alcohol relaxes the muscles of the throat, which makes snoring and pauses in breathing more likely, especially for people with sleep apnea.
+
+Add a fuller bladder (alcohol is a diuretic) and a warmer, more restless body, and it's easy to see how eight hours in bed after a few drinks can still leave you unrested. A large Finnish study that used heart-rate data found that even moderate drinking made the first hours of sleep less restorative (Pietilä et al., 2018, JMIR Mental Health).
+
+## Alcohol and Your Body Clock
+Alcohol also plays with timing. A late drink often comes with a late night, bright screens and a later bedtime, which nudges your schedule later. And because the sleep you get is lighter, you're more likely to wake up tired and reach for extra caffeine, which makes the next night harder too. [Why coffee can make you tired](/blog/why-coffee-makes-you-tired-caffeine-tolerance-adenosine) explains that loop.
+
+## How to Drink Without Wrecking Your Sleep
+1. **Finish earlier.** Many sleep specialists suggest stopping at least three to four hours before bed, so most of the alcohol has cleared before you sleep.
+2. **Drink less on nights that matter.** One drink disturbs sleep far less than three.
+3. **Alternate with water and eat something.** Food slows how fast alcohol is absorbed.
+4. **Keep your wake time.** A lie-in after a late night shifts your clock later. Get up at your usual time and get about 20 minutes of outdoor light; if you need rest, a short nap early the next afternoon beats sleeping in. The [nap calculator](/tools/nap-calculator) finds the right time.
+5. **Don't use alcohol as a sleep aid.** If you find you need a drink to fall asleep, that's worth raising with a doctor. There are better, safer ways to treat trouble sleeping.
+
+> [!NOTE] A nightcap and a late coffee fail in opposite ways: one sedates you on the way in, the other keeps you alert on the way through. Neither gives you the deep, unbroken sleep you actually need.
+
+## Where ARC Fits
+ARC's drink log is for caffeine, and it won't lecture you about a glass of wine. Its Learn tab has a short briefing on alcohol and sleep, and its wind-down reminder, timed to your own bedtime, makes a natural cue for a last drink. For the evening side of things, see the [3-2-1 wind-down routine](/blog/the-3rd-half-evening-wind-down-ritual); for what actually deepens sleep, the [deep sleep guide](/guides/deep-sleep-slow-wave-optimization-guide).
+
+ARC is a wellness app, not a medical device. If you're worried about how much you drink, or you rely on alcohol to sleep, talk to a doctor.
+    `,
+  },
+  {
+    slug: "how-to-become-a-morning-person",
+    title: "How to Become a Morning Person (Even If You're a Night Owl)",
+    excerpt:
+      "You can't rewrite your genes, but you can move your body clock earlier. A realistic plan for night owls: morning light, a steady wake time and small steps.",
+    date: "2026-09-25",
+    category: "Chronobiology",
+    readTime: "7 min",
+    content: `
+# How to Become a Morning Person
+
+**Quick Answer:** You can move your body clock earlier, but you probably can't turn a night owl into a lark. What works is moving your wake time 15 to 30 minutes every few days, getting about 20 minutes of outdoor light soon after waking, keeping evenings dim, and holding the same wake time at weekends. Most people can gain an hour or two this way.
+
+## Can You Really Change Your Chronotype?
+Partly. Being a morning or evening person is strongly influenced by genes: a genetic study of nearly 700,000 people linked hundreds of regions of the genome to chronotype (Jones et al., 2019, Nature Communications). It also changes with age. People get later through adolescence, reach their latest point around age 20, then drift earlier again (Roenneberg et al., 2004, Current Biology).
+
+But genes set a tendency, not a fixed bedtime. Your clock is reset every day, mostly by light, and modern life gives night owls very little of it in the morning and plenty of it at night. Change the light and the clock follows. In one well-known study, a week of camping with only natural light moved people's melatonin timing about two hours earlier, and the gap between early and late types largely closed (Wright et al., 2013, Current Biology). In another, three weeks of fixed wake times, morning light and regular meals moved night owls' sleep and wake times about two hours earlier and improved how they performed in the morning (Facer-Childs et al., 2019, Sleep Medicine).
+
+Not sure where you start? The free [chronotype quiz](/tools/chronotype-quiz) gives you a baseline, and [what a chronotype is](/blog/what-is-a-chronotype-lion-bear-wolf-dolphin) explains the four types.
+
+## A Realistic Plan
+
+### 1. Move your wake time, not just your bedtime
+Going to bed early doesn't work if your body isn't ready; you'll just lie awake. Move your alarm instead: 15 to 30 minutes earlier, held for three or four days, then another step. Your bedtime follows as you start feeling sleepy sooner.
+
+### 2. Get outside soon after waking
+Morning light is the strongest signal for moving your clock earlier. Aim for about 20 minutes outdoors within an hour of waking, longer on grey days; a window cuts much of the useful light. Never look directly at the sun. The [morning sunlight calculator](/tools/sunlight-calculator) shows today's sunrise and when to step out.
+
+### 3. Dim the last two hours of your evening
+Bright light late in the evening pushes your clock later and undoes the morning's work. Lower the lights, use warm lamps, and dim or put away screens well before bed. The [evening light guide](/guides/evening-blue-light-melatonin-defense-guide) has the details.
+
+### 4. Hold your wake time at weekends
+A two-hour lie-in on Saturday and Sunday drags your clock later every week, which is why Mondays hurt. Keeping weekends within about an hour of your weekday wake time protects your progress; [social jetlag](/blog/what-is-social-jetlag) explains why.
+
+### 5. Move caffeine and meals earlier too
+Have your coffee earlier so it doesn't keep you up at your new bedtime; the [caffeine cutoff calculator](/tools/caffeine-calculator) finds your last safe cup. Regular, earlier meals help the rest of your body keep time.
+
+> [!TIP] Expect the first week to feel harder before it gets easier. Your sleep pressure takes a few days to line up with the new schedule. Keep the wake time even after a bad night.
+
+## What Not to Expect
+If you're a strong evening type, you may always feel best later in the day, and that's fine. The goal isn't to become someone else; it's to stop fighting your schedule so hard that every morning feels like jet lag. If your natural sleep time is very late (around 3 AM or later) and it's affecting work or school, talk to a doctor. Delayed sleep phase is a recognised condition with proper treatments.
+
+## Where ARC Fits
+ARC works out your chronotype during setup and plans your day around it. Its 20-minute morning light timer starts from your real sunrise and runs on your Lock Screen, and Trends compares your wake times fortnight to fortnight, so you can see whether your schedule is really moving earlier. Two of its five-day experiments, morning light and a consistent wake time, test exactly these habits against your own history, and "no difference" is an allowed answer.
+    `,
+  },
+  {
+    slug: "revenge-bedtime-procrastination",
+    title: "Revenge Bedtime Procrastination: Why You Stay Up Too Late",
+    excerpt:
+      "Staying up late to claim back time after a packed day has a name: revenge bedtime procrastination. Why it happens, why night owls feel it most, what helps.",
+    date: "2026-09-25",
+    category: "Lifestyle",
+    readTime: "6 min",
+    content: `
+# Revenge Bedtime Procrastination
+
+**Quick Answer:** Revenge bedtime procrastination is staying up later than you meant to, not because you can't sleep, but because the late evening is the only time that feels like yours. It's driven by days with no free time, evening tiredness that weakens self-control, and bright screens that keep you alert. The fixes are small: move some free time earlier, give yourself a set wind-down cue, and make going to bed easier than staying up.
+
+## What It Is (and Isn't)
+Researchers first described **bedtime procrastination** in 2014 as going to bed later than you intended without a good outside reason (Kroese et al., 2014, Frontiers in Psychology). The "revenge" version, a phrase that spread from China around 2020, adds the motive: taking back the time the day took from you.
+
+It isn't insomnia. With insomnia, you go to bed and can't sleep. With bedtime procrastination you could sleep, but you keep scrolling, watching or reading instead, knowing you'll pay for it tomorrow.
+
+## Why It Happens
+* **No time that's yours.** Long workdays, commutes and caring for others can leave the late evening as the only unscheduled stretch, so giving it up feels like losing the one part of the day you control.
+* **Evening tiredness.** Self-control tends to be weaker when you're tired, so the easy option (one more episode) wins.
+* **Screens that keep you up.** Phones and streaming are designed to be hard to stop, and bright screens late at night hold back melatonin and push your body clock later.
+* **Your body clock.** Night owls on early schedules are often most alert exactly when they should be winding down, and at least one study found evening types report more bedtime procrastination (Kadzikowska-Wrzosek, 2018, Personality and Individual Differences).
+
+The result is a loop: a short night leads to a tired, less productive day, which makes the evening feel even more like the only time that's yours.
+
+## What Helps
+1. **Move some "me time" earlier.** A protected half-hour after work, or a walk at lunch, takes some of the pressure off the late evening.
+2. **Set a wind-down time, not just a bedtime.** An alarm an hour before bed is a clearer cue than "I'll stop soon". The [3-2-1 wind-down routine](/blog/the-3rd-half-evening-wind-down-ritual) is a simple structure.
+3. **Make the late-night option harder.** Charge your phone outside the bedroom, log out of streaming apps on weeknights, or set app limits that start at your wind-down time.
+4. **Dim the lights.** Warm, low light in the last hour makes it easier to feel sleepy on time; see the [evening light guide](/guides/evening-blue-light-melatonin-defense-guide).
+5. **Keep your wake time.** Sleeping in after a late night shifts your clock later and makes the next late night more likely. Get up at your usual time and get outside for about 20 minutes.
+6. **Go easy on yourself.** Guilt tends to feed the loop. Treat a late night as information rather than failure, and aim for a few better nights a week.
+
+> [!TIP] If you're short on sleep all week, the [sleep debt calculator](/tools/sleep-debt-calculator) shows how much you're carrying. It can be a useful reality check at 11:45 PM.
+
+## Where ARC Fits
+ARC's wind-down reminder arrives before the bedtime you set, as a cue rather than a telling-off: no streaks, no scores. When your afternoon dip comes, its plan usually suggests a short walk rather than another coffee, a few minutes that are yours before the evening. And if you're a night owl on an early schedule, ARC plans your day around your chronotype rather than pretending you're a morning person.
+
+If you often can't sleep even when you do go to bed, that's a different problem; talk to a doctor.
+    `,
+  },
+  {
+    slug: "daylight-saving-time-sleep",
+    title: "Daylight Saving Time and Sleep: Why Spring Hits Harder",
+    excerpt:
+      "The clocks change twice a year and your body clock doesn't. What daylight saving time does to your sleep, why springing forward is harder, and how to prepare.",
+    date: "2026-09-25",
+    category: "Science",
+    readTime: "6 min",
+    content: `
+# Daylight Saving Time and Sleep
+
+**Quick Answer:** A clock change is a one-hour jet lag that everyone in your time zone gets at once. The spring change, when you lose an hour, is harder, because your body clock finds it easier to run later than earlier. Shifting your sleep 15 to 20 minutes a night for a few nights beforehand, and getting morning light afterwards, makes either change much easier. The free [daylight saving time planner](/tools/daylight-saving-time-planner) builds a night-by-night plan for your region.
+
+## The Next Clock Changes
+* **New Zealand:** clocks go forward on Sunday 27 September 2026.
+* **Australia** (NSW, Victoria, ACT, Tasmania, South Australia): forward on Sunday 4 October 2026.
+* **UK and Europe:** back on Sunday 25 October 2026.
+* **US and Canada:** back on Sunday 1 November 2026.
+
+## Why Your Body Doesn't Change With the Clock
+Your body clock keeps its own time, set mainly by when you see light. It can shift, but only by about an hour a day at most, and often less. So after a clock change you spend a few days with your body still running on the old time: sleepy at the wrong moments, awake when you'd rather sleep.
+
+## Why Spring Forward Is Harder
+In spring you lose an hour, so your body has to shift earlier to keep up, and for most people that's the harder direction. Left without time cues, the human body clock runs slightly longer than 24 hours, about 24.2 on average (Czeisler et al., 1999, Science), so drifting later comes naturally and moving earlier takes effort. Night owls usually feel it most.
+
+The spring change also comes with a short-term cost. Studies have linked the days after it to a small rise in heart attacks (Janszky and Ljung, 2008, New England Journal of Medicine) and in fatal car crashes (Fritz et al., 2020, Current Biology). The increases are small, and they're associations, but they're part of why the American Academy of Sleep Medicine called in a 2020 position statement for ending seasonal clock changes in favour of permanent standard time.
+
+## The Autumn Change
+When the clocks go back you gain an hour, which is gentler. Many people wake an hour early for a few days, feel sleepy early in the evening, and notice how suddenly dark the afternoons are. If you tend toward low mood in winter, the loss of evening light can be noticeable; the [winter light guide](/guides/seasonal-affective-disorder-winter-circadian-guide) covers what helps.
+
+## How to Prepare
+1. **Shift gradually.** For three or four nights before the change, move your bedtime and wake time 15 to 20 minutes a night: earlier before a spring change, later before an autumn one. This is the approach the American Academy of Sleep Medicine recommends.
+2. **Use light on purpose.** Around a spring change, get about 20 minutes of outdoor light soon after waking and keep evenings dim. Before an autumn change, get light in the late afternoon and keep early mornings dim. Never look directly at the sun.
+3. **Protect the first few nights.** Keep caffeine well clear of bedtime; for one average cup that's roughly five hours for an average metaboliser. The [caffeine cutoff calculator](/tools/caffeine-calculator) finds yours.
+4. **Keep your wake time steady afterwards,** including the first weekend.
+
+> [!TIP] Children often take longest to adjust. Move their bedtime in 10 to 15 minute steps over the week before the change.
+
+## Where ARC Fits
+ARC works out clock changes from your time zone, with nothing to set up. It warns you the evening before, stays with you through the Sunday and Monday people actually feel, and keeps quiet in time zones that don't change. The rest of the day follows: a 20-minute morning light timer from your real sunrise and a last safe coffee solved from your own bedtime.
+    `,
+  },
 ];

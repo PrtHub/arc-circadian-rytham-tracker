@@ -61,7 +61,11 @@ Your log is stored on your iPhone; there is no account and no server holding you
 - What is social jetlag: https://arcapp.sbs/blog/what-is-social-jetlag
 - Why ARC has no sleep score: https://arcapp.sbs/blog/why-we-removed-the-sleep-score
 - Best circadian rhythm apps: https://arcapp.sbs/blog/best-circadian-rhythm-apps-2026
+- How to become a morning person: https://arcapp.sbs/blog/how-to-become-a-morning-person
+- Daylight saving time and sleep: https://arcapp.sbs/blog/daylight-saving-time-sleep
+- Does alcohol help you sleep: https://arcapp.sbs/blog/does-alcohol-help-you-sleep
 - What is a zeitgeber: https://arcapp.sbs/science/what-is-zeitgeber
+- Phase response curve (why light timing matters): https://arcapp.sbs/science/phase-response-curve-light-timing
 - All articles: https://arcapp.sbs/blog
 
 ## Chronotype pages

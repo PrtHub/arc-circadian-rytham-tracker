@@ -359,4 +359,77 @@ They argue that cutting sleep to work longer hours lowers the quality of the wor
 ARC's day plan mixes focus blocks with short movement and rest blocks, and after about ten days of check-ins it measures when your afternoon dip really lands and adjusts the plan to match. It doesn't coach breathing or hydration. For planning your day around your best hours, see [peak focus windows](/blog/peak-focus-windows-plan-day-around-biology). ARC isn't affiliated with or endorsed by the authors; this summary is our own.
     `,
   },
+  {
+    slug: "internal-time",
+    title: "Internal Time",
+    subtitle: "Chronotypes, Social Jet Lag, and Why You're So Tired",
+    author: "Dr. Till Roenneberg",
+    authorTitle: "Chronobiologist, LMU Munich",
+    publishedDate: "2012",
+    keyMetric: "Social Jetlag",
+    excerpt:
+      "Till Roenneberg, who coined 'social jetlag', explains chronotypes as a spectrum, why teenagers sleep late, and why modern indoor life leaves us tired.",
+    arcConnection:
+      "Roenneberg's core idea, that the gap between your body clock and your schedule is what wears you out, is the gap ARC plans around: your chronotype sets the day's phases, and Trends shows when your wake time drifts.",
+    content: `
+# Internal Time: Chronotypes, Social Jet Lag, and Why You're So Tired
+
+Till Roenneberg is one of the researchers most responsible for how we now think about chronotypes. He and his colleagues developed the Munich ChronoType Questionnaire, collected sleep-timing data from very large numbers of volunteers, and introduced the term **social jetlag** (Wittmann et al., 2006). *Internal Time* is his book for general readers. It mixes short stories about everyday people's sleep with the research behind them.
+
+## Chronotype Is a Spectrum
+Roenneberg's central point is that people aren't simply larks or owls. Chronotype is spread along a continuum: most people sit somewhere in the middle, and a few are very early or very late. He measures it by the midpoint of your sleep on free days, when no alarm is involved, corrected for any sleep you're catching up on. That's more precise than four boxes; popular systems such as Breus's Lion, Bear, Wolf and Dolphin are easier to use but coarser. [What a chronotype is](/blog/what-is-a-chronotype-lion-bear-wolf-dolphin) compares the two approaches.
+
+## Social Jetlag
+When work or school makes you wake much earlier than your body clock wants, you build up a sleep debt during the week and pay it back at the weekend by sleeping later. Roenneberg calls the gap between your free-day and workday sleep timing **social jetlag**, because it's like flying a few time zones west every Friday and back every Monday. Later chronotypes tend to have more of it. Measure yours with the free [social jetlag calculator](/tools/social-jetlag-calculator), and read [what social jetlag is](/blog/what-is-social-jetlag).
+
+## Teenagers Aren't Lazy
+Chronotype changes with age. Roenneberg's data show people getting later through adolescence, reaching their latest around age 20, then gradually getting earlier again; he proposed that turning point as a biological marker of the end of adolescence. His conclusion: early school start times ask teenagers to perform at the worst point in their biological day.
+
+## Living in the Dark
+The book's other big theme is light. For most of history, people spent their days outdoors in bright daylight and their nights in darkness. Many of us now spend the day indoors under far dimmer light and the evening under bright artificial light, which weakens the clock's daily signal and tends to push chronotypes later. His prescription is simple: more daylight during the day, less light at night.
+
+> [!NOTE] Roenneberg's research links larger social jetlag with health measures such as body weight in some groups. These are associations; how much social jetlag itself causes is still being studied.
+
+## How This Connects to ARC
+ARC works in the gap Roenneberg describes. Its setup places you on the chronotype spectrum and plans the day's phases around it, its 20-minute morning light timer starts from your real sunrise, and Trends compares your wake times fortnight to fortnight, so drift toward a later schedule shows up before Monday does. ARC isn't affiliated with or endorsed by Dr. Roenneberg; this summary is our own reading of the book.
+    `,
+  },
+  {
+    slug: "the-sleep-solution",
+    title: "The Sleep Solution",
+    subtitle: "Why Your Sleep Is Broken and How to Fix It",
+    author: "Dr. W. Chris Winter",
+    authorTitle: "Neurologist & Sleep Medicine Physician",
+    publishedDate: "2017",
+    keyMetric: "Less Sleep Anxiety",
+    excerpt:
+      "Neurologist W. Chris Winter's practical, reassuring guide to fixing broken sleep: less pressure to sleep, a steady wake time, and when to see a doctor.",
+    arcConnection:
+      "Winter's advice to stop chasing a perfect sleep number and anchor your wake time is close to ARC's approach: no sleep score, and a day planned from the time you actually woke.",
+    content: `
+# The Sleep Solution: Why Your Sleep Is Broken and How to Fix It
+
+Dr. W. Chris Winter is a neurologist and sleep medicine physician, and *The Sleep Solution* reads like a long, often funny appointment with him. His aim is to take the fear out of sleep: to explain what's actually happening when sleep goes wrong, and to replace anxious effort with a few steady habits.
+
+## You Can't Force Sleep
+Winter's recurring point is that sleep is something your body does when the conditions are right, not something you can make happen by trying harder. Lying in bed trying to sleep tends to make things worse, because the bed turns into a place of frustration. That idea sits at the heart of cognitive behavioural therapy for insomnia (CBT-I), which Winter draws on throughout.
+
+## Sleepiness vs. Fatigue
+He separates **sleepiness** (actually being able to fall asleep, even in the middle of the day) from **fatigue** (feeling drained but unable to nap). Real daytime sleepiness despite enough time in bed can point to a sleep disorder such as sleep apnea and is worth checking with a doctor. Fatigue has many possible causes and usually calls for a different conversation.
+
+## The Anchors
+Winter's practical advice is familiar but well argued:
+* **A steady wake time, seven days a week.** It's the one part of sleep you can fully control, and the rest of the schedule organises itself around it.
+* **Less time awake in bed.** If you're lying awake for long stretches, getting up and doing something calm until you feel sleepy works better than staying put. Under a clinician, this becomes a structured technique called sleep restriction.
+* **Less worry about the numbers.** He's sceptical of obsessing over sleep data; chasing a perfect score can itself keep people awake. Our own view is similar: [why we removed the sleep score](/blog/why-we-removed-the-sleep-score).
+
+## Naps, Caffeine and the Rest
+He's pragmatic about naps and caffeine: both can be useful when they're timed well and harmful when they're used to paper over a broken schedule. To time a nap, try the free [nap calculator](/tools/nap-calculator); for your last coffee, the [caffeine cutoff calculator](/tools/caffeine-calculator).
+
+> [!IMPORTANT] Winter gives a good part of the book to conditions such as sleep apnea, restless legs and circadian rhythm disorders. If you snore loudly, stop breathing in your sleep, or feel sleepy most days despite enough time in bed, see a doctor.
+
+## How This Connects to ARC
+ARC shares Winter's dislike of sleep anxiety: it has no sleep score and no streaks. It plans your day from the time you actually woke, times your morning light from your real sunrise, and solves your last safe coffee from your bedtime. ARC is a wellness app, not a medical device. ARC isn't affiliated with or endorsed by Dr. Winter; this summary is our own reading of the book.
+    `,
+  },
 ];

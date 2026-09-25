@@ -180,4 +180,82 @@ Delaying your first coffee until 60 to 90 minutes after waking is a popular reco
 The model has been refined since 1982 (Borbély and colleagues published a reappraisal in 2016 in the Journal of Sleep Research), but its core idea still underpins much of sleep science. For how adenosine builds and clears in more detail, read the [adenosine and sleep pressure guide](/guides/adenosine-sleep-pressure-clearance-guide).
     `,
   },
+  {
+    slug: "phase-response-curve-light-timing",
+    title: "Phase Response Curve: How Light Timing Shifts Your Clock",
+    excerpt:
+      "The phase response curve explains why morning light moves your body clock earlier and evening light moves it later, and why it shapes every jet lag plan.",
+    category: "mechanism",
+    categoryLabel: "Biological Mechanism",
+    date: "2026-09-25",
+    readTime: "6 min",
+    content: `
+# Phase Response Curve: How Light Timing Shifts Your Clock
+
+A **phase response curve (PRC)** describes how much a signal, most often light, shifts your body clock, and in which direction, depending on when in your biological day it arrives. It's the reason the same 20 minutes of bright light can move your clock earlier in the morning and later at night.
+
+## The Shape of the Light PRC
+Plot the size of the shift against the time the light arrives and you get a curve with two halves:
+* **Light in your biological evening and the first half of the night** moves the clock **later** (a phase delay). This is why bright screens and ceiling lights late at night make it harder to fall asleep the next evening.
+* **Light in your late night and morning** moves the clock **earlier** (a phase advance). This is why morning daylight helps you wake up and feel sleepy on time.
+* **Around the middle of your biological day,** light shifts the clock very little, though it still makes you more alert.
+
+The crossover point sits close to your **core body temperature minimum**, which for most people falls a couple of hours before their usual wake time. Light before it delays you; light after it advances you. A careful lab study using single pulses of bright light mapped this curve in people (Khalsa et al., 2003, Journal of Physiology). The [core body temperature guide](/guides/core-body-temperature-tmin-deep-sleep-guide) explains the temperature low.
+
+## It Follows Your Body, Not the Clock on the Wall
+The curve is anchored to your internal time, not the time on your phone. For a night owl whose body runs two hours late, 7 AM light can still land in the delay zone, which is one reason very early light doesn't always help strong evening types, and why shifting in small steps works better. After a long flight, your body is still on home time, so the right window for light can fall at odd local hours.
+
+## Jet Lag: Where the PRC Earns Its Keep
+Flying east, your clock needs to move earlier, so you want light in your body's morning and darkness in its late night. Flying west, it needs to move later, so you want light in the evening. Get it backwards and you can push your clock the wrong way and make the jet lag last longer. Knowing when to **avoid** light is the half most travellers never hear; [the avoid-light window](/blog/the-avoid-light-window-jetlag) explains it, and the free [jet lag planner](/tools/jetlag-planner) works out both windows for your trip.
+
+The same logic applies twice a year when the clocks change. The [daylight saving time planner](/tools/daylight-saving-time-planner) times light in the right direction for spring and autumn.
+
+## Melatonin Has a Curve Too
+Melatonin taken as a supplement also shifts the clock, roughly opposite to light: taken in the afternoon or early evening it tends to move the clock earlier, and taken in the morning it tends to move it later (Burgess et al., 2010, Journal of Clinical Endocrinology & Metabolism). In that study, a low dose shifted the clock about as much as a higher one; timing mattered most. Talk to a doctor or pharmacist before using melatonin, especially for children or if you take other medication.
+
+> [!NOTE] How big a shift light produces depends on how bright it is, how long it lasts, and how much light you've seen recently. Outdoor daylight is far brighter than indoor lighting, which is why a short time outside does more than a whole morning under ceiling lights.
+
+## Where ARC Fits
+ARC applies this curve when you travel: it notices your phone's time zone change (no location permission) and gives you a seek-light and an avoid-light window each day while your body catches up, about an hour a day. At home, its 20-minute morning light timer starts from your real sunrise.
+    `,
+  },
+  {
+    slug: "dim-light-melatonin-onset-dlmo",
+    title: "What Is DLMO? Dim Light Melatonin Onset Explained",
+    excerpt:
+      "DLMO is the evening moment your melatonin starts to rise, the most reliable marker of your body clock's timing. What it is, how it's measured, why it matters.",
+    category: "glossary",
+    categoryLabel: "Circadian Glossary",
+    date: "2026-09-25",
+    readTime: "5 min",
+    content: `
+# What Is DLMO? Dim Light Melatonin Onset
+
+**DLMO** stands for **dim light melatonin onset**: the time in the evening when your melatonin level starts to rise, measured in dim light so that light doesn't hold it back. It's the most widely used marker of where your body clock is set, and researchers and sleep clinicians use it to tell whether someone's clock runs early, late or on time.
+
+## Why Melatonin Makes a Good Marker
+Your master clock, the suprachiasmatic nucleus, tells the pineal gland when to release melatonin. Levels stay low through the day, start rising in the evening, peak in the middle of the night and fall toward morning. That rise is tightly controlled by the clock, so its timing is a good readout of the clock itself. For most people, DLMO arrives roughly two hours before they naturally fall asleep.
+
+The catch is light. Bright light in the evening suppresses melatonin, so a measurement taken under normal room lighting can make your clock look later than it really is. That's why the test is done in dim light.
+
+## How It's Measured
+In a sleep lab, or at home following careful instructions, you sit in dim light for several evening hours and give a saliva (or blood) sample every 30 to 60 minutes. The samples go to a lab, and DLMO is the time your melatonin crosses a set threshold or rises clearly above its daytime level. It isn't something a phone or a wearable can measure; consumer devices don't measure melatonin.
+
+## What DLMO Tells You
+* **Chronotype, measured rather than guessed.** Evening types have later DLMOs and morning types earlier ones. Questionnaires such as the Munich ChronoType Questionnaire estimate the same thing from your sleep times.
+* **Delayed sleep phase.** In delayed sleep-wake phase disorder, DLMO is much later than usual, which is why going to bed "early" doesn't work. In adults with ADHD and trouble falling asleep, DLMO has been found to be delayed by about an hour and a half on average (Van Veen et al., 2010, Biological Psychiatry). The [ADHD sleep guide](/guides/adhd-delayed-sleep-phase-guide) covers what helps.
+* **When to time light or melatonin.** Clinicians time bright light therapy and melatonin relative to DLMO, because the direction of the shift depends on timing; see the [phase response curve](/science/phase-response-curve-light-timing).
+
+## Moving Your DLMO
+You can't feel your DLMO, but you can move it:
+1. **Morning light moves it earlier.** About 20 minutes outdoors soon after waking is a good daily habit; the [morning sunlight guide](/guides/morning-sunlight-lux-protocol-guide) explains how much you need.
+2. **Dim evenings stop it being pushed later.** Lower the lights and screens in the last couple of hours before bed; the [evening light guide](/guides/evening-blue-light-melatonin-defense-guide) has specifics.
+3. **Consistent timing keeps it stable.** Big swings in wake time at weekends move it around; see [what social jetlag is](/blog/what-is-social-jetlag).
+
+> [!NOTE] Melatonin supplements are sometimes used to shift DLMO, usually at low doses and at a specific time. Talk to a doctor or pharmacist before using them.
+
+## Where ARC Fits
+ARC doesn't measure melatonin. It works on the habits that move it: a 20-minute morning light timer that starts from your real sunrise, and a wind-down reminder before the bedtime you set, a cue to dim the lights while your melatonin is rising.
+    `,
+  },
 ];

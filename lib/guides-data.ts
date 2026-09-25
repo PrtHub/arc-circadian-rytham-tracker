@@ -21,9 +21,9 @@ export interface Guide {
 export const guidesData: Guide[] = [
   {
     slug: "complete-circadian-rhythm-reset-guide",
-    title: "The 14-Day Circadian Rhythm Reset: A Day-by-Day Plan",
+    title: "How to Fix Your Sleep Schedule: A 14-Day Circadian Reset",
     subtitle: "A day-by-day plan to re-anchor your body clock after travel, illness or a run of late nights: morning light, a steady wake time, meal timing and smarter caffeine.",
-    excerpt: "Reset your circadian rhythm in 14 days: a fixed wake time, 20 minutes of morning light, earlier meals, dim evenings and a caffeine cutoff set by dose.",
+    excerpt: "Fix your sleep schedule in 14 days: a fixed wake time, 20 minutes of morning light, earlier meals, dim evenings and a caffeine cutoff set by dose.",
     category: "reset",
     categoryLabel: "Master Reset",
     difficulty: "Intermediate",

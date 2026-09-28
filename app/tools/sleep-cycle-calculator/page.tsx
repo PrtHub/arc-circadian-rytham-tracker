@@ -11,6 +11,8 @@ import {
   type ToolFaq,
 } from "../_components/tool-extras";
 import SleepCycleCalculatorClient from "./SleepCycleCalculatorClient";
+import { BED_TIMES, WAKE_TIMES, timeLabel } from "@/lib/sleep-times";
+import { sleepTimesPath } from "@/components/sleep-times/SleepTimesPage";
 
 export const metadata = toolMetadata({
   slug: "sleep-cycle-calculator",
@@ -98,6 +100,36 @@ export default function SleepCycleCalculatorPage() {
               Waking from deep sleep can leave you groggy for 15 to 60 minutes. This is sleep inertia, and it passes. Getting about 20 minutes of outdoor light soon after waking helps you feel alert and sets up tonight&apos;s sleep timing. Never look directly at the sun.
             </p>
           </div>
+        </section>
+
+        <section className="max-w-3xl mx-auto px-6 pb-12">
+          <h2 className="text-2xl font-black mb-4 tracking-tight text-white">Popular sleep times</h2>
+          <p className="text-sm text-(--fg-muted) mb-3">What time should I go to bed if I wake up at…</p>
+          <ul className="flex flex-wrap gap-2 mb-6">
+            {WAKE_TIMES.map((m) => (
+              <li key={m}>
+                <Link
+                  href={sleepTimesPath("wake", m)}
+                  className="inline-block px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold font-mono text-(--fg-muted) hover:text-white"
+                >
+                  {timeLabel(m)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-(--fg-muted) mb-3">What time should I wake up if I go to bed at…</p>
+          <ul className="flex flex-wrap gap-2">
+            {BED_TIMES.map((m) => (
+              <li key={m}>
+                <Link
+                  href={sleepTimesPath("bed", m)}
+                  className="inline-block px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold font-mono text-(--fg-muted) hover:text-white"
+                >
+                  {timeLabel(m)}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <ToolFaqSection faqs={FAQS} />

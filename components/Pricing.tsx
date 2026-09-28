@@ -38,7 +38,7 @@ export function Pricing() {
             <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">today.</span>
           </h2>
           <p className="text-(--fg-muted) text-sm">
-            Annual starts with a 7-day free trial. Auto-renews, cancel anytime in the App Store.
+            Setup is free and shows your chronotype and first day. Then choose a plan: annual starts with a 7-day free trial. Useful from day one, and more personal after about 10 days of one-tap check-ins. Cancel anytime in the App Store.
           </p>
         </div>
 

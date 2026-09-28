@@ -137,7 +137,7 @@ export const plans = [
 export const faqs = [
   {
     q: "Why doesn't ARC have sleep scores (0-100), rings, or streaks?",
-    a: "A number out of 100 invites gaming an arbitrary score rather than understanding your body. Breaking a streak causes app abandonment. ARC rejects gamification and focuses on physiological mechanisms ('This is adenosine, not laziness') and measured proof—like halving your afternoon crashes.",
+    a: "A number out of 100 invites gaming an arbitrary score rather than understanding your body. Breaking a streak causes app abandonment. ARC rejects gamification and focuses on physiological mechanisms ('This is adenosine, not laziness') and measured proof: your afternoon crashes per week, from your own check-ins.",
   },
   {
     q: "How does the dynamic caffeine cutoff work?",
@@ -267,7 +267,7 @@ export const jsonLdWebPage = {
   "@type": "WebPage",
   name: "ARC 2.0 Living Light — Circadian Rhythm Tracker & Chronotype App",
   description:
-    "Stop fighting your biology. ARC 2.0 Living Light maps your day around your chronotype. Dynamic caffeine cutoff, solar morning light Live Activity, and measured afternoon crash reduction.",
+    "Stop fighting your biology. ARC 2.0 Living Light maps your day around your chronotype. A caffeine cutoff from every drink you log, a morning light timer, and Trends that measure your afternoon crashes.",
   url: SITE_URL,
   inLanguage: "en-US",
   isPartOf: {

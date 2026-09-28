@@ -35,7 +35,7 @@ export function Hero() {
 
           <p className="text-sm sm:text-base text-(--fg-muted) leading-relaxed max-w-lg">
             ARC explains why you feel tired right now, gives you the one thing worth doing about it,
-            and proves the answer over weeks by halving your afternoon crashes.
+            and shows you over the weeks, from your own check-ins, whether it&apos;s working.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">

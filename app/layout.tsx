@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { CircadianThemeProvider } from "@/components/CircadianThemeProvider";
-import { FloatingSupport } from "@/components/FloatingSupport";
 import { MixpanelTracker } from "@/components/MixpanelTracker";
 
 const geistSans = Geist({
@@ -23,8 +22,7 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,7 +34,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Stop fighting your biology. ARC 2.0 Living Light maps your day around your chronotype. Dynamic caffeine cutoff, astronomical solar morning light Live Activity, and measured afternoon crash reduction on an on-device, local-first engine.",
+    "Stop fighting your biology. ARC 2.0 Living Light maps your day around your chronotype. A caffeine cutoff from every drink you log, a morning light timer from your real sunrise, and Trends that show from your own check-ins whether it's working.",
 
   keywords: [
     "circadian rhythm tracker",
@@ -78,7 +76,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ARC 2.0 Living Light — Circadian Rhythm Tracker & Chronotype App",
     description:
-      "Stop fighting your body. Discover your chronotype, follow your dynamic daily plan, calculate your exact last safe coffee cutoff, and cut afternoon crashes in half.",
+      "Stop fighting your body. Discover your chronotype, follow your dynamic daily plan, calculate your last safe coffee, and see from your own check-ins whether your afternoon crashes are falling.",
     siteName: "ARC: Circadian Rhythm Tracker",
     url: SITE_URL,
     locale: "en_US",
@@ -89,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ARC 2.0 Living Light — Circadian Rhythm Tracker",
     description:
-      "Stop fighting your body. Discover your chronotype, track dynamic caffeine decay, and halve your afternoon crashes with ARC 2.0.",
+      "Stop fighting your body. Discover your chronotype, track caffeine decay, and see whether your afternoon crashes are falling with ARC 2.0.",
     creator: "@iPritamX",
   },
 
@@ -139,7 +137,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-phase="dip" className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} dark`} suppressHydrationWarning>
+    <html
+      lang="en"
+      data-phase="dip"
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} dark`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{

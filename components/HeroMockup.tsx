@@ -371,6 +371,14 @@ export function HeroMockup() {
                 >
                   Trends
                 </button>
+
+                {/* Learn Tab */}
+                <button
+                  type="button"
+                  className="text-[var(--fg-muted)] hover:text-white font-medium text-[10px] px-4 py-1.5 transition-colors duration-300"
+                >
+                  Learn
+                </button>
               </div>
 
               {/* Home Indicator */}

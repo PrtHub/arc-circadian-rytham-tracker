@@ -5,6 +5,7 @@ import { audienceDetails } from "@/lib/audience-data";
 import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
+import { BED_TIMES, WAKE_TIMES, timeSlug } from "@/lib/sleep-times";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
@@ -164,5 +165,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogs,
     ...sciences,
     ...books,
+    ...WAKE_TIMES.map((m) => ({
+      url: `${SITE_URL}/bedtime/wake-up-at-${timeSlug(m)}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    })),
+    ...BED_TIMES.map((m) => ({
+      url: `${SITE_URL}/wake-up-time/bed-at-${timeSlug(m)}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    })),
   ];
 }

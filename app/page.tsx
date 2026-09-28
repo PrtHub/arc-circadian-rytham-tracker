@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "ARC 2.0 — Circadian Rhythm Tracker, Chronotype Quiz & Sleep Science",
   description:
-    "You're not lazy — you're on the wrong clock. ARC 2.0 finds your chronotype (Lion, Bear, Wolf, Dolphin) and builds your day around your biology: dynamic caffeine cutoff, solar morning light Live Activity, and measured afternoon crash reduction.",
+    "You're not lazy — you're on the wrong clock. ARC 2.0 finds your chronotype (Lion, Bear, Wolf, Dolphin) and builds your day around your biology: a caffeine cutoff from every drink you log, a morning light timer, and Trends that measure your afternoon crashes.",
   keywords: [
     "chronotype",
     "circadian rhythm",

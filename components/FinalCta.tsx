@@ -31,7 +31,7 @@ export function FinalCta() {
         <AppStoreButton size="lg" location="final_cta" />
 
         <p className="text-(--fg-muted) text-xs opacity-70">
-          Free to download · 7-day free trial on annual · No account
+          Free setup, then a 7-day free trial (annual) or $4.99/week · Useful from day one, personal after about 10 days
         </p>
       </div>
     </section>

@@ -1833,4 +1833,58 @@ When the clocks go back you gain an hour, which is gentler. Many people wake an 
 ARC works out clock changes from your time zone, with nothing to set up. It warns you the evening before, stays with you through the Sunday and Monday people actually feel, and keeps quiet in time zones that don't change. The rest of the day follows: a 20-minute morning light timer from your real sunrise and a last safe coffee solved from your own bedtime.
     `,
   },
+  {
+    slug: "how-much-sleep-do-you-need",
+    title: "How Much Sleep Do You Need? By Age, and How to Tell",
+    excerpt:
+      "Most adults need 7 to 9 hours, but the right number is personal. Sleep needs by age, signs you're not getting enough, and a simple way to find your own number.",
+    date: "2026-09-27",
+    category: "Sleep Science",
+    readTime: "6 min",
+    content: `
+# How Much Sleep Do You Need?
+
+**Quick Answer:** Most adults need 7 to 9 hours of sleep a night, and the American Academy of Sleep Medicine and Sleep Research Society recommend at least 7 for adults aged 18 to 60 (Watson et al., 2015). Children and teenagers need more. Within those ranges your own number varies, and the best test is how you feel after a stretch of nights where you wake without an alarm.
+
+## Sleep Needs by Age
+These are the National Sleep Foundation's recommended ranges (Hirshkowitz et al., 2015, Sleep Health):
+
+| Age | Recommended sleep per 24 hours |
+| --- | --- |
+| Newborns (0–3 months) | 14–17 hours |
+| Infants (4–11 months) | 12–15 hours |
+| Toddlers (1–2 years) | 11–14 hours |
+| Preschool (3–5 years) | 10–13 hours |
+| School age (6–13 years) | 9–11 hours |
+| Teenagers (14–17 years) | 8–10 hours |
+| Adults (18–64 years) | 7–9 hours |
+| Older adults (65+) | 7–8 hours |
+
+Teenagers are the group most likely to fall short: their body clocks naturally run later just as school start times stay early.
+
+## Signs You're Not Getting Enough
+* You rely on an alarm every day and hit snooze most mornings.
+* You fall asleep within a few minutes of lying down, or doze off when you sit still in the afternoon.
+* You sleep much longer on free days than on workdays.
+* You feel you need caffeine to function by mid-morning.
+* Your mood, focus or patience drops noticeably after a few short nights.
+
+A big gap between weekday and weekend sleep is a sign too: it usually means you're paying back a debt at the weekend. The free [sleep debt calculator](/tools/sleep-debt-calculator) adds up the last five nights, and [can you catch up on sleep?](/blog/sleep-debt-myth-busted) explains what lie-ins can and can't fix.
+
+## Why the Number Varies
+Genes, age, health and how much sleep you've been missing all change what you need. A very small number of people carry rare gene variants that let them function well on around six hours, but they are rare; most people who think they need less are simply used to feeling tired. Timing matters as much as length, too: seven hours at the wrong biological time, such as after a night shift or a late weekend, often feels worse than seven hours at your usual time.
+
+## How to Find Your Own Number
+1. **Pick a fixed wake time** you can keep every day, weekends included.
+2. **Go to bed when you feel sleepy** rather than at a set time, for a week or two.
+3. **Notice where it settles.** Once any sleep debt is paid back, the amount of sleep you naturally get, and wake up from without an alarm, is close to your real need.
+
+The [bedtime calculator by wake-up time](/bedtime/wake-up-at-7am) gives bedtimes that line up with full sleep cycles, and getting about 20 minutes of outdoor light soon after waking helps the whole schedule settle.
+
+> [!NOTE] If you regularly sleep 7 to 9 hours and still feel exhausted, snore loudly, or wake gasping, talk to a doctor. Conditions such as sleep apnea can leave you tired however long you spend in bed.
+
+## Where ARC Fits
+ARC doesn't track your sleep stages and needs no wearable. It works on the day around your sleep: after a run of short nights it adjusts your day plan for recovery, it solves your last safe coffee from your own bedtime, and Trends shows whether your wake time is drifting. ARC is a wellness app, not a medical device.
+    `,
+  },
 ];

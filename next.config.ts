@@ -93,6 +93,9 @@ const nextConfig: NextConfig = {
         destination: "/tools/sleep-cycle-calculator",
         permanent: true,
       },
+      // Daily Schedule Generator
+      { source: "/tools/daily-schedule", destination: "/tools/daily-schedule-generator", permanent: true },
+      { source: "/tools/schedule-generator", destination: "/tools/daily-schedule-generator", permanent: true },
       // Nap Calculator
       { source: "/tools/nap", destination: "/tools/nap-calculator", permanent: true },
       { source: "/tools/best-time-to-nap", destination: "/tools/nap-calculator", permanent: true },

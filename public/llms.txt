@@ -29,6 +29,7 @@ Your log is stored on your iPhone; there is no account and no server holding you
 ## Free tools (no signup)
 - Caffeine cutoff calculator (counts drinks already had today): https://arcapp.sbs/tools/caffeine-calculator
 - Nap calculator (best time to nap): https://arcapp.sbs/tools/nap-calculator
+- Daily schedule generator by chronotype: https://arcapp.sbs/tools/daily-schedule-generator
 - Daylight saving time sleep planner: https://arcapp.sbs/tools/daylight-saving-time-planner
 - Chronotype quiz (8 questions): https://arcapp.sbs/tools/chronotype-quiz
 - Morning light calculator (sunrise time by city): https://arcapp.sbs/tools/sunlight-calculator

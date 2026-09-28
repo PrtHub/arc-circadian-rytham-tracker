@@ -30,6 +30,7 @@ const TOOLS = {
   compatibility: { name: "Chronotype Compatibility", href: "/tools/chronotype-compatibility", blurb: "Where your clock and your partner's overlap." },
   visualizer: { name: "Chronotype Visualizer", href: "/tools/chronotype-visualizer", blurb: "Your energy curve hour by hour." },
   cocktail: { name: "Sleep Supplement Explainer", href: "/tools/sleep-cocktail", blurb: "What's in the popular sleep stack, with safety notes." },
+  schedule: { name: "Daily Schedule Generator", href: "/tools/daily-schedule-generator", blurb: "A day timed to your chronotype and wake time." },
   nap: { name: "Nap Calculator", href: "/tools/nap-calculator", blurb: "The best time to nap today, and when to set the alarm." },
   dst: { name: "Daylight Saving Planner", href: "/tools/daylight-saving-time-planner", blurb: "Shift your sleep before the clocks change." },
 } satisfies Record<string, ToolLink>;
@@ -163,7 +164,7 @@ export const TOPICS: Topic[] = [
   {
     id: "chronotype",
     match: /chronotype|lion|bear|wolf|dolphin|night-owl|early-bird|not-lazy|power-of-when|internal-time/i,
-    tool: TOOLS.quiz,
+    tool: TOOLS.schedule,
     cta: {
       title: "Find your chronotype, then live by it",
       body: "ARC's 22-step setup works out your chronotype and plans your day around it. It moves every phase of the day, from morning light to your last coffee.",

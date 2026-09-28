@@ -43,6 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/tools/daily-schedule-generator`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/tools/nap-calculator`,
       changeFrequency: "monthly" as const,
       priority: 0.8,

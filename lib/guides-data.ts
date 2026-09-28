@@ -1850,6 +1850,131 @@ To give deep sleep its best chance:
 Check with your doctor or pharmacist before starting a supplement, especially if you're pregnant, breastfeeding, have kidney disease or take other medication (magnesium interacts with some antibiotics and osteoporosis drugs).
     `,
   },
+  {
+    slug: "7-day-morning-light-challenge",
+    title: "The 7-Day Morning Light Challenge: Wake Up Easier",
+    subtitle: "Twenty minutes outside every morning for a week. A simple day-by-day challenge to make mornings easier and nights sleepier, with a tracker you can copy.",
+    excerpt: "Get about 20 minutes of outdoor light every morning for 7 days. A day-by-day challenge with a simple tracker, what to expect, and how to keep it going.",
+    category: "light",
+    categoryLabel: "Challenge",
+    difficulty: "Beginner",
+    estimatedDays: "7 Days",
+    date: "2026-09-28",
+    readTime: "6 min",
+    author: {
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
+    },
+    relatedTools: [
+      { name: "Morning Sunlight Calculator", url: "/tools/sunlight-calculator", description: "Today's sunrise in your city and when to step outside." },
+      { name: "Chronotype Quiz", url: "/tools/chronotype-quiz", description: "Find out how early or late your body clock runs." },
+    ],
+    tableOfContents: [
+      { id: "the-rules", title: "The Rules" },
+      { id: "the-7-days", title: "The 7 Days" },
+      { id: "what-to-expect", title: "What to Expect" },
+    ],
+    content: `
+# The 7-Day Morning Light Challenge
+
+Morning daylight is the strongest signal your body clock gets. It tells your brain the day has started, which sets when you'll feel alert and when you'll feel sleepy tonight. This challenge is simple: for seven days, get about 20 minutes of outdoor light within an hour of waking, and notice what changes.
+
+## The Rules
+1. **Outside, not by a window.** A window cuts much of the useful light. Stepping outside, even on a cloudy day, gives your clock a far stronger signal than sitting indoors.
+2. **About 20 minutes, within an hour of waking.** Longer on grey or overcast days; 30 minutes or more under heavy cloud.
+3. **Never look directly at the sun.** Just be outside; walking, drinking your coffee or taking a call all count. Glasses and contact lenses are fine.
+4. **Keep your wake time within about an hour every day,** weekends included. It makes the light far more effective.
+5. **Rate each day.** A quick score from 1 to 5 for how easy it was to wake up, and how sleepy you felt at bedtime.
+
+Not sure when the sun comes up? The free [morning sunlight calculator](/tools/sunlight-calculator) shows today's sunrise in your city and when to step out.
+
+## The 7 Days
+
+| Day | Focus | Tip |
+| --- | --- | --- |
+| 1 | Set your baseline | Note your wake time and how you feel. Get your first 20 minutes. |
+| 2 | Pair it with a habit | Attach the light to something you already do: coffee, a dog walk, the commute. |
+| 3 | Dim your evening | Add one evening rule: warm, low lights for the last hour before bed. |
+| 4 | Move while you're out | Walk rather than stand; movement plus light is a strong combination. |
+| 5 | Check the dip | Notice how your afternoon feels. A 10-minute walk outside after lunch helps too. |
+| 6 | Hold the weekend | Keep your wake time within an hour of weekdays and still get outside. |
+| 7 | Compare | Look back at your scores from day 1. Keep what worked. |
+
+> [!TIP] Up before sunrise? Turn on bright indoor lights when you wake, then get outside once the sun is up. On dark winter mornings, a light box is an option; check with a doctor first if you have an eye condition or bipolar disorder.
+
+## What to Expect
+Many people find mornings feel a little easier and sleepiness arrives a little earlier within the first week, as their body clock settles. In one well-known study, a week of camping with only natural light moved people's melatonin timing about two hours earlier (Wright et al., 2013, Current Biology). You won't be camping, but the same signal is at work, just smaller.
+
+If nothing changes, that's useful to know too. Light is one lever; others are a consistent wake time and a caffeine cutoff that clears before bed. The [morning sunlight guide](/guides/morning-sunlight-lux-protocol-guide) explains the science in detail, and [how to become a morning person](/blog/how-to-become-a-morning-person) builds on this challenge.
+
+ARC's 20-minute morning light timer starts from your real sunrise and runs as a Live Activity on your Lock Screen, so the phone can stay in your pocket, and a 14-day strip on Trends shows how often you held it. Morning light is also one of its five-day experiments, scored against your own history.
+    `,
+  },
+  {
+    slug: "5-day-afternoon-crash-experiment",
+    title: "The 5-Day Afternoon Crash Experiment: What Fixes Yours?",
+    subtitle: "Stop guessing what helps your 3 PM slump. Test one change for five days, compare it with your usual week, and keep only what works.",
+    excerpt: "Test one change for five days, such as a walk before the dip or an earlier coffee cutoff, and compare it with your usual week to see what fixes your crash.",
+    category: "recovery",
+    categoryLabel: "Experiment",
+    difficulty: "Beginner",
+    estimatedDays: "5 Days",
+    date: "2026-09-28",
+    readTime: "6 min",
+    author: {
+      name: "ARC Scientific Team",
+      role: "Chronobiology Research & Editorial",
+    },
+    relatedTools: [
+      { name: "Nap Calculator", url: "/tools/nap-calculator", description: "When your afternoon dip is likely and when to nap." },
+      { name: "Caffeine Cutoff Calculator", url: "/tools/caffeine-calculator", description: "Your last safe coffee for tonight's bedtime." },
+    ],
+    tableOfContents: [
+      { id: "why-one-change-at-a-time", title: "Why One Change at a Time" },
+      { id: "step-1-log-your-usual-week", title: "Step 1: Log Your Usual Week" },
+      { id: "step-2-pick-one-lever", title: "Step 2: Pick One Lever" },
+      { id: "step-3-run-it-for-five-days", title: "Step 3: Run It for Five Days" },
+      { id: "step-4-read-the-result", title: "Step 4: Read the Result" },
+    ],
+    content: `
+# The 5-Day Afternoon Crash Experiment
+
+Most advice about the afternoon slump is a list: more water, less sugar, better sleep, a walk, a nap, no coffee, more coffee. Try them all at once and you'll never know what worked. This experiment tests one change at a time, against your own normal week, so you end up with an answer that's actually yours.
+
+## Why One Change at a Time
+Your afternoons vary for all sorts of reasons: a bad night, a heavy lunch, a stressful meeting. Change five things on Monday and feel better on Wednesday, and you've learned nothing you can keep. Change one thing for five days and compare it with a normal stretch, and the signal starts to stand out from the noise. For why the dip happens at all, read [why you crash at 2 PM](/blog/why-do-i-crash-at-2pm-afternoon-energy-drop-fix).
+
+## Step 1: Log Your Usual Week
+For five ordinary days, write down one thing each afternoon: **did you crash, yes or no?** Also note roughly when. Don't change anything yet. This is your baseline.
+
+## Step 2: Pick One Lever
+Choose the one that seems most likely to help you:
+* **A walk before the dip.** Ten to fifteen minutes outside, starting just before your usual crash time.
+* **Rest at the dip.** A 10 to 20-minute nap or quiet rest when the slump arrives; the [nap calculator](/tools/nap-calculator) finds the time.
+* **An earlier caffeine cutoff.** Finish your last coffee earlier, so it clears before bed and tonight's sleep improves; the [caffeine cutoff calculator](/tools/caffeine-calculator) finds yours.
+* **Morning light.** About 20 minutes outside within an hour of waking; the [7-day morning light challenge](/guides/7-day-morning-light-challenge) makes it easy.
+* **A consistent wake time.** The same wake time every day, within about half an hour.
+
+## Step 3: Run It for Five Days
+Do only that one thing, for five days in a row, and keep logging your afternoons the same way: crash, yes or no, and roughly when. Keep everything else as normal as you can.
+
+## Step 4: Read the Result
+Compare the two stretches:
+
+| Result | What it means |
+| --- | --- |
+| Clearly fewer crashes | Keep it. This one works for you. |
+| About the same | "No difference" is a real answer. Drop it and try the next lever. |
+| More crashes | Rare, but possible. Drop it. |
+
+> [!NOTE] Five days is short. If the difference is small, run it again another week before deciding. A single good day proves very little.
+
+If your afternoons are exhausting despite enough sleep, or you nod off at the wheel, talk to a doctor.
+
+## Let ARC Run It
+This is exactly what ARC's five-day experiments do, automatically. ARC proposes one change (an earlier cutoff, morning light, a walk before the dip, rest at the dip, or a consistent wake time), runs it for five days, and scores it against the fortnight before, using the one-tap check-ins you already make. "No difference" is one of the possible verdicts, and it takes that lever off your list for good.
+    `,
+  },
 ];
 
 

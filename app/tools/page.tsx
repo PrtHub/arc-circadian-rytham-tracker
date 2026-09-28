@@ -6,7 +6,7 @@ import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
 const INDEX_TITLE = "Free Circadian Rhythm & Sleep Calculators";
 const INDEX_DESCRIPTION =
-  "Twelve free circadian tools: caffeine cutoff, nap, sleep cycle, sleep debt and sunrise calculators, a chronotype quiz, and jet lag and daylight saving planners.";
+  "13 free circadian tools: caffeine cutoff, nap, sleep cycle and sleep debt calculators, a chronotype quiz, a schedule generator, and jet lag and DST planners.";
 
 export const metadata: Metadata = {
   title: INDEX_TITLE,
@@ -44,6 +44,13 @@ const tools = [
     icon: "☕",
     href: "/tools/caffeine-calculator",
     status: "Live",
+  },
+  {
+    title: "Daily Schedule Generator",
+    description: "Pick your chronotype and wake time for a day timed to your body clock: light, peak focus, the dip, exercise and your last coffee. Copy it or share the link.",
+    icon: "🗓️",
+    href: "/tools/daily-schedule-generator",
+    status: "New",
   },
   {
     title: "Nap Calculator",

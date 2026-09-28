@@ -1887,4 +1887,186 @@ The [bedtime calculator by wake-up time](/bedtime/wake-up-at-7am) gives bedtimes
 ARC doesn't track your sleep stages and needs no wearable. It works on the day around your sleep: after a run of short nights it adjusts your day plan for recovery, it solves your last safe coffee from your own bedtime, and Trends shows whether your wake time is drifting. ARC is a wellness app, not a medical device.
     `,
   },
+  {
+    slug: "what-your-body-does-every-hour",
+    title: "What Your Body Is Doing at Every Hour of the Day",
+    excerpt:
+      "From the 5 AM temperature low to the 9 PM melatonin rise, here's what your body clock is doing hour by hour, and how to use each part of the day better.",
+    date: "2026-09-28",
+    category: "Science",
+    readTime: "7 min",
+    content: `
+# What Your Body Is Doing at Every Hour of the Day
+
+**Quick Answer:** Your body runs on a roughly 24-hour clock that times temperature, hormones, alertness and sleep. For someone who wakes around 7 AM, cortisol climbs after waking, alertness builds through the morning, a dip arrives in the early afternoon, physical performance tends to peak in the late afternoon, a "second wind" shows up in the evening, and melatonin starts rising a couple of hours before bed. Here's the day, hour by hour.
+
+These times are typical for a 7 AM waker who goes to bed around 11 PM. If you're a night owl, shift everything later; if you're an early riser, shift it earlier. The free [chronotype visualizer](/tools/chronotype-visualizer) shows how the curve moves for each chronotype.
+
+## 5 AM: Your Coldest Point
+Core body temperature reaches its daily low, usually a couple of hours before you'd naturally wake. This is when sleep is hardest to shake off, and it's also the pivot point for light: light before it tends to push your clock later, light after it pulls it earlier. More in the [phase response curve](/science/phase-response-curve-light-timing).
+
+## 6 to 7 AM: The Wake-Up Surge
+Melatonin is falling and cortisol is rising. In the first 30 to 45 minutes after waking, cortisol rises sharply; this is the cortisol awakening response, part of what gets you moving. It's normal, not stress.
+
+## 7 to 9 AM: The Light Window
+Daylight reaching your eyes now is the strongest signal your body clock gets all day. About 20 minutes outside sets the timing for tonight's sleepiness. Never look directly at the sun; just be outside. The [morning sunlight calculator](/tools/sunlight-calculator) shows today's sunrise and when to step out.
+
+## 9 AM to Noon: Climbing Toward Your Peak
+Body temperature rises and alertness builds. For many people, late morning is the best time for demanding, focused work.
+
+## 1 to 3 PM: The Afternoon Dip
+Sleep pressure has been building since you woke, and your clock's alerting signal briefly levels off. The result is the familiar slump, whether or not you ate lunch. A short walk or a 20-minute nap helps more than another coffee; see [why you crash at 2 PM](/blog/why-do-i-crash-at-2pm-afternoon-energy-drop-fix) and the [nap calculator](/tools/nap-calculator).
+
+## 3 to 6 PM: Strength and Reaction Time
+Body temperature approaches its daily high, and many measures of physical performance, such as strength, flexibility and reaction time, tend to be at their best in the late afternoon and early evening. A good time to train if your schedule allows.
+
+## 6 to 9 PM: The Second Wind
+Oddly, the hours before bedtime are often among the most alert of the day. Researchers call it the wake maintenance zone: your clock pushes hardest against sleep just before it lets go. It's why you can feel wide awake at 9 PM after being exhausted at 3; [the second wind](/blog/second-wind-at-night-wake-maintenance-zone) explains more.
+
+## 9 PM: Melatonin Starts to Rise
+In dim light, melatonin begins rising roughly two hours before you'd naturally fall asleep (this is your [DLMO](/science/dim-light-melatonin-onset-dlmo)). Bright screens and ceiling lights hold it back, so this is the time to dim things down.
+
+## 11 PM to 3 AM: Deep Sleep First
+The first half of the night is richest in deep, slow-wave sleep, when growth hormone release peaks and the body does much of its physical repair.
+
+## 3 to 7 AM: More REM
+The second half of the night has more REM sleep, the stage most linked to dreaming and emotional processing. Cutting a night short at the end costs you mostly REM.
+
+> [!NOTE] These are averages. Your own timings depend on your chronotype, your light exposure and how much sleep you owe. A consistent wake time keeps the whole schedule stable.
+
+## Where ARC Fits
+ARC plans your day along this curve, shifted for your chronotype: a 20-minute light timer from your real sunrise, a last safe coffee from your own bedtime, and a wind-down reminder before bed. After about ten days of one-tap check-ins, it measures when your afternoon dip really lands instead of assuming 2 PM.
+    `,
+  },
+  {
+    slug: "coffee-myths-body-clock",
+    title: "9 Coffee Myths Your Body Clock Disagrees With",
+    excerpt:
+      "Decaf isn't caffeine-free, espresso isn't the strongest cup, and falling asleep fine doesn't mean coffee isn't touching your sleep. 9 coffee myths, busted.",
+    date: "2026-09-28",
+    category: "Science",
+    readTime: "6 min",
+    content: `
+# 9 Coffee Myths Your Body Clock Disagrees With
+
+**Quick Answer:** Caffeine lasts much longer than it feels like it does (a half-life of roughly 4 to 7 hours), it can reduce deep sleep even when you fall asleep easily, decaf still contains a little, and a single espresso usually has less caffeine than a mug of drip coffee. Here are the myths worth dropping.
+
+## 1. "Caffeine wears off in a couple of hours"
+The buzz fades, but the caffeine doesn't. Its half-life is roughly 4 to 7 hours depending on the person, so half of a 3 PM coffee can still be in your system at 8 or 9 PM. The [caffeine half-life explainer](/blog/caffeine-half-life-calculator-science) walks through the math.
+
+## 2. "If I can fall asleep after coffee, it doesn't affect me"
+Falling asleep isn't the whole story. In a well-known study, 400 mg of caffeine taken even 6 hours before bed cut total sleep by about an hour, measured objectively (Drake et al., 2013, Journal of Clinical Sleep Medicine). Caffeine can also reduce deep sleep in people who drift off without trouble.
+
+## 3. "Decaf has no caffeine"
+Decaf still contains a small amount, usually a few milligrams per cup, and it varies by brand and brewing. For most people it's not enough to matter, but several cups late at night add up if you're sensitive.
+
+## 4. "Espresso is the strongest coffee"
+Per ounce, yes. Per serving, usually not: a single shot of espresso has roughly 60 to 65 mg of caffeine, while a standard mug of drip coffee has around 95 mg, and a large coffee-shop brew can have well over 200.
+
+## 5. "Tea has more caffeine than coffee"
+Tea leaves contain more caffeine by dry weight than coffee beans, but you use far less of them. A brewed cup of black tea usually has around 40 to 50 mg, about half a typical cup of coffee.
+
+## 6. "Coffee dehydrates you"
+Caffeine is a mild diuretic, but in moderate amounts coffee still counts toward your fluid intake. A study of regular coffee drinkers found four cups a day hydrated them about as well as the same amount of water (Killer et al., 2014, PLoS One).
+
+## 7. "Coffee sobers you up"
+Caffeine can make you feel more alert, but it doesn't lower the alcohol in your blood or restore reaction time. Feeling awake and being sober aren't the same thing.
+
+## 8. "You have to wait 90 minutes after waking for your first coffee"
+It's a popular recommendation, but the evidence is mixed. Some people find a later first cup softens the afternoon crash; others notice no difference. The best test is your own afternoons, one change at a time. [Why delay your first coffee?](/blog/science-of-coffee-timing-delay-90-minutes) covers both sides.
+
+## 9. "Another coffee fixes the 3 PM crash"
+It masks it. Caffeine blocks the sleep-pressure signal without removing it, and a late cup can cost you sleep that night, which makes tomorrow's crash worse. A short walk outside, or a 20-minute nap, breaks the cycle instead.
+
+> [!TIP] There's no universal cutoff. For one average cup and an average metaboliser, caffeine takes roughly five hours to fall below 50 mg. A bigger cup, a slower metabolism, or an earlier coffee still in your system pushes that earlier. The free [caffeine cutoff calculator](/tools/caffeine-calculator) works out yours, counting what you've already had today.
+
+## Where ARC Fits
+ARC tracks every coffee you log in one tap and recalculates your last safe coffee each time, from your bedtime and how fast you clear caffeine. When no cup fits before bed any more, it tells you plainly.
+    `,
+  },
+  {
+    slug: "signs-you-are-a-night-owl",
+    title: "12 Signs You're a Night Owl (and How to Live With It)",
+    excerpt:
+      "Wide awake at midnight, useless before 10 AM, and tired of being called lazy? 12 signs you're a night owl, why it happens, and how to make it work.",
+    date: "2026-09-28",
+    category: "Chronobiology",
+    readTime: "6 min",
+    content: `
+# 12 Signs You're a Night Owl
+
+**Quick Answer:** Night owls, or Wolves in the popular chronotype system, have body clocks that run later than average. If you're sharpest in the evening, groggy for hours after an early alarm, and sleep much later whenever you can, you're probably one. It's largely biology, not laziness, and it can be managed.
+
+## The Signs
+1. **Your best ideas arrive after 9 PM.** Evenings feel like the part of the day when your brain finally switches on.
+2. **Mornings feel like jet lag.** The first hour or two after an early alarm is foggy, however long you slept.
+3. **You're not hungry at breakfast.** Your body clock hasn't reached "morning" yet, so neither has your appetite.
+4. **You sleep in whenever you can,** often two or more hours later than on workdays.
+5. **You're wide awake at 11 PM** even when you're exhausted at 3 PM.
+6. **Monday mornings are brutal.** Weekends pull your clock later, and Monday drags it back; researchers call it [social jetlag](/blog/what-is-social-jetlag).
+7. **Your coffee does its best work at noon,** not 7 AM.
+8. **You do your best exercise in the evening.**
+9. **You've been called lazy** for something that's really a timing problem.
+10. **Holidays fix you.** With no alarm, you settle into a later schedule and suddenly feel fine.
+11. **Early meetings get your worst self,** and late-afternoon ones get your best.
+12. **"Just go to bed earlier" never works.** You lie awake, because your body isn't ready.
+
+Not sure? The free [chronotype quiz](/tools/chronotype-quiz) gives you an estimate in about two minutes, and the [Wolf chronotype page](/chronotype/wolf) describes the type in detail.
+
+## Why Some People Are Night Owls
+Chronotype is strongly influenced by genes: a genetic study of nearly 700,000 people linked hundreds of regions of the genome to being a morning or evening person (Jones et al., 2019, Nature Communications). Age matters too: most people get later through their teens and are latest around 20. And modern life pushes everyone later, with too little daylight in the morning and too much bright light at night.
+
+## How to Make It Work
+* **Protect your peak.** Put your hardest work in the late afternoon or evening when you can.
+* **Get morning light anyway.** About 20 minutes outside soon after waking stops your clock drifting even later.
+* **Dim your evenings.** Bright screens late at night push you later still.
+* **Keep weekends close to weekdays,** within about an hour, so Mondays hurt less.
+* **Move gradually if you need an earlier schedule.** [How to become a morning person](/blog/how-to-become-a-morning-person) has a realistic plan.
+
+> [!NOTE] If your natural sleep time is very late (around 3 AM or later) and it's affecting work or school, talk to a doctor. Delayed sleep phase is a recognised condition with good treatments.
+
+## Where ARC Fits
+ARC plans your day around your chronotype, so a Wolf's day starts and ends later than a Lion's. It times morning light from your real sunrise, solves your coffee cutoff from your actual bedtime, and Trends shows whether your wake time is drifting later.
+    `,
+  },
+  {
+    slug: "second-wind-at-night-wake-maintenance-zone",
+    title: "Why You Get a Second Wind at Night (and How to Sleep Anyway)",
+    excerpt:
+      "Exhausted at 3 PM, wide awake at 10 PM? That's your wake maintenance zone. Why the evening second wind happens and how to fall asleep when it passes.",
+    date: "2026-09-28",
+    category: "Sleep Science",
+    readTime: "5 min",
+    content: `
+# Why You Get a Second Wind at Night
+
+**Quick Answer:** The burst of energy you feel in the evening is real, and it's your body clock at work. In the hours before your usual bedtime, your clock pushes hardest against sleep, a period researchers call the **wake maintenance zone**. Once it passes, sleepiness arrives quickly. The trick is not fighting the second wind with bright screens, and going to bed when the sleepiness comes.
+
+## What's Going On
+Two systems decide how sleepy you feel. Sleep pressure builds the longer you're awake. Your body clock sends an alerting signal that strengthens through the day and peaks in the evening, holding that sleep pressure off. Just before your usual bedtime, the alerting signal is at its strongest; then it drops away, and sleep pressure takes over. The [Two-Process Model](/science/adenosine-clearance-afternoon-dip-protocol) explains how these fit together.
+
+Sleep researcher Peretz Lavie described these evening hours as a "forbidden zone" for sleep, because people find it unusually hard to fall asleep then, followed by a "sleep gate" when it suddenly becomes easy (Lavie, 1986).
+
+## Why It Feels So Strong
+* **You're a night owl.** Later body clocks put the second wind later, often right when you're trying to go to bed.
+* **Bright light at night.** Screens and ceiling lights delay melatonin and extend the alert zone.
+* **An evening coffee or late workout** adds stimulation on top of it.
+* **You missed your window.** If you push past the sleepiness at 10:30 PM, you can get a fresh wave of alertness and not feel sleepy again for a while.
+
+## How to Sleep Anyway
+1. **Keep a steady bedtime.** Your gate opens at about the same time each night if your schedule is consistent.
+2. **Dim the last two hours.** Warm, low light lets melatonin rise on time; see [what DLMO is](/science/dim-light-melatonin-onset-dlmo).
+3. **Don't mistake the second wind for "not tired".** Wind down anyway, and go to bed when the first wave of sleepiness arrives.
+4. **If you miss it, don't lie there fighting it.** Get up, do something calm in dim light, and go back when you feel sleepy again.
+5. **Move caffeine and hard workouts earlier.** The [caffeine cutoff calculator](/tools/caffeine-calculator) finds your last safe cup.
+6. **Get morning light.** About 20 minutes outside soon after waking pulls the whole curve earlier, including the second wind.
+
+> [!TIP] If you're wired at night and exhausted in the afternoon, that's the same clock showing up twice. Fix the morning and evening light, and both usually soften.
+
+## Where ARC Fits
+ARC's wind-down reminder arrives before the bedtime you set, a cue to dim things before your second wind can take over. Its morning light timer starts from your real sunrise, and your last safe coffee is solved from your own bedtime.
+
+If you regularly can't sleep even in a dark, calm room, talk to a doctor.
+    `,
+  },
 ];

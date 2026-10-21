@@ -7,6 +7,7 @@ import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 import { ArticleBody } from "@/components/article/ArticleBody";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   InArticleCta,
   RelatedReading,
@@ -108,23 +109,12 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ sl
       <ContentNav backHref="/guides" backLabel="All Guides" />
 
       <main className="max-w-6xl mx-auto px-6 py-14 relative">
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex items-center gap-2 text-xs font-mono text-(--fg-muted)">
-            <li>
-              <Link href="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/guides" className="hover:text-white transition-colors">
-                Guides
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-accent truncate max-w-50 sm:max-w-md">{guide.categoryLabel}</li>
-          </ol>
-        </nav>
+        <Breadcrumbs
+          items={[
+            { name: "Guides", href: "/guides" },
+            { name: guide.title },
+          ]}
+        />
 
         <header className="mb-14 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest uppercase font-mono">

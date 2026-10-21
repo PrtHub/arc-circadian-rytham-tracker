@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import {
   JsonLd,
   RelatedReading,
+  ToolBreadcrumbs,
   ToolFaqSection,
   toolAppJsonLd,
   toolMetadata,
@@ -74,6 +75,7 @@ export default function SleepCycleCalculatorPage() {
       />
       <ContentNav backHref="/tools" backLabel="All Tools" />
       <main className="py-14">
+        <ToolBreadcrumbs title="Sleep Cycle Calculator" />
         <SleepCycleCalculatorClient />
 
         <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">

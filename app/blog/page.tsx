@@ -5,6 +5,7 @@ import { blogPosts } from "@/lib/blog-data";
 import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
     title: "Circadian Science & Sleep Journal",
@@ -83,6 +84,8 @@ export default function BlogPage() {
             <ContentNav backHref="/" backLabel="Home" />
 
             <main className="max-w-7xl mx-auto px-6 py-14 relative">
+                <Breadcrumbs items={[{ name: "Blog" }]} />
+
                 <header className="mb-12 max-w-3xl">
                     <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
                         Circadian Science &amp; Sleep Journal
@@ -144,7 +147,7 @@ export default function BlogPage() {
                 )}
 
                 {/* Calculative App Callout Banner (Mid-Hub Placement) */}
-                <CalculativeAppCallout
+                {/* <CalculativeAppCallout
                     variant="banner"
                     badge="ARC for iPhone"
           title="Stop guessing. ARC works out your day."
@@ -155,7 +158,7 @@ export default function BlogPage() {
             "No account. Your log stays on your iPhone",
           ]}
                     location="blog_hub_mid_banner"
-                />
+                /> */}
 
                 {/* All Articles Grid (Expanded 3-Column Layout to reduce vertical scroll length) */}
                 <section className="mt-14">

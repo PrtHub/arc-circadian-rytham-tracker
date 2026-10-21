@@ -6,6 +6,7 @@ import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
 import { AppStoreButton } from "@/components/AppStoreButton";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Link from "next/link";
 
 interface Props {
@@ -163,6 +164,12 @@ export default async function AudiencePage(props: Props) {
         {/* Focused Content Header */}
         <ContentNav backHref="/" backLabel="Home" />
         <main className="py-14 px-6 max-w-4xl mx-auto relative">
+          <Breadcrumbs
+            items={[
+              { name: "Audience", href: "/#audience" },
+              { name: audience.name },
+            ]}
+          />
 
           <header className="mb-12">
             <div className="text-4xl mb-3">{audience.icon}</div>
@@ -174,7 +181,7 @@ export default async function AudiencePage(props: Props) {
             <p className="text-sm sm:text-base text-(--fg-muted) leading-relaxed max-w-2xl mb-6">
               {audience.description}
             </p>
-            <AppStoreButton location={`for_${audience.slug}_header`} />
+            {/* <AppStoreButton location={`for_${audience.slug}_header`} /> */}
           </header>
 
           <section className="grid md:grid-cols-2 gap-12 mb-16">

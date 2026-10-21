@@ -100,9 +100,17 @@ const PAIRING_NOTES: Record<string, Record<string, {
   },
 };
 
-export default function ChronotypeCompatibilityClient() {
-  const [partnerA, setPartnerA] = useState("bear");
-  const [partnerB, setPartnerB] = useState("wolf");
+interface ChronotypeCompatibilityClientProps {
+  initialPartnerA?: string;
+  initialPartnerB?: string;
+}
+
+export default function ChronotypeCompatibilityClient({
+  initialPartnerA = "bear",
+  initialPartnerB = "wolf",
+}: ChronotypeCompatibilityClientProps = {}) {
+  const [partnerA, setPartnerA] = useState(initialPartnerA);
+  const [partnerB, setPartnerB] = useState(initialPartnerB);
 
   const [p1, p2] = [partnerA, partnerB].sort();
   const notes = PAIRING_NOTES[p1]?.[p2];

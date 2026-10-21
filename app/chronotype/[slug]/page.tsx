@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
 import { AppStoreButton } from "@/components/AppStoreButton";
 import { ChronotypeScheduleCustomizer } from "@/components/ChronotypeScheduleCustomizer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Link from "next/link";
 
 interface Props {
@@ -136,6 +137,12 @@ export default async function ChronotypePage(props: Props) {
         {/* Focused Content Header */}
         <ContentNav backHref="/#chronotypes" backLabel="Chronotypes" />
         <main className="max-w-4xl mx-auto py-14 px-6 relative" data-sky={chronotype.slug}>
+          <Breadcrumbs
+            items={[
+              { name: "Chronotypes", href: "/#chronotypes" },
+              { name: `${chronotype.name} Chronotype` },
+            ]}
+          />
 
           <header className="mb-12">
             <div className="text-4xl mb-3">{chronotype.icon}</div>

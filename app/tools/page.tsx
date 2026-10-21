@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const INDEX_TITLE = "Free Circadian Rhythm & Sleep Calculators";
 const INDEX_DESCRIPTION =
@@ -142,6 +143,8 @@ export default function ToolsIndex() {
       <ContentNav backHref="/" backLabel="Home" />
 
       <main className="max-w-7xl mx-auto px-6 py-14 min-h-[70vh] relative">
+        <Breadcrumbs items={[{ name: "Tools" }]} />
+
         <header className="mb-12 max-w-3xl">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
             10 Free Interactive Tools
@@ -155,7 +158,7 @@ export default function ToolsIndex() {
         </header>
 
         {/* Calculative Mid-Hub Callout Banner */}
-        <CalculativeAppCallout
+        {/* <CalculativeAppCallout
           variant="banner"
           badge="Let ARC do the math"
           title="Tired of calculating your cutoffs by hand?"
@@ -166,7 +169,7 @@ export default function ToolsIndex() {
             "No account • your log stays on your iPhone",
           ]}
           location="tools_hub_banner"
-        />
+        /> */}
 
         {/* Tools Grid */}
         <section className="mt-14">

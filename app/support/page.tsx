@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentNav } from "@/components/ContentNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -120,14 +121,7 @@ export default function SupportPage() {
 
       <ContentNav backHref="/" backLabel="Home" />
       <main className="max-w-6xl mx-auto px-6 py-14 relative">
-        {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs font-mono text-(--fg-muted) mb-8">
-          <Link href="/" className="hover:text-white transition-colors">
-            Home
-          </Link>
-          <span>/</span>
-          <span className="text-accent">Support Center</span>
-        </nav>
+        <Breadcrumbs items={[{ name: "Support Center" }]} />
 
         {/* Hero Header */}
         <header className="mb-12 max-w-3xl">

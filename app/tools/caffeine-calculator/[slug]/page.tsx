@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { JsonLd, ToolFaqSection, toolAppJsonLd, type ToolFaq } from "../../_components/tool-extras";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import CaffeineCalculatorClient from "../CaffeineCalculatorClient";
 import { CAFFEINE_DRINKS, getDrinkBySlug, calculateDecayTable } from "@/lib/caffeine-drinks";
 import { mgRemaining } from "@/lib/caffeine";
@@ -128,22 +129,16 @@ export default async function DrinkCaffeinePage(props: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
-      />
-
       <ContentNav backHref="/tools/caffeine-calculator" backLabel="Caffeine Calculator" />
 
       <main className="max-w-4xl mx-auto px-6 py-12">
-        {/* Breadcrumb links */}
-        <nav className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-6">
-          <Link href="/tools" className="hover:text-white transition-colors">Tools</Link>
-          <span>/</span>
-          <Link href="/tools/caffeine-calculator" className="hover:text-white transition-colors">Caffeine Calculator</Link>
-          <span>/</span>
-          <span className="text-accent">{drink.name}</span>
-        </nav>
+        <Breadcrumbs
+          items={[
+            { name: "Tools", href: "/tools" },
+            { name: "Caffeine Calculator", href: "/tools/caffeine-calculator" },
+            { name: drink.name },
+          ]}
+        />
 
         {/* Header */}
         <header className="mb-10">

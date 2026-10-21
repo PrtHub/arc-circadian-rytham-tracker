@@ -48,7 +48,7 @@ function DecayChart({
     "M" + times.map((t) => `${x(t).toFixed(1)},${y(mgAt(list, t, halfLife)).toFixed(1)}`).join(" L");
 
   return (
-    <div className="mt-6">
+    <div className="mt-6" data-nosnippet>
       <svg
         viewBox={`0 0 ${w} ${h}`}
         className="w-full h-auto"

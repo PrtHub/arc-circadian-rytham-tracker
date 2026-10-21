@@ -7,6 +7,7 @@ import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 import { ArticleBody } from "@/components/article/ArticleBody";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   InArticleCta,
   RelatedReading,
@@ -93,6 +94,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <ContentNav backHref="/blog" backLabel="All Posts" />
 
       <main className="max-w-6xl mx-auto px-6 py-14 relative">
+        <Breadcrumbs
+          items={[
+            { name: "Blog", href: "/blog" },
+            { name: post.title },
+          ]}
+        />
+
         <header className="mb-14 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest text-accent uppercase font-mono">
             <span className="px-3 py-1 rounded-full border border-(--accent)/20 bg-(--accent)/10">

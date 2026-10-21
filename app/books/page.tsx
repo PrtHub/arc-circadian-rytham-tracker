@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { booksData } from "@/lib/book-data";
 import { ContentNav } from "@/components/ContentNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 
@@ -55,6 +56,7 @@ export default function BooksPage() {
       <ContentNav backHref="/" backLabel="Home" />
 
       <main className="max-w-7xl mx-auto px-6 py-14 relative">
+        <Breadcrumbs items={[{ name: "Books" }]} />
         <header className="mb-12 max-w-3xl">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
             Scientific Literature &amp; Reviews
@@ -68,7 +70,7 @@ export default function BooksPage() {
         </header>
 
         {/* Calculative Mid-Hub Callout Banner */}
-        <CalculativeAppCallout
+        {/* <CalculativeAppCallout
           variant="banner"
           badge="ARC for iPhone"
           title="Stop guessing. ARC works out your day."
@@ -79,7 +81,7 @@ export default function BooksPage() {
             "No account. Your log stays on your iPhone",
           ]}
           location="books_hub_banner"
-        />
+        /> */}
 
         {/* Books Grid (Expanded 3-Column Layout) */}
         <section className="mt-14">

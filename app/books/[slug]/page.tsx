@@ -4,6 +4,7 @@ import { booksData } from "@/lib/book-data";
 import { extractHeadings, parseBlocks } from "@/lib/article";
 import { relatedFor, toolsFor, topicFor } from "@/lib/content-topics";
 import { ContentNav } from "@/components/ContentNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
 import { ArticleBody } from "@/components/article/ArticleBody";
@@ -88,6 +89,7 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
       <ContentNav backHref="/books" backLabel="All Books" />
 
       <main className="max-w-6xl mx-auto px-6 py-14 relative">
+        <Breadcrumbs items={[{ name: "Books", href: "/books" }, { name: book.title }]} />
         <header className="mb-14 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3 mb-6 text-xs font-bold tracking-widest text-accent uppercase font-mono">
             <span className="px-3 py-1 rounded-full border border-(--accent)/20 bg-(--accent)/10">By {book.author}</span>

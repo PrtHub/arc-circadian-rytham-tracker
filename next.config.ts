@@ -109,6 +109,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/blog/timeshifter-vs-arc-jetlag-app",
+        destination: "/blog/timeshifter-alternative",
+        permanent: true,
+      },
+      {
+        source: "/blog/lifestack-vs-arc",
+        destination: "/blog/lifestack-vs-arc-circadian-app",
+        permanent: true,
+      },
+      {
         source: "/blogs/:slug",
         destination: "/blog/:slug",
         permanent: true,
@@ -182,14 +192,17 @@ const nextConfig: NextConfig = {
         ["/blog/biological-age-vs-circadian-health", "/blog/what-is-circadian-rhythm-beginner-guide"],
         ["/science/ultimate-circadian-reset-guide", "/guides/complete-circadian-rhythm-reset-guide"],
         ["/science/adenosine-sleep-pressure", "/guides/adenosine-sleep-pressure-clearance-guide"],
-        ["/science/sleep-safe-caffeine-decay", "/guides/caffeine-half-life-optimization-guide"],
+        ["/science/sleep-safe-caffeine-decay", "/tools/caffeine-calculator"],
+        ["/guides/caffeine-half-life-optimization-guide", "/tools/caffeine-calculator"],
         ["/science/cortisol-awakening-response", "/guides/cortisol-awakening-response-optimization-guide"],
         ["/science/melatonin-digital-sunset", "/guides/evening-blue-light-melatonin-defense-guide"],
         ["/science/social-jetlag-circadian-misalignment", "/guides/social-jetlag-recovery-guide"],
         ["/science/core-body-temperature-sleep-gate", "/guides/core-body-temperature-tmin-deep-sleep-guide"],
         ["/science/zeitgebers-peripheral-clocks", "/science/what-is-zeitgeber"],
-        ["/science/lux-thresholds-retinal-iprgc-entrainment", "/guides/morning-sunlight-lux-protocol-guide"],
+        ["/science/lux-thresholds-retinal-iprgc-entrainment", "/tools/sunlight-calculator"],
+        ["/guides/morning-sunlight-lux-protocol-guide", "/tools/sunlight-calculator"],
         ["/guides/night-shift-to-day-shift-rotation-protocol-guide", "/guides/shift-worker-circadian-survival-guide"],
+        ["/chronotype/wolf-9-to-5", "/chronotype/wolf-working-9-to-5"],
       ].map(([source, destination]) => ({ source, destination, permanent: true })),
       // Legal Redirects
       {

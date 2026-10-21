@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentNav } from "@/components/ContentNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -34,14 +35,7 @@ export default function TermsPage() {
 
       <ContentNav backHref="/" backLabel="Home" />
       <main className="max-w-4xl mx-auto px-6 py-14 relative">
-        {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs font-mono text-(--fg-muted) mb-8">
-          <Link href="/" className="hover:text-white transition-colors">
-            Home
-          </Link>
-          <span>/</span>
-          <span className="text-accent">Terms of Service</span>
-        </nav>
+        <Breadcrumbs items={[{ name: "Terms of Service" }]} />
 
         <header className="mb-14 border-b border-white/10 pb-10">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-4 inline-block font-mono border border-(--accent)/20">

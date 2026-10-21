@@ -1,5 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
+
+export function ToolBreadcrumbs({
+  title,
+  items,
+}: {
+  title: string;
+  items?: BreadcrumbItem[];
+}) {
+  const breadcrumbItems = items || [
+    { name: "Tools", href: "/tools" },
+    { name: title },
+  ];
+
+  return (
+    <div className="max-w-4xl mx-auto px-6 pt-6 -mb-4">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+  );
+}
 
 // Shared building blocks for the free tool pages: metadata with social previews,
 // JSON-LD, a visible FAQ that matches its FAQPage schema, and related reading.

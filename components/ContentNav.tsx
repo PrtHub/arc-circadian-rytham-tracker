@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AppStoreButton } from "@/components/AppStoreButton";
 
 interface ContentNavProps {
-  backHref: string;
+  backHref?: string;
   backLabel?: string;
 }
 
-export function ContentNav({ backHref, backLabel = "All Posts" }: ContentNavProps) {
+export function ContentNav({ backHref: _backHref, backLabel: _backLabel }: ContentNavProps = {}) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -54,25 +55,8 @@ export function ContentNav({ backHref, backLabel = "All Posts" }: ContentNavProp
             </span>
           </Link>
 
-          {/* Right: Clean Back Link */}
-          <Link
-            href={backHref}
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-accent hover:text-white transition-all py-1.5 px-3.5 rounded-full hover:bg-white/5 border border-accent/20 hover:border-white/20 group"
-          >
-            <svg
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-3.5 h-3.5 rotate-180 group-hover:-translate-x-0.5 transition-transform"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>{backLabel}</span>
-          </Link>
+          {/* Right: Compact App Store CTA */}
+          <AppStoreButton size="compact" location="content_nav" />
         </nav>
       </header>
 

@@ -251,14 +251,14 @@ export const chronotypeDetails: Record<string, ChronotypeDetail> = {
     deepDive: {
       heading: "Surviving a 9-to-5 as a Wolf",
       paragraphs: [
-        "If you can, negotiate a later start: 10 or 11 AM moves your working hours much closer to your biology. If you can't, get outdoor light as soon as you're up, save routine tasks for the morning, and protect the late afternoon for the work that needs your best brain.",
+        "If you can, negotiate a later start: 10 or 11 AM moves your working hours much closer to your biology. If you can't, get outdoor light as soon as you're up, save routine tasks for the morning, and protect the late afternoon for the work that needs your best brain. See our comprehensive [Wolf 9-to-5 corporate survival schedule](/chronotype/wolf-working-9-to-5) for an hour-by-hour corporate blueprint.",
         "Keep your weekend wake time within about an hour of your weekday one; long lie-ins push the clock later and make Monday worse ([more on social jetlag](/guides/social-jetlag-recovery-guide)). And don't read your mornings as a character flaw. A later clock is partly genetic, it's common, and it tends to be latest around age 20 before moving earlier with age (Roenneberg et al., 2004).",
       ],
     },
     arcForType:
       "ARC places a Wolf's phases late: a 1 AM bedtime sits at the end of your plan, not the start of it. Your last safe coffee is calculated from your actual bedtime rather than an early-bird rule, and the 20-minute morning light timer starts from your real sunrise and runs on your Lock Screen, so you can get outside without watching the clock.",
     related:
-      "Read more: [why you wake up tired after 8 hours](/blog/waking-up-tired-after-8-hours-sleep-inertia-fix), the [morning sunlight guide](/guides/morning-sunlight-lux-protocol-guide), and our [chronotype schedule guide](/guides/chronotype-lifestyle-design-guide) for all four types.",
+      "Read more: our [Wolf 9-to-5 corporate schedule](/chronotype/wolf-working-9-to-5), [why you wake up tired after 8 hours](/blog/waking-up-tired-after-8-hours-sleep-inertia-fix), the [morning sunlight protocol](/tools/sunlight-calculator), and our [chronotype schedule guide](/guides/chronotype-lifestyle-design-guide) for all four types.",
     strengths: [
       "High creativity in the evening",
       "Can push through late-night deadlines",

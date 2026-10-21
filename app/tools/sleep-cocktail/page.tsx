@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import {
   JsonLd,
   RelatedReading,
+  ToolBreadcrumbs,
   ToolFaqSection,
   toolAppJsonLd,
   toolMetadata,
@@ -70,6 +71,7 @@ export default function SleepCocktailPage() {
         })}
       />
       <ContentNav backHref="/tools" backLabel="All Tools" />
+      <ToolBreadcrumbs title="Sleep Cocktail Builder" />
       <SleepCocktailClient />
 
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">

@@ -5,6 +5,7 @@ import { guidesData } from "@/lib/guides-data";
 import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { CalculativeAppCallout } from "@/components/CalculativeAppCallout";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Circadian Rhythm Guides & Step-by-Step Protocols",
@@ -78,6 +79,8 @@ export default function GuidesPage() {
       <ContentNav backHref="/" backLabel="Home" />
 
       <main className="max-w-7xl mx-auto px-6 py-14 relative">
+        <Breadcrumbs items={[{ name: "Guides" }]} />
+
         <header className="mb-12 max-w-3xl">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
             Authoritative Playbooks &amp; Protocols
@@ -139,7 +142,7 @@ export default function GuidesPage() {
         )}
 
         {/* Calculative Mid-Hub Callout Banner */}
-        <CalculativeAppCallout
+        {/* <CalculativeAppCallout
           variant="banner"
           badge="ARC for iPhone"
           title="Stop guessing. ARC works out your day."
@@ -150,7 +153,7 @@ export default function GuidesPage() {
             "No account. Your log stays on your iPhone",
           ]}
           location="guides_hub_mid_banner"
-        />
+        /> */}
 
         {/* Guides Grid (Expanded 3-Column Layout) */}
         <section className="mt-14">

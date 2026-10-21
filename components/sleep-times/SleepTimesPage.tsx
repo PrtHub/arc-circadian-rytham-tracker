@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContentNav } from "@/components/ContentNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { InArticleCta } from "@/components/article/ArticleExtras";
 import { topicFor } from "@/lib/content-topics";
@@ -133,6 +134,13 @@ export function SleepTimesPage({ mode, minutes }: { mode: SleepTimesMode; minute
       <ContentNav backHref="/tools/sleep-cycle-calculator" backLabel="Sleep Calculator" />
 
       <main className="max-w-3xl mx-auto px-6 py-14">
+        <Breadcrumbs
+          items={[
+            { name: "Tools", href: "/tools" },
+            { name: "Sleep Calculator", href: "/tools/sleep-cycle-calculator" },
+            { name: mode === "wake" ? `Wake at ${t}` : `Bed at ${t}` },
+          ]}
+        />
         <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3 font-mono">Sleep cycle times</p>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-4">{sleepTimesTitle(mode, minutes)}</h1>
         <p className="text-(--fg-muted) text-sm sm:text-base leading-relaxed mb-8">

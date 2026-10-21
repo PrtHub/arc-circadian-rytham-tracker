@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import {
   JsonLd,
   RelatedReading,
+  ToolBreadcrumbs,
   ToolFaqSection,
   toolAppJsonLd,
   toolMetadata,
@@ -71,6 +72,7 @@ export default function SocialJetlagPage() {
         })}
       />
       <ContentNav backHref="/tools" backLabel="All Tools" />
+      <ToolBreadcrumbs title="Social Jetlag Calculator" />
       <SocialJetlagClient />
 
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">

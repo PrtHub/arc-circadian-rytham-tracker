@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "chronotype quiz",
     "sleep debt calculator",
     "jet lag planner",
-    "sunlight calculator",
+    "circadian rhythm tools",
   ],
   alternates: {
     canonical: "/tools",

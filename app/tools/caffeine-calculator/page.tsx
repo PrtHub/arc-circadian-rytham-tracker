@@ -13,17 +13,17 @@ import CaffeineCalculatorClient from "./CaffeineCalculatorClient";
 
 export const metadata = toolMetadata({
   slug: "caffeine-calculator",
-  title: "Caffeine Half-Life Calculator: Your Coffee Cutoff Time",
+  title: "Caffeine Half-Life & Cutoff Calculator: How Much Is Left at Bedtime? | ARC",
   description:
-    "Find your last safe coffee, counting what you've had today. Add your drinks, bedtime and caffeine sensitivity to see when to stop for under 50 mg by bed.",
+    "Stack every coffee, espresso, or energy drink you've had today to see your exact mg of caffeine left at bedtime (4h, 5.5h, or 7h half-life) and your last safe cup.",
   keywords:
-    "caffeine half life calculator, when to stop drinking coffee, caffeine cutoff time, caffeine decay calculator, last coffee before bed",
+    "caffeine half life calculator, how much caffeine is left at bedtime, caffeine decay calculator, caffeine cutoff time, last coffee before bed, caffeine clearance calculator",
 });
 
 const FAQS: ToolFaq[] = [
   {
     q: "What is the half-life of caffeine?",
-    a: "Roughly 4 to 7 hours depending on the person, around 5 on average. Genetics, pregnancy, smoking and some medications all change it. The calculator lets you pick fast (4 h), average (5.5 h) or slow (7 h), the same three options the ARC app asks about.",
+    a: "Roughly 4 to 7 hours depending on the person, around 5.5 on average. Genetics (CYP1A2 enzyme), pregnancy, smoking and medications all change it. The calculator lets you pick fast (4 h), average (5.5 h) or slow (7 h), the same three options the ARC app asks about.",
   },
   {
     q: "When should I stop drinking coffee before bed?",
@@ -63,19 +63,134 @@ const RELATED: RelatedLink[] = [
   },
 ];
 
+const POPULAR_DRINKS = [
+  { name: "Celsius Energy Drink (200mg)", slug: "celsius-200mg", mg: "200 mg" },
+  { name: "Starbucks Cold Brew Grande (205mg)", slug: "starbucks-cold-brew", mg: "205 mg" },
+  { name: "Starbucks Blonde Espresso (150mg)", slug: "starbucks-blonde-espresso", mg: "150 mg" },
+  { name: "Monster Energy (160mg)", slug: "monster-energy", mg: "160 mg" },
+  { name: "Red Bull (80mg)", slug: "red-bull", mg: "80 mg" },
+  { name: "Dunkin' Iced Coffee Medium (297mg)", slug: "dunkin-iced-coffee", mg: "297 mg" },
+  { name: "Matcha Green Tea (70mg)", slug: "matcha", mg: "70 mg" },
+  { name: "Starbucks Brewed Coffee (310mg)", slug: "starbucks-brewed-coffee", mg: "310 mg" },
+  { name: "Celsius Heat (300mg)", slug: "celsius-heat", mg: "300 mg" },
+  { name: "Rockstar Energy (160mg)", slug: "rockstar-energy", mg: "160 mg" },
+  { name: "Nespresso Capsule (65mg)", slug: "nespresso-capsule", mg: "65 mg" },
+  { name: "Diet Coke 12oz (46mg)", slug: "diet-coke", mg: "46 mg" },
+];
+
 export default function CaffeineCalculatorPage() {
   return (
     <div className="text-white min-h-screen">
       <JsonLd
         data={toolAppJsonLd({
-          name: "ARC Caffeine Half-Life Calculator",
+          name: "ARC Caffeine Half-Life & Cutoff Calculator",
           slug: "caffeine-calculator",
           description:
-            "A free tool to find your last safe coffee before bed, based on your caffeine half-life (4, 5.5 or 7 hours) and a target of under 50 mg at bedtime.",
+            "A free tool to find your exact mg of caffeine left at bedtime and calculate your last safe cup, based on half-life decay curves and a 50 mg bedtime sleep threshold.",
         })}
       />
       <ContentNav backHref="/tools" backLabel="All Tools" />
       <CaffeineCalculatorClient />
+
+      {/* Programmatic Drink Decay Guides Cluster */}
+      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-6">
+          <h2 className="text-2xl font-bold text-white tracking-tight">
+            Drink-Specific Caffeine Decay &amp; Clearance Tables
+          </h2>
+          <span className="text-xs font-mono text-accent uppercase tracking-wider font-semibold">
+            Dedicated Clearance Guides
+          </span>
+        </div>
+        <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
+          Select a drink below to view its exact hour-by-hour metabolic decay schedule and bedtime residual levels:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {POPULAR_DRINKS.map((drink) => (
+            <a
+              key={drink.slug}
+              href={`/tools/caffeine-calculator/${drink.slug}`}
+              className="p-3.5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all block group"
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-mono text-accent font-bold">{drink.mg}</span>
+                <span className="text-xs text-zinc-500 group-hover:text-accent transition-colors">&rarr;</span>
+              </div>
+              <div className="text-sm font-semibold text-white group-hover:text-accent transition-colors line-clamp-1">
+                {drink.name}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* High-Intent Strategic Internal Links */}
+      <section className="max-w-3xl mx-auto px-6 py-8 border-t border-white/10">
+        <h3 className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-4">
+          Related Circadian Tools &amp; Protocols
+        </h3>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <a
+            href="/tools/social-jetlag-calculator"
+            className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+          >
+            <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+              Circadian Recovery
+            </div>
+            <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+              Social Jetlag Calculator &rarr;
+            </div>
+            <div className="text-xs text-zinc-400 leading-relaxed">
+              Find out if your weekend sleep drift is causing your Monday fatigue.
+            </div>
+          </a>
+
+          <a
+            href="/tools/sleep-cocktail"
+            className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+          >
+            <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+              Supplement Protocol
+            </div>
+            <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+              Huberman Sleep Cocktail Dosage Builder &rarr;
+            </div>
+            <div className="text-xs text-zinc-400 leading-relaxed">
+              Calculate exact doses: 144mg Magnesium Threonate, 50mg Apigenin, 100–200mg L-Theanine.
+            </div>
+          </a>
+
+          <a
+            href="/for/adhd"
+            className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+          >
+            <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+              Focus &amp; Stimulants
+            </div>
+            <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+              ARC for ADHD &amp; Executive Function &rarr;
+            </div>
+            <div className="text-xs text-zinc-400 leading-relaxed">
+              How circadian phase delays interact with stimulant medications and caffeine sensitivity.
+            </div>
+          </a>
+
+          <a
+            href="/guides/sleep-chronotype-couples-compatibility-guide"
+            className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+          >
+            <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+              Sleep Alignment
+            </div>
+            <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+              Couples Chronotype Compatibility Guide &rarr;
+            </div>
+            <div className="text-xs text-zinc-400 leading-relaxed">
+              Synchronize caffeine schedules, evening wind-down, and sleep timing as a couple.
+            </div>
+          </a>
+        </div>
+      </section>
 
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-white/10 mb-12">
         <h2 className="text-3xl font-black mb-6 tracking-tighter text-white">The Science Behind the Calculator</h2>

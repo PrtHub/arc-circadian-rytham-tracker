@@ -103,11 +103,18 @@ const CAFFEINE_DB = [
 const EMBED_SNIPPET =
   '<iframe src="https://arcapp.sbs/tools/caffeine-calculator" width="100%" height="600px" frameborder="0"></iframe>\n<p>Caffeine calculator by <a href="https://arcapp.sbs/tools/caffeine-calculator">ARC</a></p>';
 
-export default function CaffeineCalculatorClient() {
+interface CaffeineCalculatorProps {
+  initialDrinkName?: string;
+  initialMg?: number;
+}
+
+export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }: CaffeineCalculatorProps = {}) {
   const [targetSleep, setTargetSleep] = useState("23:00");
-  const [drinkRows, setDrinkRows] = useState<DrinkRow[]>([{ id: "d1", mg: 95, time: "08:00" }]);
-  const [caffeineAmount, setCaffeineAmount] = useState(100);
-  const [selectedDrink, setSelectedDrink] = useState<string | null>(null);
+  const [drinkRows, setDrinkRows] = useState<DrinkRow[]>([
+    { id: "d1", mg: initialMg ?? 95, time: "08:00" },
+  ]);
+  const [caffeineAmount, setCaffeineAmount] = useState(initialMg ?? 100);
+  const [selectedDrink, setSelectedDrink] = useState<string | null>(initialDrinkName ?? null);
   const [sensitivity, setSensitivity] = useState("normal");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");

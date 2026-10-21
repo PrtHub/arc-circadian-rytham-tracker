@@ -13,11 +13,11 @@ import SleepCocktailClient from "./SleepCocktailClient";
 
 export const metadata = toolMetadata({
   slug: "sleep-cocktail",
-  title: "Huberman Sleep Cocktail: Doses, Timing & Safety",
+  title: "Huberman Sleep Cocktail Builder: Exact Dosages & Timing | ARC",
   description:
-    "What's in Andrew Huberman's sleep cocktail (magnesium, L-theanine, apigenin, inositol), the doses he describes, when to take them, and who should skip them.",
+    "Build your Huberman sleep cocktail: 144mg Magnesium L-Threonate, 50mg Apigenin, and 100–200mg L-Theanine. Interactive dosage calculator, timing protocol & safety guide.",
   keywords:
-    "Huberman sleep cocktail, Huberman sleep stack, magnesium L-threonate, L-theanine, apigenin, inositol, sleep supplement dosage",
+    "Huberman sleep cocktail, Huberman sleep stack, magnesium L-threonate 144mg, apigenin 50mg, L-theanine 100mg 200mg, sleep supplement dosage calculator",
 });
 
 const FAQS: ToolFaq[] = [

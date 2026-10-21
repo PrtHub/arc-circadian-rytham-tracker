@@ -6,6 +6,7 @@ import { ContentNav } from "@/components/ContentNav";
 import { Footer } from "@/components/Footer";
 import { FinalCta } from "@/components/FinalCta";
 import { AppStoreButton } from "@/components/AppStoreButton";
+import { ChronotypeScheduleCustomizer } from "@/components/ChronotypeScheduleCustomizer";
 import Link from "next/link";
 
 interface Props {
@@ -27,19 +28,19 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
-  const title = `${chronotype.name} Chronotype: Daily Schedule, Traits & Sleep`;
-  const description = `The ${chronotype.name} chronotype explained: typical wake and sleep times, peak focus hours, morning light and caffeine timing, and answers to common questions.`;
+  const title = chronotype.seoTitle || `${chronotype.name} Chronotype Schedule: Daily Routine & Sleep Optimization | ARC`;
+  const description = chronotype.seoDescription || `The ${chronotype.name} chronotype explained: typical wake and sleep times, peak focus hours, morning light and caffeine timing.`;
 
   return {
     title,
     description,
-    keywords: `${chronotype.name} chronotype, ${chronotype.name} sleep schedule, ${chronotype.name} chronotype schedule, chronotype test, chronobiology, circadian rhythm`,
+    keywords: `${chronotype.name} chronotype, ${chronotype.name} sleep schedule, ${chronotype.name} chronotype schedule, ${chronotype.name} daily routine, hour by hour routine, chronobiology, circadian rhythm`,
     alternates: {
       canonical: `${SITE_URL}/chronotype/${params.slug}`,
     },
     openGraph: {
       title,
-      description: chronotype.description,
+      description,
       url: `${SITE_URL}/chronotype/${params.slug}`,
       siteName: "ARC Circadian Rhythm Tracker",
       type: "article",
@@ -47,7 +48,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title,
-      description: chronotype.description,
+      description,
       creator: "@iPritamX",
     },
   };
@@ -231,19 +232,136 @@ export default async function ChronotypePage(props: Props) {
             </Link>
           </div>
 
-          <section className="mb-12 raised-card p-8">
-            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4 text-white">A Sample {chronotype.name} Day</h2>
-            <ul className="space-y-3">
-              {chronotype.sampleDay.map((item, i) => (
-                <li key={i} className="grid grid-cols-[9rem_1fr] gap-4 text-sm">
-                  <span className="font-mono font-bold text-accent">{item.time}</span>
-                  <span className="text-(--fg)">{item.activity}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-xs text-(--fg-muted)">
-              Times are illustrative. Your own day depends on your wake time and commitments.
+          {/* 12-Row Hour-by-Hour Semantic HTML Timetable for Featured Snippets */}
+          <section className="mb-12 raised-card p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/10 pb-4 mb-6">
+              <h2 className="text-2xl font-bold text-white">
+                Hour-by-Hour {chronotype.name} Daily Routine &amp; Schedule
+              </h2>
+              <span className="text-xs font-mono text-accent uppercase tracking-wider font-semibold">
+                12-Hour Biological Timetable
+              </span>
+            </div>
+            <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
+              This evidence-aligned hour-by-hour schedule synchronizes your daily cognitive load, sunlight viewing, meals, and hard caffeine cutoff to the natural chronobiological rhythms of the {chronotype.name}.
             </p>
+            <div className="overflow-x-auto -mx-6 sm:mx-0">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[620px]">
+                <thead>
+                  <tr className="border-b border-white/20 text-zinc-400 font-mono uppercase text-[11px] tracking-wider">
+                    <th scope="col" className="py-3 px-3 font-semibold">Time Window</th>
+                    <th scope="col" className="py-3 px-3 font-semibold">Routine Phase</th>
+                    <th scope="col" className="py-3 px-3 font-semibold">Action Protocol</th>
+                    <th scope="col" className="py-3 px-3 font-semibold">Circadian Science</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5 font-sans">
+                  {chronotype.fullScheduleTable.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
+                      <td className="py-3.5 px-3 font-mono font-bold text-accent whitespace-nowrap align-top">
+                        {row.time}
+                      </td>
+                      <td className="py-3.5 px-3 font-semibold text-white whitespace-nowrap align-top">
+                        {row.phase}
+                      </td>
+                      <td className="py-3.5 px-3 text-zinc-300 align-top leading-relaxed">
+                        {row.action}
+                      </td>
+                      <td className="py-3.5 px-3 text-zinc-400 text-xs align-top leading-relaxed">
+                        {row.biology}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Interactive Schedule Customizer */}
+          <ChronotypeScheduleCustomizer
+            slug={chronotype.slug}
+            chronotypeName={chronotype.name}
+            defaultWake={chronotype.idealSchedule.wake}
+          />
+
+          {/* High-Intent Strategic Internal Links */}
+          <section className="mb-12 grid sm:grid-cols-2 gap-4">
+            <Link
+              href="/guides/sleep-chronotype-couples-compatibility-guide"
+              className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+            >
+              <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+                Couples Compatibility Guide
+              </div>
+              <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+                {chronotype.name} in Relationships: Chronotype Compatibility &rarr;
+              </div>
+              <div className="text-xs text-zinc-400 leading-relaxed">
+                Learn how living with an opposite chronotype impacts relationship sleep and how to resolve morning-vs-night owl friction.
+              </div>
+            </Link>
+
+            {chronotype.slug === "wolf" ? (
+              <Link
+                href="/for/adhd"
+                className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+              >
+                <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+                  ADHD &amp; Neurodiversity
+                </div>
+                <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+                  Wolf Chronotype &amp; ADHD: The Delayed Sleep Connection &rarr;
+                </div>
+                <div className="text-xs text-zinc-400 leading-relaxed">
+                  Why over 30% of ADHD adults naturally run on a Wolf chronotype and how circadian phase delay impacts executive function.
+                </div>
+              </Link>
+            ) : (
+              <Link
+                href="/tools/social-jetlag-calculator"
+                className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+              >
+                <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+                  Circadian Diagnostic Tool
+                </div>
+                <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+                  Calculate Your Social Jetlag Score &rarr;
+                </div>
+                <div className="text-xs text-zinc-400 leading-relaxed">
+                  Measure how far your weekend schedule shifts from your workweek and calculate your biological recovery lag.
+                </div>
+              </Link>
+            )}
+
+            <Link
+              href="/tools/caffeine-calculator"
+              className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+            >
+              <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+                Caffeine Half-Life Tool
+              </div>
+              <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+                Caffeine Half-Life &amp; Bedtime Residual Calculator &rarr;
+              </div>
+              <div className="text-xs text-zinc-400 leading-relaxed">
+                Stack your coffees, cold brews, or energy drinks to find exact milligrams circulating at your target bedtime.
+              </div>
+            </Link>
+
+            <Link
+              href="/tools/sleep-cocktail"
+              className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-(--accent)/40 transition-all group block"
+            >
+              <div className="text-xs font-mono uppercase tracking-widest text-accent font-semibold mb-1">
+                Supplement Protocol
+              </div>
+              <div className="font-bold text-white group-hover:text-accent transition-colors text-base mb-1">
+                Huberman Sleep Cocktail Dosage Builder &rarr;
+              </div>
+              <div className="text-xs text-zinc-400 leading-relaxed">
+                Calculate science-backed dosages: 144mg Magnesium L-Threonate, 50mg Apigenin, and 100–200mg L-Theanine.
+              </div>
+            </Link>
           </section>
 
           <section className="mb-12">

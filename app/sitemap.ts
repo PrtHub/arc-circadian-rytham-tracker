@@ -6,10 +6,16 @@ import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
 import { BED_TIMES, WAKE_TIMES, timeSlug } from "@/lib/sleep-times";
+import { CAFFEINE_DRINKS } from "@/lib/caffeine-drinks";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const caffeineDrinks = CAFFEINE_DRINKS.map((drink) => ({
+    url: `${SITE_URL}/tools/caffeine-calculator/${drink.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
   const guides = guidesData.map((guide) => ({
     url: `${SITE_URL}/guides/${guide.slug}`,
     lastModified: new Date(guide.date),
@@ -166,6 +172,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...chronotypes,
     ...audiences,
     ...tools,
+    ...caffeineDrinks,
     ...guides,
     ...blogs,
     ...sciences,

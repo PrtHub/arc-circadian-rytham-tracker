@@ -370,6 +370,50 @@ export const CAFFEINE_DRINKS: CaffeineDrink[] = [
       },
     ],
   },
+  {
+    slug: "espresso",
+    aliases: ["double-espresso", "double-shot-espresso"],
+    name: "Double Shot Espresso (2 oz)",
+    amount: 128,
+    servingSize: "2 fl oz Doppio (60ml)",
+    category: "Coffee",
+    description: "A standard two-ounce double shot of espresso (Doppio) extracted at 9 bars of pressure yields approximately 120 to 135mg of caffeine. With virtually no liquid volume or milk fats to delay gastric transit, dissolved caffeine enters the bloodstream in under 15 minutes.",
+    cutoffRecommendation: "Finish your afternoon espresso by 3:00 PM to ensure active caffeine drops below 50mg before an 11:00 PM bedtime.",
+    faqs: [
+      {
+        q: "How long does a double shot of espresso stay in your body?",
+        a: "A 128mg double espresso decays to 64mg after 5.5 hours, and reaches the sleep-safe 50mg mark around 7.5 to 8 hours later. For fast metabolisers it clears in about 6 hours, while slow metabolisers feel it for over 10 hours.",
+      },
+      {
+        q: "Does espresso have more caffeine than drip coffee?",
+        a: "Ounce for ounce, yes: espresso has about 64mg per fl oz vs. 15mg per fl oz for drip coffee. But because a cup of drip coffee is 8 to 16 ounces (95–310mg total), a full mug of drip coffee usually contains significantly more total caffeine than a double espresso.",
+      },
+    ],
+  },
+  {
+    slug: "pre-workout",
+    aliases: ["pre-workout-supplement", "c4-pre-workout", "preworkout"],
+    name: "Pre-Workout Supplement",
+    amount: 250,
+    servingSize: "1 scoop in 10 fl oz water (300ml)",
+    category: "Energy",
+    description: "Standard pre-workout powders pack between 200mg and 350mg of caffeine anhydrous per scoop. Because it is anhydrous (pure waterless caffeine) paired with vasodilator ingredients like L-citrulline and beta-alanine, absorption is fast while liver clearance takes up to 13 hours.",
+    cutoffRecommendation: "Take your pre-workout at least 9 to 10 hours before sleep. If working out after 5:30 PM, switch to a non-stimulant pump formula to prevent severe sleep onset delay.",
+    faqs: [
+      {
+        q: "Can I take pre-workout at 6:00 PM and sleep at 11:00 PM?",
+        a: "No. At 11:00 PM (just 5 hours after intake), roughly 133mg of active caffeine remains circulating in your bloodstream—nearly triple the 50mg sleep threshold. It will delay sleep onset by 40–90 minutes and suppress deep stage-3 slow-wave sleep.",
+      },
+      {
+        q: "How long does 250mg of pre-workout caffeine take to clear?",
+        a: "It takes roughly 12 to 13 hours for a 250mg dose to drop below the 50mg threshold in an average metaboliser. For slow metabolisers (homozygous for the CYP1A2*1F allele), it can take over 16 hours.",
+      },
+      {
+        q: "Why does pre-workout keep me awake longer than coffee?",
+        a: "Pre-workout uses caffeine anhydrous, which is absorbed faster than natural coffee bean caffeine. Many formulas also contain synephrine, tyrosine, and yohimbine, which amplify central nervous system stimulation and elevate heart rate long after training ends.",
+      },
+    ],
+  },
 ];
 
 export function getDrinkBySlug(slug: string): CaffeineDrink | undefined {

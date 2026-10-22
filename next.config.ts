@@ -203,6 +203,13 @@ const nextConfig: NextConfig = {
         ["/guides/morning-sunlight-lux-protocol-guide", "/tools/sunlight-calculator"],
         ["/guides/night-shift-to-day-shift-rotation-protocol-guide", "/guides/shift-worker-circadian-survival-guide"],
         ["/chronotype/wolf-9-to-5", "/chronotype/wolf-working-9-to-5"],
+        ["/chronotype/wolf-9-to-5-schedule", "/chronotype/wolf-working-9-to-5"],
+        ["/tools/caffeine-calculator/celsius", "/tools/caffeine-calculator/celsius-200mg"],
+        ["/tools/caffeine-calculator/monster", "/tools/caffeine-calculator/monster-energy"],
+        ["/tools/caffeine-calculator/red-bull-energy", "/tools/caffeine-calculator/red-bull"],
+        ["/tools/caffeine-calculator/dunkin", "/tools/caffeine-calculator/dunkin-iced-coffee"],
+        ["/tools/night-shift-sleep-calculator", "/for/shift-workers"],
+        ["/tools/adhd-sleep-schedule-calculator", "/for/adhd"],
       ].map(([source, destination]) => ({ source, destination, permanent: true })),
       // Legal Redirects
       {

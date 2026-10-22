@@ -210,4 +210,122 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       },
     ],
   },
+  "bear-and-dolphin": {
+    slug: "bear-and-dolphin",
+    typeA: {
+      slug: "bear",
+      name: "Bear",
+      icon: "🐻",
+      tag: "Solar Rhythm",
+      wake: "7:00 AM",
+      bed: "11:00 PM",
+    },
+    typeB: {
+      slug: "dolphin",
+      name: "Dolphin",
+      icon: "🐬",
+      tag: "Light Sleeper",
+      wake: "6:30 AM",
+      bed: "11:30 PM",
+    },
+    title: "Bear and Dolphin Chronotype Compatibility: Co-Sleeping & Sleep Sensitivity Guide | ARC",
+    description:
+      "How can a deep-sleeping Bear and a sensitive, light-sleeping Dolphin share a bed peacefully? Overcome nighttime awakenings, snoring friction, and bedroom triggers.",
+    keywords:
+      "bear and dolphin compatibility, bear dolphin relationship, light sleeper heavy sleeper couples, chronotype compatibility bear dolphin, insomnia co sleeping",
+    bedGap: "30 minutes",
+    wakeGap: "30 minutes",
+    sharedAwakeHours: "7:30 AM – 10:30 PM (~15 hours)",
+    verdict: "Close Biological Schedule — Sensitive Co-Sleeping Friction",
+    strengths: [
+      "Nearly identical daytime waking hours (around 15 hours of shared wakefulness).",
+      "Convenient meal and exercise synchronization without circadian tug-of-war.",
+      "Bear's calm, steady circadian rhythm provides psychological grounding for the anxious Dolphin.",
+      "Manageable bedtime offset: both head to bed around the same 11:00 PM window.",
+    ],
+    challenges: [
+      "Acoustic and motion sensitivity: Bear's snoring, heavy breathing, or tossing easily awakens the hyper-vigilant Dolphin.",
+      "Dolphin's midnight wakefulness: When Dolphin wakes up during the night, their tossing or phone-checking disturbs the Bear.",
+      "Bedtime anxiety asymmetry: Bear falls asleep in 10 minutes, which can trigger frustration and sleep anxiety in the racing-mind Dolphin.",
+      "Morning restlessness: Dolphin often wakes early (6:30 AM) with unspent nervous energy while Bear needs full sleep cycles.",
+    ],
+    coSleepingRules: [
+      "Zero-Motion Mattress: Use a split-king mattress or high-density memory foam to eliminate motion transfer when Bear shifts positions.",
+      "Separate Blankets (Scandinavian Method): Eliminates 80% of accidental midnight wake-ups caused by blanket pulling.",
+      "Brown Noise Machine: Running a continuous low-frequency sound machine masks Bear's breathing and outdoor neighborhood noise.",
+      "Strict Bedroom Boundary: If Dolphin cannot sleep after 20 minutes, they must leave the bed and read under dim amber light in the living room.",
+    ],
+    scientificAnalysis:
+      "Dolphins exhibit genetically atypical sleep architecture characterized by elevated central nervous system arousal, higher nocturnal core body temperature, and fragmented stage 3 slow-wave sleep. Bears, in contrast, have deep, restorative sleep cycles closely aligned with solar cycles. Co-sleeping friction in this couple is almost purely mechanical and sensory rather than circadian. Protecting the Dolphin from sensory triggers preserves sleep quality for both.",
+    faqs: [
+      {
+        q: "Can a heavy-sleeping Bear and an insomniac Dolphin sleep in the same bed?",
+        a: "Yes, provided the bedroom is acoustically and mechanically isolated. A motion-isolating mattress, continuous brown noise, separate duvets, and an eye mask allow 85% of Bear-Dolphin couples to co-sleep without waking each other.",
+      },
+      {
+        q: "What should the Dolphin do when they can't fall asleep next to a snoring Bear?",
+        a: "Follow stimulus control therapy: do not lie in bed frustrated. Slip out of bed quietly, sit in another room with dim amber lighting, and practice non-sleep deep rest (NSDR) or light reading until sleep pressure returns.",
+      },
+      {
+        q: "What are the shared peak focus hours for Bear and Dolphin?",
+        a: "Both chronotypes experience their primary cognitive peak between 10:00 AM and 1:00 PM. This is their optimal window for collaborative deep work, joint decision-making, and high-stakes conversations.",
+      },
+    ],
+  },
+  "lion-and-bear": {
+    slug: "bear-and-lion",
+    typeA: {
+      slug: "lion",
+      name: "Lion",
+      icon: "🦁",
+      tag: "Early Riser",
+      wake: "6:00 AM",
+      bed: "10:00 PM",
+    },
+    typeB: {
+      slug: "bear",
+      name: "Bear",
+      icon: "🐻",
+      tag: "Solar Rhythm",
+      wake: "7:00 AM",
+      bed: "11:00 PM",
+    },
+    title: "Lion and Bear Chronotype Compatibility: Morning Momentum & Sleep Harmony | ARC",
+    description:
+      "How compatible are Lions and Bears? Explore their natural 1-hour alignment, synchronized morning momentum, shared afternoon slumps, and bedroom tips.",
+    keywords:
+      "lion and bear compatibility, lion bear relationship, chronotype compatibility lion bear, early bird couples sleep schedule",
+    bedGap: "1 hour",
+    wakeGap: "1 hour",
+    sharedAwakeHours: "8:00 AM – 9:00 PM (~13 hours)",
+    verdict: "High Natural Alignment — Harmonious Early-Riser Synergy",
+    strengths: [
+      "Closest natural circadian alignment across different chronotypes (only a 60-minute gap).",
+      "Over 13 hours of shared awake time every single day.",
+      "Shared morning productivity and appreciation for daylight and outdoor activities.",
+      "Neither partner wants to stay up late, eliminating midnight bedroom disruptions.",
+    ],
+    challenges: [
+      "Staggered afternoon slumps: Lion crashes at 1:30 PM, Bear crashes at 2:30 PM.",
+      "Evening social plans are difficult: both struggle with dinners or events starting after 8:30 PM.",
+      "Lion's 6:00 AM alarm can awaken the Bear during their final sleep cycle.",
+    ],
+    coSleepingRules: [
+      "Silent Wake-Up for Lion: Use a haptic smart watch alarm so Lion slips out of bed without disturbing Bear's final hour of sleep.",
+      "Early Evening Wind-Down: Begin lowering house lights by 9:00 PM; Lion sleeps at 10:00 PM while Bear reads quietly until 11:00 PM.",
+      "Shared Morning Sunlight: Step outside together around 7:30 AM for mutual morning circadian anchoring.",
+    ],
+    scientificAnalysis:
+      "Lions and Bears share morning-oriented circadian phase angles. Both exhibit robust cortisol awakening responses within an hour of dawn and begin winding down within 2 hours of astronomical sunset. This creates exceptional domestic harmony, as meal times, exercise habits, and bedroom temperature preferences closely match.",
+    faqs: [
+      {
+        q: "Are Lions and Bears naturally compatible?",
+        a: "Yes. Lion and Bear pairings report among the highest sleep satisfaction of any mixed-chronotype couples because their bedtimes and wake times differ by only one hour.",
+      },
+      {
+        q: "What time should a Lion and Bear eat dinner?",
+        a: "Between 6:00 PM and 7:00 PM. This allows the Lion 3 full hours to digest before their 10:00 PM bedtime, preventing elevated resting heart rate and gastroesophageal reflux during sleep.",
+      },
+    ],
+  },
 };

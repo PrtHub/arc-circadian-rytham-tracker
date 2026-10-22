@@ -75,7 +75,7 @@ Price: about $60–$96/year at the time of writing.
 
 Bodly offers a clean online caffeine half-life calculator that visualizes caffeine decay in a browser. It is a handy single-purpose utility for checking basic half-life math.
 
-Where it falls short: Bodly is primarily a standalone web calculator, not a full circadian operating system. It does not calibrate against your chronotype, set morning sunlight timers, plan your afternoon dip, or sync dynamically on iOS. Try ARC's free [caffeine half-life calculator](/tools/caffeine-calculator) for an interactive experience.
+Where it falls short: Bodly is primarily a standalone web calculator, not a full circadian operating system. It does not calibrate against your chronotype, set morning sunlight timers, plan your afternoon dip, or sync dynamically on iOS. For dedicated mobile apps, see our ranking of the [5 Best Caffeine Tracker Apps for iPhone](/blog/best-caffeine-tracker-apps-iphone), or test ARC's free [caffeine half-life calculator](/tools/caffeine-calculator) for an interactive experience.
 
 Price: Free web tool / freemium app features.
 

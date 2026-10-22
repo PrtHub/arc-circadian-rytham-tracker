@@ -23,11 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const compatibilityPairings = Object.keys(COMPATIBILITY_PAIRINGS).map((slug) => ({
-    url: `${SITE_URL}/tools/chronotype-compatibility/${slug}`,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const compatibilityPairings = Object.values(COMPATIBILITY_PAIRINGS)
+    .filter((v, i, a) => a.findIndex((t) => t.slug === v.slug) === i)
+    .map((pairing) => ({
+      url: `${SITE_URL}/tools/chronotype-compatibility/${pairing.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }));
 
   const guides = guidesData
     .filter((guide) => !REDIRECTED_GUIDE_SLUGS.has(guide.slug))

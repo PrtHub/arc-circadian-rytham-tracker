@@ -58,6 +58,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/chronotype/bear-working-9-to-5`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/chronotype/lion-working-9-to-5`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/chronotype/dolphin-working-9-to-5`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
   ];
 
   const audiences = Object.keys(audienceDetails).map((slug) => ({

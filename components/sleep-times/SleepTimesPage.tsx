@@ -41,6 +41,12 @@ export const sleepTimesPath = (mode: SleepTimesMode, minutes: number) =>
 function tailoredAdvice(mode: SleepTimesMode, minutes: number, plannedBed: number) {
   const t = timeLabel(minutes);
   if (mode === "wake") {
+    if (minutes >= 11 * 60) {
+      return [
+        `A ${t} wake time is typical for night shift workers, late hospitality staff, or extreme evening chronotypes. To sustain daytime sleep, wear dark sunglasses on your commute home to prevent morning daylight from prematurely resetting your clock before you sleep.`,
+        `When you wake up at ${t}, turn on bright indoor lights immediately and eat a protein-focused meal to signal to your peripheral circadian clocks that your active period has begun.`,
+      ];
+    }
     switch (wakeBand(minutes)) {
       case "early":
         return [
@@ -58,6 +64,12 @@ function tailoredAdvice(mode: SleepTimesMode, minutes: number, plannedBed: numbe
           `Morning light is what holds a late body clock in place, so get outside for about 20 minutes soon after you wake, and keep evenings dim so your bedtime doesn't creep past ${formatClock(plannedBed)}.`,
         ];
     }
+  }
+  if (minutes >= 3 * 60 && minutes <= 7 * 60) {
+    return [
+      `A ${t} bedtime is characteristic of third-shift workers, healthcare providers, and overnight professionals. Sleeping during the daylight hours requires strict light defense: invest in 100% blackout shades and eye masks, as even minor retinal light exposure suppresses daytime sleep depth.`,
+      `Keep your bedroom cool (65°F to 67°F / 18°C to 19°C) and run a continuous brown or white noise machine to mask daytime neighborhood traffic and household noise.`,
+    ];
   }
   switch (bedBand(minutes)) {
     case "early":
@@ -200,22 +212,24 @@ export function SleepTimesPage({ mode, minutes }: { mode: SleepTimesMode; minute
           <h2 className="text-xs font-black uppercase tracking-widest text-accent mb-3 font-mono">
             {mode === "wake" ? "Other wake-up times" : "Other bedtimes"}
           </h2>
-          <ul className="flex flex-wrap gap-2">
-            {siblings.map((m) => (
-              <li key={m}>
-                {m === minutes ? (
-                  <span className="inline-block px-3 py-1.5 rounded-full bg-accent text-black text-xs font-bold font-mono">{timeLabel(m)}</span>
-                ) : (
-                  <Link
-                    href={sleepTimesPath(mode, m)}
-                    className="inline-block px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold font-mono text-(--fg-muted) hover:text-white"
-                  >
-                    {timeLabel(m)}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
+          <div className="max-h-56 overflow-y-auto pr-1 scrollbar-thin rounded-2xl bg-white/[0.02] border border-white/5 p-4">
+            <ul className="flex flex-wrap gap-2">
+              {siblings.map((m) => (
+                <li key={m}>
+                  {m === minutes ? (
+                    <span className="inline-block px-3 py-1.5 rounded-full bg-accent text-black text-xs font-bold font-mono shadow-sm">{timeLabel(m)}</span>
+                  ) : (
+                    <Link
+                      href={sleepTimesPath(mode, m)}
+                      className="inline-block px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold font-mono text-(--fg-muted) hover:text-white hover:border-(--accent)/40 transition-colors"
+                    >
+                      {timeLabel(m)}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
           <p className="text-xs text-(--fg-muted) mt-4">
             {mode === "wake" ? "Know your bedtime instead? " : "Know your wake-up time instead? "}
             <Link href={sleepTimesPath(otherMode, otherMode === "bed" ? BED_TIMES[4] : WAKE_TIMES[5])} className="text-accent hover:underline">

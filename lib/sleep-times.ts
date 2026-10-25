@@ -9,9 +9,51 @@ export const FALL_ASLEEP_MINS = 15;
 const DAY = 24 * 60;
 const norm = (m: number) => ((m % DAY) + DAY) % DAY;
 
-// 4:30 AM to 9:00 AM, and 9:00 PM to 1:00 AM, every half hour.
-export const WAKE_TIMES = Array.from({ length: 10 }, (_, i) => 4 * 60 + 30 + i * 30);
-export const BED_TIMES = Array.from({ length: 9 }, (_, i) => norm(21 * 60 + i * 30));
+// Comprehensive wake times (4:00 AM to 1:00 PM) in 15-minute and 30-minute intervals
+export const WAKE_TIMES: number[] = [
+  // 4:00 - 4:45 AM
+  4 * 60, 4 * 60 + 15, 4 * 60 + 30, 4 * 60 + 45,
+  // 5:00 - 5:45 AM
+  5 * 60, 5 * 60 + 15, 5 * 60 + 30, 5 * 60 + 45,
+  // 6:00 - 6:45 AM
+  6 * 60, 6 * 60 + 15, 6 * 60 + 30, 6 * 60 + 45,
+  // 7:00 - 7:45 AM
+  7 * 60, 7 * 60 + 15, 7 * 60 + 30, 7 * 60 + 45,
+  // 8:00 - 8:45 AM
+  8 * 60, 8 * 60 + 15, 8 * 60 + 30, 8 * 60 + 45,
+  // 9:00 - 9:45 AM
+  9 * 60, 9 * 60 + 15, 9 * 60 + 30, 9 * 60 + 45,
+  // 10:00 - 10:45 AM
+  10 * 60, 10 * 60 + 15, 10 * 60 + 30, 10 * 60 + 45,
+  // Midday / Shift-work mornings
+  11 * 60, 11 * 60 + 30,
+  12 * 60, 12 * 60 + 30,
+  13 * 60,
+];
+
+// Comprehensive bed times (7:00 PM to 5:00 AM) in 15-minute intervals, including shift work
+export const BED_TIMES: number[] = [
+  // 7:00 - 7:45 PM
+  19 * 60, 19 * 60 + 30, 19 * 60 + 45,
+  // 8:00 - 8:45 PM
+  20 * 60, 20 * 60 + 15, 20 * 60 + 30, 20 * 60 + 45,
+  // 9:00 - 9:45 PM
+  21 * 60, 21 * 60 + 15, 21 * 60 + 30, 21 * 60 + 45,
+  // 10:00 - 10:45 PM
+  22 * 60, 22 * 60 + 15, 22 * 60 + 30, 22 * 60 + 45,
+  // 11:00 - 11:45 PM
+  23 * 60, 23 * 60 + 15, 23 * 60 + 30, 23 * 60 + 45,
+  // 12:00 - 12:45 AM
+  norm(0), norm(15), norm(30), norm(45),
+  // 1:00 - 1:45 AM
+  norm(1 * 60), norm(1 * 60 + 15), norm(1 * 60 + 30), norm(1 * 60 + 45),
+  // 2:00 - 2:45 AM
+  norm(2 * 60), norm(2 * 60 + 15), norm(2 * 60 + 30), norm(2 * 60 + 45),
+  // 3:00 - 3:30 AM
+  norm(3 * 60), norm(3 * 60 + 30),
+  // Shift worker day sleep (4:00 - 5:00 AM)
+  norm(4 * 60), norm(4 * 60 + 30), norm(5 * 60),
+];
 
 // 390 -> "6-30am", 1320 -> "10pm", 0 -> "12am"
 export function timeSlug(minutes: number) {

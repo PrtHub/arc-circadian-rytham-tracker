@@ -38,12 +38,12 @@ Do **not** add more general content pages right now. When a new domain has 35+ t
 
 ---
 
-## 3. The 19 Highest-ROI New Pages to Create Next
+## 3. High-ROI Scaled Page Architecture (255+ Total Pages)
 
 > [!IMPORTANT]
 > **Localization Rule**: Avoid translations (`/de/`, `/es/`, `/pt/`) at this point. Focus 100% of engineering and content efforts on English-language high-intent clusters first.
 
-Every new page created must sit strictly inside the three search pockets where Google is already rewarding ARC or where brand-new micro-sites are ranking on Page 1 with zero backlinks:
+Every page created sits strictly inside the four high-ROI search pockets where Google rewards ARC with top impressions and zero YMYL medical penalties:
 
 ### Cluster A: Competitor App Alternatives & Comparisons (4 Pages)
 

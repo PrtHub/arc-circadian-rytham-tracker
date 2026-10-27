@@ -129,7 +129,7 @@ export default async function ChronotypePage(props: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
-      <div className="bg-black text-white min-h-screen relative overflow-hidden" style={{ fontFamily: "var(--font-geist-sans)" }}>
+      <div className="text-white min-h-screen relative overflow-hidden" style={{ fontFamily: "var(--font-geist-sans)" }}>
         {/* Decorative Radial Glowing Blobs */}
         <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-(--accent)/10 blur-[150px] pointer-events-none -z-10" />
         <div className="absolute bottom-[20%] right-[-10%] w-125 h-125 rounded-full bg-(--accent)/5 blur-[120px] pointer-events-none -z-10" />

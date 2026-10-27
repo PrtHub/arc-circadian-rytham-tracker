@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
-
-import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
-import { CutoffReveal } from "@/components/CutoffReveal";
+import "./landing.css";
+import { LANDING_HTML } from "@/components/landing/landing-html";
+import { LandingInteractive } from "@/components/landing/LandingInteractive";
 import { SectionViewTracker } from "@/components/SectionViewTracker";
-import { SocialProof } from "@/components/SocialProof";
-import { Problem } from "@/components/Problem";
-import { Chronotypes } from "@/components/Chronotypes";
-import { Features } from "@/components/Features";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Science } from "@/components/Science";
-import { Testimonials } from "@/components/Testimonials";
-import { Audience } from "@/components/Audience";
-import { Pricing } from "@/components/Pricing";
-import { Faq } from "@/components/Faq";
-import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
 import {
   jsonLdApp,
   jsonLdFaq,
@@ -24,9 +11,9 @@ import {
 } from "@/components/arc-data";
 
 export const metadata: Metadata = {
-  title: "ARC 2.0 — Circadian Rhythm Tracker, Chronotype Quiz & Sleep Science",
+  title: "ARC – Circadian Rhythm Tracker",
   description:
-    "You're not lazy — you're on the wrong clock. ARC 2.0 finds your chronotype (Lion, Bear, Wolf, Dolphin) and builds your day around your biology: a caffeine cutoff from every drink you log, a morning light timer, and Trends that measure your afternoon crashes.",
+    "ARC tells you why you feel tired right now, gives you the one thing worth doing about it, and shows you over the weeks whether it’s working. Circadian rhythm tracker for iPhone.",
   keywords: [
     "chronotype",
     "circadian rhythm",
@@ -41,27 +28,39 @@ export const metadata: Metadata = {
     "wolf chronotype",
     "dolphin chronotype",
     "circadian rhythm tracker",
-    "arc 2.0",
+    "arc",
     "living light",
   ],
   alternates: {
     canonical: "https://arcapp.sbs",
   },
   openGraph: {
-    title: "ARC 2.0 — Circadian Rhythm Tracker & Chronotype App",
+    title: "ARC – Circadian Rhythm Tracker",
     description:
-      "You're not lazy. You're on the wrong clock. Discover your biological timing with ARC 2.0 Living Light.",
+      "You’re not lazy. You’re on the wrong clock. ARC plans your day around your chronotype, your coffee and the dip you actually have.",
     type: "website",
     url: "https://arcapp.sbs",
-    siteName: "ARC Circadian Rhythm Tracker",
+    siteName: "ARC",
     locale: "en_US",
+    images: [
+      {
+        url: "https://arcapp.sbs/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ARC – Circadian Rhythm Tracker",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARC 2.0 — Circadian Rhythm Tracker & Chronotype App",
+    title: "ARC – Circadian Rhythm Tracker",
     description:
-      "You're not lazy. You're on the wrong clock. Find your chronotype and follow your personalized day plan with ARC 2.0.",
+      "You’re not lazy. You’re on the wrong clock. ARC plans your day around your chronotype, your coffee and the dip you actually have.",
     creator: "@iPritamX",
+    images: ["https://arcapp.sbs/og.png"],
+  },
+  other: {
+    "apple-itunes-app": "app-id=6758214892",
   },
 };
 
@@ -85,25 +84,11 @@ export default function ArcPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
-      <div className="min-h-screen">
-        <Nav />
-        <main>
-          <Hero />
-          <CutoffReveal />
-          <SocialProof />
-          <Problem />
-          <Chronotypes />
-          <Features />
-          <HowItWorks />
-          <Science />
-          <Testimonials />
-          <Audience />
-          <Pricing />
-          <Faq />
-          <FinalCta />
-        </main>
-        <Footer />
-      </div>
+      <div
+        className="landing-page"
+        dangerouslySetInnerHTML={{ __html: LANDING_HTML }}
+      />
+      <LandingInteractive />
       <SectionViewTracker />
     </>
   );

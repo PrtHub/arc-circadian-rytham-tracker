@@ -3,95 +3,84 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer
-      className="border-t border-white/5 bg-black/30 backdrop-blur-md pt-16 pb-8 px-6"
-      role="contentinfo"
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
-          <div className="col-span-2 lg:col-span-2">
-            <Link
-              href="/"
-              className="font-black text-white text-2xl tracking-tighter flex items-center gap-2 mb-4"
-            >
+    <footer className="bg-[#070A18] border-t border-[rgba(253,246,236,0.14)] py-14 sm:py-16 text-[#FDF6EC]" role="contentinfo">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-9 lg:gap-8">
+          {/* Brand & About */}
+          <div className="col-span-2 space-y-3.5">
+            <Link className="inline-flex items-center gap-2.5 text-[#FDF6EC] font-display text-[26px] tracking-wide" href="/">
               <Image
-                src="/icon-dark.png"
+                src="/brand-icon.webp"
                 alt="ARC logo"
-                width={32}
-                height={32}
-                className="rounded-lg opacity-90 shadow-md"
+                width={30}
+                height={30}
+                className="rounded-lg block"
               />
-              ARC<span className="text-accent">.</span>
+              <span>ARC</span>
             </Link>
-            <p className="text-(--fg-muted) text-sm max-w-sm leading-relaxed mb-6">
-              Stop fighting your biology. ARC uses your chronotype to build your day around your unique biological blueprint.
+            <p className="text-[#C3BACB] text-[14px] leading-relaxed max-w-sm">
+              Plans your day around your chronotype: daylight, coffee, focus, and the dip you actually have.
             </p>
-            <div className="flex items-center gap-4 text-sm font-semibold">
-              <a href="https://x.com/iPritamX" target="_blank" rel="noopener noreferrer" className="text-(--fg-muted) hover:text-white transition-colors">X (Twitter)</a>
-              <a href="https://www.instagram.com/arc.sync/" target="_blank" rel="noopener noreferrer" className="text-(--fg-muted) hover:text-white transition-colors">Instagram</a>
-            </div>
           </div>
 
-          <div>
-            <h3 className="text-accent font-bold mb-4 tracking-wider text-xs font-mono uppercase">Chronotypes</h3>
-            <ul className="space-y-3 text-sm text-(--fg-muted)">
-              <li><Link href="/chronotype/lion" className="hover:text-white transition-colors">Lion Schedule</Link></li>
-              <li><Link href="/chronotype/bear" className="hover:text-white transition-colors">Bear Schedule</Link></li>
-              <li><Link href="/chronotype/wolf" className="hover:text-white transition-colors">Wolf Schedule</Link></li>
-              <li><Link href="/chronotype/dolphin" className="hover:text-white transition-colors">Dolphin Schedule</Link></li>
+          {/* Chronotypes */}
+          <nav aria-label="Chronotypes" className="space-y-3">
+            <h4 className="text-[12px] font-semibold tracking-[0.14em] uppercase text-[#C3BACB]">Chronotypes</h4>
+            <ul className="space-y-2.5 text-[14px]">
+              <li><Link href="/chronotype/lion" className="hover:text-[#FFD9A0] hover:underline transition-colors">Lion schedule</Link></li>
+              <li><Link href="/chronotype/bear" className="hover:text-[#FFD9A0] hover:underline transition-colors">Bear schedule</Link></li>
+              <li><Link href="/chronotype/wolf" className="hover:text-[#FFD9A0] hover:underline transition-colors">Wolf schedule</Link></li>
+              <li><Link href="/chronotype/dolphin" className="hover:text-[#FFD9A0] hover:underline transition-colors">Dolphin schedule</Link></li>
+              <li><Link href="/tools/chronotype-quiz" className="hover:text-[#FFD9A0] hover:underline transition-colors">Chronotype quiz</Link></li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="text-accent font-bold mb-4 tracking-wider text-xs font-mono uppercase">Resources</h3>
-            <ul className="space-y-3 text-sm text-(--fg-muted)">
-              <li><Link href="/guides" className="hover:text-white transition-colors">Circadian Guides</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Journal Blog</Link></li>
-              <li><Link href="/science" className="hover:text-white transition-colors">Science &amp; Protocols</Link></li>
-              <li><Link href="/books" className="hover:text-white transition-colors">Recommended Books</Link></li>
-              <li><Link href="/#pricing" className="hover:text-white transition-colors">Pricing Plans</Link></li>
-              <li><Link href="/#faq" className="hover:text-white transition-colors">FAQ</Link></li>
-              <li><Link href="/support" className="hover:text-white transition-colors">Help &amp; Support</Link></li>
+          {/* Free tools */}
+          <nav aria-label="Free tools" className="space-y-3">
+            <h4 className="text-[12px] font-semibold tracking-[0.14em] uppercase text-[#C3BACB]">Free tools</h4>
+            <ul className="space-y-2.5 text-[14px]">
+              <li><Link href="/tools/caffeine-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Caffeine calculator</Link></li>
+              <li><Link href="/tools/sleep-cycle-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Sleep cycle calculator</Link></li>
+              <li><Link href="/tools/nap-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Nap calculator</Link></li>
+              <li><Link href="/tools/jetlag-planner" className="hover:text-[#FFD9A0] hover:underline transition-colors">Jet lag planner</Link></li>
+              <li><Link href="/tools" className="hover:text-[#FFD9A0] hover:underline transition-colors">All tools</Link></li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="text-accent font-bold mb-4 tracking-wider text-xs font-mono uppercase">Free Tools</h3>
-            <ul className="space-y-3 text-sm text-(--fg-muted)">
-              <li><Link href="/tools" className="hover:text-white transition-colors">All Free Tools</Link></li>
-              <li><Link href="/tools/caffeine-calculator" className="hover:text-white transition-colors">Caffeine Calculator</Link></li>
-              <li><Link href="/tools/sleep-cocktail" className="hover:text-white transition-colors">Sleep Cocktail Stack</Link></li>
-              <li><Link href="/tools/jetlag-planner" className="hover:text-white transition-colors">Jetlag Planner</Link></li>
-              <li><Link href="/tools/chronotype-compatibility" className="hover:text-white transition-colors">Partner Compatibility</Link></li>
-              <li><Link href="/tools/sleep-cycle-calculator" className="hover:text-white transition-colors">Sleep Cycle Calculator</Link></li>
-              <li><Link href="/tools/nap-calculator" className="hover:text-white transition-colors">Nap Calculator</Link></li>
-              <li><Link href="/tools/daily-schedule-generator" className="hover:text-white transition-colors">Daily Schedule Generator</Link></li>
-              <li><Link href="/tools/daylight-saving-time-planner" className="hover:text-white transition-colors">Daylight Saving Planner</Link></li>
-              <li><Link href="/tools/social-jetlag-calculator" className="hover:text-white transition-colors">Social Jetlag Calculator</Link></li>
-              <li><Link href="/tools/chronotype-quiz" className="hover:text-white transition-colors">Chronotype Quiz</Link></li>
+          {/* For */}
+          <nav aria-label="Who it's for" className="space-y-3">
+            <h4 className="text-[12px] font-semibold tracking-[0.14em] uppercase text-[#C3BACB]">For</h4>
+            <ul className="space-y-2.5 text-[14px]">
+              <li><Link href="/for/coffee-drinkers" className="hover:text-[#FFD9A0] hover:underline transition-colors">Coffee drinkers</Link></li>
+              <li><Link href="/for/founders" className="hover:text-[#FFD9A0] hover:underline transition-colors">Founders</Link></li>
+              <li><Link href="/for/adhd" className="hover:text-[#FFD9A0] hover:underline transition-colors">ADHD</Link></li>
+              <li><Link href="/for/shift-workers" className="hover:text-[#FFD9A0] hover:underline transition-colors">Shift workers</Link></li>
+              <li><Link href="/for/sleep-seekers" className="hover:text-[#FFD9A0] hover:underline transition-colors">Sleep seekers</Link></li>
+              <li><Link href="/for/biohackers" className="hover:text-[#FFD9A0] hover:underline transition-colors">Biohackers</Link></li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="text-accent font-bold mb-4 tracking-wider text-xs font-mono uppercase">Use Cases</h3>
-            <ul className="space-y-3 text-sm text-(--fg-muted)">
-              <li><Link href="/for/founders" className="hover:text-white transition-colors">For Founders</Link></li>
-              <li><Link href="/for/adhd" className="hover:text-white transition-colors">For ADHD</Link></li>
-              <li><Link href="/for/shift-workers" className="hover:text-white transition-colors">For Shift Workers</Link></li>
-              <li><Link href="/for/coffee-drinkers" className="hover:text-white transition-colors">For Coffee Drinkers</Link></li>
-              <li><Link href="/for/sleep-seekers" className="hover:text-white transition-colors">For Sleep Seekers</Link></li>
-              <li><Link href="/for/biohackers" className="hover:text-white transition-colors">For Biohackers</Link></li>
+          {/* Learn */}
+          <nav aria-label="Learn" className="space-y-3">
+            <h4 className="text-[12px] font-semibold tracking-[0.14em] uppercase text-[#C3BACB]">Learn</h4>
+            <ul className="space-y-2.5 text-[14px]">
+              <li><Link href="/guides" className="hover:text-[#FFD9A0] hover:underline transition-colors">Guides</Link></li>
+              <li><Link href="/blog" className="hover:text-[#FFD9A0] hover:underline transition-colors">Blog</Link></li>
+              <li><Link href="/science" className="hover:text-[#FFD9A0] hover:underline transition-colors">Science</Link></li>
+              <li><Link href="/books" className="hover:text-[#FFD9A0] hover:underline transition-colors">Books</Link></li>
+              <li><Link href="/support" className="hover:text-[#FFD9A0] hover:underline transition-colors">Support</Link></li>
             </ul>
-          </div>
+          </nav>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-(--fg-muted) opacity-80 font-mono">
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/support" className="hover:text-white transition-colors">Support Center</Link>
+        {/* Base Bar */}
+        <div className="mt-11 pt-6 border-t border-[rgba(253,246,236,0.14)] flex flex-wrap items-center justify-between gap-4 text-[13.5px] text-[#C3BACB]">
+          <span>© {new Date().getFullYear()} ARC. Built on chronobiology.</span>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-[#FFD9A0] transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-[#FFD9A0] transition-colors">Terms</Link>
+            <Link href="/support" className="hover:text-[#FFD9A0] transition-colors">Support</Link>
           </div>
-          <p>© {new Date().getFullYear()} ARC. Built on chronobiology.</p>
         </div>
       </div>
     </footer>

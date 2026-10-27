@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { CircadianThemeProvider } from "@/components/CircadianThemeProvider";
 import { MixpanelTracker } from "@/components/MixpanelTracker";
 
 const geistSans = Geist({
@@ -23,6 +22,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+
+export const viewport: Viewport = {
+  themeColor: "#070A18",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -139,7 +143,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-phase="dip"
+      data-phase="night"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} dark`}
       suppressHydrationWarning
     >
@@ -150,15 +154,47 @@ export default function RootLayout({
               (function() {
                 try {
                   var d = new Date();
-                  var m = d.getHours() * 60 + d.getMinutes();
-                  var p = "night";
-                  if (m >= 330 && m < 450) p = "rise";
-                  else if (m >= 450 && m < 630) p = "morning";
-                  else if (m >= 630 && m < 810) p = "peak";
-                  else if (m >= 810 && m < 990) p = "dip";
-                  else if (m >= 990 && m < 1260) p = "evening";
-                  else if (m >= 1260 && m < 1380) p = "windDown";
-                  document.documentElement.setAttribute("data-phase", p);
+                  var h = (d.getHours() * 60 + d.getMinutes()) / 60;
+                  var idx = (h >= 23 || h < 4) ? 5 : h < 9 ? 0 : h < 13 ? 1 : h < 17.5 ? 2 : h < 21 ? 3 : 4;
+                  var phases = ["rise", "peak", "dip", "evening", "windDown", "night"];
+                  var p = phases[idx];
+                  var doc = document.documentElement;
+                  doc.setAttribute("data-phase", p);
+
+                  var skies = [
+                    { zen: "#1E1C4A", hor: "#E3876A", acc: "#FFD9A0", stars: "0" },
+                    { zen: "#0D2D62", hor: "#4A90D2", acc: "#FFE0A8", stars: "0" },
+                    { zen: "#321F4C", hor: "#BE6E4E", acc: "#FFC48A", stars: "0" },
+                    { zen: "#251B54", hor: "#DC9048", acc: "#FFD9A0", stars: "0" },
+                    { zen: "#110F38", hor: "#5A3165", acc: "#E3B08C", stars: "0.85" },
+                    { zen: "#04071A", hor: "#18215A", acc: "#9FA6D8", stars: "0.85" }
+                  ];
+                  var curSky = skies[idx];
+                  var s = doc.style;
+                  s.setProperty("--sky-zen", curSky.zen);
+                  s.setProperty("--sky-hor", curSky.hor);
+                  s.setProperty("--sky-acc", curSky.acc);
+                  s.setProperty("--sky-stars", curSky.stars);
+
+                  var f = h < 4 ? 1 : Math.min(1, Math.max(0, (h - 5) / 19));
+                  var u = 1 - f;
+                  var sx = (3 * u * u * f * 300 + 3 * u * f * f * 700 + f * f * f * 1000) / 10;
+                  var sy = (u * u * u * 270 + 3 * u * u * f * -10 + 3 * u * f * f * -10 + f * f * f * 270) / 3;
+                  s.setProperty("--sun-x", sx.toFixed(2) + "%");
+                  s.setProperty("--sun-y", sy.toFixed(2) + "%");
+
+                  var grounds = {
+                    night:    { top: "#070a18", mid: "#0e1430", bot: "#131936" },
+                    rise:     { top: "#1a1c3a", mid: "#4a3352", bot: "#7c4722" },
+                    peak:     { top: "#0d1b2e", mid: "#173248", bot: "#2e5c76" },
+                    dip:      { top: "#221d30", mid: "#432f43", bot: "#6b4536" },
+                    evening:  { top: "#1c2140", mid: "#3d3050", bot: "#7a4820" },
+                    windDown: { top: "#0e1128", mid: "#221a3a", bot: "#3d263e" }
+                  };
+                  var g = grounds[p] || grounds.night;
+                  s.setProperty("--g-top", g.top);
+                  s.setProperty("--g-mid", g.mid);
+                  s.setProperty("--g-bot", g.bot);
                 } catch (e) {}
               })();
             `,
@@ -181,7 +217,6 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <CircadianThemeProvider />
         {/* <FloatingSupport /> */}
         <MixpanelTracker />
       </body>

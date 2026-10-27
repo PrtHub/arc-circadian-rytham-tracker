@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AppStoreButton } from "@/components/AppStoreButton";
 
 interface ContentNavProps {
   backHref?: string;
@@ -26,38 +25,59 @@ export function ContentNav({ backHref: _backHref, backLabel: _backLabel }: Conte
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? "bg-[#070a18]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/40"
-            : "bg-[#070a18]/85 backdrop-blur-md border-b border-white/5 shadow-md shadow-black/20"
+            ? "bg-[#070a18]/95 backdrop-blur-xl border-b border-[rgba(253,246,236,0.12)] shadow-2xl shadow-black/50"
+            : "bg-[#070a18]/80 backdrop-blur-md border-b border-[rgba(253,246,236,0.08)] shadow-md shadow-black/20"
         }`}
       >
-        <nav
-          className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4"
+        <div
+          className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6"
           aria-label="Content navigation"
         >
-          {/* Left: Brand Icon + Name */}
+          {/* Left: Brand matching landing page */}
           <Link
             href="/"
-            className="text-lg font-black tracking-tighter text-white flex items-center gap-2.5 group shrink-0"
+            className="brand shrink-0"
             aria-label="ARC home"
           >
-            <div className="relative">
-              <Image
-                src="/icon-dark.png"
-                alt="ARC logo"
-                width={28}
-                height={28}
-                className="rounded-lg shadow-md border border-white/10 group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 rounded-lg bg-(--accent)/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            <span className="font-sans font-black tracking-tight flex items-center text-lg">
-              ARC<span className="text-accent text-xl leading-none">.</span>
-            </span>
+            <Image
+              src="/brand-icon.webp"
+              alt="ARC logo"
+              width={30}
+              height={30}
+              className="rounded-lg block"
+            />
+            <span>ARC</span>
           </Link>
 
-          {/* Right: Compact App Store CTA */}
-          <AppStoreButton size="compact" location="content_nav" />
-        </nav>
+          {/* Center: Landing page nav links */}
+          <nav className="hidden md:flex gap-6 items-center" aria-label="Sections">
+            <Link href="/#day" className="text-[14.5px] text-(--mist) hover:text-(--cream) transition-colors">
+              How it works
+            </Link>
+            <Link href="/#cutoff" className="text-[14.5px] text-(--mist) hover:text-(--cream) transition-colors">
+              Coffee cutoff
+            </Link>
+            <Link href="/#chronotypes" className="text-[14.5px] text-(--mist) hover:text-(--cream) transition-colors">
+              Chronotypes
+            </Link>
+            <Link href="/#pricing" className="text-[14.5px] text-(--mist) hover:text-(--cream) transition-colors">
+              Pricing
+            </Link>
+            <Link href="/#faq" className="text-[14.5px] text-(--mist) hover:text-(--cream) transition-colors">
+              FAQ
+            </Link>
+          </nav>
+
+          {/* Right: Landing page CTA */}
+          <div className="flex items-center gap-3">
+            <a
+              className="btn-store text-sm py-2 px-4.5 font-semibold"
+              href="https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892"
+            >
+              Download
+            </a>
+          </div>
+        </div>
       </header>
 
       {/* Structural spacer so fixed header does not obscure page content */}

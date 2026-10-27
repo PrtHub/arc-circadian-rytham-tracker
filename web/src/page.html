@@ -1,0 +1,734 @@
+<!--
+  The arcapp.sbs home page. Built by web/build.js — run it, never edit dist/.
+
+  Placeholders: {{NAME}} is a build value, {{S:key}} is app copy from the locale
+  files, <!--@NAME--> is generated markup. Everything the app itself states comes
+  in through one of those; only the marketing copy is written here.
+-->
+<!--HEAD-->
+<meta name="description" content="ARC tells you why you feel tired right now, gives you the one thing worth doing about it, and shows you over the weeks whether it’s working. Circadian rhythm tracker for iPhone.">
+<link rel="canonical" href="{{SITE}}/">
+<meta name="apple-itunes-app" content="app-id={{APP_STORE_ID}}">
+<meta name="theme-color" content="#070A18">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARC">
+<meta property="og:url" content="{{SITE}}/">
+<meta property="og:title" content="ARC – Circadian Rhythm Tracker">
+<meta property="og:description" content="You’re not lazy. You’re on the wrong clock. ARC plans your day around your chronotype, your coffee and the dip you actually have.">
+<meta property="og:image" content="{{SITE}}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@iPritamX">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"ARC – Circadian Rhythm Tracker","operatingSystem":"iOS","applicationCategory":"HealthApplication","url":"{{SITE}}/","downloadUrl":"{{APP_STORE_URL}}","inLanguage":["en","de"],"publisher":{"@type":"Organization","name":"ARC","url":"{{SITE}}/"}}
+</script>
+<!--/HEAD-->
+<!--PREVIEW--><meta name="claude:viewport-fit-sides" content="cover"><!--/PREVIEW-->
+<!--TOP-->
+<title>ARC – Circadian Rhythm Tracker</title>
+<!--PREVIEW_META-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap">
+<style>
+/* Layout: one day, top to bottom. The hero's sky is the visitor's own hour, the
+   story runs dawn to wind-down, and everything after it sits under the night. */
+:root{
+  --night:#070A18;          /* the app's night ground */
+  --night-2:#0E1430;
+  --cream:#FDF6EC;          /* rise fg — primary text */
+  --mist:#C3BACB;           /* secondary text, leaning to the dusk violet */
+  --gold:#FFD9A0;           /* the one phrase in gold, as on every store frame */
+  --moon:#C9CFFF;
+  --line:rgba(253,246,236,.14);
+  --glass:rgba(255,255,255,.055);
+  --glass-edge:rgba(255,255,255,.13);
+  --display:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  --gutter-l:max(clamp(16px,4vw,40px),env(safe-area-inset-left,0px));
+  --gutter-r:max(clamp(16px,4vw,40px),env(safe-area-inset-right,0px));
+
+  /* The phones are the store generator's, measured in iPhone points. */
+  --serif:var(--display);
+  --sans:var(--ui);
+  --pt:393;--dev-ar:393/852;--top-pt:70;--corner-pt:55;--island:block;
+  --status-h-pt:62;--status-fs-pt:16;--status-x-pt:36;--grain-pt:42.67;
+
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--night);color:var(--cream);font-family:var(--ui);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
+  z-index:30;background:var(--night)}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:1200px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+
+.kicker{display:flex;align-items:center;gap:10px;margin:0 0 20px;font-size:12.5px;font-weight:650;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+h1,h2,.scene h3,.chrono h3,.closing h2{font-family:var(--display);font-weight:400;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:normal}
+h2{font-size:clamp(38px,5.2vw,72px);line-height:1;letter-spacing:-.022em;margin:0}
+h2 em{color:var(--gold)}
+.sec-head{max-width:760px}
+.sec-head > p:not(.kicker){color:var(--mist);font-size:18px;margin:20px 0 0;max-width:36em}
+
+/* ── header ── */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(7,10,24,.6);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid rgba(253,246,236,.08)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--display);font-size:27px;letter-spacing:.02em;line-height:1}
+.brand img{width:30px;height:30px;border-radius:8px;display:block}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{color:var(--mist);text-decoration:none;font-size:14.5px}
+.nav a:hover{color:var(--cream)}
+.top .btn-store{padding:9px 16px;font-size:14px;box-shadow:none}
+@media (max-width:900px){.nav{display:none}.top .btn-store{margin-left:auto}}
+
+.btn-store{display:inline-flex;align-items:center;gap:9px;background:var(--cream);color:#0B0F22;
+  text-decoration:none;font-weight:650;font-size:16px;line-height:1.2;padding:15px 24px;border-radius:999px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);transition:transform .2s ease,box-shadow .2s ease}
+.btn-store:hover{transform:translateY(-1px);box-shadow:0 16px 36px rgba(0,0,0,.42)}
+.btn-store svg{width:17px;height:17px;flex:none}
+.btn-ghost{color:var(--cream);text-decoration:none;font-weight:600;padding:6px 0;
+  border-bottom:1px solid rgba(253,246,236,.35)}
+.btn-ghost:hover{border-color:var(--cream)}
+
+/* ── the phones ── */
+.device{position:relative;container-type:inline-size;transform:rotate(var(--tilt,0deg))}
+.device .phone{position:relative;left:auto;transform:none;padding:2.3cqw;
+  --pr:15.65cqw;border-radius:15.65cqw;
+  box-shadow:0 0 0 .38cqw rgba(255,255,255,.17),0 5cqw 9cqw rgba(0,0,0,.42),0 14cqw 24cqw rgba(0,0,0,.38)}
+.device .screen{border-radius:13.35cqw}
+.device .pop{transform:rotate(var(--rot,0deg))}
+.device .obj{position:absolute;z-index:4;pointer-events:none;transform:rotate(var(--rot,0deg));
+  filter:drop-shadow(0 2.6cqw 3.6cqw rgba(0,0,0,.42))}
+.stage{margin:0;justify-self:center;width:clamp(232px,23vw,300px)}
+
+/* ── hero ── */
+.hero{position:relative;overflow:hidden;overflow:clip;isolation:isolate;
+  --zen:#0D2D62;--hor:#4A90D2;--acc:#FFE0A8;--stars:0}
+.sky,.sky .hor,.sky .glow,.sky .stars,.sky .grain,.sky .fade{position:absolute;inset:0}
+.sky{z-index:-1;background-color:var(--zen);transition:background-color 1.4s ease}
+.sky .hor{background-color:var(--hor);transition:background-color 1.4s ease;
+  -webkit-mask:linear-gradient(to bottom,transparent 16%,#000 92%);mask:linear-gradient(to bottom,transparent 16%,#000 92%)}
+.sky .glow{inset:auto;width:min(110vw,1100px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);
+  left:var(--sun-x,50%);top:calc(22% + var(--sun-y,10%) * .78);
+  background:radial-gradient(circle,rgba(255,226,180,.32) 0%,rgba(255,226,180,0) 60%);transition:left 1.6s ease,top 1.6s ease}
+.sky .stars{opacity:var(--stars);transition:opacity 1.4s ease;background-image:
+  radial-gradient(1.3px 1.3px at 7% 14%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 14% 33%,#fff 60%,transparent 62%),
+  radial-gradient(1.6px 1.6px at 22% 9%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 29% 24%,#fff 60%,transparent 62%),
+  radial-gradient(1.2px 1.2px at 37% 6%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 44% 19%,#fff 60%,transparent 62%),
+  radial-gradient(1.5px 1.5px at 52% 11%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 58% 28%,#fff 60%,transparent 62%),
+  radial-gradient(1.2px 1.2px at 66% 7%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 72% 21%,#fff 60%,transparent 62%),
+  radial-gradient(1.6px 1.6px at 80% 12%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 87% 30%,#fff 60%,transparent 62%),
+  radial-gradient(1.3px 1.3px at 93% 8%,#fff 60%,transparent 62%),radial-gradient(1px 1px at 4% 41%,#fff 60%,transparent 62%),
+  radial-gradient(1px 1px at 34% 39%,#fff 60%,transparent 62%),radial-gradient(1.2px 1.2px at 62% 37%,#fff 60%,transparent 62%),
+  radial-gradient(1px 1px at 76% 44%,#fff 60%,transparent 62%),radial-gradient(1.2px 1.2px at 96% 38%,#fff 60%,transparent 62%)}
+.sky .grain{background:url("{{GRAIN}}") repeat;background-size:64px 64px;opacity:.5;mix-blend-mode:overlay}
+.sky .fade{top:auto;height:120px;background:linear-gradient(to bottom,rgba(7,10,24,0),var(--night))}
+
+/* The arc the app is named for, with the sun at the visitor's hour on it. */
+.arc{position:absolute;left:0;right:0;bottom:0;height:74%;pointer-events:none}
+.arc svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sun{position:absolute;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);
+  background:#FFF4E2;box-shadow:0 0 0 5px rgba(255,236,206,.14),0 0 26px 9px rgba(255,214,150,.6);left:0;top:90%}
+.hero[data-phase="windDown"] .sun,.hero[data-phase="night"] .sun{background:#E6E9FF;
+  box-shadow:0 0 0 5px rgba(201,207,255,.14),0 0 26px 9px rgba(185,194,255,.5)}
+
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(36px,6vw,96px);
+  align-items:center;padding-block:clamp(52px,8vw,108px) clamp(40px,6vw,72px)}
+.hero h1{font-size:clamp(48px,7.3vw,104px);line-height:.97;letter-spacing:-.026em;margin:0}
+.hero h1 em{color:var(--acc);transition:color 1.4s ease}
+.hero .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+.lede{font-size:clamp(17px,1.45vw,20px);color:#EEE6EE;max-width:33em;margin:28px 0 34px}
+.ctas{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.promises{list-style:none;padding:0;margin:34px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.promises li{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.hero .stage{width:clamp(236px,24vw,322px)}
+.hero figcaption{margin-top:30px;text-align:center;font-size:12.5px;font-weight:650;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mist)}
+.hero-note{font-size:14px;color:var(--mist);margin:0;padding-bottom:34px;position:relative}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero .stage{width:min(64vw,290px);margin-top:12px}
+}
+
+/* ── one day ── */
+.day-head{padding-block:clamp(72px,10vw,132px) clamp(8px,2vw,24px);
+  background:linear-gradient(180deg,var(--night),#1E1C4A)}
+.scene{position:relative;overflow:hidden;overflow:clip;isolation:isolate;
+  background:linear-gradient(180deg,var(--zen),var(--next))}
+.scene::before{content:"";position:absolute;z-index:-1;width:min(96vw,980px);aspect-ratio:1;border-radius:50%;
+  right:-14%;top:50%;transform:translateY(-50%);opacity:.5;
+  background:radial-gradient(circle,var(--hor) 0%,rgba(0,0,0,0) 62%)}
+.scene.flip::before{right:auto;left:-14%}
+.scene-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;
+  gap:clamp(48px,8vw,120px);padding-block:clamp(72px,9vw,128px)}
+.scene.flip .scene-copy{order:2}
+.scene-copy{min-width:0}
+.when{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin:0 0 18px;font-size:12.5px;font-weight:650;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.when time{font-family:var(--display);font-size:32px;font-weight:400;letter-spacing:-.01em;text-transform:none;
+  color:var(--cream);font-variant-numeric:tabular-nums}
+.scene h3{font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.022em;margin:0}
+.scene-sub{font-size:19px;color:#F1E9EF;margin:20px 0 0;max-width:30em}
+.scene-body{color:var(--mist);margin:14px 0 0;max-width:33em}
+.more{display:inline-block;margin-top:20px;color:var(--acc);font-weight:650;text-decoration:none}
+.more:hover{text-decoration:underline}
+@media (max-width:900px){
+  .scene-grid{grid-template-columns:1fr;gap:56px}
+  .scene.flip .scene-copy{order:0}
+  .scene .stage{width:min(60vw,280px)}
+  .scene::before,.scene.flip::before{left:50%;right:auto;top:auto;bottom:-30%;transform:translateX(-50%)}
+}
+
+/* ── the calculator ── */
+.calc-sec{background:linear-gradient(180deg,#110F38,var(--night) 70%);padding-block:clamp(80px,10vw,136px)}
+.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,6vw,80px);
+  margin-top:clamp(36px,5vw,56px);align-items:start}
+.calc{display:grid;gap:26px;margin:0}
+.field{display:grid;gap:10px;margin:0;padding:0;border:0;min-width:0}
+.field > label,.field legend{font-size:12.5px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0}
+.field legend{margin-bottom:10px}
+select{appearance:none;-webkit-appearance:none;width:100%;font:inherit;font-size:17px;color:var(--cream);
+  background:var(--glass) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23C3BACB' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;
+  border:1px solid var(--glass-edge);border-radius:14px;padding:14px 44px 14px 16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+select option{background:#0E1430;color:var(--cream)}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.opt{position:relative;display:block;cursor:pointer}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:block;height:100%;padding:14px 14px 15px;border-radius:14px;background:var(--glass);
+  border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:border-color .2s,background .2s}
+.opt b{display:block;font-size:15px;font-weight:650;line-height:1.3}
+.opt small{display:block;font-size:13px;color:var(--mist);margin-top:5px;line-height:1.4}
+.opt input:checked + span{border-color:#FFE0A8;background:rgba(255,224,168,.1)}
+.opt input:focus-visible + span{outline:2px solid var(--gold);outline-offset:3px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+
+.result{display:block;border-radius:28px;padding:clamp(24px,3.4vw,40px);color:#F6FAFD;
+  background:linear-gradient(172deg,#0D1B2E,#173248 55%,#2E5C76);border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 30px 70px rgba(0,0,0,.45)}
+.r-label{font-size:12.5px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:#AFC6D6}
+.r-time{font-family:var(--display);font-size:clamp(76px,10vw,124px);line-height:1;letter-spacing:-.03em;
+  color:#FFE0A8;margin-top:10px;font-variant-numeric:tabular-nums}
+.r-time span{font-size:.4em;letter-spacing:0;margin-left:.12em}
+.r-line{margin:14px 0 0;font-size:17px;color:#E4EEF5;max-width:30em}
+.r-curve{display:block;width:100%;height:auto;margin-top:22px}
+.r-compare{margin:14px 0 0;font-size:15px;color:#AFC6D6}
+.calc-cta{margin:26px 0 0;font-size:15px;color:var(--mist)}
+.calc-cta a{color:var(--gold);font-weight:650;text-decoration:none}
+@media (max-width:900px){.calc-grid{grid-template-columns:1fr}}
+
+/* ── chronotypes ── */
+.chronos{position:relative;padding-block:clamp(72px,9vw,128px);overflow:hidden;overflow:clip;
+  background:radial-gradient(70% 60% at 22% 55%,#16294A 0%,rgba(7,10,24,0) 70%),var(--night)}
+.chrono-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:center;
+  margin-top:clamp(40px,5vw,64px)}
+.chrono-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.chrono{position:relative;border-radius:24px;padding:24px 22px 22px;overflow:hidden;
+  background:linear-gradient(160deg,var(--c-0),var(--c-2));border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.chrono img{width:58px;height:58px;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.chrono h3{font-size:40px;line-height:1;margin:14px 0 0;color:var(--c-acc)}
+.chrono-rule{margin:6px 0 0;font-size:14px;color:#E9E3EE}
+.chrono dl{display:flex;gap:22px;margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.14)}
+.chrono dt{font-size:11px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+.chrono dd{margin:2px 0 0;font-family:var(--display);font-size:24px;color:var(--c-acc);font-variant-numeric:tabular-nums}
+.chrono-blurb{margin:14px 0 0;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.78)}
+.chrono a{display:inline-block;margin-top:14px;font-size:14px;font-weight:650;color:var(--c-acc);text-decoration:none}
+.chrono a:hover{text-decoration:underline}
+.chronos .stage{width:clamp(220px,21vw,286px)}
+@media (max-width:1020px){.chrono-grid{grid-template-columns:1fr}.chronos .stage{width:min(60vw,270px)}}
+@media (max-width:560px){.chrono-cards{grid-template-columns:1fr}}
+
+/* ── how, pricing, faq ── */
+.how,.pricing,.faq{padding-block:clamp(72px,9vw,120px)}
+.how{background:linear-gradient(180deg,var(--night),var(--night-2))}
+.steps{list-style:none;padding:0;margin:clamp(36px,5vw,56px) 0 0;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:step}
+.steps li{counter-increment:step;padding:28px 26px;border-radius:24px;background:var(--glass);
+  border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.steps li::before{content:counter(step);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  font-family:var(--display);font-size:22px;color:#0B0F22;background:var(--gold)}
+.steps h3{font-size:20px;font-weight:650;margin:18px 0 0;letter-spacing:-.005em}
+.steps p{margin:10px 0 0;color:var(--mist);font-size:16px}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+
+.pricing{background:var(--night-2)}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px);max-width:860px}
+.price-card{position:relative;padding:30px 28px;border-radius:26px;background:var(--glass);
+  border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.price-card.best{background:linear-gradient(165deg,rgba(255,217,160,.14),rgba(255,217,160,.03));
+  border-color:rgba(255,217,160,.55)}
+.p-name{margin:0;font-size:13px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.p-price{margin:12px 0 0;font-family:var(--display);font-size:60px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.p-price small{font-family:var(--ui);font-size:17px;color:var(--mist);letter-spacing:0;margin-left:4px}
+.p-note{margin:14px 0 0;color:#E9E1EC;font-size:16px}
+.p-badge{position:absolute;top:26px;right:24px;font-size:12.5px;font-weight:700;color:#0B0F22;background:var(--gold);
+  padding:5px 11px;border-radius:999px}
+.fine{color:var(--mist);font-size:13.5px;line-height:1.55;max-width:62em;margin:22px 0 0}
+.fine a{color:var(--cream)}
+@media (max-width:700px){.plans{grid-template-columns:1fr}}
+
+.faq{background:linear-gradient(180deg,var(--night-2),var(--night))}
+.faq-list{margin-top:clamp(32px,4vw,48px);max-width:860px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;
+  padding:22px 2px;font-size:19px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:30px;line-height:1;color:var(--gold);flex:none;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 24px;color:var(--mist);max-width:44em}
+
+/* ── closing: the sky comes round to dawn again ── */
+.closing{position:relative;overflow:hidden;overflow:clip;text-align:center;
+  background:linear-gradient(180deg,var(--night) 0%,#1E1C4A 45%,#4A3352 72%,#7C4722 100%)}
+.closing::after{content:"";position:absolute;left:50%;bottom:-62%;width:min(120vw,1200px);aspect-ratio:1;
+  transform:translateX(-50%);border-radius:50%;z-index:0;
+  background:radial-gradient(circle,rgba(255,168,110,.55) 0%,rgba(255,168,110,0) 62%)}
+.closing-inner{position:relative;z-index:1;padding-block:clamp(88px,11vw,150px);display:flex;flex-direction:column;align-items:center}
+.closing img{width:76px;height:76px;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.closing h2{margin:28px 0 0;font-size:clamp(46px,7vw,96px)}
+.closing p:not(.fine){color:#EFE5EA;font-size:19px;margin:18px 0 32px;max-width:28em}
+.closing .fine{margin-top:20px;color:#E9D8CF}
+
+/* ── footer ── */
+.foot{background:var(--night);border-top:1px solid var(--line);padding-block:56px 40px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr));gap:36px 28px}
+.foot p{color:var(--mist);margin:14px 0 0;max-width:24em}
+.foot h4{margin:0 0 12px;font-size:12px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot a{color:var(--cream);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot .contact{user-select:all}
+.foot-base{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--mist)}
+.foot-base span{margin-right:auto}
+@media (max-width:980px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+
+/* ── the real app screens, from appstore/generator ── */
+{{PHONE_CSS}}
+</style>
+<!--/TOP-->
+<!--BODY-->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="{{SITE}}/"><img src="{{ICON}}" alt="" width="30" height="30">ARC</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#day">How it works</a>
+      <a href="#cutoff">Coffee cutoff</a>
+      <a href="#chronotypes">Chronotypes</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn-store" href="{{APP_STORE_URL}}">Download</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top" data-phase="peak">
+  <div class="sky" aria-hidden="true">
+    <div class="hor"></div><div class="stars"></div><div class="glow"></div><div class="grain"></div>
+    <div class="arc">
+      <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+        <defs><linearGradient id="arc-g" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FFD9A0"/><stop offset=".33" stop-color="#FFF1D6"/>
+          <stop offset=".62" stop-color="#FFC48A"/><stop offset="1" stop-color="#B9C2FF"/></linearGradient></defs>
+        <path d="M0 270 C 300 -10 700 -10 1000 270" stroke="url(#arc-g)" stroke-width="14" fill="none" opacity=".1" vector-effect="non-scaling-stroke"/>
+        <path d="M0 270 C 300 -10 700 -10 1000 270" stroke="url(#arc-g)" stroke-width="5" fill="none" opacity=".26" vector-effect="non-scaling-stroke"/>
+        <path d="M0 270 C 300 -10 700 -10 1000 270" stroke="url(#arc-g)" stroke-width="1.6" fill="none" opacity=".95" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <span class="sun"></span>
+    </div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker"><span class="dot"></span><span id="now-line">Circadian rhythm tracker for iPhone</span></p>
+      <h1>You’re not lazy. You’re on the <em>wrong clock</em>.</h1>
+      <p class="lede">ARC tells you why you feel the way you do right now, gives you the one thing worth doing about it, and shows you over the weeks whether it’s working.</p>
+      <div class="ctas">
+        <a class="btn-store" href="{{APP_STORE_URL}}">Download on the App Store</a>
+        <a class="btn-ghost" href="#cutoff">Find your coffee cutoff</a>
+      </div>
+      <ul class="promises" aria-label="What ARC does not need">
+        <li>No account</li><li>No location access</li><li>No wearable</li><li>No sleep score</li>
+      </ul>
+    </div>
+    <figure class="stage" role="img" aria-label="ARC's Today screen">
+      <!--@HERO_PHONE-->
+      <figcaption id="hero-cap">Peak · 10:20 AM</figcaption>
+    </figure>
+  </div>
+  <p class="wrap hero-note">The sky on this page follows the time where you are. ARC’s screen does the same, all day.</p>
+</section>
+
+<section id="day" aria-labelledby="day-title">
+  <div class="day-head">
+    <div class="wrap sec-head">
+      <p class="kicker">One day with ARC</p>
+      <h2 id="day-title">It explains today, and <em>proves it</em> over weeks.</h2>
+      <p>Every screen below is the real app, on one Bear’s day: up at 7:00, in bed at 11:00, one coffee at 8:30.</p>
+    </div>
+  </div>
+  <!--@DAY-->
+</section>
+
+<section class="calc-sec" id="cutoff" aria-labelledby="cutoff-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Try it now</p>
+      <h2 id="cutoff-title">When is your <em>last safe coffee</em>?</h2>
+      <p>The same maths ARC runs, before you’ve logged anything. In the app it moves with every cup you log.</p>
+    </div>
+    <div class="calc-grid">
+      <form class="calc" id="calc" novalidate>
+        <div class="field">
+          <label for="bed">Bedtime</label>
+          <select id="bed" name="bed">
+            <option value="21:00">9:00 PM</option><option value="21:30">9:30 PM</option>
+            <option value="22:00">10:00 PM</option><option value="22:30">10:30 PM</option>
+            <option value="23:00" selected>11:00 PM</option><option value="23:30">11:30 PM</option>
+            <option value="00:00">12:00 AM</option><option value="00:30">12:30 AM</option>
+            <option value="01:00">1:00 AM</option><option value="01:30">1:30 AM</option>
+            <option value="02:00">2:00 AM</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend>{{S:onboarding.sensitivity.title}}</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="sens" id="sens-high" value="high"><span><b>{{S:onboarding.sensitivity.options.high.label}}</b><small>{{S:onboarding.sensitivity.options.high.sub}}</small></span></label>
+            <label class="opt"><input type="radio" name="sens" id="sens-normal" value="normal" checked><span><b>{{S:onboarding.sensitivity.options.normal.label}}</b><small>{{S:onboarding.sensitivity.options.normal.sub}}</small></span></label>
+            <label class="opt"><input type="radio" name="sens" id="sens-low" value="low"><span><b>{{S:onboarding.sensitivity.options.low.label}}</b><small>{{S:onboarding.sensitivity.options.low.sub}}</small></span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="drink">Your next drink</label>
+          <select id="drink" name="drink"><!--@DRINKS--></select>
+        </div>
+      </form>
+
+      <output class="result" id="result" for="bed drink" aria-live="polite">
+        <div class="r-label">{{S:today.cutoffLabel}}</div>
+        <div class="r-time" id="r-time">{{CUT_TIME}}<span>{{CUT_SUFFIX}}</span></div>
+        <p class="r-line" id="r-line">{{CUT_LINE}}</p>
+        <svg class="r-curve" id="r-curve" viewBox="0 0 600 210" role="img" aria-label="Caffeine left in you from the cutoff to bedtime"></svg>
+        <p class="r-compare" id="r-compare"></p>
+      </output>
+    </div>
+    <p class="calc-cta">This assumes nothing drunk yet today. <a href="{{APP_STORE_URL}}">ARC keeps it live as you log →</a></p>
+  </div>
+</section>
+
+<section class="chronos" id="chronotypes" aria-labelledby="chrono-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Your chronotype</p>
+      <h2 id="chrono-title">{{S:onboarding.identity.types.lion.name}}, {{S:onboarding.identity.types.bear.name}}, {{S:onboarding.identity.types.wolf.name}} or <em>{{S:onboarding.identity.types.dolphin.name}}</em>?</h2>
+      <p>{{CHRONO_SUB}}</p>
+    </div>
+    <div class="chrono-grid">
+      <figure class="stage" role="img" aria-label="ARC's chronotype reveal, for a Bear"><!--@CHRONO_PHONE--></figure>
+      <div class="chrono-cards"><!--@CHRONO--></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">How it works</p>
+      <h2 id="how-title">Set it up once, then <em>live your day</em>.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Answer a few questions</h3><p>Wake time, bedtime, when your energy crashes and how you take your coffee. ARC shows your chronotype and your first day before you choose a plan. No account.</p></li>
+      <li><h3>Do one thing at a time</h3><p>Each part of the day gets one sentence about what your body is doing and one thing worth doing, in the app and on your home screen.</p></li>
+      <li><h3>Tap when you crash</h3><p>One tap. After about ten days ARC plans around the dip it measured, and Trends shows whether your crashes are falling.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pricing" id="pricing" aria-labelledby="price-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Pricing</p>
+      <h2 id="price-title">Start with a <em>free week</em>.</h2>
+      <p>Setup is free. You see your chronotype and your first day before you choose.</p>
+    </div>
+    <div class="plans">
+      <article class="price-card best">
+        <p class="p-name">Annual</p>
+        <span class="p-badge">Save {{SAVE_PCT}}%</span>
+        <p class="p-price">{{PRICE_ANNUAL}}<small>/ year</small></p>
+        <p class="p-note">{{TRIAL_DAYS}} days free, then {{PRICE_ANNUAL}} a year. About {{PRICE_ANNUAL_WEEK}} a week.</p>
+      </article>
+      <article class="price-card">
+        <p class="p-name">Weekly</p>
+        <p class="p-price">{{PRICE_WEEKLY}}<small>/ week</small></p>
+        <p class="p-note">Cancel anytime.</p>
+      </article>
+    </div>
+    <p class="fine">US prices. The App Store shows yours. Payment is charged to your Apple ID. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, and you can manage or cancel them in your App Store account settings.</p>
+    <p class="fine">A student, or the price is a real barrier? Write to <span class="contact">pritamfinds@gmail.com</span> and we’ll work something out.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Questions</p>
+      <h2 id="faq-title">Before you <em>download</em>.</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>Do I need a wearable?</summary><p>No. ARC works from what you tell it in setup and a few taps a day. There’s nothing to wear or connect.</p></details>
+      <details><summary>Does ARC need my location?</summary><p>No. It estimates sunrise from your time zone, so it never asks for location access.</p></details>
+      <details><summary>Where is my data kept?</summary><p>Your log is stored on your iPhone. There’s no account to create and nothing to sign in to.</p></details>
+      <details><summary>How is the coffee cutoff worked out?</summary><p>From your bedtime, how fast you clear caffeine and every drink you log, so that less than {{TARGET_MG}} mg is still in you when you go to bed. It moves each time you log a cup.</p></details>
+      <details><summary>Why no sleep score or streaks?</summary><p>On purpose. ARC tells you what your body is doing and what helps. It doesn’t grade your day.</p></details>
+      <details><summary>Does it work for shift workers?</summary><p>Yes, if your schedule is steady: set your own wake time and bedtime and the whole day follows. Rotas that change every few days are much harder to plan around.</p></details>
+      <details><summary>Which languages?</summary><p>English and German.</p></details>
+      <details><summary>How do I cancel?</summary><p>In iPhone Settings, tap your name, then Subscriptions, then ARC. Cancel at least 24 hours before the period ends and you won’t be charged again.</p></details>
+      <details><summary>Is ARC medical advice?</summary><p>No. ARC is a wellness app, not a treatment. If tiredness is affecting your health, talk to a doctor.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="close-title">
+  <div class="wrap closing-inner">
+    <img src="{{ICON}}" alt="" width="76" height="76">
+    <h2 id="close-title">Stop fighting your <em>clock</em>.</h2>
+    <p>Find your chronotype, and get a day built around it.</p>
+    <a class="btn-store" href="{{APP_STORE_URL}}">Download on the App Store</a>
+    <p class="fine">Free setup. {{TRIAL_DAYS}} days free on the annual plan.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="{{SITE}}/"><img src="{{ICON}}" alt="" width="30" height="30">ARC</a>
+        <p>Plans your day around your chronotype: daylight, coffee, focus, and the dip you actually have.</p>
+        <p><a href="https://x.com/iPritamX">X</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/arc.sync/">Instagram</a></p>
+        <p class="contact">pritamfinds@gmail.com</p>
+      </div>
+      <nav aria-label="Chronotypes"><h4>Chronotypes</h4><ul>
+        <li><a href="{{SITE}}/chronotype/lion">Lion schedule</a></li>
+        <li><a href="{{SITE}}/chronotype/bear">Bear schedule</a></li>
+        <li><a href="{{SITE}}/chronotype/wolf">Wolf schedule</a></li>
+        <li><a href="{{SITE}}/chronotype/dolphin">Dolphin schedule</a></li>
+        <li><a href="{{SITE}}/tools/chronotype-quiz">Chronotype quiz</a></li>
+      </ul></nav>
+      <nav aria-label="Free tools"><h4>Free tools</h4><ul>
+        <li><a href="{{SITE}}/tools/caffeine-calculator">Caffeine calculator</a></li>
+        <li><a href="{{SITE}}/tools/sleep-cycle-calculator">Sleep cycle calculator</a></li>
+        <li><a href="{{SITE}}/tools/nap-calculator">Nap calculator</a></li>
+        <li><a href="{{SITE}}/tools/jetlag-planner">Jet lag planner</a></li>
+        <li><a href="{{SITE}}/tools">All tools</a></li>
+      </ul></nav>
+      <nav aria-label="Who it's for"><h4>For</h4><ul>
+        <li><a href="{{SITE}}/for/coffee-drinkers">Coffee drinkers</a></li>
+        <li><a href="{{SITE}}/for/founders">Founders</a></li>
+        <li><a href="{{SITE}}/for/adhd">ADHD</a></li>
+        <li><a href="{{SITE}}/for/shift-workers">Shift workers</a></li>
+        <li><a href="{{SITE}}/for/sleep-seekers">Sleep seekers</a></li>
+        <li><a href="{{SITE}}/for/biohackers">Biohackers</a></li>
+      </ul></nav>
+      <nav aria-label="Learn"><h4>Learn</h4><ul>
+        <li><a href="{{SITE}}/guides">Guides</a></li>
+        <li><a href="{{SITE}}/blog">Blog</a></li>
+        <li><a href="{{SITE}}/science">Science</a></li>
+        <li><a href="{{SITE}}/books">Books</a></li>
+        <li><a href="{{SITE}}/support">Support</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 ARC</span>
+      <a href="{{SITE}}/privacy">Privacy</a>
+      <a href="{{SITE}}/terms">Terms</a>
+      <a href="{{SITE}}/support">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var PAGE = {{PAGE_DATA}};
+  var ENGINE = {{ENGINE}};
+
+  function clock(min) {
+    min = ((Math.round(min) % 1440) + 1440) % 1440;
+    var h = Math.floor(min / 60), m = min % 60;
+    return { time: (h % 12 || 12) + ":" + (m < 10 ? "0" : "") + m, suffix: h < 12 ? "AM" : "PM" };
+  }
+  function clockText(min) { var c = clock(min); return c.time + " " + c.suffix; }
+
+  /* ── the hero follows the visitor's hour ── */
+  /* ?at=15:20 shows another hour, for checking the page. */
+  function nowMinutes() {
+    var q = /[?&]at=(\d{1,2}):(\d{2})/.exec(location.search);
+    if (q) return Number(q[1]) * 60 + Number(q[2]);
+    var d = new Date();
+    return d.getHours() * 60 + d.getMinutes();
+  }
+  var now = nowMinutes(), h = now / 60;
+  var idx = h >= 23 || h < 4 ? 5 : h < 9 ? 0 : h < 13 ? 1 : h < 17.5 ? 2 : h < 21 ? 3 : 4;
+  var moment = PAGE.moments[idx], sky = PAGE.sky[idx];
+  var hero = document.querySelector(".hero");
+
+  hero.dataset.phase = moment.phase;
+  hero.style.setProperty("--zen", sky.zen);
+  hero.style.setProperty("--hor", sky.hor);
+  hero.style.setProperty("--acc", idx === 5 ? "#C9CFFF" : PAGE.accents[moment.phase]);
+  hero.style.setProperty("--stars", idx >= 4 ? "0.85" : "0");
+  document.getElementById("now-line").textContent = clockText(now) + " where you are";
+
+  var source = document.querySelector('[data-moment="' + moment.phase + '"] .phone');
+  var heroPhone = hero.querySelector(".device .phone");
+  if (source && heroPhone) heroPhone.replaceWith(source.cloneNode(true));
+  document.getElementById("hero-cap").textContent =
+    moment.time ? moment.label + " · " + moment.time : moment.label;
+
+  /* The sun's place on the arc: 5 AM at the left horizon, midnight at the right. */
+  var f = h < 4 ? 1 : Math.min(1, Math.max(0, (h - 5) / 19));
+  function onArc(t) {
+    var u = 1 - t;
+    return { x: 3 * u * u * t * 300 + 3 * u * t * t * 700 + t * t * t * 1000,
+             y: u * u * u * 270 + 3 * u * u * t * -10 + 3 * u * t * t * -10 + t * t * t * 270 };
+  }
+  var sun = hero.querySelector(".sun");
+  function place(t) {
+    var p = onArc(t);
+    sun.style.left = p.x / 10 + "%";
+    sun.style.top = p.y / 3 + "%";
+    hero.style.setProperty("--sun-x", p.x / 10 + "%");
+    hero.style.setProperty("--sun-y", p.y / 3 + "%");
+  }
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still || !window.requestAnimationFrame) { place(f); }
+  else {
+    var t0 = null, dur = 1700;
+    place(0);
+    requestAnimationFrame(function step(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      place(f * e);
+      if (k < 1) requestAnimationFrame(step);
+    });
+  }
+
+  /* ── the calculator, on the app's own engine ── */
+  var form = document.getElementById("calc");
+  var out = {
+    time: document.getElementById("r-time"),
+    line: document.getElementById("r-line"),
+    curve: document.getElementById("r-curve"),
+    compare: document.getElementById("r-compare")
+  };
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, text) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function drawCurve(dose, cutMin, bedMin, halfLife) {
+    var svg = out.curve, target = PAGE.targetMg;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var W = 600, top = 28, bottom = 176, left = 6, right = 594;
+    var start = cutMin - 45, end = bedMin + 75;
+    var maxMg = Math.max(dose * 1.08, target * 1.9);
+    var x = function (m) { return left + ((m - start) / (end - start)) * (right - left); };
+    var y = function (mg) { return bottom - (mg / maxMg) * (bottom - top); };
+    var mgAt = function (m) { return m < cutMin ? 0 : dose * Math.pow(0.5, (m - cutMin) / 60 / halfLife); };
+
+    var d = "M " + x(start).toFixed(1) + " " + y(0).toFixed(1) + " L " + x(cutMin).toFixed(1) + " " + y(0).toFixed(1);
+    for (var m = cutMin; m <= end; m += 5) d += " L " + x(m).toFixed(1) + " " + y(mgAt(m)).toFixed(1);
+
+    var defs = el("defs", {});
+    var lg = el("linearGradient", { id: "rc-fill", x1: "0", y1: "0", x2: "0", y2: "1" });
+    lg.appendChild(el("stop", { offset: "0", "stop-color": "#FFE0A8", "stop-opacity": ".34" }));
+    lg.appendChild(el("stop", { offset: "1", "stop-color": "#FFE0A8", "stop-opacity": "0" }));
+    defs.appendChild(lg);
+    svg.appendChild(defs);
+
+    svg.appendChild(el("line", { x1: left, x2: right, y1: bottom, y2: bottom, stroke: "#AFC6D6", "stroke-opacity": ".35", "stroke-width": "1" }));
+    svg.appendChild(el("path", { d: d + " L " + x(end).toFixed(1) + " " + bottom + " L " + x(start).toFixed(1) + " " + bottom + " Z", fill: "url(#rc-fill)" }));
+    svg.appendChild(el("path", { d: d, fill: "none", stroke: "#FFE0A8", "stroke-width": "2.6", "stroke-linejoin": "round" }));
+
+    /* The bedtime budget, and bedtime itself. */
+    svg.appendChild(el("line", { x1: left, x2: right, y1: y(target), y2: y(target), stroke: "#AFC6D6", "stroke-dasharray": "5 5", "stroke-opacity": ".7" }));
+    svg.appendChild(el("text", { x: right, y: y(target) - 8, "text-anchor": "end", fill: "#AFC6D6", "font-size": "13" }, target + " mg"));
+    svg.appendChild(el("line", { x1: x(bedMin), x2: x(bedMin), y1: top - 6, y2: bottom, stroke: "#F6FAFD", "stroke-opacity": ".45", "stroke-dasharray": "2 4" }));
+    svg.appendChild(el("text", { x: x(bedMin), y: top - 12, "text-anchor": "middle", fill: "#F6FAFD", "font-size": "13" }, "Bed " + clockText(bedMin)));
+
+    svg.appendChild(el("circle", { cx: x(cutMin), cy: y(dose), r: "5", fill: "#FFE0A8" }));
+    svg.appendChild(el("text", { x: x(cutMin) + 10, y: y(dose) - 10, fill: "#FFE0A8", "font-size": "13" }, dose + " mg at " + clockText(cutMin)));
+    svg.appendChild(el("text", { x: x(cutMin), y: bottom + 22, "text-anchor": "middle", fill: "#AFC6D6", "font-size": "12" }, clockText(cutMin)));
+  }
+
+  function update() {
+    var bed = form.bed.value;
+    var sens = (form.querySelector('input[name="sens"]:checked') || {}).value || "normal";
+    var drink = PAGE.drinks.filter(function (x) { return x.id === form.drink.value; })[0] || PAGE.drinks[1];
+    var noon = new Date(); noon.setHours(12, 0, 0, 0);
+    var r = ENGINE.cutoff.computeCutoff({ bedtime: bed, sensitivity: sens, entries: [], nextDoseMg: drink.mg, now: noon });
+    var halfLife = PAGE.halfLife[sens];
+    var bedClock = Number(bed.slice(0, 2)) * 60 + Number(bed.slice(3));
+    var name = drink.name.toLowerCase();
+
+    if (r.exhausted) {
+      out.time.innerHTML = "None";
+      out.line.textContent = "A " + name + " is too much caffeine to clear by bedtime at any hour of the day. Try a smaller drink.";
+      while (out.curve.firstChild) out.curve.removeChild(out.curve.firstChild);
+      out.compare.textContent = "";
+      return;
+    }
+
+    var c = clock(r.minutes);
+    out.time.innerHTML = c.time + "<span>" + c.suffix + "</span>";
+    var bedMin = bedClock < r.minutes ? bedClock + 1440 : bedClock;
+    var lead = bedMin - r.minutes;
+    var leftAtBed = drink.mg * Math.pow(0.5, lead / 60 / halfLife);
+
+    if (leftAtBed < PAGE.targetMg - 1) {
+      out.line.textContent = "A " + name + " (" + drink.mg + " mg) is small enough to have up to an hour before bed, " + clockText(bedClock) + ".";
+    } else {
+      out.line.textContent = "A " + name + " (" + drink.mg + " mg) then leaves " + PAGE.targetMg + " mg or less in you at bedtime, " + clockText(bedClock) + ".";
+    }
+    drawCurve(drink.mg, r.minutes, bedMin, halfLife);
+
+    var later = r.minutes + 120;
+    if (bedMin - later >= 60 && leftAtBed >= PAGE.targetMg - 1) {
+      var still2 = Math.round(drink.mg * Math.pow(0.5, (bedMin - later) / 60 / halfLife));
+      out.compare.textContent = "Had at " + clockText(later) + ", the same drink would still leave " + still2 + " mg in you at bedtime.";
+    } else {
+      out.compare.textContent = "";
+    }
+  }
+  form.addEventListener("change", update);
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+  update();
+})();
+</script>
+<!--/BODY-->

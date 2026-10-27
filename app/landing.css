@@ -35,6 +35,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:cal
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 .landing-page::before {
   content: "";

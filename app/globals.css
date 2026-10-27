@@ -138,23 +138,66 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background-color: var(--night, #070a18);
-    background:
-      radial-gradient(
-        78% 78% at 50% 42%,
-        rgba(0, 0, 0, 0) 55%,
-        rgba(0, 0, 0, 0.28) 100%
-      ),
-      linear-gradient(
-        180deg,
-        var(--g-top) 0%,
-        var(--g-mid) 55%,
-        var(--g-bot) 100%
-      );
-    background-attachment: fixed;
+    background-color: var(--night, #070A18);
     color: var(--cream, #fdf6ec);
     font-family: var(--ui, var(--face-ui));
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Universal site-wide atmospheric background inspired by landing page night sky */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-color: #070A18;
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -10%, rgba(255, 217, 160, 0.13) 0%, rgba(30, 28, 74, 0.4) 40%, rgba(14, 20, 48, 0) 75%),
+      linear-gradient(180deg, #070A18 0%, #0E1430 35%, #070A18 70%, #050711 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.85;
+    background-image:
+      radial-gradient(1.3px 1.3px at 7% 14%, rgba(255, 255, 255, 0.75) 60%, transparent 62%),
+      radial-gradient(1px 1px at 14% 33%, rgba(255, 255, 255, 0.6) 60%, transparent 62%),
+      radial-gradient(1.6px 1.6px at 22% 9%, rgba(255, 255, 255, 0.85) 60%, transparent 62%),
+      radial-gradient(1px 1px at 29% 24%, rgba(255, 255, 255, 0.55) 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 37% 6%, rgba(255, 255, 255, 0.7) 60%, transparent 62%),
+      radial-gradient(1px 1px at 44% 19%, rgba(255, 255, 255, 0.5) 60%, transparent 62%),
+      radial-gradient(1.5px 1.5px at 52% 11%, rgba(255, 255, 255, 0.8) 60%, transparent 62%),
+      radial-gradient(1px 1px at 58% 28%, rgba(255, 255, 255, 0.55) 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 66% 7%, rgba(255, 255, 255, 0.7) 60%, transparent 62%),
+      radial-gradient(1px 1px at 72% 21%, rgba(255, 255, 255, 0.55) 60%, transparent 62%),
+      radial-gradient(1.6px 1.6px at 80% 12%, rgba(255, 255, 255, 0.85) 60%, transparent 62%),
+      radial-gradient(1px 1px at 87% 30%, rgba(255, 255, 255, 0.5) 60%, transparent 62%),
+      radial-gradient(1.3px 1.3px at 93% 8%, rgba(255, 255, 255, 0.75) 60%, transparent 62%),
+      radial-gradient(1px 1px at 4% 41%, rgba(255, 255, 255, 0.45) 60%, transparent 62%),
+      radial-gradient(1px 1px at 34% 39%, rgba(255, 255, 255, 0.55) 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 62% 37%, rgba(255, 255, 255, 0.65) 60%, transparent 62%),
+      radial-gradient(1px 1px at 76% 44%, rgba(255, 255, 255, 0.5) 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 96% 38%, rgba(255, 255, 255, 0.6) 60%, transparent 62%);
+    background-size: 100% 850px;
+    background-repeat: no-repeat;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 50%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 50%, transparent 90%);
+  }
+
+  /* Soften legacy decorative background blobs across subpages */
+  .w-150.blur-\[150px\],
+  .w-125.blur-\[120px\] {
+    opacity: 0.2;
+    background: radial-gradient(circle, rgba(255, 217, 160, 0.12), transparent 70%) !important;
   }
   html {
     @apply font-sans;
@@ -272,92 +315,92 @@
   --g-top: #070a18;
   --g-mid: #0e1430;
   --g-bot: #131936;
-  --fg: #c8cce6;
-  --fg-muted: #7e86ae;
-  --accent: #9fa6d8;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 [data-phase="rise"] {
-  --g-top: #1a1c3a;
-  --g-mid: #4a3352;
-  --g-bot: #7c4722;
+  --g-top: #070a18;
+  --g-mid: #141738;
+  --g-bot: #1c1a40;
   --fg: #fdf6ec;
-  --fg-muted: #e2cbb4;
+  --fg-muted: #c3bacb;
   --accent: #ffd9a0;
 }
 [data-phase="morning"] {
-  --g-top: #12203e;
-  --g-mid: #22405f;
-  --g-bot: #355e78;
-  --fg: #f4f9fc;
-  --fg-muted: #c4dae7;
+  --g-top: #070a18;
+  --g-mid: #0e1934;
+  --g-bot: #152244;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
   --accent: #ffd9a0;
 }
 [data-phase="peak"] {
-  --g-top: #0d1b2e;
-  --g-mid: #173248;
-  --g-bot: #2e5c76;
-  --fg: #f6fafd;
-  --fg-muted: #c2d7e4;
-  --accent: #ffe0a8;
+  --g-top: #070a18;
+  --g-mid: #0e1832;
+  --g-bot: #14203e;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 [data-phase="dip"] {
-  --g-top: #221d30;
-  --g-mid: #432f43;
-  --g-bot: #6b4536;
-  --fg: #fbefe6;
-  --fg-muted: #dcc0ae;
-  --accent: #ffc48a;
+  --g-top: #070a18;
+  --g-mid: #141432;
+  --g-bot: #1a163a;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 [data-phase="evening"] {
-  --g-top: #1c2140;
-  --g-mid: #3d3050;
-  --g-bot: #7a4820;
-  --fg: #fdf3e7;
-  --fg-muted: #e5cbb0;
+  --g-top: #070a18;
+  --g-mid: #16183a;
+  --g-bot: #1f1a44;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
   --accent: #ffd9a0;
 }
 [data-phase="windDown"] {
-  --g-top: #0e1128;
-  --g-mid: #221a3a;
-  --g-bot: #3d263e;
-  --fg: #e8dfec;
-  --fg-muted: #a594ae;
-  --accent: #e3b08c;
+  --g-top: #070a18;
+  --g-mid: #0e1128;
+  --g-bot: #181432;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 
 /* ==========================================================================
    The Four Chronotype Skies (Reveal / Segmentation)
    ========================================================================== */
 [data-sky="lion"] {
-  --g-top: #191c3c;
-  --g-mid: #4a3350;
-  --g-bot: #7c4722;
+  --g-top: #070a18;
+  --g-mid: #18152e;
+  --g-bot: #1f1a3a;
   --fg: #fdf6ec;
-  --fg-muted: #e2cbb4;
-  --accent: #ffc978;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 [data-sky="bear"] {
-  --g-top: #101e30;
-  --g-mid: #1e3c48;
-  --g-bot: #3b6146;
-  --fg: #f3faf4;
-  --fg-muted: #c2dcc8;
-  --accent: #b9e88a;
+  --g-top: #070a18;
+  --g-mid: #0e1932;
+  --g-bot: #142240;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
+  --accent: #ffd9a0;
 }
 [data-sky="wolf"] {
-  --g-top: #0b0e22;
-  --g-mid: #1e1940;
-  --g-bot: #3b2a57;
-  --fg: #ede8f6;
-  --fg-muted: #b0a2c4;
+  --g-top: #070a18;
+  --g-mid: #141130;
+  --g-bot: #1c1542;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
   --accent: #b9a0f0;
 }
 [data-sky="dolphin"] {
-  --g-top: #081a26;
-  --g-mid: #123243;
-  --g-bot: #1d5063;
-  --fg: #effafe;
-  --fg-muted: #b6d5e2;
+  --g-top: #070a18;
+  --g-mid: #0a1b2c;
+  --g-bot: #11283e;
+  --fg: #fdf6ec;
+  --fg-muted: #c3bacb;
   --accent: #7fd8f0;
 }
 

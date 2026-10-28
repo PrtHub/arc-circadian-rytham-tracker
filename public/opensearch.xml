@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>ARC</ShortName>
+  <Description>Search ARC Circadian Rhythm Calculators, Chronotype Routines and Guides</Description>
+  <Tags>circadian rhythm sleep chronotype caffeine calculator</Tags>
+  <Contact>pritamfinds@gmail.com</Contact>
+  <Url type="text/html" template="https://arcapp.sbs/tools/caffeine-calculator?q={searchTerms}"/>
+  <Image height="16" width="16" type="image/x-icon">https://arcapp.sbs/favicon-32.png</Image>
+</OpenSearchDescription>

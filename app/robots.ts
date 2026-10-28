@@ -9,20 +9,37 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
+      // Search Engine Crawlers
       {
         userAgent: [
           "Googlebot",
-          "Applebot",
           "Bingbot",
+          "Applebot",
           "DuckDuckBot",
-          "ChatGPT-User",
+          "YandexBot",
+          "Baiduspider",
+        ],
+        allow: "/",
+      },
+      // AI Crawlers, LLMs, and AI Search Engines
+      {
+        userAgent: [
           "GPTBot",
-          "PerplexityBot",
+          "ChatGPT-User",
+          "OAI-SearchBot",
           "ClaudeBot",
+          "Claude-Web",
+          "PerplexityBot",
+          "Google-Extended",
+          "Applebot-Extended",
+          "cohere-ai",
+          "Meta-ExternalAgent",
+          "Diffbot",
         ],
         allow: "/",
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

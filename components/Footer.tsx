@@ -69,6 +69,7 @@ export function Footer() {
               <li><Link href="/science" className="hover:text-[#FFD9A0] hover:underline transition-colors">Science</Link></li>
               <li><Link href="/books" className="hover:text-[#FFD9A0] hover:underline transition-colors">Books</Link></li>
               <li><Link href="/support" className="hover:text-[#FFD9A0] hover:underline transition-colors">Support</Link></li>
+              <li><Link href="/site-map" className="hover:text-[#FFD9A0] hover:underline transition-colors">Sitemap</Link></li>
             </ul>
           </nav>
         </div>
@@ -77,6 +78,7 @@ export function Footer() {
         <div className="mt-11 pt-6 border-t border-[rgba(253,246,236,0.14)] flex flex-wrap items-center justify-between gap-4 text-[13.5px] text-[#C3BACB]">
           <span>© {new Date().getFullYear()} ARC. Built on chronobiology.</span>
           <div className="flex gap-6">
+            <Link href="/site-map" className="hover:text-[#FFD9A0] transition-colors">Sitemap</Link>
             <Link href="/privacy" className="hover:text-[#FFD9A0] transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-[#FFD9A0] transition-colors">Terms</Link>
             <Link href="/support" className="hover:text-[#FFD9A0] transition-colors">Support</Link>

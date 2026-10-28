@@ -148,6 +148,53 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="alternate" type="application/rss+xml" title="ARC RSS Feed" href="/feed.xml" />
+        <link rel="search" type="application/opensearchdescription+xml" title="ARC Search" href="/opensearch.xml" />
+        <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context Index" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#website`,
+                  url: SITE_URL,
+                  name: "ARC: Circadian Rhythm Tracker",
+                  description:
+                    "Circadian rhythm tracking, caffeine cutoff calculations, and chronotype schedules.",
+                  publisher: {
+                    "@type": "Organization",
+                    name: "ARC",
+                    url: SITE_URL,
+                    logo: `${SITE_URL}/icon-512.png`,
+                  },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: `${SITE_URL}/tools/caffeine-calculator?q={search_term_string}`,
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": `${SITE_URL}/#app`,
+                  name: "ARC: Circadian Rhythm Tracker",
+                  operatingSystem: "iOS 16.4+",
+                  applicationCategory: "HealthApplication",
+                  offers: {
+                    "@type": "Offer",
+                    price: "0",
+                    priceCurrency: "USD",
+                  },
+                  downloadUrl:
+                    "https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892",
+                },
+              ],
+            }),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

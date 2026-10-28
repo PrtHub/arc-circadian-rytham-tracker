@@ -226,7 +226,7 @@ const nextConfig: NextConfig = {
         ["/tools/night-shift-sleep-calculator", "/for/shift-workers"],
         ["/tools/adhd-sleep-schedule-calculator", "/for/adhd"],
       ].map(([source, destination]) => ({ source, destination, permanent: true })),
-      // Legal Redirects
+      // Legal & Directory Redirects
       {
         source: "/privacy-policy",
         destination: "/privacy",
@@ -235,6 +235,16 @@ const nextConfig: NextConfig = {
       {
         source: "/terms-of-service",
         destination: "/terms",
+        permanent: true,
+      },
+      {
+        source: "/sitemap.html",
+        destination: "/site-map",
+        permanent: true,
+      },
+      {
+        source: "/directory",
+        destination: "/site-map",
         permanent: true,
       },
     ];

@@ -109,7 +109,7 @@ export const chronotypeDetails: Record<string, ChronotypeDetail> = {
       },
       breusFaq("Lion"),
     ],
-    seoTitle: "Lion Chronotype Schedule: Early Riser Daily Routine (5:30 AM–10 PM) | ARC",
+    seoTitle: "Lion Chronotype Schedule: Early Riser Daily Routine (5:30 AM–10 PM)",
     seoDescription: "Ideal Lion chronotype schedule: 5:30–6:30 AM wake, 8:00 AM–12:00 PM peak focus, 12:00 PM coffee cutoff, and 10:00 PM sleep—plus how to beat late-afternoon fatigue.",
     fullScheduleTable: [
       { time: "05:30 AM – 06:00 AM", phase: "Natural Wake & Hydration", action: "Wake naturally without alarm. Drink 16–20 oz water with electrolytes to replenish overnight fluid loss.", biology: "Cortisol awakening response (CAR) initiates core body temperature climb." },
@@ -195,7 +195,7 @@ export const chronotypeDetails: Record<string, ChronotypeDetail> = {
       },
       breusFaq("Bear"),
     ],
-    seoTitle: "Bear Chronotype Schedule: Hour-by-Hour Daily Routine (7 AM–11 PM) | ARC",
+    seoTitle: "Bear Chronotype Schedule: Hour-by-Hour Daily Routine (7 AM–11 PM)",
     seoDescription: "Ideal Bear chronotype schedule: 7:00 AM wake, 10:00 AM–2:00 PM deep work, 2:00 PM caffeine cutoff, and 11:00 PM bedtime—plus how to fix the 2 PM afternoon crash.",
     fullScheduleTable: [
       { time: "07:00 AM – 07:30 AM", phase: "Wake & Rehydration", action: "Wake up without snoozing. Drink 16 oz cool water with electrolytes to clear sleep inertia.", biology: "Cortisol awakening response (CAR) triggers autonomic sympathetic system activation." },
@@ -284,7 +284,7 @@ export const chronotypeDetails: Record<string, ChronotypeDetail> = {
       },
       breusFaq("Wolf"),
     ],
-    seoTitle: "Wolf Chronotype Schedule: Night Owl Daily Routine (& 9-to-5 Survival) | ARC",
+    seoTitle: "Wolf Chronotype Schedule: Night Owl Daily Routine (& 9-to-5 Survival)",
     seoDescription: "Ideal Wolf chronotype schedule: 8:30 AM wake, 4:00 PM–8:00 PM peak focus, 4:00 PM coffee cutoff, 12:30 AM bedtime—plus a realistic 9-to-5 adaptation timetable.",
     fullScheduleTable: [
       { time: "08:30 AM – 09:00 AM", phase: "Gradual Wake & Light", action: "Wake up with sunrise simulation alarm or natural light. Drink 16 oz cool water immediately.", biology: "Wolf core body temperature minimum lands later; gradual wake buffers severe sleep inertia." },
@@ -368,7 +368,7 @@ export const chronotypeDetails: Record<string, ChronotypeDetail> = {
       },
       breusFaq("Dolphin"),
     ],
-    seoTitle: "Dolphin Chronotype Schedule: Light Sleeper Daily Routine (6:30 AM–11:30 PM) | ARC",
+    seoTitle: "Dolphin Chronotype Schedule: Light Sleeper Daily Routine (6:30 AM–11:30 PM)",
     seoDescription: "Ideal Dolphin chronotype schedule: 6:30 AM wake, 3:00 PM–7:00 PM peak focus, 1:00 PM caffeine cutoff, and a 10:00 PM wind-down protocol to calm racing thoughts.",
     fullScheduleTable: [
       { time: "06:30 AM – 07:00 AM", phase: "Wake Without Snoozing", action: "Wake up immediately without hitting snooze. Splash cold water on face, drink 16 oz water.", biology: "Avoiding fragmented micro-sleep cycles prevents morning autonomic anxiety spikes." },

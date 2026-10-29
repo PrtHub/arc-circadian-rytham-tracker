@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/site-map`,
   },
   openGraph: {
-    title: "HTML Sitemap & Directory | ARC",
+    title: "HTML Sitemap & Complete Page Index",
     description: "Browse all 255+ free sleep calculators, chronotype daily routines, caffeine half-life tools, and scientific guides.",
     url: `${SITE_URL}/site-map`,
     siteName: "ARC",

@@ -49,7 +49,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "8:45 AM",
       bed: "12:30 AM",
     },
-    title: "Lion and Wolf Sleep Compatibility: Bedtime Gaps & Co-Sleeping Survival Guide | ARC",
+    title: "Lion and Wolf Sleep Compatibility: Bedtime Gaps & Co-Sleeping Survival Guide",
     description:
       "Can an early-rising Lion and a night-owl Wolf share a bedroom without sleep divorce? Explore the 2.5-hour bedtime gap, shared awake hours, and practical sleep solutions.",
     keywords:
@@ -111,7 +111,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "8:45 AM",
       bed: "12:30 AM",
     },
-    title: "Bear and Wolf Chronotype Compatibility: Schedule Alignment & Relationship Guide | ARC",
+    title: "Bear and Wolf Chronotype Compatibility: Schedule Alignment & Relationship Guide",
     description:
       "Can a solar-guided Bear and a late-night Wolf synchronize their lives? Discover the 1.5-hour bedtime gap, weekend drift traps, and co-sleeping advice.",
     keywords:
@@ -172,7 +172,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "7:00 AM",
       bed: "11:00 PM",
     },
-    title: "Lion and Bear Chronotype Compatibility: Morning Momentum & Sleep Harmony | ARC",
+    title: "Lion and Bear Chronotype Compatibility: Morning Momentum & Sleep Harmony",
     description:
       "How compatible are Lions and Bears? Explore their natural 1-hour alignment, synchronized morning momentum, shared afternoon slumps, and bedroom tips.",
     keywords:
@@ -228,7 +228,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "6:30 AM",
       bed: "11:30 PM",
     },
-    title: "Bear and Dolphin Chronotype Compatibility: Co-Sleeping & Sleep Sensitivity Guide | ARC",
+    title: "Bear and Dolphin Chronotype Compatibility: Co-Sleeping & Sleep Sensitivity Guide",
     description:
       "How can a deep-sleeping Bear and a sensitive, light-sleeping Dolphin share a bed peacefully? Overcome nighttime awakenings, snoring friction, and bedroom triggers.",
     keywords:
@@ -290,7 +290,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "7:00 AM",
       bed: "11:00 PM",
     },
-    title: "Lion and Bear Chronotype Compatibility: Morning Momentum & Sleep Harmony | ARC",
+    title: "Lion and Bear Chronotype Compatibility: Morning Momentum & Sleep Harmony",
     description:
       "How compatible are Lions and Bears? Explore their natural 1-hour alignment, synchronized morning momentum, shared afternoon slumps, and bedroom tips.",
     keywords:
@@ -346,7 +346,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "6:30 AM",
       bed: "11:30 PM",
     },
-    title: "Lion and Dolphin Chronotype Compatibility: Sleep Schedule & Co-Sleeping Tips | ARC",
+    title: "Lion and Dolphin Chronotype Compatibility: Sleep Schedule & Co-Sleeping Tips",
     description:
       "Can an ambitious early Lion and a sensitive light-sleeping Dolphin share a bedroom peacefully? Manage the 1.5-hour bedtime offset, alarm sensitivity, and evening wind-down.",
     keywords:
@@ -403,7 +403,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "6:30 AM",
       bed: "11:30 PM",
     },
-    title: "Wolf and Dolphin Chronotype Compatibility: Night Owls & Light Sleepers | ARC",
+    title: "Wolf and Dolphin Chronotype Compatibility: Night Owls & Light Sleepers",
     description:
       "How do night owls (Wolves) and light sleepers (Dolphins) navigate shared sleep? Discover wake-up gaps, midnight boundary rules, and bedtime anxiety strategies.",
     keywords:
@@ -460,7 +460,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "7:00 AM",
       bed: "11:00 PM",
     },
-    title: "Bear and Bear Chronotype Compatibility: The Solar Rhythm Power Couple | ARC",
+    title: "Bear and Bear Chronotype Compatibility: The Solar Rhythm Power Couple",
     description:
       "When two Bears date or marry: explore the seamless 0-hour bedtime gap, synchronized 10:00 AM focus peaks, mutual afternoon slumps, and the weekend oversleeping trap.",
     keywords:
@@ -517,7 +517,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "8:45 AM",
       bed: "12:30 AM",
     },
-    title: "Wolf and Wolf Chronotype Compatibility: The Late-Night Creative Duo | ARC",
+    title: "Wolf and Wolf Chronotype Compatibility: The Late-Night Creative Duo",
     description:
       "When two night owls share a life: explore midnight focus synergy, vibrant late-night dinners, morning wake-up survival, and how to prevent runaway sleep drift.",
     keywords:
@@ -574,7 +574,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "6:00 AM",
       bed: "10:00 PM",
     },
-    title: "Lion and Lion Chronotype Compatibility: The Early-Bird Power Couple | ARC",
+    title: "Lion and Lion Chronotype Compatibility: The Early-Bird Power Couple",
     description:
       "When two early risers unite: explore 5:30 AM workouts, unmatched morning productivity, evening social limits, and how two Lions optimize shared sleep.",
     keywords:
@@ -631,7 +631,7 @@ export const COMPATIBILITY_PAIRINGS: Record<string, CompatibilityPairingData> = 
       wake: "6:30 AM",
       bed: "11:30 PM",
     },
-    title: "Dolphin and Dolphin Chronotype Compatibility: Two Light Sleepers Sharing a Bed | ARC",
+    title: "Dolphin and Dolphin Chronotype Compatibility: Two Light Sleepers Sharing a Bed",
     description:
       "When two light sleepers and insomniacs share a bedroom: how to eliminate secondhand sleep anxiety, handle midnight awakenings, and co-sleep peacefully.",
     keywords:

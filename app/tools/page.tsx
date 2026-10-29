@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: "/tools",
   },
   openGraph: {
-    title: `${INDEX_TITLE} | ARC`,
+    title: INDEX_TITLE,
     description: INDEX_DESCRIPTION,
     url: "/tools",
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${INDEX_TITLE} | ARC`,
+    title: INDEX_TITLE,
     description: INDEX_DESCRIPTION,
   },
 };

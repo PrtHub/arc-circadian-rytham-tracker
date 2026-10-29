@@ -68,10 +68,12 @@ function DecayChart({
         <span>{formatClock(start)}</span>
         <span>Bed · {formatClock(bed)}</span>
       </div>
-      <p className="text-[11px] text-(--fg-muted) mt-2">
-        Solid: caffeine from today&apos;s drinks.
-        {nextAt !== null && " Dashed: with one more drink at your cutoff, landing on the 50 mg line at bedtime."}
-      </p>
+      <div data-nosnippet>
+        <p className="text-[11px] text-(--fg-muted) mt-2">
+          Solid: caffeine from today&apos;s drinks.
+          {nextAt !== null && " Dashed: with one more drink at your cutoff, landing on the 50 mg line at bedtime."}
+        </p>
+      </div>
     </div>
   );
 }
@@ -342,7 +344,7 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
           </div>
         </div>
 
-        <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden mt-8" aria-live="polite">
+        <div className="sunken-card border border-(--accent)/30 p-8 text-center relative overflow-hidden mt-8" aria-live="polite" data-nosnippet>
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent to-transparent opacity-50"></div>
           <p className="text-(--fg-muted) text-xs font-bold uppercase tracking-widest mb-2 font-mono">
             {state === "exhausted" ? "No drink of this size fits tonight" : `Last safe ${caffeineAmount || ""} mg drink`}

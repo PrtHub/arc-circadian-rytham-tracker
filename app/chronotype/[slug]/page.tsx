@@ -29,7 +29,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
-  const title = chronotype.seoTitle || `${chronotype.name} Chronotype Schedule: Daily Routine & Sleep Optimization | ARC`;
+  const title = chronotype.seoTitle || `${chronotype.name} Chronotype Schedule: Daily Routine & Sleep Optimization`;
   const description = chronotype.seoDescription || `The ${chronotype.name} chronotype explained: typical wake and sleep times, peak focus hours, morning light and caffeine timing.`;
 
   return {

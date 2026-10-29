@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | ARC 2.0 Living Light",
+  title: "Privacy Policy",
   description:
     "ARC is built local-first. All check-ins, sleep logs, and caffeine records stay on your device in SQLite. No account, no GPS tracking, and no ad trackers.",
   alternates: {

@@ -14,7 +14,7 @@ import CaffeineCalculatorClient from "./CaffeineCalculatorClient";
 
 export const metadata = toolMetadata({
   slug: "caffeine-calculator",
-  title: "Caffeine Half-Life & Cutoff Calculator: How Much Is Left at Bedtime? | ARC",
+  title: "Caffeine Half-Life Calculator: Coffee Cutoff & Clearance Time",
   description:
     "Stack every coffee, espresso, or energy drink you've had today to see your exact mg of caffeine left at bedtime (4h, 5.5h, or 7h half-life) and your last safe cup.",
   keywords:

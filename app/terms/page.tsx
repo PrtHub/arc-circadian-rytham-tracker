@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | ARC 2.0 Living Light",
+  title: "Terms of Service",
   description:
     "Terms of Service for ARC Circadian Rhythm Tracker. Learn about subscription terms, non-medical advice guidelines, and usage conditions.",
   alternates: {

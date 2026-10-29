@@ -3,6 +3,40 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Host-Level Domain Migration: arcapp.sbs -> arccircadian.com
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "arcapp.sbs",
+          },
+        ],
+        destination: "https://arccircadian.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.arcapp.sbs",
+          },
+        ],
+        destination: "https://arccircadian.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.arccircadian.com",
+          },
+        ],
+        destination: "https://arccircadian.com/:path*",
+        permanent: true,
+      },
       // Caffeine Calculator
       {
         source: "/tools/caffeine",

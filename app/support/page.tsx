@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Support & Help Center | ARC Circadian Rhythm Tracker",
+  title: "Support & Help Center",
   description:
     "Get help with ARC 2.0. Troubleshoot widgets, Live Activities, subscription restore, chronotype calibration, and contact our engineering team.",
   alternates: {

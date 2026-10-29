@@ -49,14 +49,14 @@ export function toolMetadata({
   keywords: string;
 }): Metadata {
   const url = `/tools/${slug}`;
-  const socialTitle = `${title} | ARC`;
+  const cleanTitle = title.replace(/\s*\|\s*ARC.*$/i, "").trim();
   return {
-    title,
+    title: cleanTitle,
     description,
     keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: socialTitle,
+      title: cleanTitle,
       description,
       url,
       type: "website",
@@ -64,7 +64,7 @@ export function toolMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: socialTitle,
+      title: cleanTitle,
       description,
     },
   };

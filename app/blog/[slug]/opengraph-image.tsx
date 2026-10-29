@@ -182,7 +182,7 @@ export default async function OgImage({
             }}
           >
             <span style={{ fontSize: "14px", color: "#a1a1aa", fontWeight: 700 }}>Read full article at</span>
-            <span style={{ fontSize: "14px", color: "#CCFF00", fontWeight: 800 }}>arcapp.sbs</span>
+            <span style={{ fontSize: "14px", color: "#CCFF00", fontWeight: 800 }}>arccircadian.com</span>
           </div>
         </div>
       </div>

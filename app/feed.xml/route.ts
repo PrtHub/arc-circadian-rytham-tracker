@@ -2,7 +2,7 @@ import { blogPosts } from "@/lib/blog-data";
 import { guidesData } from "@/lib/guides-data";
 import { scienceArticles } from "@/lib/science-data";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 function escapeXml(unsafe: string): string {
   return unsafe

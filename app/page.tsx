@@ -32,19 +32,19 @@ export const metadata: Metadata = {
     "living light",
   ],
   alternates: {
-    canonical: "https://arcapp.sbs",
+    canonical: "https://arccircadian.com",
   },
   openGraph: {
     title: "ARC – Circadian Rhythm Tracker",
     description:
       "You’re not lazy. You’re on the wrong clock. ARC plans your day around your chronotype, your coffee and the dip you actually have.",
     type: "website",
-    url: "https://arcapp.sbs",
+    url: "https://arccircadian.com",
     siteName: "ARC",
     locale: "en_US",
     images: [
       {
-        url: "https://arcapp.sbs/og.png",
+        url: "https://arccircadian.com/og.png",
         width: 1200,
         height: 630,
         alt: "ARC – Circadian Rhythm Tracker",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     description:
       "You’re not lazy. You’re on the wrong clock. ARC plans your day around your chronotype, your coffee and the dip you actually have.",
     creator: "@iPritamX",
-    images: ["https://arcapp.sbs/og.png"],
+    images: ["https://arccircadian.com/og.png"],
   },
   other: {
     "apple-itunes-app": "app-id=6758214892",

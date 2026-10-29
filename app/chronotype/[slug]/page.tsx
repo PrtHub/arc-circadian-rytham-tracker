@@ -28,7 +28,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return { title: "Not Found" };
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
   const title = chronotype.seoTitle || `${chronotype.name} Chronotype Schedule: Daily Routine & Sleep Optimization | ARC`;
   const description = chronotype.seoDescription || `The ${chronotype.name} chronotype explained: typical wake and sleep times, peak focus hours, morning light and caffeine timing.`;
 
@@ -87,7 +87,7 @@ export default async function ChronotypePage(props: Props) {
     notFound();
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
   const jsonLdArticle = {
     "@context": "https://schema.org",
@@ -104,7 +104,7 @@ export default async function ChronotypePage(props: Props) {
       name: "ARC",
       logo: {
         "@type": "ImageObject",
-        url: "https://arcapp.sbs/icon.png",
+        url: "https://arccircadian.com/icon.png",
       },
     },
   };

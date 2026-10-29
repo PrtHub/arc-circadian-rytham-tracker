@@ -27,7 +27,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return { title: "Drink Not Found" };
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
   const title = `${drink.name} Caffeine Half-Life & Decay: How Much Is Left at Bedtime? | ARC`;
   const description = `See exact caffeine decay for ${drink.name} (${drink.amount}mg). Hour-by-hour remaining mg table for 8 AM, 12 PM, 2 PM, and 4 PM intake, bedtime residual, and your last safe cup.`;
 
@@ -62,7 +62,7 @@ export default async function DrinkCaffeinePage(props: Props) {
     notFound();
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
   const decayTable = calculateDecayTable(drink.amount, 5.5);
 
   const fastResidual8h = Math.round(mgRemaining(drink.amount, 8, 4.0));

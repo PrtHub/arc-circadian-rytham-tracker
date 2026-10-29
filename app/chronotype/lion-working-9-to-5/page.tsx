@@ -6,7 +6,7 @@ import { ChronotypeScheduleCustomizer } from "@/components/ChronotypeScheduleCus
 import { AppStoreButton } from "@/components/AppStoreButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export const metadata: Metadata = {
   title: "Lion Chronotype 9-to-5 Schedule: How Early Birds Dominate Corporate Hours | ARC",

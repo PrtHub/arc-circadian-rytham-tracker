@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Circadian Rhythm Guides & Step-by-Step Protocols",
     description:
       "Evidence-based master guides and protocols to recalibrate your biological clock, optimize caffeine half-life, and master sleep architecture.",
-    url: "https://arcapp.sbs/guides",
+    url: "https://arccircadian.com/guides",
   },
 };
 
@@ -39,12 +39,12 @@ export default function GuidesPage() {
     "name": "ARC Circadian & Sleep Master Guides",
     "description":
       "Actionable step-by-step guides and scientific protocols for optimizing human circadian biology and sleep architecture.",
-    "url": "https://arcapp.sbs/guides",
+    "url": "https://arccircadian.com/guides",
     "hasPart": guidesData.map((guide) => ({
       "@type": "HowTo",
       "name": guide.title,
       "description": guide.excerpt,
-      "url": `https://arcapp.sbs/guides/${guide.slug}`,
+      "url": `https://arccircadian.com/guides/${guide.slug}`,
     })),
   };
 

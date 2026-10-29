@@ -13,7 +13,7 @@ import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
 import { BED_TIMES, WAKE_TIMES, timeSlug, timeLabel } from "@/lib/sleep-times";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export const metadata: Metadata = {
   title: "HTML Sitemap & Complete Page Index",

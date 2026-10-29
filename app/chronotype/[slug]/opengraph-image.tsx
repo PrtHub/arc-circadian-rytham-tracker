@@ -222,7 +222,7 @@ export default async function OgImage({
             }}
           >
             <span style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 700 }}>Find yours at</span>
-            <span style={{ fontSize: "13px", color: "#CCFF00", fontWeight: 800 }}>arcapp.sbs/chronotype/{slug}</span>
+            <span style={{ fontSize: "13px", color: "#CCFF00", fontWeight: 800 }}>arccircadian.com/chronotype/{slug}</span>
           </div>
         </div>
       </div>

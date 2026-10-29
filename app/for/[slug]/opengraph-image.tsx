@@ -209,7 +209,7 @@ export default async function OgImage({
             }}
           >
             <span style={{ fontSize: "13px", color: "#71717a", fontWeight: 700 }}>Optimize yours at</span>
-            <span style={{ fontSize: "13px", color: "#CCFF00", fontWeight: 800 }}>arcapp.sbs/for/{slug}</span>
+            <span style={{ fontSize: "13px", color: "#CCFF00", fontWeight: 800 }}>arccircadian.com/for/{slug}</span>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default function TermsPage() {
     "@type": "WebPage",
     name: "ARC Terms of Service",
     description: "Terms and conditions governing the use of the ARC app and website.",
-    url: "https://arcapp.sbs/terms",
+    url: "https://arccircadian.com/terms",
   };
 
   return (
@@ -66,7 +66,7 @@ export default function TermsPage() {
               1. Agreement to Terms
             </h2>
             <p>
-              By downloading, installing, accessing, or using the ARC mobile application (&ldquo;App&rdquo;) or website (arcapp.sbs), you agree to be bound by these Terms of Service. If you do not agree to all of these terms, please do not use our services.
+              By downloading, installing, accessing, or using the ARC mobile application (&ldquo;App&rdquo;) or website (arccircadian.com), you agree to be bound by these Terms of Service. If you do not agree to all of these terms, please do not use our services.
             </p>
           </section>
 

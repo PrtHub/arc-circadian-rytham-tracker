@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Circadian Science & Sleep Journal",
         description: "Evidence-based articles on circadian timing, caffeine decay, and human energy optimization.",
-        url: "https://arcapp.sbs/blog",
+        url: "https://arccircadian.com/blog",
     },
 };
 
@@ -34,11 +34,11 @@ export default function BlogPage() {
         "@type": "Blog",
         "name": "The ARC Journal",
         "description": "Latest insights into chronobiology, sleep science, and the physics of human performance.",
-        "url": "https://arcapp.sbs/blog",
+        "url": "https://arccircadian.com/blog",
         "blogPost": blogPosts.map(post => ({
             "@type": "BlogPosting",
             "headline": post.title,
-            "url": `https://arcapp.sbs/blog/${post.slug}`,
+            "url": `https://arccircadian.com/blog/${post.slug}`,
             "datePublished": post.date
         }))
     };

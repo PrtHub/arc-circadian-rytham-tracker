@@ -101,7 +101,7 @@ const CAFFEINE_DB = [
 ];
 
 const EMBED_SNIPPET =
-  '<iframe src="https://arcapp.sbs/tools/caffeine-calculator" width="100%" height="600px" frameborder="0"></iframe>\n<p>Caffeine calculator by <a href="https://arcapp.sbs/tools/caffeine-calculator">ARC</a></p>';
+  '<iframe src="https://arccircadian.com/tools/caffeine-calculator" width="100%" height="600px" frameborder="0"></iframe>\n<p>Caffeine calculator by <a href="https://arccircadian.com/tools/caffeine-calculator">ARC</a></p>';
 
 interface CaffeineCalculatorProps {
   initialDrinkName?: string;
@@ -214,11 +214,10 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
                 type="button"
                 onClick={() => setSensitivity(s.id)}
                 aria-pressed={sensitivity === s.id}
-                className={`px-3 py-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 ${
-                  sensitivity === s.id
+                className={`px-3 py-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 ${sensitivity === s.id
                     ? "bg-accent text-black"
                     : "bg-white/5 border border-white/10 text-(--fg-muted) hover:text-white"
-                }`}
+                  }`}
               >
                 <span>{s.label}</span>
                 <span className="text-[10px] font-normal opacity-80">{s.halfLife}h half-life</span>
@@ -304,11 +303,10 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
                   aria-pressed={selectedCategory === cat}
-                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    selectedCategory === cat
+                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === cat
                       ? "bg-accent text-black"
                       : "bg-white/5 border border-white/10 text-(--fg-muted) hover:text-white"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -326,11 +324,10 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
                   setSelectedDrink(drink.name);
                 }}
                 aria-pressed={selectedDrink === drink.name}
-                className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
-                  selectedDrink === drink.name
+                className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${selectedDrink === drink.name
                     ? "border-accent bg-(--accent)/15 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                     : "border-white/5 bg-white/5 hover:border-white/20"
-                }`}
+                  }`}
               >
                 <span className="text-[10px] text-(--fg-muted) font-bold uppercase tracking-wider font-mono">{drink.category}</span>
                 <span className="text-sm font-bold text-white my-1 leading-snug">{drink.name}</span>

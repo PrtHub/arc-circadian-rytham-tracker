@@ -24,7 +24,7 @@ export function ToolBreadcrumbs({
 // Shared building blocks for the free tool pages: metadata with social previews,
 // JSON-LD, a visible FAQ that matches its FAQPage schema, and related reading.
 
-const SITE_URL = "https://arcapp.sbs";
+const SITE_URL = "https://arccircadian.com";
 
 export interface ToolFaq {
   q: string;

@@ -169,7 +169,7 @@ export const faqs = [
   },
 ];
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export const jsonLdApp = {
   "@context": "https://schema.org",

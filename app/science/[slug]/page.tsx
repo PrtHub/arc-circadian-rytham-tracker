@@ -15,7 +15,7 @@ import {
   ToolLinks,
 } from "@/components/article/ArticleExtras";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export async function generateStaticParams() {
   return scienceArticles.map((article) => ({ slug: article.slug }));

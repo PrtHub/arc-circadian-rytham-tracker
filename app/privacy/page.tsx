@@ -19,7 +19,7 @@ export default function PrivacyPage() {
     "@type": "WebPage",
     name: "ARC Privacy Policy",
     description: "Privacy policy detailing ARC's local-first architecture and privacy guarantees.",
-    url: "https://arcapp.sbs/privacy",
+    url: "https://arccircadian.com/privacy",
   };
 
   return (
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-accent font-bold font-mono">i</span>
-              <span><strong className="text-white">This Website Is Different:</strong> arcapp.sbs (not the app) uses Google Analytics and Mixpanel to understand how visitors use the site, including session recordings. See section 6.</span>
+              <span><strong className="text-white">This Website Is Different:</strong> arccircadian.com (not the app) uses Google Analytics and Mixpanel to understand how visitors use the site, including session recordings. See section 6.</span>
             </li>
           </ul>
         </div>
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white font-sans tracking-tight">
-              6. This Website (arcapp.sbs) & Web Analytics
+              6. This Website (arccircadian.com) & Web Analytics
             </h2>
             <p>
               Everything above describes the ARC iOS app. This marketing website, including its free calculators, works differently and uses two third-party analytics services:

@@ -55,7 +55,7 @@ export function ChronotypeScheduleCustomizer({ slug, chronotypeName, defaultWake
   const handleCopy = () => {
     const text = `My Custom ${chronotypeName} Schedule (Wake: ${formatClock(wakeMins)}):\n` +
       scheduleItems.map(item => `• ${item.time} - ${item.label}: ${item.desc}`).join("\n") +
-      `\n\nGenerated with ARC Circadian Rhythm Tracker: https://arcapp.sbs/chronotype/${slug}`;
+      `\n\nGenerated with ARC Circadian Rhythm Tracker: https://arccircadian.com/chronotype/${slug}`;
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -98,11 +98,10 @@ export function ChronotypeScheduleCustomizer({ slug, chronotypeName, defaultWake
               <button
                 key={timeStr}
                 onClick={() => setWake(timeStr)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all ${
-                  isSelected
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all ${isSelected
                     ? "bg-accent text-black shadow-[0_0_20px_rgba(255,170,0,0.35)] scale-105"
                     : "bg-white/5 text-zinc-300 hover:bg-white/10 border border-white/10"
-                }`}
+                  }`}
               >
                 {formatClock(toMinutes(timeStr))}
               </button>
@@ -116,11 +115,10 @@ export function ChronotypeScheduleCustomizer({ slug, chronotypeName, defaultWake
         {scheduleItems.map((item, idx) => (
           <div
             key={idx}
-            className={`p-4 rounded-2xl border transition-all ${
-              idx === 0 || idx === 3 || idx === 4
+            className={`p-4 rounded-2xl border transition-all ${idx === 0 || idx === 3 || idx === 4
                 ? "bg-(--accent)/5 border-(--accent)/30"
                 : "bg-white/5 border-white/5"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-2 mb-1.5">
               <span className="text-base">{item.icon}</span>

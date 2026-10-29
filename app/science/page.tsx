@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chronobiology Explained: Sleep Pressure, Zeitgebers & More",
     description: "Evidence-based protocols and research detailing circadian physiology, adenosine clearance, and light exposure.",
-    url: "https://arcapp.sbs/science",
+    url: "https://arccircadian.com/science",
   },
 };
 
@@ -35,11 +35,11 @@ export default function SciencePage() {
     "@type": "CollectionPage",
     "name": "ARC Science & Protocols Hub",
     "description": "Scientific resources, protocols, and definitions detailing human chronobiology.",
-    "url": "https://arcapp.sbs/science",
+    "url": "https://arccircadian.com/science",
     "hasPart": scienceArticles.map((article) => ({
       "@type": "WebPage",
       "headline": article.title,
-      "url": `https://arcapp.sbs/science/${article.slug}`,
+      "url": `https://arccircadian.com/science/${article.slug}`,
     })),
   };
 

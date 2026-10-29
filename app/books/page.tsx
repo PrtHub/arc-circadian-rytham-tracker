@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Circadian Rhythm & Sleep Books",
     description: "Curated reviews and scientific summaries of foundational texts in chronobiology, sleep science, and human performance.",
-    url: "https://arcapp.sbs/books",
+    url: "https://arccircadian.com/books",
   },
 };
 
@@ -33,11 +33,11 @@ export default function BooksPage() {
     "@type": "CollectionPage",
     "name": "ARC Recommended Circadian Books Directory",
     "description": "Scientific reviews and summaries of critical texts on sleep science, chronotypes, and biological routines.",
-    "url": "https://arcapp.sbs/books",
+    "url": "https://arccircadian.com/books",
     "hasPart": booksData.map((book) => ({
       "@type": "WebPage",
       "headline": book.title,
-      "url": `https://arcapp.sbs/books/${book.slug}`,
+      "url": `https://arccircadian.com/books/${book.slug}`,
     })),
   };
 

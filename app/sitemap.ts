@@ -9,7 +9,7 @@ import { BED_TIMES, WAKE_TIMES, timeSlug } from "@/lib/sleep-times";
 import { CAFFEINE_DRINKS } from "@/lib/caffeine-drinks";
 import { COMPATIBILITY_PAIRINGS } from "@/lib/chronotype-compatibility-data";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 const REDIRECTED_GUIDE_SLUGS = new Set([
   "caffeine-half-life-optimization-guide",

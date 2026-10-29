@@ -35,7 +35,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return { title: "Not Found" };
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
   return {
     title: pairing.title,
@@ -68,7 +68,7 @@ export default async function ChronotypePairingPage(props: Props) {
     notFound();
   }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
   const jsonLdFaq = {
     "@context": "https://schema.org",

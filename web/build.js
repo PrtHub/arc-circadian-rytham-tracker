@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Builds the arcapp.sbs home page from the app itself.
+ * Builds the arccircadian.com home page from the app itself.
  *
  *   node web/build.js            → web/dist/index.html, icons, og.png
  *   node web/build.js --check    → also full-page screenshots, for a look
@@ -40,7 +40,7 @@ const OUT = path.join(__dirname, "dist");
 const LANG = "en";
 const CHECK = process.argv.includes("--check");
 
-const SITE = "https://arcapp.sbs";
+const SITE = "https://arccircadian.com";
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/arc-circadian-rhythm-tracker/id6758214892";
 const APP_STORE_ID = "6758214892";
@@ -64,7 +64,11 @@ const esc = (s) =>
 function buildStrings(lang) {
   const read = (f) =>
     JSON.parse(fs.readFileSync(path.join(ROOT, "locales", lang, f), "utf8"));
-  return { ...read("common.json"), ...read("app.json"), onboarding: read("onboarding.json") };
+  return {
+    ...read("common.json"),
+    ...read("app.json"),
+    onboarding: read("onboarding.json"),
+  };
 }
 const STRINGS = buildStrings(LANG);
 
@@ -133,13 +137,17 @@ for (const m of MOMENTS) {
   m.time = G.clockText(m.at);
   m.screen = f.screen();
   m.pop = f.pops[0] ? f.pops[0].html() : "";
-  const shown = (m.screen.match(/class="status">\s*<span>([^<]+)<\/span>/) || [])[1];
+  const shown = (m.screen.match(/class="status">\s*<span>([^<]+)<\/span>/) ||
+    [])[1];
   if (shown !== G.statusTime(m.at)) {
-    fail(`${m.id}: the page says ${G.statusTime(m.at)} but the phone's status bar says ${shown}`);
+    fail(
+      `${m.id}: the page says ${G.statusTime(m.at)} but the phone's status bar says ${shown}`,
+    );
   }
 }
 const IDENTITY = G.identityScreen();
-if (G.MISSES.length) fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
+if (G.MISSES.length)
+  fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
 
 /* ── facts the app states ────────────────────────────────────────────────── */
 
@@ -147,28 +155,47 @@ const tokens = require(path.join(ROOT, "constants", "tokens.js"));
 
 function constantFrom(file, name) {
   const src = fs.readFileSync(path.join(ROOT, file), "utf8");
-  const m = src.match(new RegExp(`export const ${name}[^=]*=\\s*(\\{[\\s\\S]*?\\});`));
+  const m = src.match(
+    new RegExp(`export const ${name}[^=]*=\\s*(\\{[\\s\\S]*?\\});`),
+  );
   if (!m) fail(`${file}: cannot read ${name}`);
   // Object literals of numbers and number pairs; evaluated, not parsed by hand.
   return vm.runInNewContext("(" + m[1] + ")");
 }
-const CHRONO_PEAK = constantFrom("components/onboarding/visuals.tsx", "CHRONO_PEAK");
-const CHRONO_SHARE = constantFrom("components/onboarding/visuals.tsx", "CHRONO_SHARE");
+const CHRONO_PEAK = constantFrom(
+  "components/onboarding/visuals.tsx",
+  "CHRONO_PEAK",
+);
+const CHRONO_SHARE = constantFrom(
+  "components/onboarding/visuals.tsx",
+  "CHRONO_SHARE",
+);
 
 /*
  * How onboarding assigns the type — `Calculating` in steps.tsx. Read rather than
  * restated, so a moved boundary changes the sentence on the card.
  */
-const steps = fs.readFileSync(path.join(ROOT, "components/onboarding/steps.tsx"), "utf8");
-const byWake = [...steps.matchAll(/\{\s*max:\s*([\d\s*+]+),\s*type:\s*"(\w+)"\s*\}/g)].map(
-  (m) => ({ max: vm.runInNewContext(m[1]), type: m[2] }),
+const steps = fs.readFileSync(
+  path.join(ROOT, "components/onboarding/steps.tsx"),
+  "utf8",
 );
-if (byWake.length !== 3 || !/sleepQuality === "poor"\s*\?\s*"dolphin"/.test(steps)) {
-  fail("steps.tsx: the chronotype rule changed shape; update the card sentences here");
+const byWake = [
+  ...steps.matchAll(/\{\s*max:\s*([\d\s*+]+),\s*type:\s*"(\w+)"\s*\}/g),
+].map((m) => ({ max: vm.runInNewContext(m[1]), type: m[2] }));
+if (
+  byWake.length !== 3 ||
+  !/sleepQuality === "poor"\s*\?\s*"dolphin"/.test(steps)
+) {
+  fail(
+    "steps.tsx: the chronotype rule changed shape; update the card sentences here",
+  );
 }
 
 /* The paywall's fallback prices — the numbers check-logic keeps in step. */
-const paywall = fs.readFileSync(path.join(ROOT, "components/onboarding/Paywall.tsx"), "utf8");
+const paywall = fs.readFileSync(
+  path.join(ROOT, "components/onboarding/Paywall.tsx"),
+  "utf8",
+);
 const price = (plan) => {
   const m = paywall.match(new RegExp(plan + ':\\s*"\\$([0-9]+\\.[0-9]{2})"'));
   if (!m) fail(`Paywall.tsx: no fallback price for ${plan}`);
@@ -192,11 +219,15 @@ function compileEngine() {
         path.join(ROOT, "node_modules", "typescript", "lib", "tsc.js"),
         "lib/caffeine.ts",
         "lib/cutoff.ts",
-        "--outDir", tmp,
-        "--module", "commonjs",
-        "--target", "es2019",
+        "--outDir",
+        tmp,
+        "--module",
+        "commonjs",
+        "--target",
+        "es2019",
         "--skipLibCheck",
-        "--moduleResolution", "node",
+        "--moduleResolution",
+        "node",
         // See check-logic.js: TS 6 refuses listed files beside a tsconfig.
         "--ignoreConfig",
       ],
@@ -227,17 +258,26 @@ const ENGINE = compileEngine();
 /* The engine has to run, and give the answer check-logic pins for the app. */
 const engine = vm.runInNewContext(ENGINE);
 const probe = engine.cutoff.computeCutoff({
-  bedtime: "23:00", sensitivity: "normal", entries: [], nextDoseMg: 95,
+  bedtime: "23:00",
+  sensitivity: "normal",
+  entries: [],
+  nextDoseMg: 95,
   now: new Date(2026, 9, 27, 12, 0),
 });
 if (probe.exhausted || probe.minutes < 12 * 60 || probe.minutes > 20 * 60) {
-  fail("the compiled cutoff engine gave an implausible answer: " + JSON.stringify(probe));
+  fail(
+    "the compiled cutoff engine gave an implausible answer: " +
+      JSON.stringify(probe),
+  );
 }
 
 /* ── the phone CSS, from the generator's stylesheet ─────────────────────── */
 
 const genHtml = fs.readFileSync(path.join(GEN, "index.html"), "utf8");
-const style = genHtml.slice(genHtml.indexOf("<style>") + 7, genHtml.indexOf("</style>"));
+const style = genHtml.slice(
+  genHtml.indexOf("<style>") + 7,
+  genHtml.indexOf("</style>"),
+);
 function cssBetween(from, to) {
   const a = style.indexOf(from);
   const b = to ? style.indexOf(to, a + from.length) : style.length;
@@ -248,8 +288,14 @@ function cssBetween(from, to) {
 /* ── assets ──────────────────────────────────────────────────────────────── */
 
 async function dataUri(file, size, format = "webp") {
-  let img = sharp(file).resize(size, size, { fit: "inside", withoutEnlargement: true });
-  img = format === "png" ? img.png({ compressionLevel: 9 }) : img.webp({ quality: 84 });
+  let img = sharp(file).resize(size, size, {
+    fit: "inside",
+    withoutEnlargement: true,
+  });
+  img =
+    format === "png"
+      ? img.png({ compressionLevel: 9 })
+      : img.webp({ quality: 84 });
   const buf = await img.toBuffer();
   return `data:image/${format};base64,${buf.toString("base64")}`;
 }
@@ -257,22 +303,36 @@ async function dataUri(file, size, format = "webp") {
 async function main() {
   const emoji = {};
   for (const name of [
-    "sun", "hot_beverage", "alarm_clock", "chart_decreasing", "candle",
-    "lion", "bear", "wolf", "dolphin", "crescent_moon",
+    "sun",
+    "hot_beverage",
+    "alarm_clock",
+    "chart_decreasing",
+    "candle",
+    "lion",
+    "bear",
+    "wolf",
+    "dolphin",
+    "crescent_moon",
   ]) {
     emoji[name] = await dataUri(path.join(GEN, "assets", name + ".png"), 256);
   }
-  const ICON = await dataUri(path.join(ROOT, "assets/images/icon-dark.png"), 128);
+  const ICON = await dataUri(
+    path.join(ROOT, "assets/images/icon-dark.png"),
+    128,
+  );
   const GRAIN = await dataUri(path.join(ROOT, "assets/grain.png"), 128, "png");
 
   const withAssets = (html) =>
     html.replace(/src="assets\/(\w+)\.png"/g, (m, n) => {
-      if (!emoji[n]) fail(`a screen uses assets/${n}.png, which the build does not embed`);
+      if (!emoji[n])
+        fail(`a screen uses assets/${n}.png, which the build does not embed`);
       return `src="${emoji[n]}"`;
     });
 
-  const PHONE_CSS = (cssBetween("/* ── device ──", "/* ═══════") + cssBetween(".pop{position:absolute", null))
-    .replace(/url\("\.\.\/\.\.\/assets\/grain\.png"\)/g, `url("${GRAIN}")`);
+  const PHONE_CSS = (
+    cssBetween("/* ── device ──", "/* ═══════") +
+    cssBetween(".pop{position:absolute", null)
+  ).replace(/url\("\.\.\/\.\.\/assets\/grain\.png"\)/g, `url("${GRAIN}")`);
 
   /* ── markup ── */
 
@@ -290,12 +350,14 @@ async function main() {
     const f = m.frame;
     const p = f.pops[0];
     const o = f.objs[0];
-    const pop = decor && p
-      ? `<div class="pop" style="left:${pct(rel(f, p.x))};top:${pct(p.y * 100)};width:${pct(Math.min(108, (p.w / 76) * 100))};--rot:${p.rot}deg">${withAssets(m.pop)}</div>`
-      : "";
-    const obj = decor && o
-      ? `<img class="obj" alt="" src="${emoji[o.src]}" style="left:${pct(rel(f, o.x))};top:${pct(o.y * 100)};width:${pct((o.w / 76) * 100)};--rot:${o.rot}deg">`
-      : "";
+    const pop =
+      decor && p
+        ? `<div class="pop" style="left:${pct(rel(f, p.x))};top:${pct(p.y * 100)};width:${pct(Math.min(108, (p.w / 76) * 100))};--rot:${p.rot}deg">${withAssets(m.pop)}</div>`
+        : "";
+    const obj =
+      decor && o
+        ? `<img class="obj" alt="" src="${emoji[o.src]}" style="left:${pct(rel(f, o.x))};top:${pct(o.y * 100)};width:${pct((o.w / 76) * 100)};--rot:${o.rot}deg">`
+        : "";
     return `<div class="device" style="--tilt:${f.phone.rot}deg">${phone(m.screen)}${pop}${obj}</div>`;
   }
 
@@ -303,7 +365,8 @@ async function main() {
     cap.replace(/<br>/g, " ").replace(/<em>/g, `<em style="color:${accent}">`);
 
   const scene = (m, i, inner) => {
-    const sky = G.SKY[i], next = G.SKY[i + 1] || G.SKY[i];
+    const sky = G.SKY[i],
+      next = G.SKY[i + 1] || G.SKY[i];
     const P = G.PHASE[m.phase];
     const more = MORE[m.id]
       ? `<a class="more" href="${MORE[m.id].href}">${MORE[m.id].text} <span aria-hidden="true">↓</span></a>`
@@ -344,11 +407,12 @@ async function main() {
     wolf: `Usually up after ${clockOf(byWake[1].max)}`,
     dolphin: "Sleeps lightly, whatever time they wake",
   };
-  const CHRONO_HTML = ["lion", "bear", "wolf", "dolphin"].map((t) => {
-    const P = tokens.chronotype[t];
-    const [from, to] = CHRONO_PEAK[t];
-    const name = G.S(`onboarding.identity.types.${t}.name`);
-    return `
+  const CHRONO_HTML = ["lion", "bear", "wolf", "dolphin"]
+    .map((t) => {
+      const P = tokens.chronotype[t];
+      const [from, to] = CHRONO_PEAK[t];
+      const name = G.S(`onboarding.identity.types.${t}.name`);
+      return `
       <article class="chrono" style="--c-acc:${P.accent};--c-0:${P.stops[0]};--c-2:${P.stops[2]}">
         <img src="${emoji[t]}" alt="" width="64" height="64">
         <h3>${esc(name)}</h3>
@@ -360,9 +424,18 @@ async function main() {
         <p class="chrono-blurb">${esc(G.S(`onboarding.identity.types.${t}.blurb`))}</p>
         <a href="${SITE}/chronotype/${t}">The ${esc(name)} schedule <span aria-hidden="true">→</span></a>
       </article>`;
-  }).join("");
+    })
+    .join("");
 
-  const DRINKS = ["espresso", "drip_coffee", "double_espresso", "cold_brew", "matcha", "black_tea", "energy_drink"];
+  const DRINKS = [
+    "espresso",
+    "drip_coffee",
+    "double_espresso",
+    "cold_brew",
+    "matcha",
+    "black_tea",
+    "energy_drink",
+  ];
 
   const PAGE = {
     sky: G.SKY,
@@ -370,7 +443,9 @@ async function main() {
       ...MOMENTS.map((m) => ({ phase: m.phase, label: m.label, time: m.time })),
       { phase: "night", label: G.S("today.phaseLabel.night"), time: "" },
     ],
-    accents: Object.fromEntries(Object.entries(G.PHASE).map(([k, v]) => [k, v.accent])),
+    accents: Object.fromEntries(
+      Object.entries(G.PHASE).map(([k, v]) => [k, v.accent]),
+    ),
     drinks: DRINKS.map((id) => ({
       id,
       name: G.S(`caffeineSheet.drinks.${id}`),
@@ -379,12 +454,16 @@ async function main() {
     halfLife: engine.caffeine.CAFFEINE_HALF_LIFE,
     targetMg: engine.cutoff.TARGET_AT_BED_MG,
   };
-  if (G.MISSES.length) fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
+  if (G.MISSES.length)
+    fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
 
   /* The calculator's first answer, so the page is right before any script runs. */
   const DEFAULT_DRINK = PAGE.drinks.find((d) => d.id === "drip_coffee");
   const DRINKS_HTML = PAGE.drinks
-    .map((d) => `<option value="${d.id}"${d === DEFAULT_DRINK ? " selected" : ""}>${esc(d.name)} · ${d.mg} mg</option>`)
+    .map(
+      (d) =>
+        `<option value="${d.id}"${d === DEFAULT_DRINK ? " selected" : ""}>${esc(d.name)} · ${d.mg} mg</option>`,
+    )
     .join("");
   const [cutTime, cutSuffix] = G.clockText(probe.minutes).split(" ");
 
@@ -403,19 +482,30 @@ async function main() {
    * must be styled by the page, and none of them may be one the screens style.
    * `.phone`, `.screen` and `.pop` are restyled on purpose, scoped under `.device`.
    */
-  const classSet = (css) => new Set([...css.matchAll(/\.([a-z][\w-]*)/g)].map((m) => m[1]));
-  const pageCss = template.slice(template.indexOf("<style>"), template.indexOf("{{PHONE_CSS}}"));
+  const classSet = (css) =>
+    new Set([...css.matchAll(/\.([a-z][\w-]*)/g)].map((m) => m[1]));
+  const pageCss = template.slice(
+    template.indexOf("<style>"),
+    template.indexOf("{{PHONE_CSS}}"),
+  );
   const ours = classSet(pageCss);
   const theirs = classSet(PHONE_CSS);
   const RESTYLED = new Set(["phone", "screen", "pop"]);
   const clash = [...ours].filter((c) => theirs.has(c) && !RESTYLED.has(c));
-  const markup = template.replace(/<style>[\s\S]*?<\/style>/, "") + DAY_OUTER + CHRONO_HTML;
+  const markup =
+    template.replace(/<style>[\s\S]*?<\/style>/, "") + DAY_OUTER + CHRONO_HTML;
   const used = new Set(
-    [...markup.matchAll(/class="([^"]+)"/g)].flatMap((m) => m[1].split(/\s+/)).filter(Boolean),
+    [...markup.matchAll(/class="([^"]+)"/g)]
+      .flatMap((m) => m[1].split(/\s+/))
+      .filter(Boolean),
   );
   const unstyled = [...used].filter((c) => !ours.has(c));
-  if (clash.length) fail("page classes also styled by the app screens: " + clash.join(", "));
-  if (unstyled.length) fail("page markup uses classes the page never styles: " + unstyled.join(", "));
+  if (clash.length)
+    fail("page classes also styled by the app screens: " + clash.join(", "));
+  if (unstyled.length)
+    fail(
+      "page markup uses classes the page never styles: " + unstyled.join(", "),
+    );
   const fills = {
     PHONE_CSS,
     ENGINE,
@@ -446,25 +536,34 @@ async function main() {
     .replace(/<!--@CHRONO-->/, CHRONO_HTML)
     .replace(/<!--@DRINKS-->/, DRINKS_HTML)
     .replace(/\{\{S:([\w.]+)\}\}/g, (m, key) => esc(G.S(key)))
-    .replace(/\{\{EMOJI:(\w+)\}\}/g, (m, n) => emoji[n] || fail(`no emoji asset "${n}"`))
+    .replace(
+      /\{\{EMOJI:(\w+)\}\}/g,
+      (m, n) => emoji[n] || fail(`no emoji asset "${n}"`),
+    )
     .replace(/\{\{(\w+)\}\}/g, (m, k) => (k in fills ? fills[k] : m));
 
-  if (G.MISSES.length) fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
+  if (G.MISSES.length)
+    fail("missing strings: " + [...new Set(G.MISSES)].join(", "));
   const left = page.match(/\{\{\w[\w:.]*\}\}|<!--@\w+-->/g);
   if (left) fail("unfilled placeholders: " + [...new Set(left)].join(", "));
   if (/‹[\w.]+›/.test(page)) fail("a screen rendered a missing-string marker");
 
   /*
-   * Two outputs from one page. `index.html` is the document arcapp.sbs serves.
+   * Two outputs from one page. `index.html` is the document arccircadian.com serves.
    * `preview.html` is the same page without the document shell or the head
    * meta, for hosts that supply their own shell.
    */
   const pick = (name) => {
-    const m = page.match(new RegExp(`<!--${name}-->([\\s\\S]*?)<!--/${name}-->`));
+    const m = page.match(
+      new RegExp(`<!--${name}-->([\\s\\S]*?)<!--/${name}-->`),
+    );
     if (!m) fail(`page.html: no <!--${name}--> section`);
     return m[1].trim();
   };
-  const head = pick("HEAD"), top = pick("TOP"), body = pick("BODY"), preview = pick("PREVIEW");
+  const head = pick("HEAD"),
+    top = pick("TOP"),
+    body = pick("BODY"),
+    preview = pick("PREVIEW");
 
   fs.mkdirSync(OUT, { recursive: true });
   const indexHtml =
@@ -472,19 +571,36 @@ async function main() {
     `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n` +
     `${head}\n${top.replace("<!--PREVIEW_META-->", "")}\n</head>\n<body>\n${body}\n</body>\n</html>\n`;
   fs.writeFileSync(path.join(OUT, "index.html"), indexHtml);
-  fs.writeFileSync(path.join(OUT, "preview.html"), `${top.replace("<!--PREVIEW_META-->", preview)}\n${body}\n`);
+  fs.writeFileSync(
+    path.join(OUT, "preview.html"),
+    `${top.replace("<!--PREVIEW_META-->", preview)}\n${body}\n`,
+  );
 
   /* Icons the head refers to. */
   const icon = path.join(ROOT, "assets/images/icon-dark.png");
-  await sharp(icon).resize(180, 180).png().toFile(path.join(OUT, "apple-touch-icon.png"));
-  await sharp(icon).resize(32, 32).png().toFile(path.join(OUT, "favicon-32.png"));
-  await sharp(icon).resize(512, 512).png().toFile(path.join(OUT, "icon-512.png"));
+  await sharp(icon)
+    .resize(180, 180)
+    .png()
+    .toFile(path.join(OUT, "apple-touch-icon.png"));
+  await sharp(icon)
+    .resize(32, 32)
+    .png()
+    .toFile(path.join(OUT, "favicon-32.png"));
+  await sharp(icon)
+    .resize(512, 512)
+    .png()
+    .toFile(path.join(OUT, "icon-512.png"));
 
-  const kb = (f) => (fs.statSync(path.join(OUT, f)).size / 1024).toFixed(0) + " KB";
+  const kb = (f) =>
+    (fs.statSync(path.join(OUT, f)).size / 1024).toFixed(0) + " KB";
   console.log(`\n  web/dist/index.html    ${kb("index.html")}`);
   console.log(`  web/dist/preview.html  ${kb("preview.html")}`);
-  console.log(`  prices ${money(PRICES.weekly)}/week, ${money(PRICES.annual)}/year (save ${savePct}%), from the paywall`);
-  console.log(`  ${MOMENTS.length} moments, all status-bar times match the page\n`);
+  console.log(
+    `  prices ${money(PRICES.weekly)}/week, ${money(PRICES.annual)}/year (save ${savePct}%), from the paywall`,
+  );
+  console.log(
+    `  ${MOMENTS.length} moments, all status-bar times match the page\n`,
+  );
 
   await shoot(CHECK);
 }
@@ -507,19 +623,33 @@ async function shoot(full) {
     await page.goto(url + "?at=10:20", { waitUntil: "networkidle0" });
     await page.evaluate(() => document.fonts.ready);
     await new Promise((r) => setTimeout(r, 1900));
-    await page.screenshot({ path: path.join(OUT, "og.png"), clip: { x: 0, y: 0, width: 1200, height: 630 } });
+    await page.screenshot({
+      path: path.join(OUT, "og.png"),
+      clip: { x: 0, y: 0, width: 1200, height: 630 },
+    });
 
     if (full) {
-      for (const [name, width, dsf] of [["desktop", 1440, 1], ["phone", 390, 2]]) {
+      for (const [name, width, dsf] of [
+        ["desktop", 1440, 1],
+        ["phone", 390, 2],
+      ]) {
         await page.setViewport({ width, height: 900, deviceScaleFactor: dsf });
         await page.goto(url + "?at=15:20", { waitUntil: "networkidle0" });
         await page.evaluate(() => document.fonts.ready);
         await new Promise((r) => setTimeout(r, 1600));
         const overflow = await page.evaluate(
-          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          () =>
+            document.documentElement.scrollWidth -
+            document.documentElement.clientWidth,
         );
-        if (overflow > 0) console.log(`  ! ${name}: the page scrolls sideways by ${overflow}px`);
-        await page.screenshot({ path: path.join(OUT, `check-${name}.png`), fullPage: true });
+        if (overflow > 0)
+          console.log(
+            `  ! ${name}: the page scrolls sideways by ${overflow}px`,
+          );
+        await page.screenshot({
+          path: path.join(OUT, `check-${name}.png`),
+          fullPage: true,
+        });
         console.log(`  web/dist/check-${name}.png`);
       }
     }

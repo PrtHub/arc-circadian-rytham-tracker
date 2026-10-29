@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
   hideJsonLd?: boolean;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export function Breadcrumbs({
   items,

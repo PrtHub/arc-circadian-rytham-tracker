@@ -21,7 +21,7 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arcapp.sbs";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 export const viewport: Viewport = {
   themeColor: "#070A18",
@@ -131,7 +131,10 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: "449Ube5J9JufizV9AJmYfoLHV7TbE7aqryFLe9f_aF0",
+    google: [
+      "woQNSq6mTWzcznfxJsGOL1OTaKkR9-lvI01rFSTPBWs",
+      "449Ube5J9JufizV9AJmYfoLHV7TbE7aqryFLe9f_aF0",
+    ],
   },
 };
 

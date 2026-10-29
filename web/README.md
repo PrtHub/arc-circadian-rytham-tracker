@@ -1,4 +1,4 @@
-# arcapp.sbs home page
+# arccircadian.com home page
 
 Built from the app, not written by hand.
 
@@ -14,16 +14,16 @@ Instrument Serif from Google Fonts.
 
 ## What comes from where
 
-| On the page | Source |
-|---|---|
-| Phones and pop-out cards | `appstore/generator/frames.js` screen functions, the same markup as the App Store screenshots |
-| Phone styling | the generator's stylesheet, `appstore/generator/index.html` |
-| Phase labels, cutoff label, chronotype names and blurbs, caffeine questions, drink names | `locales/en/*.json` |
-| The coffee calculator | `lib/cutoff.ts` and `lib/caffeine.ts`, compiled into the page |
-| Prices and "Save X%" | the paywall's fallback prices in `components/onboarding/Paywall.tsx` |
-| Chronotype peak hours and shares | `CHRONO_PEAK` and `CHRONO_SHARE` in `components/onboarding/visuals.tsx` |
-| Chronotype rules ("Usually up by 6:00 AM") | the wake-time table in `components/onboarding/steps.tsx` |
-| Card colours | `constants/tokens.js` |
+| On the page                                                                              | Source                                                                                        |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Phones and pop-out cards                                                                 | `appstore/generator/frames.js` screen functions, the same markup as the App Store screenshots |
+| Phone styling                                                                            | the generator's stylesheet, `appstore/generator/index.html`                                   |
+| Phase labels, cutoff label, chronotype names and blurbs, caffeine questions, drink names | `locales/en/*.json`                                                                           |
+| The coffee calculator                                                                    | `lib/cutoff.ts` and `lib/caffeine.ts`, compiled into the page                                 |
+| Prices and "Save X%"                                                                     | the paywall's fallback prices in `components/onboarding/Paywall.tsx`                          |
+| Chronotype peak hours and shares                                                         | `CHRONO_PEAK` and `CHRONO_SHARE` in `components/onboarding/visuals.tsx`                       |
+| Chronotype rules ("Usually up by 6:00 AM")                                               | the wake-time table in `components/onboarding/steps.tsx`                                      |
+| Card colours                                                                             | `constants/tokens.js`                                                                         |
 
 Marketing copy (headlines, the FAQ, the paragraphs under each moment) lives in
 `web/src/page.html` and `BODY` in `build.js`.

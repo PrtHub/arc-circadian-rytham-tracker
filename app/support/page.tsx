@@ -105,7 +105,7 @@ export default function SupportPage() {
     "@type": "ContactPage",
     name: "ARC Support Center",
     description: "Support and troubleshooting center for ARC Circadian Rhythm Tracker.",
-    url: "https://arcapp.sbs/support",
+    url: "https://arccircadian.coman.com/support",
   };
 
   return (

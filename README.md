@@ -1,6 +1,6 @@
 # ARC: Circadian Rhythm Tracker — Landing Page
 
-Marketing landing page for [ARC](https://arcapp.sbs), an iOS app that syncs your schedule with your biology using chronobiology science.
+Marketing landing page for [ARC](https://arccircadian.com), an iOS app that syncs your schedule with your biology using chronobiology science.
 
 ## Stack
 
@@ -53,10 +53,10 @@ public/
 ## Environment Variables
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://arcapp.sbs
+NEXT_PUBLIC_SITE_URL=https://arccircadian.com
 ```
 
-Defaults to `https://arcapp.sbs` if not set.
+Defaults to `https://arccircadian.com` if not set.
 
 ## App Store
 

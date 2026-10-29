@@ -59,6 +59,12 @@ export const metadata: Metadata = {
     creator: "@iPritamX",
     images: ["https://arccircadian.com/og.png"],
   },
+  verification: {
+    google: [
+      "woQNSq6mTWzcznfxJsGOL1OTaKkR9-lvI01rFSTPBWs",
+      "449Ube5J9JufizV9AJmYfoLHV7TbE7aqryFLe9f_aF0",
+    ],
+  },
   other: {
     "apple-itunes-app": "app-id=6758214892",
   },
@@ -67,6 +73,10 @@ export const metadata: Metadata = {
 export default function ArcPage() {
   return (
     <>
+      <meta
+        name="google-site-verification"
+        content="woQNSq6mTWzcznfxJsGOL1OTaKkR9-lvI01rFSTPBWs"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}

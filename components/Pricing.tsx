@@ -38,7 +38,7 @@ export function Pricing() {
             <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[42px]">today.</span>
           </h2>
           <p className="text-(--fg-muted) text-sm">
-            Setup is free and shows your chronotype and first day. Then choose a plan: annual starts with a 7-day free trial. Useful from day one, and more personal after about 10 days of one-tap check-ins. Cancel anytime in the App Store.
+            Setup is free and shows your chronotype and first day. Then choose a plan: annual ($49.99/year) or weekly ($4.99/week). Useful from day one, and more personal after about 10 days of one-tap check-ins. Cancel anytime in the App Store.
           </p>
         </div>
 
@@ -112,23 +112,31 @@ export function Pricing() {
           ))}
         </ul>
 
-        <div className="mt-12 raised-card p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-linear-to-b from-(--accent)/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <p className="text-(--fg) text-sm leading-relaxed">
-            <strong className="text-white">
-              Have questions or a tight budget?
+        <div className="mt-12 border border-amber-400/40 bg-gradient-to-r from-amber-400/10 via-amber-400/5 to-transparent rounded-2xl p-6 text-center max-w-2xl mx-auto flex flex-col items-center gap-3 relative overflow-hidden group shadow-lg shadow-black/20">
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <span className="shrink-0 w-8 h-8 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-300 flex items-center justify-center font-bold text-sm">
+            ✦
+          </span>
+          <p className="text-zinc-200 text-sm leading-relaxed">
+            <strong className="text-amber-300 font-semibold">
+              A student, or the price is a real barrier?
             </strong>
             <br />
-            Whether you want to understand the science better, or you&apos;re a
-            student experiencing financial hardship, we don&apos;t want price to
-            be a barrier to your health.
+            Write to{" "}
+            <a
+              href="mailto:pritamfinds@gmail.com?subject=ARC%20Access%20Request"
+              className="text-white underline decoration-amber-400 underline-offset-4 font-semibold hover:text-amber-200 transition-colors"
+            >
+              pritamfinds@gmail.com
+            </a>{" "}
+            and we’ll work something out.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
             <a
-              href="mailto:pritamfinds@gmail.com"
-              className="text-xs font-bold bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-lg text-white font-mono"
+              href="mailto:pritamfinds@gmail.com?subject=ARC%20Access%20Request"
+              className="text-xs font-bold bg-amber-400/20 hover:bg-amber-400/30 border border-amber-400/40 transition-colors px-4 py-2 rounded-lg text-amber-200 font-mono"
             >
-              Email Us
+              Email Pritam
             </a>
             <a
               href="https://x.com/iPritamX"

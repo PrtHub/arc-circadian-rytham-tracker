@@ -78,8 +78,8 @@ export default function TermsPage() {
               ARC offers premium features accessible via recurring auto-renewing subscriptions and in-app purchases:
             </p>
             <ul className="list-disc pl-6 space-y-2.5 text-sm">
-              <li><strong className="text-zinc-200">Subscription Plans:</strong> Available as a weekly subscription ($4.99/week) or an annual subscription ($39.99/year, billed annually). Prices may vary by geographic territory and currency conversion rates established by Apple.</li>
-              <li><strong className="text-zinc-200">Free Trials:</strong> Where offered on eligible plans (typically annual), free trial periods allow full access to premium features. To avoid being charged, you must cancel at least 24 hours before the trial ends.</li>
+              <li><strong className="text-zinc-200">Subscription Plans:</strong> Available as a weekly subscription ($4.99/week) or an annual subscription ($49.99/year, billed annually). Prices may vary by geographic territory and currency conversion rates established by Apple.</li>
+              <li><strong className="text-zinc-200">Free Trials & Promotional Periods:</strong> If a free trial or promotional period is offered on eligible plans, full access to premium features is granted for the specified duration. To avoid being charged, you must cancel at least 24 hours before the promotional period ends.</li>
               <li><strong className="text-zinc-200">Auto-Renewal:</strong> Subscriptions automatically renew unless auto-renew is disabled at least 24 hours before the end of the current billing cycle.</li>
               <li><strong className="text-zinc-200">How to Cancel:</strong> You can manage or cancel your subscription at any time via your iOS device: <em>Settings &gt; [Your Name] &gt; Subscriptions &gt; ARC &gt; Cancel Subscription</em>.</li>
               <li><strong className="text-zinc-200">Refunds:</strong> All payments and refund requests are processed directly by Apple according to App Store customer policies.</li>

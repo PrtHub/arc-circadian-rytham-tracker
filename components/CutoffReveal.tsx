@@ -215,7 +215,7 @@ export function CutoffReveal() {
             <div className="flex flex-col gap-4">
               <p className="text-xs text-(--fg-muted) leading-relaxed">
                 This assumes it&apos;s your first caffeine today. ARC counts every drink you log and
-                moves your cutoff each time. Free setup, then a 7-day free trial on the annual plan.
+                moves your cutoff each time. Free setup, cancel anytime in the App Store.
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <AppStoreButton location="cutoff_reveal" />

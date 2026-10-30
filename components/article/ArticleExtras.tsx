@@ -29,7 +29,7 @@ export function InArticleCta({ topic, location }: { topic: Topic; location: stri
         </Link>
       </div>
       <p className="mt-4 text-[11px] text-(--fg-muted)">
-        7-day free trial on the annual plan · No account · Location never requested
+        Free setup · No account · Location never requested
       </p>
     </aside>
   );

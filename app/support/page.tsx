@@ -17,10 +17,10 @@ const supportCategories = [
   {
     icon: "💳",
     title: "Subscriptions & Purchases",
-    desc: "Restore purchases, understand the 7-day annual trial, or cancel in Apple ID settings.",
+    desc: "Restore purchases, manage subscription billing, or cancel in Apple ID settings.",
     topics: [
       "How do I restore my purchase on a new phone?",
-      "How to cancel before trial ends",
+      "How to cancel or manage subscriptions",
       "Refund requests via Apple App Store",
     ],
   },

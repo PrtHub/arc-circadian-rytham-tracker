@@ -30,7 +30,7 @@ Not all sleep apps are created equal. Some track your sleep. Some wake you up ge
 
 | App | Annual Price | Hardware Needed? | Chronotype Precision | Real-Time Caffeine Decay | Morning Light Timer | Core Strength |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ARC** | **$39.99/yr** | **None** | **High (Lion/Bear/Wolf/Dolphin)** | **Yes (Live mg decay)** | **Yes (Dynamic Island)** | **Daily Action Plan & Rhythm Calibration** |
+| **ARC** | **$49.99/yr** | **None** | **High (Lion/Bear/Wolf/Dolphin)** | **Yes (Live mg decay)** | **Yes (Dynamic Island)** | **Daily Action Plan & Rhythm Calibration** |
 | **Rise Science** | $69.99/yr | None (Watch helpful) | Moderate (Algorithmic) | Basic static cutoff | No (Push alert only) | Sleep Debt & Energy Schedule |
 | **Lifestack.ai** | $60–$96/yr | Wearable Required | Moderate | Basic time blocks | No | Calendar Time-blocking |
 | **Bodly** | Free / Freemium | None | None | Basic half-life tool | No | Simple Caffeine Web Calculation |
@@ -53,7 +53,7 @@ Key features: a caffeine cutoff that moves every time you log a drink, a morning
 
 Where it falls short: no sleep staging, HRV or wearable data. ARC plans your day rather than measuring your body, so pair it with a tracker if you want biometrics.
 
-Platform: iPhone only. $39.99/year with a 7-day free trial, or $4.99/week.
+Platform: iPhone only. $49.99/year or $4.99/week.
 
 ## 2. Rise Science — Best for Energy Prediction
 
@@ -67,7 +67,7 @@ Price: about $69.99/year at the time of writing.
 
 Lifestack connects your wearable data (Apple Watch, Oura, WHOOP) directly to Google Calendar or Microsoft Outlook, scheduling work tasks around your predicted energy peaks.
 
-Where it falls short: Lifestack requires hardware wearables to function effectively. Its price ($60–$96/year) is significantly higher than ARC ($39.99/year), and it lacks pharmacokinetic caffeine tracking or Dynamic Island light timers. Read our head-to-head [Lifestack vs ARC comparison](/blog/lifestack-vs-arc-circadian-app).
+Where it falls short: Lifestack requires hardware wearables to function effectively. Its price ($60–$96/year) is significantly higher than ARC ($49.99/year), and it lacks pharmacokinetic caffeine tracking or Dynamic Island light timers. Read our head-to-head [Lifestack vs ARC comparison](/blog/lifestack-vs-arc-circadian-app).
 
 Price: about $60–$96/year at the time of writing.
 
@@ -182,7 +182,7 @@ ARC excels at: a daily plan built on your chronotype, caffeine and morning light
 
 If what you wanted from Oura was guidance rather than sensors, you have options that need no ring:
 
-* **ARC** for daily timing: caffeine cutoff, morning light, peak and dip. $39.99/year (7-day free trial) or $4.99/week.
+* **ARC** for daily timing: caffeine cutoff, morning light, peak and dip. $49.99/year or $4.99/week.
 * **AutoSleep**, if you already own an Apple Watch: a detailed sleep report for a one-time price, with no circadian guidance. It pairs well with ARC (see [AutoSleep vs ARC](/blog/autosleep-vs-arc-what-apple-watch-sleep-data-misses)).
 * **Rise**, for energy predictions from your recent sleep, at about $69.99/year at the time of writing (see [Rise vs ARC](/blog/rise-app-vs-arc-circadian-rhythm-comparison)).
 * **Apple Health plus Focus modes and Shortcuts**, for the DIY-inclined: free, but it takes real setup and gives you no chronotype or caffeine math.
@@ -195,7 +195,7 @@ If you are a biohacker who wants objective biological data and has $350+ to spar
 
 The best answer for serious performers: use both. Oura and ARC don't share data, so run them side by side: Oura for recovery metrics, ARC for today's timing.
 
-For everyone else, ARC costs $39.99/year (7-day free trial) or $4.99/week, with no hardware to buy. Not sure where to start? Take the free [chronotype quiz](/tools/chronotype-quiz).
+For everyone else, ARC costs $49.99/year or $4.99/week, with no hardware to buy. Not sure where to start? Take the free [chronotype quiz](/tools/chronotype-quiz).
     `,
   },
   {
@@ -263,7 +263,7 @@ Use both if: you want the full picture — physical recovery from WHOOP, cogniti
     content: `
 # Rise App vs ARC: A Head-to-Head Comparison
 
-**Quick Answer:** **Rise App** models your recent sleep to predict hourly energy peaks and dips, costing about $69.99/year at the time of writing. **ARC** uses a 22-step setup to plan your day (a morning light timer, a live caffeine decay curve, your peak and dip), then measures your real afternoon dip from your own check-ins. It costs $39.99/year (7-day free trial) or $4.99/week, and your log stays on your iPhone. Disclosure: we make ARC.
+**Quick Answer:** **Rise App** models your recent sleep to predict hourly energy peaks and dips, costing about $69.99/year at the time of writing. **ARC** uses a 22-step setup to plan your day (a morning light timer, a live caffeine decay curve, your peak and dip), then measures your real afternoon dip from your own check-ins. It costs $49.99/year or $4.99/week, and your log stays on your iPhone. Disclosure: we make ARC.
 
 Rise Science is a venture-backed company focused on sleep and energy. ARC is a lean, focused competitor built by a founder who got obsessed with chronobiology. Both apps make serious claims about circadian science. Here is the honest comparison.
 
@@ -293,7 +293,7 @@ Notifications: ARC sends chronotype-aware notifications (coffee window, caffeine
 
 Privacy: ARC needs no account, and your log stays on your iPhone.
 
-Price: Rise costs about $69.99/year at the time of writing. ARC costs $39.99/year (7-day free trial) — about 40% less — or $4.99/week.
+Price: Rise costs about $69.99/year at the time of writing. ARC costs $49.99/year — about 29% less — or $4.99/week.
 
 ## Where Rise Wins
 
@@ -2115,14 +2115,14 @@ If you regularly can't sleep even in a dark, calm room, talk to a doctor.
     slug: "rise-sleep-app-alternative",
     title: "Best Rise Sleep App Alternative in 2026: Why ARC Wins on Price & Science",
     excerpt:
-      "Looking for a Rise Sleep alternative? Compare Rise Science ($69.99/yr) vs ARC ($39.99/yr). Discover why ARC's real-time caffeine decay, zero wearable lock-in, and Dynamic Island light timer make it the premier circadian rhythm app.",
+      "Looking for a Rise Sleep alternative? Compare Rise Science ($69.99/yr) vs ARC ($49.99/yr). Discover why ARC's real-time caffeine decay, zero wearable lock-in, and Dynamic Island light timer make it the premier circadian rhythm app.",
     date: "2026-10-15",
     category: "Comparison",
     readTime: "10 min",
     content: `
 # Best Rise Sleep App Alternative in 2026: Rise vs. ARC
 
-**Quick Answer:** The best Rise Sleep app alternative is **ARC**, delivering superior chronotype personalization, real-time pharmacokinetic caffeine tracking, and a Dynamic Island morning light timer for **$39.99/year** compared to Rise's **$69.99/year** (a 43% savings). While Rise focuses heavily on retroactive sleep debt algorithms, ARC focuses proactively on what you should do right now today.
+**Quick Answer:** The best Rise Sleep app alternative is **ARC**, delivering superior chronotype personalization, real-time pharmacokinetic caffeine tracking, and a Dynamic Island morning light timer for **$49.99/year** compared to Rise's **$69.99/year** (a 29% savings). While Rise focuses heavily on retroactive sleep debt algorithms, ARC focuses proactively on what you should do right now today.
 
 *Disclosure: We are the creators of ARC. We built ARC because we loved circadian science but grew frustrated with the limitations and high recurring costs of existing tools.*
 
@@ -2141,7 +2141,7 @@ Here is how ARC was engineered to address these exact shortcomings.
 
 | Feature | Rise Science | ARC: Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
-| **Annual Price** | **$69.99/year** ($12.99/mo) | **$39.99/year** ($4.99/wk) |
+| **Annual Price** | **$69.99/year** ($12.99/mo) | **$49.99/year** ($4.99/wk) |
 | **Hardware / Wearable Needed?** | Phone sensor or Apple Watch required | **None required** |
 | **Primary Philosophy** | Retroactive Sleep Debt & Energy Schedule | Proactive Daily Chronotype Execution |
 | **Caffeine Tracking** | Generic push reminder (no mg tracking) | **Live exponential decay curve** with exact mg |
@@ -2150,11 +2150,11 @@ Here is how ARC was engineered to address these exact shortcomings.
 | **Afternoon Dip Calibration** | Theoretical population curve | **Empirical calibration** from 10-day check-ins |
 | **Data Privacy** | Cloud account required | **100% on-device local storage**, no account |
 
-## 1. Pricing: $39.99/yr vs. $69.99/yr
+## 1. Pricing: $49.99/yr vs. $69.99/yr
 
 Rise currently charges $69.99 annually. For an app that doesn't ship physical hardware, that price point places a heavy burden on subscriptions.
 
-ARC delivers complete circadian timing guidance for **$39.99/year** (with a 7-day free trial). You get all daily phase guidance, interactive live caffeine tracking, Lock Screen widgets, and Dynamic Island timers for 43% less.
+ARC delivers complete circadian timing guidance for **$49.99/year**. You get all daily phase guidance, interactive live caffeine tracking, Lock Screen widgets, and Dynamic Island timers for 29% less.
 
 ## 2. Real-Time Caffeine Decay vs. Static Cutoffs
 
@@ -2182,7 +2182,7 @@ Instead of overwhelming you with charts, ARC gives you **one sentence explaining
 ## The Verdict: Should You Switch?
 
 - **Choose Rise if:** You rely on passive Apple Watch sleep tracking, love detailed sleep debt graphs, and don't mind paying $69.99/year.
-- **Choose ARC if:** You want a clear, proactive day plan based on your chronotype, live caffeine mg tracking, Dynamic Island light timers, and local privacy for $39.99/year.
+- **Choose ARC if:** You want a clear, proactive day plan based on your chronotype, live caffeine mg tracking, Dynamic Island light timers, and local privacy for $49.99/year.
 
 Try our free web tools to experience ARC's circadian engine:
 - [Chronotype Quiz](/tools/chronotype-quiz)
@@ -2223,7 +2223,7 @@ Timeshifter has virtually no utility on an ordinary Tuesday when you are not tra
 | Metric | Timeshifter | ARC Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
 | **Primary Use Case** | Long-haul flight jet lag & shift work | Everyday 24-hour daily rhythm optimization |
-| **Pricing** | $24.99/year or $9.99/flight plan | $39.99/year (complete daily system) |
+| **Pricing** | $24.99/year or $9.99/flight plan | $49.99/year (complete daily system) |
 | **Daily Utility** | Low (only during travel/shift changes) | **High (active every day of the year)** |
 | **Chronotype Profiling** | Basic sleep midpoint | **Detailed 4-Animal Chronotype Model** |
 | **Caffeine Management** | Binary "drink / avoid" windows | **Real-time mg decay curves** for 21+ drinks |
@@ -2262,14 +2262,14 @@ Explore ARC's circadian tool suite:
     slug: "lifestack-vs-arc-circadian-app",
     title: "Lifestack vs ARC: Which Circadian Rhythm App Fits Your Workflow?",
     excerpt:
-      "Comprehensive breakdown of Lifestack.ai and ARC Circadian Rhythm Tracker. Compare Google Calendar integration vs streamlined focus, pricing ($60+/yr vs $39.99/yr), caffeine tracking, and chronotype calibration.",
+      "Comprehensive breakdown of Lifestack.ai and ARC Circadian Rhythm Tracker. Compare Google Calendar integration vs streamlined focus, pricing ($60+/yr vs $49.99/yr), caffeine tracking, and chronotype calibration.",
     date: "2026-10-17",
     category: "Comparison",
     readTime: "10 min",
     content: `
 # Lifestack vs. ARC: Which Circadian Rhythm App Fits Your Workflow?
 
-**Quick Answer:** Choose **Lifestack.ai** if you want your predicted energy curve automatically synced into Google Calendar or Microsoft Outlook and already wear an Oura Ring or Apple Watch. Choose **ARC** if you want a standalone, low-friction daily biological guide with live caffeine decay curves, Dynamic Island light timers, and zero wearable lock-in for **$39.99/year** (compared to Lifestack's **$60–$96/year**).
+**Quick Answer:** Choose **Lifestack.ai** if you want your predicted energy curve automatically synced into Google Calendar or Microsoft Outlook and already wear an Oura Ring or Apple Watch. Choose **ARC** if you want a standalone, low-friction daily biological guide with live caffeine decay curves, Dynamic Island light timers, and zero wearable lock-in for **$49.99/year** (compared to Lifestack's **$60–$96/year**).
 
 ## The Core Difference in Philosophy
 
@@ -2282,7 +2282,7 @@ Both Lifestack and ARC reject generic "sleep scores" in favor of circadian timin
 
 | Feature | Lifestack.ai | ARC: Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
-| **Annual Price** | **$60 to $96/year** | **$39.99/year** ($4.99/wk) |
+| **Annual Price** | **$60 to $96/year** | **$49.99/year** ($4.99/wk) |
 | **Wearable Required?** | **Yes** (Oura, WHOOP, Apple Watch, Garmin) | **None** (zero hardware required) |
 | **Calendar Sync** | Two-way Google & Outlook Calendar Sync | Minimalist standalone day view |
 | **Caffeine Tracking** | Generic energy impact | **Real-time pharmacokinetic decay curve** |
@@ -2318,7 +2318,7 @@ For knowledge workers with [ADHD](/for/adhd) or night owls following a [Wolf Chr
 ## The Verdict
 
 - **Pick Lifestack if:** You already own an Oura Ring or Apple Watch, rely heavily on Google Calendar time-blocking, and want automated task scheduling.
-- **Pick ARC if:** You want a clean, science-backed circadian rhythm operating system with live caffeine tracking, Lock Screen widgets, and chronotype calibration for $39.99/year with zero hardware.
+- **Pick ARC if:** You want a clean, science-backed circadian rhythm operating system with live caffeine tracking, Lock Screen widgets, and chronotype calibration for $49.99/year with zero hardware.
 
 Check out our interactive circadian tools:
 - [Chronotype Quiz](/tools/chronotype-quiz)
@@ -2350,7 +2350,7 @@ To help you protect your sleep architecture without quitting coffee, we tested a
 
 | App | Annual / Lifetime Price | Live Half-Life Decay? | Bedtime Cutoff Calculator | Dynamic Island Widget | Apple Health Sync | Best For |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ARC: Circadian Tracker** | **$39.99/yr** | **Yes (exact exponential)** | **Yes (under 50mg target)** | **Yes (Live Activity)** | Yes | **Circadian Sleep & Energy Optimization** |
+| **ARC: Circadian Tracker** | **$49.99/yr** | **Yes (exact exponential)** | **Yes (under 50mg target)** | **Yes (Live Activity)** | Yes | **Circadian Sleep & Energy Optimization** |
 | **HiCoffee** | $11.99/yr ($29.99 lifetime) | Yes (basic model) | Fixed reminder | Lock Screen only | Yes | Standalone Caffeine Drink Logging |
 | **Waterllama** | $3.99/mo ($39.99 lifetime) | Linear estimate | No | No | Yes | Fun Hydration & General Habit Tracking |
 | **Caffeine App (CaffCalc)** | $1.99 one-time | Yes (formula) | Manual calculation | No | No | Minimalist Single-Metric Math |
@@ -2369,7 +2369,7 @@ ARC is not just a caffeine log; it is an intelligent **circadian rhythm operatin
 - **Holistic Circadian Protocol:** Pairs caffeine timing with your biological chronotype ([Lion](/chronotype/lion), [Bear](/chronotype/bear), [Wolf](/chronotype/wolf), or [Dolphin](/chronotype/dolphin)) and morning sunlight timing.
 - **100% On-Device Privacy:** No cloud accounts, no third-party data tracking.
 
-**Price:** $39.99/year (with 7-day free trial) or $4.99/week.
+**Price:** $49.99/year or $4.99/week.
 
 ---
 
@@ -2430,14 +2430,14 @@ Test your caffeine half-life right now with our free tools:
     slug: "whoop-vs-arc-circadian-tracker",
     title: "WHOOP vs ARC: Do You Need a $399/Year Wearable for Circadian Rhythm & Sleep?",
     excerpt:
-      "Compare WHOOP ($239–$399/yr) vs ARC ($39.99/yr). Discover why zero-hardware circadian timing, real-time caffeine decay, and local on-device privacy beat 24/7 wrist tracking for most knowledge workers.",
+      "Compare WHOOP ($239–$399/yr) vs ARC ($49.99/yr). Discover why zero-hardware circadian timing, real-time caffeine decay, and local on-device privacy beat 24/7 wrist tracking for most knowledge workers.",
     date: "2026-10-19",
     category: "Comparison",
     readTime: "10 min",
     content: `
 # WHOOP vs. ARC: Do You Need a $399/Year Wearable for Circadian Rhythm & Sleep?
 
-**Quick Answer:** Choose **WHOOP** if you are an elite athlete or crossfit competitor training twice a day who requires continuous strain, cardiovascular heart rate zones, and skin temperature monitoring ($239–$399/year subscription). Choose **ARC** if you are a knowledge worker, executive, or night owl who wants proactive circadian timing, live caffeine half-life decay, and Lock Screen light timers with **zero hardware** and 100% on-device privacy for **$39.99/year**.
+**Quick Answer:** Choose **WHOOP** if you are an elite athlete or crossfit competitor training twice a day who requires continuous strain, cardiovascular heart rate zones, and skin temperature monitoring ($239–$399/year subscription). Choose **ARC** if you are a knowledge worker, executive, or night owl who wants proactive circadian timing, live caffeine half-life decay, and Lock Screen light timers with **zero hardware** and 100% on-device privacy for **$49.99/year**.
 
 ---
 
@@ -2458,7 +2458,7 @@ ARC takes an entirely different approach: **Zero hardware. Actionable circadian 
 
 | Feature | WHOOP 4.0 | ARC: Circadian Tracker |
 | :--- | :--- | :--- |
-| **Annual Subscription** | **$239 – $399/year** | **$39.99/year** ($4.99/wk) |
+| **Annual Subscription** | **$239 – $399/year** | **$49.99/year** ($4.99/wk) |
 | **Hardware Required?** | **Yes** (WHOOP 4.0 sensor band) | **None** (100% phone-based) |
 | **Primary Focus** | Athletic cardiovascular strain & recovery | Daily circadian rhythm, focus & sleep hygiene |
 | **Caffeine Tracking** | Binary journal checkbox | **Live exponential half-life decay curve** |
@@ -2469,11 +2469,11 @@ ARC takes an entirely different approach: **Zero hardware. Actionable circadian 
 
 ---
 
-## 1. Cost: $39.99/yr vs. $399/yr
+## 1. Cost: $49.99/yr vs. $399/yr
 
 Over three years, a WHOOP subscription costs **$717 to $1,197**.
 
-ARC costs **$39.99/year** with a 7-day free trial. You get complete circadian timing, automatic bedtime cutoff calculations, Lock Screen widgets, and chronotype coaching for less than the cost of two months of WHOOP.
+ARC costs **$49.99/year**. You get complete circadian timing, automatic bedtime cutoff calculations, Lock Screen widgets, and chronotype coaching for less than the cost of two months of WHOOP.
 
 ---
 
@@ -2523,14 +2523,14 @@ Explore ARC's free circadian tool suite:
     slug: "oura-ring-vs-arc-circadian-tracker",
     title: "Oura Ring vs ARC: Sleep Scores vs Actionable Circadian Timing in 2026",
     excerpt:
-      "Oura Ring ($299–$549 + $5.99/mo) provides passive nighttime sleep scores. ARC ($39.99/yr) gives proactive daytime execution: live caffeine clearance, Dynamic Island sunlight timers, and chronotype schedules.",
+      "Oura Ring ($299–$549 + $5.99/mo) provides passive nighttime sleep scores. ARC ($49.99/yr) gives proactive daytime execution: live caffeine clearance, Dynamic Island sunlight timers, and chronotype schedules.",
     date: "2026-10-20",
     category: "Comparison",
     readTime: "9 min",
     content: `
 # Oura Ring vs. ARC: Sleep Scores vs. Actionable Circadian Timing in 2026
 
-**Quick Answer:** The **Oura Ring** is the premier smart ring for passive overnight sleep tracking ($299–$549 hardware + $5.99/month subscription). However, **ARC** ($39.99/year, zero hardware) is the superior daytime circadian operating system. While Oura tells you how you slept *last night*, ARC tells you what to do *right now today*—from your morning sunlight window to your exact afternoon caffeine cutoff.
+**Quick Answer:** The **Oura Ring** is the premier smart ring for passive overnight sleep tracking ($299–$549 hardware + $5.99/month subscription). However, **ARC** ($49.99/year, zero hardware) is the superior daytime circadian operating system. While Oura tells you how you slept *last night*, ARC tells you what to do *right now today*—from your morning sunlight window to your exact afternoon caffeine cutoff.
 
 ---
 
@@ -2551,7 +2551,7 @@ ARC was created to provide **proactive circadian execution**.
 | Metric | Oura Ring Gen 3 / 4 | ARC: Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
 | **Upfront Hardware Cost** | **$299 – $549** | **$0** (zero hardware) |
-| **Subscription Cost** | **$5.99/month** ($71.88/yr) | **$39.99/year** ($4.99/wk) |
+| **Subscription Cost** | **$5.99/month** ($71.88/yr) | **$49.99/year** ($4.99/wk) |
 | **Form Factor** | Titanium smart ring worn 24/7 | Native iOS app with widgets |
 | **Core Specialty** | Passive overnight biometrics (HRV, temp) | **Proactive daily circadian execution** |
 | **Caffeine Pharmacokinetics** | None | **Live exponential half-life decay** |
@@ -2561,11 +2561,11 @@ ARC was created to provide **proactive circadian execution**.
 
 ---
 
-## 1. Upfront Investment: $350+ vs. $39.99
+## 1. Upfront Investment: $350+ vs. $49.99
 
 Buying an Oura Ring requires a sizing kit, an upfront investment of $299 to $549, plus an ongoing $5.99/month subscription.
 
-ARC provides complete circadian rhythm guidance for **$39.99/year** (with a 7-day free trial). There is no ring to scratch on weights at the gym, lose in the shower, or charge on your nightstand.
+ARC provides complete circadian rhythm guidance for **$49.99/year**. There is no ring to scratch on weights at the gym, lose in the shower, or charge on your nightstand.
 
 ---
 
@@ -2593,7 +2593,7 @@ Yes! Many biohackers and productivity enthusiasts pair the Oura Ring with ARC:
 ## The Verdict
 
 - **Buy an Oura Ring if:** You love biometric rings, want passive HRV tracking, and don't mind spending $350+ in year one.
-- **Choose ARC if:** You want a clean, zero-hardware circadian guide that optimizes your focus, caffeine intake, and sleep timing every single day for $39.99/year.
+- **Choose ARC if:** You want a clean, zero-hardware circadian guide that optimizes your focus, caffeine intake, and sleep timing every single day for $49.99/year.
 
 Try our free web tools:
 - [Chronotype Quiz](/tools/chronotype-quiz)
@@ -2606,7 +2606,7 @@ Try our free web tools:
     slug: "sleep-cycle-app-alternative",
     title: "Best Sleep Cycle App Alternative in 2026: Beyond Microphone Smart Alarms",
     excerpt:
-      "Sleep Cycle pioneered microphone sleep analysis. But why are users seeking alternatives? Compare Sleep Cycle ($39.99/yr) vs ARC ($39.99/yr) for proactive circadian health and caffeine clearance.",
+      "Sleep Cycle pioneered microphone sleep analysis. But why are users seeking alternatives? Compare Sleep Cycle ($39.99/yr) vs ARC ($49.99/yr) for proactive circadian health and caffeine clearance.",
     date: "2026-10-21",
     category: "Comparison",
     readTime: "9 min",
@@ -2631,7 +2631,7 @@ Sleep Cycle was one of the earliest sleep tracking hits on the iOS App Store. Ho
 
 | Feature | Sleep Cycle | ARC: Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
-| **Annual Price** | $39.99/year | $39.99/year |
+| **Annual Price** | $39.99/year | $49.99/year |
 | **Tracking Method** | Microphone acoustics & accelerometer | **Chronobiology onboarding & circadian science** |
 | **Privacy Profile** | Records audio / acoustic signatures | **100% On-device private SQLite database** |
 | **Partner & Pet Immunity** | Vulnerable to room noise | **100% immune** (zero audio recording) |
@@ -2685,7 +2685,7 @@ Explore ARC's circadian tool suite:
     content: `
 # 5 Best Apple Watch & iPhone Circadian Rhythm Apps in 2026
 
-**Quick Answer:** The best overall circadian rhythm app for iPhone and Apple Watch in 2026 is **ARC**, combining lightweight on-device performance, real-time caffeine decay modeling, and a 20-minute Dynamic Island solar timer for **$39.99/year**. For intensive Apple Watch sleep dials, **AutoSleep** ($5.99 one-time) is a capable companion.
+**Quick Answer:** The best overall circadian rhythm app for iPhone and Apple Watch in 2026 is **ARC**, combining lightweight on-device performance, real-time caffeine decay modeling, and a 20-minute Dynamic Island solar timer for **$49.99/year**. For intensive Apple Watch sleep dials, **AutoSleep** ($5.99 one-time) is a capable companion.
 
 ---
 
@@ -2703,7 +2703,7 @@ A great circadian rhythm app must do more than count hours slept. It must serve 
 
 | Rank | App | Pricing | Key Strength | Best For |
 | :--- | :--- | :--- | :--- | :--- |
-| **#1** | **ARC: Circadian Tracker** | **$39.99/yr** | **Dynamic Island light timer & live caffeine decay** | **Complete Circadian Performance** |
+| **#1** | **ARC: Circadian Tracker** | **$49.99/yr** | **Dynamic Island light timer & live caffeine decay** | **Complete Circadian Performance** |
 | **#2** | Rise Science | $69.99/yr | Sleep debt algorithms & energy schedule | Retroactive Sleep Debt Tracking |
 | **#3** | AutoSleep | $5.99 one-time | Deep Apple Watch biometric dials | Raw Apple Watch Sleep Metrics |
 | **#4** | Lifestack.ai | $60–$96/yr | Two-way Google Calendar energy sync | Calendar Time-Blockers |
@@ -2769,7 +2769,7 @@ Try our free web tools today:
     content: `
 # AutoSleep Alternative: Why Circadian Timing Beats Raw Apple Watch Data
 
-**Quick Answer:** While **AutoSleep** ($5.99 one-time) is fantastic for logging raw Apple Watch sleep rings and wrist restlessness, **ARC** ($39.99/year) is the best alternative for turning sleep science into daily action. AutoSleep tells you how restless you were at 3:14 AM; ARC tells you when to get morning sunlight, when your focus peaks, and when to cut off caffeine so you sleep peacefully tonight.
+**Quick Answer:** While **AutoSleep** ($5.99 one-time) is fantastic for logging raw Apple Watch sleep rings and wrist restlessness, **ARC** ($49.99/year) is the best alternative for turning sleep science into daily action. AutoSleep tells you how restless you were at 3:14 AM; ARC tells you when to get morning sunlight, when your focus peaks, and when to cut off caffeine so you sleep peacefully tonight.
 
 ---
 
@@ -2787,7 +2787,7 @@ AutoSleep has earned thousands of 5-star reviews for its depth of Apple Watch da
 
 | Metric | AutoSleep | ARC: Circadian Rhythm Tracker |
 | :--- | :--- | :--- |
-| **Price** | $5.99 one-time purchase | $39.99/year (with 7-day free trial) |
+| **Price** | $5.99 one-time purchase | $49.99/year |
 | **Wearable Required?** | **Yes** (Apple Watch required) | **None** (zero hardware required) |
 | **Primary Philosophy** | Passive biometric sleep data | **Proactive circadian rhythm execution** |
 | **Interface Style** | Dense multi-ring dials & metric tables | **Minimalist: One sentence, one next step** |
@@ -2833,7 +2833,7 @@ Explore ARC's circadian tools:
     content: `
 # Best Free Circadian Rhythm Apps & Web Calculators in 2026
 
-**Quick Answer:** The best free circadian rhythm suite in 2026 is **ARC's suite of free web calculators**, which provides zero-paywall access to pharmacokinetic caffeine half-life calculations, 4-animal chronotype quizzes, morning sunlight lux estimators, and sleep cycle algorithms. On mobile, ARC offers a full 7-day free trial without commitments.
+**Quick Answer:** The best free circadian rhythm suite in 2026 is **ARC's suite of free web calculators**, which provides zero-paywall access to pharmacokinetic caffeine half-life calculations, 4-animal chronotype quizzes, morning sunlight lux estimators, and sleep cycle algorithms. On mobile, ARC offers a free onboarding setup to discover your chronotype before choosing a plan.
 
 ---
 

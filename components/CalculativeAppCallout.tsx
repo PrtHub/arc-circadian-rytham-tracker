@@ -53,7 +53,7 @@ export function CalculativeAppCallout({
           <div className="shrink-0 flex flex-col items-start sm:items-center gap-3">
             <AppStoreButton size="lg" location={location} />
             <span className="text-[11px] text-(--fg-muted) font-mono">
-              7-day free trial on annual · iOS 16.4+
+              Free setup · iOS 16.4+
             </span>
           </div>
         </div>
@@ -91,7 +91,7 @@ export function CalculativeAppCallout({
         <AppStoreButton location={location} />
 
         <p className="mt-3 pt-3 border-t border-white/5 text-[10px] text-(--fg-muted) font-mono">
-          iPhone · iOS 16.4+ · 7-day free trial on annual
+          iPhone · iOS 16.4+ · Free setup
         </p>
       </div>
     </aside>

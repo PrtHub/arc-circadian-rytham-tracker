@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { chronotypeDetails } from "@/lib/chronotype-data";
 
-export const runtime = "edge";
 export const alt = "ARC Chronotype Sleep Schedule Guide";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

@@ -6,6 +6,7 @@ import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
 import { BED_TIMES, WAKE_TIMES, timeSlug } from "@/lib/sleep-times";
+import { SCHEDULE_WAKE_MINUTES, scheduleSlug } from "@/lib/schedule-matrix";
 import { CAFFEINE_DRINKS } from "@/lib/caffeine-drinks";
 import { COMPATIBILITY_PAIRINGS } from "@/lib/chronotype-compatibility-data";
 
@@ -275,6 +276,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Daily schedule matrix by wake time
+  const schedulesHub: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/schedules`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
+
+  const schedules: MetadataRoute.Sitemap = SCHEDULE_WAKE_MINUTES.map((m) => ({
+    url: `${SITE_URL}/schedules/${scheduleSlug(m)}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...primaryHubs,
     ...coreTools,
@@ -288,5 +306,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...books,
     ...bedtimes,
     ...wakeUpTimes,
+    ...schedulesHub,
+    ...schedules,
   ];
 }

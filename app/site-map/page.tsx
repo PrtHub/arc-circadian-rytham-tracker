@@ -12,6 +12,7 @@ import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
 import { BED_TIMES, WAKE_TIMES, timeSlug, timeLabel } from "@/lib/sleep-times";
+import { SCHEDULE_WAKE_MINUTES, scheduleSlug, scheduleTimeLabel } from "@/lib/schedule-matrix";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
@@ -258,7 +259,31 @@ export default function SiteMapPage() {
             </div>
           </section>
 
-          {/* 10. Articles & App Comparisons */}
+          {/* 10. Wake-Time Daily Schedules Matrix */}
+          <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+            <h2 className="text-xl font-display text-[#FFD9A0] mb-4 flex items-center justify-between">
+              <Link href="/schedules" className="hover:underline">
+                Daily Schedules Matrix
+              </Link>
+              <span className="text-xs font-mono text-[#C3BACB]">{SCHEDULE_WAKE_MINUTES.length} routines</span>
+            </h2>
+            <p className="text-xs text-[#C3BACB] mb-3">
+              Full circadian routines with 20m morning light, 90m delayed coffee, peak focus, and cutoff times.
+            </p>
+            <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto">
+              {SCHEDULE_WAKE_MINUTES.map((m) => (
+                <Link
+                  key={m}
+                  href={`/schedules/${scheduleSlug(m)}`}
+                  className="px-2.5 py-1 text-xs rounded bg-white/5 hover:bg-[#FFD9A0]/20 hover:text-[#FFD9A0] transition-colors"
+                >
+                  Wake at {scheduleTimeLabel(m)}
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* 11. Articles & App Comparisons */}
           <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-md md:col-span-2 lg:col-span-3">
             <h2 className="text-xl font-display text-[#FFD9A0] mb-4 flex items-center justify-between">
               <span>Articles, App Comparisons &amp; Reviews</span>

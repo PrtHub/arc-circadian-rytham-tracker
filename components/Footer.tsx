@@ -64,6 +64,7 @@ export function Footer() {
           <nav aria-label="Learn" className="space-y-3">
             <h4 className="text-[12px] font-semibold tracking-[0.14em] uppercase text-[#C3BACB]">Learn</h4>
             <ul className="space-y-2.5 text-[14px]">
+              <li><Link href="/schedules" className="hover:text-[#FFD9A0] hover:underline transition-colors">Schedules</Link></li>
               <li><Link href="/guides" className="hover:text-[#FFD9A0] hover:underline transition-colors">Guides</Link></li>
               <li><Link href="/blog" className="hover:text-[#FFD9A0] hover:underline transition-colors">Blog</Link></li>
               <li><Link href="/science" className="hover:text-[#FFD9A0] hover:underline transition-colors">Science</Link></li>
@@ -78,6 +79,7 @@ export function Footer() {
         <div className="mt-11 pt-6 border-t border-[rgba(253,246,236,0.14)] flex flex-wrap items-center justify-between gap-4 text-[13.5px] text-[#C3BACB]">
           <span>© {new Date().getFullYear()} ARC. Built on chronobiology.</span>
           <div className="flex gap-6">
+            <Link href="/schedules" className="hover:text-[#FFD9A0] transition-colors">Schedules</Link>
             <Link href="/site-map" className="hover:text-[#FFD9A0] transition-colors">Sitemap</Link>
             <Link href="/privacy" className="hover:text-[#FFD9A0] transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-[#FFD9A0] transition-colors">Terms</Link>

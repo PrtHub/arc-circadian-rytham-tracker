@@ -133,7 +133,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "dip",
-    match: /crash|dip|1pm|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr|nap|siesta/i,
+    match: /crash|dip|11am|1pm|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr|nap|siesta/i,
     tool: TOOLS.nap,
     cta: {
       title: "It learns when your dip really lands",
@@ -153,7 +153,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "sleep-debt",
-    match: /debt|catch[- ]up/i,
+    match: /debt|catch[- ]up|5pm|commute/i,
     tool: TOOLS.sleepDebt,
     cta: {
       title: "After a short night, ARC adjusts the day",
@@ -163,7 +163,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "chronotype",
-    match: /chronotype|lion|bear|wolf|dolphin|night-owl|early-bird|not-lazy|power-of-when|internal-time/i,
+    match: /chronotype|lion|bear|wolf|dolphin|night-owl|early-bird|not-lazy|power-of-when|internal-time|7pm/i,
     tool: TOOLS.schedule,
     cta: {
       title: "Find your chronotype, then live by it",

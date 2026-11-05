@@ -103,7 +103,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "caffeine",
-    match: /caffeine|coffee|tolerance/i,
+    match: /caffeine|coffee|tolerance|10am/i,
     tool: TOOLS.caffeine,
     cta: {
       title: "Your last safe coffee, recalculated with every cup",
@@ -113,7 +113,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "evening",
-    match: /blue[- ]light|evening|wind[- ]down|screen|digital|melatonin-digital|bedtime|procrastinat|dlmo|melatonin-onset/i,
+    match: /blue[- ]light|evening|wind[- ]down|screen|digital|melatonin-digital|bedtime|procrastinat|dlmo|melatonin-onset|11pm|wake-maintenance|wired/i,
     tool: TOOLS.sleepCycle,
     cta: {
       title: "A wind-down reminder at the right time for you",
@@ -133,7 +133,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "dip",
-    match: /crash|dip|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr|nap|siesta/i,
+    match: /crash|dip|1pm|2pm|afternoon|adenosine|sleep-pressure|two-process|nsdr|nap|siesta/i,
     tool: TOOLS.nap,
     cta: {
       title: "It learns when your dip really lands",
@@ -183,7 +183,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: "sleep",
-    match: /sleep|nap|siesta|inertia|wak|cycle|glymphatic|temperature|tmin|3am|cooling|breath|insomnia/i,
+    match: /sleep|nap|siesta|inertia|wak|cycle|glymphatic|temperature|tmin|3am|4am|cooling|breath|insomnia/i,
     tool: TOOLS.sleepCycle,
     cta: {
       title: "Better nights start with better-timed days",

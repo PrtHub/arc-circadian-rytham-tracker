@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLd, ToolFaqSection, toolAppJsonLd, type ToolFaq } from "../../_components/tool-extras";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import CaffeineCalculatorClient from "../CaffeineCalculatorClient";
-import { CAFFEINE_DRINKS, getDrinkBySlug, calculateDecayTable } from "@/lib/caffeine-drinks";
+import { CAFFEINE_DRINKS, INDEXED_DRINK_SLUGS, getDrinkBySlug, calculateDecayTable } from "@/lib/caffeine-drinks";
 import { mgRemaining } from "@/lib/caffeine";
 
 interface Props {
@@ -28,12 +28,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
-  const title = `${drink.name} Caffeine Half-Life & Decay: How Much Is Left at Bedtime? | ARC`;
+  const title = `${drink.name} Caffeine Half-Life & Cutoff: How Much Is Left at Bedtime?`;
   const description = `See exact caffeine decay for ${drink.name} (${drink.amount}mg). Hour-by-hour remaining mg table for 8 AM, 12 PM, 2 PM, and 4 PM intake, bedtime residual, and your last safe cup.`;
 
   return {
     title,
     description,
+    robots: INDEXED_DRINK_SLUGS.has(drink.slug) ? undefined : { index: false, follow: true },
     keywords: `${drink.name} caffeine, ${drink.name} caffeine half life, how much caffeine in ${drink.name}, ${drink.name} before bed, caffeine decay calculator, when to stop drinking ${drink.name}`,
     alternates: {
       canonical: `${SITE_URL}/tools/caffeine-calculator/${drink.slug}`,

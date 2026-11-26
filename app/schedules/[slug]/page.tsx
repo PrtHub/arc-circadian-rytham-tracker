@@ -47,6 +47,7 @@ export async function generateMetadata({
       "circadian rhythm routine",
       "daily schedule matrix",
     ],
+    robots: { index: false, follow: true },
     alternates: { canonical: url },
     openGraph: {
       title: `${title} | ARC`,

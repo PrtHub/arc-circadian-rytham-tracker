@@ -1,29 +1,46 @@
 "use client";
 
+import { useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { APP_STORE_URL } from "@/components/arc-data";
 import { useIsAndroid } from "@/lib/use-is-android";
-import mixpanel from "mixpanel-browser";
+import {
+  buildAppStoreUrl,
+  isDesktopBrowser,
+  trackAndroidFallbackClick,
+  trackAppStoreClick,
+} from "@/lib/app-store";
+import { AppStoreQrModal } from "@/components/AppStoreQrModal";
 
 interface AppStoreButtonProps {
   size?: "default" | "lg" | "compact";
   location?: string;
   label?: string;
+  qrHeadline?: string;
+  qrSubtitle?: string;
 }
 
-export function AppStoreButton({ size = "default", location = "unknown", label }: AppStoreButtonProps) {
+export function AppStoreButton({
+  size = "default",
+  location = "unknown",
+  label,
+  qrHeadline,
+  qrSubtitle,
+}: AppStoreButtonProps) {
   const isLarge = size === "lg";
   const isCompact = size === "compact";
   const isAndroid = useIsAndroid();
+  const [qrOpen, setQrOpen] = useState(false);
 
-  const handleClick = () => {
-    try {
-      mixpanel.track("App Store Button Clicked", {
-        location: location,
-      });
-    } catch (e) {
-      console.error(e);
+  const href = buildAppStoreUrl(location);
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (isDesktopBrowser()) {
+      e.preventDefault();
+      trackAppStoreClick(location, "qr_modal_open");
+      setQrOpen(true);
+      return;
     }
+    trackAppStoreClick(location, "direct");
   };
 
   if (isCompact) {
@@ -31,13 +48,7 @@ export function AppStoreButton({ size = "default", location = "unknown", label }
       return (
         <Link
           href="/tools"
-          onClick={() => {
-            try {
-              mixpanel.track("Android Fallback Clicked", { location });
-            } catch (e) {
-              console.error(e);
-            }
-          }}
+          onClick={() => trackAndroidFallbackClick(location)}
           className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 text-xs font-mono font-bold text-accent hover:text-white hover:bg-white/10 px-3.5 py-1.5 transition-colors"
         >
           <span>Free Tools →</span>
@@ -46,24 +57,33 @@ export function AppStoreButton({ size = "default", location = "unknown", label }
     }
 
     return (
-      <a
-        href={APP_STORE_URL}
-        onClick={handleClick}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Get the ARC app on the App Store"
-        className="inline-flex items-center gap-2 rounded-full bg-accent text-black font-bold text-xs sm:text-sm px-4 py-2 hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_14px_rgba(255,214,10,0.25)] font-sans tracking-tight shrink-0"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-4 h-4 shrink-0"
-          aria-hidden="true"
+      <>
+        <a
+          href={href}
+          onClick={handleClick}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get the ARC app on the App Store"
+          className="inline-flex items-center gap-2 rounded-full bg-accent text-black font-bold text-xs sm:text-sm px-4 py-2 hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_14px_rgba(255,214,10,0.25)] font-sans tracking-tight shrink-0"
         >
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-        </svg>
-        <span>{label ?? "Get the app"}</span>
-      </a>
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-4 h-4 shrink-0"
+            aria-hidden="true"
+          >
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+          </svg>
+          <span>{label ?? "Get the app"}</span>
+        </a>
+        <AppStoreQrModal
+          open={qrOpen}
+          onClose={() => setQrOpen(false)}
+          location={location}
+          headline={qrHeadline}
+          subtitle={qrSubtitle}
+        />
+      </>
     );
   }
 
@@ -77,13 +97,7 @@ export function AppStoreButton({ size = "default", location = "unknown", label }
         </span>
         <Link
           href="/tools"
-          onClick={() => {
-            try {
-              mixpanel.track("Android Fallback Clicked", { location });
-            } catch (e) {
-              console.error(e);
-            }
-          }}
+          onClick={() => trackAndroidFallbackClick(location)}
           className="text-xs font-mono font-bold text-accent hover:underline"
         >
           Try the free sleep &amp; caffeine tools →
@@ -92,41 +106,49 @@ export function AppStoreButton({ size = "default", location = "unknown", label }
     );
   }
 
-
   return (
-    <a
-      href={APP_STORE_URL}
-      onClick={handleClick}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Download ARC on the App Store"
-      className={`inline-flex items-center gap-3 rounded-2xl bg-accent text-black font-bold transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-sans ${isLarge ? "px-8 py-4 text-base" : "px-5 py-3 text-sm"
-        }`}
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className={isLarge ? "w-6 h-6" : "w-5 h-5"}
-        aria-hidden="true"
+    <>
+      <a
+        href={href}
+        onClick={handleClick}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download ARC on the App Store"
+        className={`inline-flex items-center gap-3 rounded-2xl bg-accent text-black font-bold transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-sans ${isLarge ? "px-8 py-4 text-base" : "px-5 py-3 text-sm"
+          }`}
       >
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-      </svg>
-      <span className="flex flex-col items-start leading-none">
-        <span
-          className={`font-normal tracking-wide ${isLarge ? "text-xs" : "text-[10px]"}`}
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className={isLarge ? "w-6 h-6" : "w-5 h-5"}
+          aria-hidden="true"
         >
-          Download on the
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+        </svg>
+        <span className="flex flex-col items-start leading-none">
+          <span
+            className={`font-normal tracking-wide ${isLarge ? "text-xs" : "text-[10px]"}`}
+          >
+            Download on the
+          </span>
+          <span
+            className={
+              isLarge
+                ? "text-lg font-black tracking-tight"
+                : "text-sm font-black tracking-tight"
+            }
+          >
+            App Store
+          </span>
         </span>
-        <span
-          className={
-            isLarge
-              ? "text-lg font-black tracking-tight"
-              : "text-sm font-black tracking-tight"
-          }
-        >
-          App Store
-        </span>
-      </span>
-    </a>
+      </a>
+      <AppStoreQrModal
+        open={qrOpen}
+        onClose={() => setQrOpen(false)}
+        location={location}
+        headline={qrHeadline}
+        subtitle={qrSubtitle}
+      />
+    </>
   );
 }

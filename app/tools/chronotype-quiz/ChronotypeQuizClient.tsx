@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AppStoreButton } from "@/components/AppStoreButton";
+import { trackShareResult } from "@/lib/app-store";
 
 export default function ChronotypeQuizClient() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const questions = [
     {
@@ -114,6 +116,30 @@ export default function ChronotypeQuizClient() {
     return { name: "Dolphin", icon: "🐬", link: "/chronotype/dolphin" };
   };
 
+  const result = step === questions.length ? getResult() : null;
+
+  const shareResult = () => {
+    if (!result) return;
+    const summaryText = `I'm a ${result.icon} ${result.name} chronotype. Find your natural sleep & peak focus window in 2 min:`;
+    const shareUrl = "https://arccircadian.com/tools/chronotype-quiz";
+    trackShareResult("chronotype_quiz", result.name);
+
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      navigator
+        .share({ title: `My Chronotype: The ${result.name}`, text: summaryText, url: shareUrl })
+        .catch(() => {});
+      return;
+    }
+
+    navigator.clipboard
+      .writeText(`${summaryText} ${shareUrl}`)
+      .then(() => {
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 2500);
+      })
+      .catch(() => setShareCopied(false));
+  };
+
   return (
     <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
 
@@ -157,31 +183,45 @@ export default function ChronotypeQuizClient() {
               </button>
             )}
           </div>
-        ) : (
+        ) : result ? (
           <div className="flex-1 flex flex-col items-center justify-center text-center">
             <p className="text-(--fg-muted) font-bold tracking-widest uppercase mb-4 text-xs font-mono">Your Estimated Chronotype</p>
-            <div className="text-5xl sm:text-6xl mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{getResult().icon}</div>
-            <h2 className="text-3xl sm:text-4xl font-black mb-4 text-white">The {getResult().name}</h2>
-            <Link
-              href={getResult().link}
-              className="text-black bg-accent rounded-full px-8 py-3.5 font-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all mb-8 text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
-            >
-              Read the Full {getResult().name} Guide →
-            </Link>
-            <button type="button" onClick={() => { setStep(0); setAnswers([]); }} className="text-(--fg-muted) hover:text-white transition-colors font-mono text-xs">
+            <div className="text-5xl sm:text-6xl mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{result.icon}</div>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 text-white">The {result.name}</h2>
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <Link
+                href={result.link}
+                className="text-black bg-accent rounded-full px-8 py-3.5 font-black hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-base shadow-[0_8px_25px_rgba(0,0,0,0.35)] font-mono"
+              >
+                Read the Full {result.name} Guide →
+              </Link>
+              <button
+                type="button"
+                onClick={shareResult}
+                className="px-5 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono font-bold text-white transition-colors cursor-pointer"
+              >
+                {shareCopied ? "✓ Copied result" : `Share my ${result.name} result`}
+              </button>
+            </div>
+            <button type="button" onClick={() => { setStep(0); setAnswers([]); setShareCopied(false); }} className="text-(--fg-muted) hover:text-white transition-colors font-mono text-xs">
               Retake Quiz
             </button>
           </div>
-        )}
+        ) : null}
       </div>
 
-      {step === questions.length && (
+      {result && (
         <div className="raised-card border-(--accent)/30 p-10 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Want a plan built on your own numbers?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Build your {result.name} day plan on your iPhone</h2>
           <p className="text-(--fg-muted) mb-8 max-w-lg mx-auto leading-relaxed text-base">
-            This quiz is a starting guess. In ARC your chronotype sets the phase boundaries of your day plan, and after about 10 days of one-tap check-ins ARC measures when your afternoon dip really lands and corrects it.
+            This quiz is a starting guess. In ARC your {result.name} chronotype sets the phase boundaries of your day plan—morning light, delayed coffee, and peak focus—and after about 10 days of one-tap check-ins ARC measures when your afternoon dip really lands and corrects it.
           </p>
-          <AppStoreButton size="lg" location="tool_chronotype_quiz" />
+          <AppStoreButton
+            size="lg"
+            location="tool_chronotype_quiz"
+            qrHeadline={`Get your ${result.name} schedule in ARC`}
+            qrSubtitle="Scan with your iPhone to map your morning light, peak focus, and last safe coffee around your clock."
+          />
         </div>
       )}
     </main>

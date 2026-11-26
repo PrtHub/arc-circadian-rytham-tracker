@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppStoreButton } from "@/components/AppStoreButton";
+import { trackShareResult } from "@/lib/app-store";
 import {
   CAFFEINE_SENSITIVITIES,
   SLEEP_SAFE_MG,
@@ -121,6 +122,7 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [copied, setCopied] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const halfLife = halfLifeFor(sensitivity);
 
@@ -165,6 +167,48 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
       })
       .catch(() => setCopied(false));
   };
+
+  const shareResult = () => {
+    if (bed === null) return;
+    const summaryText =
+      state === "ahead" && cutoff !== null
+        ? `My last safe ${caffeineAmount} mg drink for a ${formatClock(bed)} bedtime is ${formatClock(cutoff)} (${halfLife}h half-life).`
+        : state === "exhausted"
+          ? `Today's drinks already leave ${atBed} mg at my ${formatClock(bed)} bedtime—over the 50 mg sleep line.`
+          : `Checked my caffeine half-life cutoff for a ${formatClock(bed)} bedtime (${halfLife}h half-life).`;
+
+    const shareUrl = "https://arccircadian.com/tools/caffeine-calculator";
+    const fullText = `${summaryText} Check yours: ${shareUrl}`;
+    trackShareResult("caffeine_calculator", summaryText);
+
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      navigator
+        .share({ title: "My Caffeine Cutoff (ARC)", text: summaryText, url: shareUrl })
+        .catch(() => {});
+      return;
+    }
+
+    navigator.clipboard
+      .writeText(fullText)
+      .then(() => {
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 2500);
+      })
+      .catch(() => setShareCopied(false));
+  };
+
+  const cutoffClock = state === "ahead" && cutoff !== null ? formatClock(cutoff) : null;
+  const ctaTitle = cutoffClock
+    ? `Put your ${cutoffClock} cutoff on your iPhone Lock Screen.`
+    : state === "exhausted" || state === "passed"
+      ? "Know before your cutoff passes."
+      : "Stop guessing your cutoff.";
+  const qrHeadline = cutoffClock
+    ? `Track your ${cutoffClock} cutoff live`
+    : "Track your live caffeine cutoff";
+  const qrSubtitle = cutoffClock
+    ? "Scan with your iPhone to log drinks in one tap and watch your caffeine decay below 50 mg before bed."
+    : "Scan with your iPhone to get a live caffeine countdown that moves with every cup you log.";
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-14 min-h-[70vh]">
@@ -377,15 +421,33 @@ export default function CaffeineCalculatorClient({ initialDrinkName, initialMg }
               nextMg={caffeineAmount}
             />
           )}
+          {bed !== null && state !== "incomplete" && (
+            <div className="mt-6 pt-5 border-t border-white/10 flex justify-center">
+              <button
+                type="button"
+                onClick={shareResult}
+                className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono font-bold text-white transition-colors cursor-pointer"
+              >
+                {shareCopied ? "✓ Copied result link" : "Share my cutoff →"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="raised-card p-8 text-center border-(--accent)/30">
-        <h2 className="text-2xl font-bold mb-4 text-accent">Stop guessing your cutoff.</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">{ctaTitle}</h2>
         <p className="text-(--fg-muted) mb-6 max-w-lg mx-auto">
-          Here you type your drinks in. ARC does the same math from every drink you log in one tap, moves your last safe coffee the moment you log a cup, shows it as a live countdown, and tells you plainly when no cup fits any more.
+          {cutoffClock
+            ? `Your ${cutoffClock} cutoff shifts the moment you log an earlier espresso or cold brew. ARC does that math automatically in one tap, shows it as a live countdown, and warns you before a cup ruins tonight's deep sleep.`
+            : "Here you type your drinks in. ARC does the same math from every drink you log in one tap, moves your last safe coffee the moment you log a cup, shows it as a live countdown, and tells you plainly when no cup fits any more."}
         </p>
-        <AppStoreButton size="lg" location="tool_caffeine_calculator" />
+        <AppStoreButton
+          size="lg"
+          location="tool_caffeine_calculator"
+          qrHeadline={qrHeadline}
+          qrSubtitle={qrSubtitle}
+        />
       </div>
       <div className="mt-12 raised-card p-6">
         <h3 className="text-lg font-bold mb-2 text-white">Embed this calculator on your site</h3>

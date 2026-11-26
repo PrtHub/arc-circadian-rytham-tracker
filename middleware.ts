@@ -4,11 +4,12 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
 
-  // Permanent 308/301 redirect from arcapp.sbs (and www variants) to primary arccircadian.com
+  // Permanent 308 redirect from arcapp.sbs, www, and *.workers.dev to primary arccircadian.com
   if (
     host.includes("arcapp.sbs") ||
     host === "www.arccircadian.com" ||
-    host === "www.arcapp.sbs"
+    host === "www.arcapp.sbs" ||
+    host.endsWith(".workers.dev")
   ) {
     const url = new URL(
       request.nextUrl.pathname + request.nextUrl.search,

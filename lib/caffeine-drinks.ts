@@ -12,6 +12,19 @@ export interface CaffeineDrink {
   faqs: { q: string; a: string }[];
 }
 
+export const INDEXED_DRINK_SLUGS = new Set<string>([
+  "starbucks-cold-brew",
+  "celsius-200mg",
+  "monster-energy",
+  "red-bull",
+  "dunkin-iced-coffee",
+  "espresso",
+  "matcha",
+  "pre-workout",
+  "starbucks-brewed-coffee",
+  "diet-coke",
+]);
+
 export const CAFFEINE_DRINKS: CaffeineDrink[] = [
   {
     slug: "celsius-200mg",

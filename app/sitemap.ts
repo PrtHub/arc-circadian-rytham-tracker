@@ -5,12 +5,13 @@ import { audienceDetails } from "@/lib/audience-data";
 import { scienceArticles } from "@/lib/science-data";
 import { booksData } from "@/lib/book-data";
 import { guidesData } from "@/lib/guides-data";
-import { BED_TIMES, WAKE_TIMES, timeSlug } from "@/lib/sleep-times";
-import { SCHEDULE_WAKE_MINUTES, scheduleSlug } from "@/lib/schedule-matrix";
-import { CAFFEINE_DRINKS } from "@/lib/caffeine-drinks";
+import { CAFFEINE_DRINKS, INDEXED_DRINK_SLUGS } from "@/lib/caffeine-drinks";
 import { COMPATIBILITY_PAIRINGS } from "@/lib/chronotype-compatibility-data";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
+
+// Stable release date so Googlebot doesn't treat every crawl as a full-site rewrite.
+const SITE_UPDATED = new Date("2026-11-26T00:00:00.000Z");
 
 const REDIRECTED_GUIDE_SLUGS = new Set([
   "caffeine-half-life-optimization-guide",
@@ -18,7 +19,7 @@ const REDIRECTED_GUIDE_SLUGS = new Set([
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const now = SITE_UPDATED;
 
   // Root and primary hubs
   const primaryHubs: MetadataRoute.Sitemap = [
@@ -200,8 +201,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 44 drink-specific caffeine clearance calculators
-  const caffeineDrinks: MetadataRoute.Sitemap = CAFFEINE_DRINKS.map((drink) => ({
+  // Top 10 high-search drink caffeine clearance calculators
+  const caffeineDrinks: MetadataRoute.Sitemap = CAFFEINE_DRINKS.filter((drink) =>
+    INDEXED_DRINK_SLUGS.has(drink.slug)
+  ).map((drink) => ({
     url: `${SITE_URL}/tools/caffeine-calculator/${drink.slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
@@ -260,38 +263,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Bedtime calculation matrix (when to sleep if waking at X)
-  const bedtimes: MetadataRoute.Sitemap = WAKE_TIMES.map((m) => ({
-    url: `${SITE_URL}/bedtime/wake-up-at-${timeSlug(m)}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  // Wake-up calculation matrix (when to wake if sleeping at Y)
-  const wakeUpTimes: MetadataRoute.Sitemap = BED_TIMES.map((m) => ({
-    url: `${SITE_URL}/wake-up-time/bed-at-${timeSlug(m)}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  // Daily schedule matrix by wake time
+  // Daily schedule matrix hub (individual wake-time permutations are noindexed to keep crawl quality high)
   const schedulesHub: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/schedules`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.7,
     },
   ];
-
-  const schedules: MetadataRoute.Sitemap = SCHEDULE_WAKE_MINUTES.map((m) => ({
-    url: `${SITE_URL}/schedules/${scheduleSlug(m)}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
 
   return [
     ...primaryHubs,
@@ -304,9 +284,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogs,
     ...sciences,
     ...books,
-    ...bedtimes,
-    ...wakeUpTimes,
     ...schedulesHub,
-    ...schedules,
   ];
 }

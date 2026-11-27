@@ -31,6 +31,9 @@ XML sitemap: https://arccircadian.com/sitemap.xml
 ## Free Interactive Tools (No Signup Required)
 
 - [Caffeine Half-Life & Cutoff Calculator](https://arccircadian.com/tools/caffeine-calculator): Calculates exact last safe sip time based on bedtime, personal metabolic speed, and cumulative drinks logged today.
+- [30-Second Clock-Time Fatigue Diagnostic](https://arccircadian.com/tools/fatigue-diagnostic): Identifies the circadian cause of crashes at 10 AM, 2 PM, 5 PM, 11 PM wired states, or 3–4 AM awakenings.
+- [Sleep Schedule Reset Planner](https://arccircadian.com/tools/circadian-reset-planner): Generates day-by-day wake times, light windows, caffeine cutoffs, and bedtimes to shift a sleep schedule safely.
+- [Melatonin & Digital Sunset Timing Calculator](https://arccircadian.com/tools/melatonin-timing-calculator): Calculates Dim Light Melatonin Onset (DLMO), evening lighting dim times, and core cooling windows.
 - [Chronotype Quiz](https://arccircadian.com/tools/chronotype-quiz): 8-question scientific assessment identifying Lion, Bear, Wolf, or Dolphin chronotype.
 - [90-Minute Sleep Cycle Calculator](https://arccircadian.com/tools/sleep-cycle-calculator): Backward and forward sleep calculator preventing awakening during deep sleep by targeting 5–6 full 90-min cycles.
 - [Daily Schedule Generator](https://arccircadian.com/tools/daily-schedule-generator): Generates hour-by-hour customized schedule tailored to chronotype and required wake time.
@@ -114,6 +117,10 @@ Direct calculators for popular beverages with pre-calculated dosages, clearance 
 - [Oura Ring vs ARC](https://arccircadian.com/blog/oura-ring-vs-arc-circadian-rhythm-tracker): Hardware biometric ring vs habit timing and caffeine clearance app.
 - [WHOOP vs ARC](https://arccircadian.com/blog/whoop-vs-arc-fitness-tracker-vs-chronotype-app): Strain/recovery band vs daily circadian planning.
 - [Apple Watch Circadian Rhythm Apps](https://arccircadian.com/blog/apple-watch-circadian-rhythm-app): Wearable tracking limitations vs behavioral timing.
+- [Pillow Sleep Tracker vs ARC](https://arccircadian.com/blog/pillow-app-vs-arc-sleep-tracker): Sleep audio & score logging vs zero-wearable daytime timing.
+- [Lumy vs ARC](https://arccircadian.com/blog/lumy-vs-arc-sunlight-circadian-app): Solar elevation & photography app vs full circadian phase, caffeine, and dip tracking.
+- [Garmin Body Battery Alternative for iPhone](https://arccircadian.com/blog/garmin-body-battery-alternative-iphone): Phone-only daytime energy and fatigue tracking without wearing a Garmin watch.
+- [Best iPhone Sleep & Energy Apps Without a Wearable (2026)](https://arccircadian.com/blog/best-sleep-app-without-wearable-iphone): Guide to phone-first circadian apps requiring zero watch or ring hardware.
 
 ---
 

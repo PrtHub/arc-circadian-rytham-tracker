@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const INDEX_TITLE = "Free Circadian Rhythm & Sleep Calculators";
 const INDEX_DESCRIPTION =
-  "13 free circadian tools: caffeine cutoff, nap, sleep cycle and sleep debt calculators, a chronotype quiz, a schedule generator, and jet lag and DST planners.";
+  "16 free circadian tools: caffeine cutoff, fatigue diagnostic, circadian reset, melatonin timing, nap and sleep cycle calculators, chronotype quiz, and jet lag planners.";
 
 export const metadata: Metadata = {
   title: INDEX_TITLE,
@@ -45,6 +45,27 @@ const tools = [
     icon: "☕",
     href: "/tools/caffeine-calculator",
     status: "Live",
+  },
+  {
+    title: "Why Am I Tired Right Now? (Fatigue Diagnostic)",
+    description: "Pick when you crash (10 AM, 2 PM, 5 PM, 11 PM, or 3 AM) and your coffee timing to diagnose the circadian cause and get the one action worth doing next.",
+    icon: "⚡",
+    href: "/tools/fatigue-diagnostic",
+    status: "New",
+  },
+  {
+    title: "Sleep Schedule Reset Planner",
+    description: "Shift a late or broken sleep schedule cleanly in 15–45 min daily steps with exact wake times, morning light, caffeine cutoffs, and bedtimes.",
+    icon: "🔄",
+    href: "/tools/circadian-reset-planner",
+    status: "New",
+  },
+  {
+    title: "Melatonin & Digital Sunset Calculator",
+    description: "Calculate when natural Dim Light Melatonin Onset (DLMO) begins, when to dim overhead screens below 50 lux, and core cooling timing.",
+    icon: "🌙",
+    href: "/tools/melatonin-timing-calculator",
+    status: "New",
   },
   {
     title: "Daily Schedule Generator",
@@ -147,7 +168,7 @@ export default function ToolsIndex() {
 
         <header className="mb-12 max-w-3xl">
           <span className="px-3 py-1 rounded-full bg-(--accent)/10 text-accent text-xs font-black uppercase tracking-widest mb-3 inline-block font-mono border border-(--accent)/20">
-            10 Free Interactive Tools
+            16 Free Interactive Tools
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
             Free Circadian Rhythm &amp; <span className="font-display italic font-normal text-accent text-3xl sm:text-4xl lg:text-[50px]">Sleep Tools</span>

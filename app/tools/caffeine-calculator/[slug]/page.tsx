@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLd, ToolFaqSection, toolAppJsonLd, type ToolFaq } from "../../_components/tool-extras";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import CaffeineCalculatorClient from "../CaffeineCalculatorClient";
-import { CAFFEINE_DRINKS, INDEXED_DRINK_SLUGS, getDrinkBySlug, calculateDecayTable } from "@/lib/caffeine-drinks";
+import { CAFFEINE_DRINKS, getDrinkBySlug, calculateDecayTable } from "@/lib/caffeine-drinks";
 import { mgRemaining } from "@/lib/caffeine";
 
 interface Props {
@@ -34,7 +34,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return {
     title,
     description,
-    robots: INDEXED_DRINK_SLUGS.has(drink.slug) ? undefined : { index: false, follow: true },
     keywords: `${drink.name} caffeine, ${drink.name} caffeine half life, how much caffeine in ${drink.name}, ${drink.name} before bed, caffeine decay calculator, when to stop drinking ${drink.name}`,
     alternates: {
       canonical: `${SITE_URL}/tools/caffeine-calculator/${drink.slug}`,

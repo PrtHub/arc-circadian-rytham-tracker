@@ -98,10 +98,13 @@ export default function SiteMapPage() {
           <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-md">
             <h2 className="text-xl font-display text-[#FFD9A0] mb-4 flex items-center justify-between">
               <span>Interactive Calculators</span>
-              <span className="text-xs font-mono text-[#C3BACB]">15 tools</span>
+              <span className="text-xs font-mono text-[#C3BACB]">16 tools</span>
             </h2>
             <ul className="space-y-2 text-sm text-[#C3BACB]">
               <li><Link href="/tools/caffeine-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Caffeine Half-Life &amp; Cutoff Calculator</Link></li>
+              <li><Link href="/tools/fatigue-diagnostic" className="hover:text-[#FFD9A0] hover:underline transition-colors">30-Second Clock-Time Fatigue Diagnostic</Link></li>
+              <li><Link href="/tools/circadian-reset-planner" className="hover:text-[#FFD9A0] hover:underline transition-colors">Sleep Schedule Reset Planner</Link></li>
+              <li><Link href="/tools/melatonin-timing-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Melatonin &amp; Digital Sunset Timing Calculator</Link></li>
               <li><Link href="/tools/chronotype-quiz" className="hover:text-[#FFD9A0] hover:underline transition-colors">8-Question Chronotype Quiz</Link></li>
               <li><Link href="/tools/sleep-cycle-calculator" className="hover:text-[#FFD9A0] hover:underline transition-colors">90-Minute Sleep Cycle Calculator</Link></li>
               <li><Link href="/tools/daily-schedule-generator" className="hover:text-[#FFD9A0] hover:underline transition-colors">Daily Schedule Generator by Chronotype</Link></li>

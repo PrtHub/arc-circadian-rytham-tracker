@@ -11,7 +11,7 @@ import { COMPATIBILITY_PAIRINGS } from "@/lib/chronotype-compatibility-data";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arccircadian.com";
 
 // Stable release date so Googlebot doesn't treat every crawl as a full-site rewrite.
-const SITE_UPDATED = new Date("2026-11-26T00:00:00.000Z");
+const SITE_UPDATED = new Date("2026-11-27T00:00:00.000Z");
 
 const REDIRECTED_GUIDE_SLUGS = new Set([
   "caffeine-half-life-optimization-guide",
@@ -98,6 +98,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/tools/fatigue-diagnostic`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/tools/circadian-reset-planner`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/tools/melatonin-timing-calculator`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/tools/sleep-cycle-calculator`,

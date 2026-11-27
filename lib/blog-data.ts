@@ -3853,4 +3853,226 @@ ARC was engineered specifically to prevent the weekend drift that ruins Mondays:
 - **Trends That Track Crashes:** Shows you whether your Monday and Tuesday energy crashes are falling from your own daily check-ins, proving your clock is locking into place.
     `,
   },
+  {
+    slug: "pillow-app-vs-arc-sleep-tracker",
+    title: "Pillow Sleep Tracker vs ARC: Sleep Scores vs Daily Energy Timing (2026)",
+    excerpt:
+      "Pillow tracks overnight sleep stages and audio on Apple Watch or nightstand. ARC skips sleep scores completely to guide daytime light, caffeine, and afternoon dips.",
+    date: "2026-11-27",
+    category: "Comparison",
+    readTime: "7 min",
+    content: `
+# Pillow Sleep Tracker vs ARC: Sleep Scores vs Daily Energy Timing (2026)
+
+**Quick Answer:** Choose **Pillow** if you specifically want an Apple Watch or iPhone nightstand tracker that records sleep audio (snoring/sleep talking), sleep stages, and smart wake-up alarms. Choose **ARC** if you don't want a wearable or a phone sitting on your mattress—and instead want one clear action right now, a live caffeine cutoff that moves with every cup, and real sunrise light timing. Want to see how your energy curve works before downloading anything? Take the free [8-question Chronotype Quiz](/tools/chronotype-quiz).
+
+*Disclosure: We build ARC. Below is an honest look at where Pillow is stronger and where ARC takes a completely different approach.*
+
+---
+
+## Side-by-Side Comparison: Pillow vs ARC
+
+| Feature | Pillow | ARC (2.0 Living Light) |
+| :--- | :--- | :--- |
+| **Primary Job** | Overnight sleep tracking & audio recording | Daytime circadian guidance & energy timing |
+| **Hardware Needed** | Apple Watch or iPhone placed on mattress | **None (iPhone in pocket/on desk)** |
+| **Sleep Scores** | Yes (0–100% sleep quality score) | **None by design** |
+| **Audio Recording (Snoring/Sounds)** | **Yes (with iCloud sync)** | No |
+| **Smart Alarm** | **Yes (light-sleep window alarm)** | Fixed schedule with wind-down cue |
+| **Live Caffeine Cutoff** | No (logs caffeine note only) | **Yes (4h/5.5h/7h exponential decay to <50 mg)** |
+| **Morning Light Timer** | No | **Yes (20-min Dynamic Island timer from local sunrise)** |
+| **Measured Dip Calibration** | No | **Yes (learns real afternoon dip after ~10 days)** |
+| **Account / Cloud History** | Optional iCloud sync | **No account (local SQLite on iPhone)** |
+
+---
+
+## What Pillow Does Better Than ARC
+
+Pillow is a mature iOS sleep-tracking app built for people who want telemetry from *last night*:
+1. **Sleep Stage & Sound Recording:** If you want to hear whether you snore, track sleep apnea symptoms to share with a doctor, or inspect Apple Watch REM/deep stage breakdowns, Pillow is purpose-built for that job.
+2. **Smart Wake Window:** Pillow monitors movement/heart rate to sound your alarm during a lighter sleep phase before your wake window closes.
+3. **Retrospective Charts:** If you enjoy reviewing morning heart rate trends and sleep quality percentages, Pillow delivers rich overnight graphs.
+
+---
+
+## What ARC Does Differently (And Why We Cut the Sleep Score)
+
+Most people who feel foggy at 2:30 PM already know roughly whether they slept poorly. Being handed a **64% sleep score** at 7:30 AM doesn't tell you what to do with your morning—and often adds sleep anxiety before your day starts.
+
+ARC starts when you wake up instead of looking backward at last night:
+- **Living Light Phase Screen:** Opens on a vertical sky gradient keyed to your biological phase—so a night-owl Wolf's 8:00 AM looks completely different from an early-bird Lion's.
+- **20-Minute Sunrise Light Timer:** Uses your device time zone (never requesting GPS location) to launch a Lock Screen & Dynamic Island sunlight timer right after waking.
+- **Live 50 mg Caffeine Cutoff:** Every espresso, cold brew, or energy drink you tap immediately shifts your **last safe coffee** time against a 50 mg bedtime budget. You can test the exact engine right now on our [Caffeine Half-Life Calculator](/tools/caffeine-calculator).
+- **10-Day Dip Calibration:** Instead of trusting a static onboarding quiz forever, ARC uses one-tap afternoon check-ins to pinpoint when your dip actually lands and proves over weeks whether your crashes are dropping.
+
+---
+
+## Which One Should You Install?
+
+- **Install Pillow** if you own an Apple Watch, want snoring/audio recordings, and want a gentle smart alarm plus overnight sleep charts.
+- **Install ARC** if you refuse to sleep with a watch or leave your phone on your pillow, want an honest caffeine cutoff and sunlight timer, and care more about **not crashing at 3:00 PM** than grading last night's sleep.
+    `,
+  },
+  {
+    slug: "lumy-vs-arc-sunlight-circadian-app",
+    title: "Lumy vs ARC: Golden Hour Sunlight App vs Full Circadian Day Planner",
+    excerpt:
+      "Lumy gives gorgeous solar elevation, golden hour, and sunrise widgets. ARC turns sunlight timing plus caffeine decay and afternoon dips into a complete iPhone plan.",
+    date: "2026-11-27",
+    category: "Comparison",
+    readTime: "6 min",
+    content: `
+# Lumy vs ARC: Golden Hour Sunlight App vs Full Circadian Day Planner
+
+**Quick Answer:** **Lumy** is a phenomenal iOS utility for photographers, outdoor athletes, and sunrise chasers who want golden hour, blue hour, UV index, and solar azimuth widgets. **ARC** is a dedicated circadian rhythm tracker that uses local sunrise solely as step one—pairing your 20-minute morning light timer with a live caffeine half-life cutoff, peak focus protection, and afternoon crash calibration.
+
+*Disclosure: We build ARC. Both apps celebrate the sun and feature minimal iOS-native craft, so here is an honest breakdown of who each app is built for.*
+
+---
+
+## Lumy vs ARC at a Glance
+
+| Capability | Lumy | ARC (2.0 Living Light) |
+| :--- | :--- | :--- |
+| **Core Purpose** | Sun position, golden/blue hour & weather photography | Personal energy timing, light windows & caffeine control |
+| **Golden Hour / Blue Hour / Solar Azimuth** | **Best-in-class (Pro photo tools)** | No |
+| **Apple Watch Complications** | **Yes (rich solar dials)** | iPhone-first (Dynamic Island + Lock Screen) |
+| **Morning Light Countdown** | Sun alerts & sunrise progress | **Yes (20-min Live Activity light timer)** |
+| **GPS / Location Permission** | Location-based solar angles | **Never requested (estimates sunrise from time zone)** |
+| **Chronotype Calibration** | No | **Yes (Lion, Bear, Wolf, Dolphin + 10-day dip calibration)** |
+| **Live Caffeine Decay Curve** | No | **Yes (4h/5.5h/7h metabolism + 50 mg bedtime ceiling)** |
+| **5-Day Habit Experiments** | No | **Yes (verifies if light/cutoff tweaks lower crashes)** |
+
+---
+
+## Where Lumy Shines
+
+If your goal is knowing the exact minute golden hour begins in Denver, planning a landscape shoot around moonrise, or checking UV exposure on an Apple Watch dial, **Lumy** is unmatched. Its interface and solar precision are legitimately inspiring.
+
+---
+
+## Where ARC Goes Beyond Sunlight
+
+Knowing when the sun rises is only half of chronobiology. If you step outside at 7:15 AM for 20 minutes of daylight—and then drink a 205 mg cold brew at 3:00 PM—you will still fragment your slow-wave sleep tonight and feel wrecked at 2:00 PM tomorrow.
+
+ARC integrates sunlight into a closed feedback loop:
+1. **Sunrise Timing Without Location Tracking:** ARC calculates your morning light window from your time zone (never asking for GPS permission) and puts a 20-minute countdown on your Lock Screen. Want to check your morning window right now? Try our free [Morning Sunlight Calculator](/tools/sunlight-calculator).
+2. **Biological Sky vs Solar Clock:** A night-owl Wolf waking at 9:30 AM needs light relative to *their* circadian wake time, not just the 6:15 AM solar sunrise. ARC aligns phases to your biology.
+3. **Caffeine & Adenosine Management:** Pair morning photons with a dynamic [Caffeine Cutoff Calculator](/tools/caffeine-calculator) and one-tap crash check-ins that prove over weeks whether morning light actually reduced your afternoon fatigue.
+
+---
+
+## The Bottom Line
+
+Use **Lumy** if you care about astronomy, outdoor shoots, and golden-hour light. Choose **ARC** if your real goal is waking up clearer, knowing when to stop drinking coffee, and eliminating the afternoon slump.
+    `,
+  },
+  {
+    slug: "garmin-body-battery-alternative-iphone",
+    title: "Garmin Body Battery Alternative for iPhone (Without Wearing a Watch)",
+    excerpt:
+      "Love the idea of Garmin Body Battery's 0–100 daytime energy curve, but hate wearing a sports watch 24/7? Here is how a phone-only circadian tracker compares.",
+    date: "2026-11-27",
+    category: "Comparison",
+    readTime: "7 min",
+    content: `
+# Garmin Body Battery Alternative for iPhone (Without Wearing a Watch)
+
+**Quick Answer:** **Garmin Body Battery** uses continuous heart rate variability (HRV), stress, and sleep telemetry from a Garmin watch to display a draining 0–100 energy gauge. If you don't want to sleep in a bulky GPS watch, **ARC** is the closest behavior-first iPhone alternative: instead of passively watching your battery drain from HRV sensors, ARC maps your biological energy curve from chronobiology—guiding morning light, peak focus blocks, and your exact caffeine cutoff to keep afternoon crashes from happening.
+
+*Disclosure: We build ARC. Garmin leads the market for endurance athletes needing continuous biometric sensors; ARC serves people who want energy guidance straight from their iPhone.*
+
+---
+
+## Garmin Body Battery vs ARC
+
+| Dimension | Garmin Body Battery | ARC (iPhone App) |
+| :--- | :--- | :--- |
+| **Hardware Cost** | Requires Garmin watch (often $250–$1,000+) | **iPhone only ($0 extra hardware)** |
+| **Must Wear to Sleep?** | Yes (needed to recharge battery accurately) | **No** |
+| **How It Measures Energy** | Continuous HRV, resting HR, stress & movement | Chronotype phase math + 10-day real crash check-ins |
+| **Live Morning Light Prompt** | Morning report summary | **20-min sunrise Live Activity timer** |
+| **Caffeine Tracking Impact** | Passive stress spike (after you drink it) | **Predictive cutoff before you drink it (50 mg line)** |
+| **Workday Focus Windows** | No | **Peak / Dip / Wind-Down biological phases** |
+| **Data Storage** | Garmin Connect cloud account required | **No account · local SQLite on iPhone** |
+
+---
+
+## Why People Search for a Garmin Body Battery Alternative
+
+Garmin's Body Battery solved a real insight: most people don't want raw resting heart rate numbers—they want to know **why they feel drained at 3:00 PM**.
+
+Yet three frustrations push iPhone users to look elsewhere:
+1. **Watch Fatigue:** Many professionals wear mechanical watches or hate sleeping with plastic straps tightening around their wrist.
+2. **Watching the Battery Drain Without a Fix:** Seeing your Body Battery hit **18/100** by 2:30 PM confirms you're tired, but Garmin can't tell you *when* your last espresso will clear tonight or push a 20-minute outdoor walk right before your endogenous dip lands.
+3. **Cloud Lock-In:** Requiring a fitness cloud account just to track energy timing feels heavy for non-athletes.
+
+---
+
+## How ARC Replaces the Watch With Chronobiology
+
+Instead of reading HRV after stress has already drained you, ARC models the two forces governing daytime fatigue—**homeostatic sleep pressure (adenosine)** and your **circadian alerting signal**:
+
+- **Know Your Curve Before You Crash:** Try our free interactive [24-Hour Chronotype Visualizer](/tools/chronotype-visualizer) or [Fatigue Diagnostic](/tools/fatigue-diagnostic) to see how your energy rises and dips around your wake time.
+- **Stop Guessing Your Coffee Timing:** Log a coffee in one tap and watch your **last safe sip** move live so you don't carry 70+ mg into bedtime (you can preview the math in our [Caffeine Calculator](/tools/caffeine-calculator)).
+- **Measured Proof Over Weeks:** After ~10 days of one-tap dip check-ins, ARC calibrates when your afternoon crash really happens and runs 5-day experiments to prove which habit actually lowers your crash rate.
+
+If you train for marathons or ultra-trails, keep a Garmin on your wrist. If you just want steady daytime focus and clean nights without wearing hardware 24/7, give **ARC** a week on your iPhone.
+    `,
+  },
+  {
+    slug: "best-sleep-app-without-wearable-iphone",
+    title: "Best iPhone Sleep & Energy Apps Without a Wearable (2026)",
+    excerpt:
+      "You don't need an Apple Watch, Oura Ring, or WHOOP strap to fix afternoon crashes and sleep timing. Compare the best zero-hardware iPhone apps in 2026.",
+    date: "2026-11-27",
+    category: "Comparison",
+    readTime: "8 min",
+    content: `
+# Best iPhone Sleep & Energy Apps Without a Wearable (2026)
+
+**Quick Answer:** If you want an iPhone app that requires **no Apple Watch, no Oura Ring, and no hardware on your mattress**, the top choices depend on your goal: **ARC** is best for daily circadian timing (morning sunlight timer, live 50 mg caffeine cutoff, and afternoon dip calibration); **Rise Science** is strong if you want an ongoing sleep-debt tracker pulled from phone motion; **Sleep Cycle** works well as a bedside sound/smart alarm; and **Timeshifter** is best strictly for long-haul international flights.
+
+*Disclosure: We make ARC. Below is a practical, zero-hype guide to picking a phone-only app that matches what you actually want to fix.*
+
+---
+
+## Comparison: Top Zero-Wearable iPhone Apps
+
+| App | Best Use Case | Hardware Required? | Key Strengths | Trade-offs |
+| :--- | :--- | :--- | :--- | :--- |
+| **ARC** | Daily energy timing, coffee cutoffs & fixing 3 PM crashes | **None** | Live 50 mg caffeine decay, 20-min sunrise Live Activity, local SQLite (no account), 10-day dip calibration | iOS only; doesn't record snoring audio or REM graphs |
+| **Rise Science** | Visualizing cumulative sleep debt | None (uses phone motion) | Detailed hourly energy peaks & sleep-debt estimate | Higher annual price; gives static caffeine cutoff & score-style graphs |
+| **Sleep Cycle** | Nightstand smart alarm & sound tracking | None (microphone on nightstand) | Wakes you in light sleep; records snoring/talking | Must keep iPhone plugged in beside pillow; little daytime coaching |
+| **Timeshifter** | Multi-time-zone flight jet lag | None | Turn-by-turn flight light-avoidance schedules | Purpose-built for travel only; minimal utility on normal workweeks |
+
+---
+
+## Do You Actually Need a Wearable to Fix Your Energy?
+
+Wearables like the Oura Ring ($349+ plus monthly membership) and WHOOP ($239+/yr) measure overnight recovery signals well—heart rate variability, skin temperature, and respiratory rate.
+
+Here is the catch: **biometric hardware only reports yesterday.** Knowing your readiness score was 59 because you stayed up scrolling or drank an iced latte at 3:30 PM doesn't prevent you from repeating the exact same mistake today.
+
+Unless you are an endurance athlete tuning training loads, the four levers that govern 90% of daytime energy don't live on your wrist:
+1. **Steady wake time** (avoiding weekend [social jetlag](/tools/social-jetlag-calculator))
+2. **20 minutes of bright outdoor light** soon after waking
+3. **A dose-aware caffeine cutoff** so <50 mg lingers at bedtime
+4. **Dim indoor light (<50 lux)** during the 2 hours before sleep
+
+Every single one of those levers is timing—not wrist telemetry.
+
+---
+
+## Test Phone-Only Chronobiology Right Now (Free Tools)
+
+Before installing any app, you can run ARC's zero-hardware web engines in 60 seconds:
+- **[30-Second Fatigue Diagnostic](/tools/fatigue-diagnostic):** Pinpoint why you crash at 10 AM, 2 PM, or feel wired at 11 PM.
+- **[Caffeine Half-Life & Cutoff Calculator](/tools/caffeine-calculator):** Stack today's drinks to see your exact bedtime residual mg.
+- **[8-Question Chronotype Quiz](/tools/chronotype-quiz):** See whether your natural clock leans Lion, Bear, Wolf, or Dolphin.
+- **[Sleep Schedule Reset Planner](/tools/circadian-reset-planner):** Step a late bedtime back incrementally without forcing an all-nighter.
+
+When you want those engines unified into a single sentence each morning—with a Dynamic Island sunlight countdown, a live coffee cutoff that shifts with every sip, and zero wearables or accounts—**ARC** is built for exactly that.
+    `,
+  },
 ];
